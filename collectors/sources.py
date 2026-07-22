@@ -107,10 +107,13 @@ class MetaculusCollector(Collector):
     """
     Metaculus community prediction.
 
-    The public API now requires a token: unauthenticated requests get 403.
-    Set METACULUS_TOKEN as an Actions secret (see README). Auth uses the
-    "Token <key>" scheme. Endpoint is the modern /api/posts/{id}/; the older
-    api2 shape is kept as a fallback so pre-migration IDs still resolve.
+    The public API requires a token (unauthenticated requests get 403), and
+    even with a token the aggregate community prediction is only returned to
+    accounts granted aggregate-data access — a basic/new account gets an empty
+    `aggregations` block (history_len 0, nr_forecasters null) for every
+    question. When that happens this returns None (no usable data), so the
+    source simply does not contribute rather than erroring. Set METACULUS_TOKEN
+    as an Actions secret; auth uses the "Token <key>" scheme.
     """
 
     name = "metaculus"
@@ -128,7 +131,13 @@ class MetaculusCollector(Collector):
         if token:
             headers["Authorization"] = f"Token {token}"
 
-        r = requests.get(f"{self.BASE}/posts/{qid}/", headers=headers, timeout=TIMEOUT)
+        # with_cp=true asks for the community-prediction aggregation inline.
+        r = requests.get(
+            f"{self.BASE}/posts/{qid}/",
+            params={"with_cp": "true"},
+            headers=headers,
+            timeout=TIMEOUT,
+        )
         # No token / not permitted / gone: no usable data, but not an error
         # worth backing off on. Return None rather than raise.
         if r.status_code in (401, 403, 404):
@@ -136,18 +145,20 @@ class MetaculusCollector(Collector):
         r.raise_for_status()
         d = r.json()
 
-        # Modern shape: post -> question -> aggregations.recency_weighted.latest.centers
+        # post -> question -> aggregations.<method>. The current CP is the
+        # `latest` snapshot, or the last `history` point when latest is unset.
         q = d.get("question") or d
         cp = None
-        latest = (
-            q.get("aggregations", {})
-            .get("recency_weighted", {})
-            .get("latest")
-            or {}
-        )
-        centers = latest.get("centers")
-        if centers:
-            cp = centers[0]
+        aggs = q.get("aggregations") or {}
+        agg = aggs.get("recency_weighted") or aggs.get("unweighted") or {}
+        point = agg.get("latest")
+        if not point:
+            hist = agg.get("history") or []
+            point = hist[-1] if hist else None
+        if point:
+            centers = point.get("centers") or point.get("means")
+            if centers:
+                cp = centers[0]
         # Legacy api2 shape fallback.
         if cp is None:
             cp = d.get("community_prediction", {}).get("full", {}).get("q2")
