@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Authenticated Metaculus discovery. Confirms token + finds question IDs. Delete after."""
+"""Verify Metaculus detail responses for candidate posts. Delete after."""
+import json
 import os
 import requests
 
@@ -10,31 +11,31 @@ if TOKEN:
     H["Authorization"] = f"Token {TOKEN}"
 T = 25
 
-print("token present:", bool(TOKEN), "| len:", len(TOKEN or ""))
-try:
-    r = requests.get("https://www.metaculus.com/api/posts/?limit=1", headers=H, timeout=T)
-    print("auth check /api/posts/ -> HTTP", r.status_code)
-except Exception as e:
-    print("auth check ERROR:", e)
 
-for term in ("taiwan", "russia ukraine ceasefire", "iran", "federal reserve rate"):
-    print(f"\n--- search='{term}' ---")
+def cp_of(q):
+    latest = (q.get("aggregations", {}).get("recency_weighted", {}).get("latest") or {})
+    c = latest.get("centers")
+    return c[0] if c else None
+
+
+for pid in (41138, 11480, 12309, 43688):
+    print("\n" + "=" * 60)
     try:
-        r = requests.get(
-            "https://www.metaculus.com/api/posts/",
-            params={"search": term, "limit": 6, "statuses": "open"},
-            headers=H, timeout=T,
-        )
-        print("  HTTP", r.status_code)
-        if r.status_code == 200:
-            for p in r.json().get("results", []):
-                q = p.get("question") or {}
-                latest = (q.get("aggregations", {})
-                          .get("recency_weighted", {}).get("latest") or {})
-                centers = latest.get("centers")
-                cp = centers[0] if centers else None
-                ftype = q.get("type")
-                print(f"    id={p.get('id')}  type={ftype}  cp={cp}  |  {p.get('title')}")
+        r = requests.get(f"https://www.metaculus.com/api/posts/{pid}/", headers=H, timeout=T)
+        print(f"post {pid} -> HTTP {r.status_code}")
+        if r.status_code != 200:
+            continue
+        d = r.json()
+        print(f"  title: {d.get('title')}")
+        q = d.get("question")
+        if q:
+            print(f"  SINGLE  type={q.get('type')}  cp={cp_of(q)}  nf={q.get('nr_forecasters')}")
+        grp = d.get("group_of_questions")
+        if grp:
+            print("  GROUP subquestions:")
+            for sub in grp.get("questions", []):
+                print(f"    subid={sub.get('id')}  label={sub.get('label')!r}  "
+                      f"type={sub.get('type')}  cp={cp_of(sub)}")
     except Exception as e:
         print("  ERROR:", e)
 
