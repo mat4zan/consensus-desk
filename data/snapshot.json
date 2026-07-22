@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T19:29:53.638595+00:00",
+  "generated_at": "2026-07-22T19:33:49.301573+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -14,5 +14,167 @@
   "weight_strategy": "hybrid",
   "n_resolved": 0,
   "alerts": [],
-  "topics": []
+  "topics": [
+    {
+      "id": "taiwan_invasion_2027",
+      "question": "China invades Taiwan before 2028",
+      "domain": "geopolitics",
+      "probability": 11.5,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.115,
+          "adjusted": 0.115,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2172227.4299370013
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "polymarket": "Reframed from the original \"blockade or quarantine\" question: no liquid blockade-specific market exists. This market resolves on an invasion / military offensive, which is a strictly higher bar than interdiction. Read the level, not the label."
+      },
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.246338+00:00",
+          "p": 11.5
+        }
+      ],
+      "expiry": "2028-01-01"
+    },
+    {
+      "id": "ru_ua_ceasefire_2026",
+      "question": "Russia-Ukraine ceasefire agreement by year end 2026",
+      "domain": "geopolitics",
+      "probability": 35.5,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.355,
+          "adjusted": 0.355,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2038126.6955930036
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.280119+00:00",
+          "p": 35.5
+        }
+      ],
+      "expiry": "2026-12-31"
+    },
+    {
+      "id": "us_invade_iran_2027",
+      "question": "US invades Iran before 2027",
+      "domain": "geopolitics",
+      "probability": 28.5,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.285,
+          "adjusted": 0.285,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 46161200.633241184
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "polymarket": "Deepest market on the board (>$45M volume). Replaces the original \"direct Israel-Iran exchange\" question, which has no liquid market now that a ceasefire is in place."
+      },
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.281965+00:00",
+          "p": 28.5
+        }
+      ],
+      "expiry": "2027-01-01"
+    },
+    {
+      "id": "iran_regime_fall_2026",
+      "question": "Iranian regime falls before 2027",
+      "domain": "geopolitics",
+      "probability": 10.5,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.105,
+          "adjusted": 0.105,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 22854999.133348286
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.283447+00:00",
+          "p": 10.5
+        }
+      ],
+      "expiry": "2027-01-01"
+    },
+    {
+      "id": "fed_july_2026_cut",
+      "question": "Fed cuts 25bp at the July 2026 FOMC meeting",
+      "domain": "macro",
+      "probability": 0.5,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.0035,
+          "adjusted": 0.0026,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 14065556.315077111
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "kalshi": "Same event on both venues \u2014 this is the one genuinely cross-source topic on the board, kept short-horizon on purpose to demonstrate the pooling and to accumulate a resolved question quickly for scoring."
+      },
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.284965+00:00",
+          "p": 0.5
+        }
+      ],
+      "expiry": "2026-07-31"
+    }
+  ]
 }
