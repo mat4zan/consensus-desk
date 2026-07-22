@@ -4,100 +4,108 @@
 # Each source mapping asserts that source's criteria are close enough.
 # Where they are not, write a criteria_note. The note gets surfaced in the
 # disagreement panel so you do not rediscover the mismatch every time.
+#
+# All IDs below were verified live against each platform's API on 2026-07-22:
+#   polymarket -> market slug   (gamma-api.polymarket.com/markets?slug=)
+#   kalshi     -> market ticker (api.elections.kalshi.com .../markets/{ticker})
+# Metaculus/Good Judgment are intentionally omitted: the public Metaculus API
+# now returns 403 without an API token, and no Good Judgment collector exists.
 
 topics:
 
-  - id: taiwan_blockade_2028
-    question: "Blockade or quarantine of Taiwan before 2028-01-01"
+  - id: taiwan_invasion_2027
+    question: "China invades Taiwan before 2028"
     domain: geopolitics
     resolution: >
-      Sustained interdiction of commercial shipping to or from Taiwan
-      lasting 72 hours or more, per credible reporting from two or more
-      major outlets. Military exercises that do not interrupt commercial
-      traffic do not resolve YES.
+      China commences a military offensive intended to establish control
+      over any portion of Taiwan before 2028-01-01, per credible reporting
+      from two or more major outlets. Exercises and blockades short of an
+      offensive do not resolve YES.
     expiry: 2028-01-01
     review: 2026-10-01
     sources:
       polymarket:
-        id: "will-china-blockade-taiwan-by-2028"
+        id: "will-china-invade-taiwan-by-december-31-2027"
         criteria_note: >
-          Market resolves on observed interdiction, close to canonical.
-      metaculus:
-        id: 12345
-        criteria_note: >
-          MISMATCH: requires formal declaration of blockade or quarantine
-          by PRC authorities, not merely observed interdiction. Expect this
-          source to sit structurally lower than markets during exercise
-          escalation. Do not read the gap as disagreement about likelihood.
-      goodjudgment:
-        id: "gjo-taiwan-2028"
+          Reframed from the original "blockade or quarantine" question:
+          no liquid blockade-specific market exists. This market resolves
+          on an invasion / military offensive, which is a strictly higher
+          bar than interdiction. Read the level, not the label.
 
-  - id: ru_ua_ceasefire_ye
-    question: "Russia-Ukraine ceasefire in force at year end"
+  - id: ru_ua_ceasefire_2026
+    question: "Russia-Ukraine ceasefire agreement by year end 2026"
     domain: geopolitics
     resolution: >
-      A ceasefire or armistice agreed by both governments and holding
-      as of 2026-12-31, defined as no sustained offensive operations
-      for the preceding 30 days.
+      A mutually agreed suspension of direct military engagement between
+      Russia and Ukraine, officially announced by both governments or
+      confirmed by a consensus of credible reporting, in force as of
+      2026-12-31. Partial deals (energy, Black Sea only) do not qualify.
     expiry: 2026-12-31
     review: 2026-09-01
     sources:
       polymarket:
-        id: "russia-ukraine-ceasefire-2026"
-      kalshi:
-        id: "KXUKRCEASE-26DEC31"
-      metaculus:
-        id: 23456
-        criteria_note: >
-          Requires signed agreement. Markets may resolve on de facto
-          cessation without signature. Expect divergence in a frozen-
-          conflict scenario.
+        id: "russia-x-ukraine-ceasefire-agreement-by-december-31-2026"
 
-  - id: israel_iran_exchange_q4
-    question: "Direct Israel-Iran military exchange before Q4 2026"
+  - id: us_invade_iran_2027
+    question: "US invades Iran before 2027"
     domain: geopolitics
     resolution: >
-      Kinetic strike by either state on the territory of the other,
-      publicly acknowledged or confirmed by two major outlets.
-      Proxy action does not count.
-    expiry: 2026-10-01
+      US ground forces commence a military offensive on Iranian territory
+      before 2027-01-01, publicly acknowledged or confirmed by two major
+      outlets. Airstrikes alone do not resolve YES.
+    expiry: 2027-01-01
+    review: 2026-09-01
+    sources:
+      polymarket:
+        id: "will-the-us-invade-iran-before-2027"
+        criteria_note: >
+          Deepest market on the board (>$45M volume). Replaces the original
+          "direct Israel-Iran exchange" question, which has no liquid market
+          now that a ceasefire is in place.
+
+  - id: iran_regime_fall_2026
+    question: "Iranian regime falls before 2027"
+    domain: geopolitics
+    resolution: >
+      The current Islamic Republic government loses effective control of the
+      Iranian state before 2027-01-01 — via collapse, overthrow, or formal
+      dissolution — per a consensus of credible reporting.
+    expiry: 2027-01-01
+    review: 2026-09-01
+    sources:
+      polymarket:
+        id: "will-the-iranian-regime-fall-by-the-end-of-2026"
+
+  - id: fed_july_2026_cut
+    question: "Fed cuts 25bp at the July 2026 FOMC meeting"
+    domain: macro
+    resolution: >
+      The FOMC lowers the target range by exactly 25bp at its July 2026
+      meeting.
+    expiry: 2026-07-31
+    review: 2026-07-28
+    sources:
+      polymarket:
+        id: "will-the-fed-decrease-interest-rates-by-25-bps-after-the-july-2026-meeting"
+      kalshi:
+        id: "KXFEDDECISION-26JUL-C25"
+        criteria_note: >
+          Same event on both venues — this is the one genuinely cross-source
+          topic on the board, kept short-horizon on purpose to demonstrate the
+          pooling and to accumulate a resolved question quickly for scoring.
+
+  - id: fed_september_2026_cut
+    question: "Fed cuts 25bp at the September 2026 FOMC meeting"
+    domain: macro
+    resolution: >
+      The FOMC lowers the target range by 25bp or more at its September 2026
+      meeting.
+    expiry: 2026-09-30
     review: 2026-08-15
     sources:
-      polymarket:
-        id: "israel-iran-strike-2026"
-      metaculus:
-        id: 34567
-
-  - id: fed_cut_september
-    question: "Fed cuts rates at the September 2026 FOMC meeting"
-    domain: macro
-    resolution: >
-      Target range lowered by 25bp or more at the September FOMC.
-    expiry: 2026-09-30
-    review: 2026-08-01
-    sources:
       kalshi:
-        id: "KXFED-26SEP"
-      polymarket:
-        id: "fed-september-2026"
-      pinnacle:
-        id: "fed-sep-2026"
+        id: "KXFEDDECISION-26SEP-C25"
         criteria_note: >
-          Bookmaker line, overround stripped via Shin. Thin market —
-          treat as confirming rather than leading.
-
-  - id: italy_10y_spread_200
-    question: "Italy-Germany 10y spread above 200bp at any point in 2026"
-    domain: macro
-    resolution: >
-      BTP-Bund 10-year spread closes above 200 basis points on any
-      trading day in 2026, per Bloomberg or Refinitiv.
-    expiry: 2026-12-31
-    review: 2026-09-01
-    sources:
-      polymarket:
-        id: "btp-bund-spread-2026"
-        criteria_note: >
-          Low liquidity. Filter will likely exclude this most days.
-          Kept on the board because the exposure is personally relevant,
-          not because the signal is strong.
+          Ticker is the "cut exactly 25bp" outcome. A >25bp cut resolves the
+          -C26 ticker instead, so this slightly under-counts the canonical
+          "25bp or more". Combine C25 + C26 if that gap ever matters.
