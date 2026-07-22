@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""Confirm CP via history[-1]. Delete after."""
-import json
+"""Decisive: does ANY question expose CP to this token? Delete after."""
 import os
 import requests
 
@@ -12,30 +11,44 @@ if TOKEN:
 T = 25
 
 
-def probe(url):
-    print("\n" + "=" * 60)
-    print("URL:", url)
-    r = requests.get(url, headers=H, timeout=T)
-    print("  HTTP", r.status_code)
+def check(pid):
+    r = requests.get(f"https://www.metaculus.com/api/posts/{pid}/?with_cp=true", headers=H, timeout=T)
     if r.status_code != 200:
-        print("  body:", r.text[:150]); return
-    d = r.json()
-    q = d.get("question") or d
-    print("  title:", (q.get("title") or d.get("title")))
-    agg = q.get("aggregations") or {}
-    for method, val in agg.items():
-        if not isinstance(val, dict):
-            continue
-        hist = val.get("history") or []
-        latest = val.get("latest")
-        print(f"  [{method}] history_len={len(hist)} latest={bool(latest)}")
+        print(f"  post {pid}: HTTP {r.status_code}"); return
+    d = r.json(); q = d.get("question") or {}
+    agg = (q.get("aggregations") or {}).get("recency_weighted") or {}
+    hist = agg.get("history") or []
+    latest = agg.get("latest")
+    pt = latest or (hist[-1] if hist else None)
+    centers = pt.get("centers") if pt else None
+    print(f"  post {pid}: nf={q.get('nr_forecasters')} fcount={q.get('forecast_count')} "
+          f"hist_len={len(hist)} centers={centers}  | {(d.get('title') or '')[:50]}")
+
+
+# 1) list endpoint — does with_cp populate aggregations there?
+print("=== LIST /api/posts/?with_cp=true (order by activity) ===")
+r = requests.get("https://www.metaculus.com/api/posts/",
+                 params={"limit": 3, "with_cp": "true", "order_by": "-activity",
+                         "statuses": "open", "forecast_type": "binary"},
+                 headers=H, timeout=T)
+print("  HTTP", r.status_code)
+if r.status_code == 200:
+    for p in r.json().get("results", []):
+        q = p.get("question") or {}
+        agg = (q.get("aggregations") or {}).get("recency_weighted") or {}
+        hist = agg.get("history") or []
+        latest = agg.get("latest")
         pt = latest or (hist[-1] if hist else None)
-        if pt:
-            print(f"    centers={pt.get('centers')} means={pt.get('means')} "
-                  f"fv={str(pt.get('forecast_values'))[:80]} at={pt.get('start_time')}")
+        print(f"    id={p.get('id')} nf={q.get('nr_forecasters')} hist={len(hist)} "
+              f"centers={pt.get('centers') if pt else None} | {(p.get('title') or '')[:45]}")
 
+print("\n=== DETAIL famous questions ===")
+for pid in (5253, 578, 349):   # Iran nuke 2030; classic long-running questions
+    check(pid)
 
-# Ukraine ceasefire (post) and the Taiwan-2028 subquestion (as a question)
-probe("https://www.metaculus.com/api/posts/41138/?with_cp=true")
-probe("https://www.metaculus.com/api/questions/34363/?with_cp=true")
+print("\nmy_forecasts empty check:")
+r = requests.get("https://www.metaculus.com/api/posts/5253/?with_cp=true", headers=H, timeout=T)
+if r.status_code == 200:
+    q = (r.json().get("question") or {})
+    print("  my_forecasts:", q.get("my_forecasts"))
 print("\nDONE.")
