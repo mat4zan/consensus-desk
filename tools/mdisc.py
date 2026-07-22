@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify Metaculus detail responses for candidate posts. Delete after."""
+"""Find the correct path to Metaculus community prediction. Delete after."""
 import json
 import os
 import requests
@@ -12,31 +12,37 @@ if TOKEN:
 T = 25
 
 
-def cp_of(q):
-    latest = (q.get("aggregations", {}).get("recency_weighted", {}).get("latest") or {})
-    c = latest.get("centers")
-    return c[0] if c else None
-
-
-for pid in (41138, 11480, 12309, 43688):
+def dump(pid, params):
     print("\n" + "=" * 60)
-    try:
-        r = requests.get(f"https://www.metaculus.com/api/posts/{pid}/", headers=H, timeout=T)
-        print(f"post {pid} -> HTTP {r.status_code}")
-        if r.status_code != 200:
-            continue
-        d = r.json()
-        print(f"  title: {d.get('title')}")
-        q = d.get("question")
-        if q:
-            print(f"  SINGLE  type={q.get('type')}  cp={cp_of(q)}  nf={q.get('nr_forecasters')}")
-        grp = d.get("group_of_questions")
-        if grp:
-            print("  GROUP subquestions:")
-            for sub in grp.get("questions", []):
-                print(f"    subid={sub.get('id')}  label={sub.get('label')!r}  "
-                      f"type={sub.get('type')}  cp={cp_of(sub)}")
-    except Exception as e:
-        print("  ERROR:", e)
+    print(f"post {pid} params={params}")
+    r = requests.get(f"https://www.metaculus.com/api/posts/{pid}/", headers=H, params=params, timeout=T)
+    print("  HTTP", r.status_code)
+    if r.status_code != 200:
+        return
+    d = r.json()
+    q = d.get("question") or {}
+    print("  question keys:", sorted(q.keys()))
+    agg = q.get("aggregations")
+    if agg:
+        rw = agg.get("recency_weighted", {})
+        latest = rw.get("latest")
+        print("  recency_weighted.latest present:", bool(latest))
+        if latest:
+            print("    latest keys:", sorted(latest.keys()))
+            print("    centers:", latest.get("centers"))
+            print("    forecast_values:", str(latest.get("forecast_values"))[:120])
+    # group?
+    grp = d.get("group_of_questions")
+    if grp:
+        for sub in grp.get("questions", [])[:6]:
+            latest = (sub.get("aggregations", {}).get("recency_weighted", {}).get("latest") or {})
+            print(f"    subid={sub.get('id')} label={sub.get('label')!r} centers={latest.get('centers')}")
+
+
+# Ukraine ceasefire binary — try with and without with_cp
+dump(41138, {})
+dump(41138, {"with_cp": "true"})
+# Taiwan invasion group with with_cp
+dump(11480, {"with_cp": "true"})
 
 print("\nDONE.")
