@@ -104,30 +104,53 @@ class PolymarketCollector(Collector):
 
 @register
 class MetaculusCollector(Collector):
+    """
+    Metaculus community prediction.
+
+    The public API now requires a token: unauthenticated requests get 403.
+    Set METACULUS_TOKEN as an Actions secret (see README). Auth uses the
+    "Token <key>" scheme. Endpoint is the modern /api/posts/{id}/; the older
+    api2 shape is kept as a fallback so pre-migration IDs still resolve.
+    """
+
     name = "metaculus"
     tier = "forecasters"
 
-    BASE = "https://www.metaculus.com/api2"
+    BASE = "https://www.metaculus.com/api"
 
     def fetch(self, source_cfg: dict) -> Quote | None:
         qid = source_cfg.get("id")
         if not qid:
             return None
 
-        r = requests.get(f"{self.BASE}/questions/{qid}/", headers=UA, timeout=TIMEOUT)
+        token = self.secrets.get("METACULUS_TOKEN") or os.environ.get("METACULUS_TOKEN")
+        headers = dict(UA)
+        if token:
+            headers["Authorization"] = f"Token {token}"
+
+        r = requests.get(f"{self.BASE}/posts/{qid}/", headers=headers, timeout=TIMEOUT)
+        # No token / not permitted / gone: no usable data, but not an error
+        # worth backing off on. Return None rather than raise.
+        if r.status_code in (401, 403, 404):
+            return None
         r.raise_for_status()
         d = r.json()
 
-        cp = (
-            d.get("community_prediction", {})
-            .get("full", {})
-            .get("q2")
+        # Modern shape: post -> question -> aggregations.recency_weighted.latest.centers
+        q = d.get("question") or d
+        cp = None
+        latest = (
+            q.get("aggregations", {})
+            .get("recency_weighted", {})
+            .get("latest")
+            or {}
         )
+        centers = latest.get("centers")
+        if centers:
+            cp = centers[0]
+        # Legacy api2 shape fallback.
         if cp is None:
-            agg = d.get("question", {}).get("aggregations", {})
-            recent = agg.get("recency_weighted", {}).get("latest", {})
-            centers = recent.get("centers")
-            cp = centers[0] if centers else None
+            cp = d.get("community_prediction", {}).get("full", {}).get("q2")
 
         p = _f(cp)
         if p is None:
@@ -136,7 +159,7 @@ class MetaculusCollector(Collector):
         return Quote(
             probability=p,
             raw_price=p,
-            n_traders=d.get("number_of_forecasters"),
+            n_traders=q.get("nr_forecasters") or d.get("nr_forecasters"),
             raw={"question_id": qid, "title": d.get("title")},
         )
 

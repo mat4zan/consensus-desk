@@ -52,6 +52,7 @@ jobs:
       - name: Collect
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          METACULUS_TOKEN: ${{ secrets.METACULUS_TOKEN }}
         run: python run.py collect --tier ${{ steps.tier.outputs.value }}
 
       - name: Bookmakers (daily slot only)
