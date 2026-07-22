@@ -1,0 +1,103 @@
+# Tracked questions.
+#
+# `resolution` is canonical — it is YOUR definition of the event.
+# Each source mapping asserts that source's criteria are close enough.
+# Where they are not, write a criteria_note. The note gets surfaced in the
+# disagreement panel so you do not rediscover the mismatch every time.
+
+topics:
+
+  - id: taiwan_blockade_2028
+    question: "Blockade or quarantine of Taiwan before 2028-01-01"
+    domain: geopolitics
+    resolution: >
+      Sustained interdiction of commercial shipping to or from Taiwan
+      lasting 72 hours or more, per credible reporting from two or more
+      major outlets. Military exercises that do not interrupt commercial
+      traffic do not resolve YES.
+    expiry: 2028-01-01
+    review: 2026-10-01
+    sources:
+      polymarket:
+        id: "will-china-blockade-taiwan-by-2028"
+        criteria_note: >
+          Market resolves on observed interdiction, close to canonical.
+      metaculus:
+        id: 12345
+        criteria_note: >
+          MISMATCH: requires formal declaration of blockade or quarantine
+          by PRC authorities, not merely observed interdiction. Expect this
+          source to sit structurally lower than markets during exercise
+          escalation. Do not read the gap as disagreement about likelihood.
+      goodjudgment:
+        id: "gjo-taiwan-2028"
+
+  - id: ru_ua_ceasefire_ye
+    question: "Russia-Ukraine ceasefire in force at year end"
+    domain: geopolitics
+    resolution: >
+      A ceasefire or armistice agreed by both governments and holding
+      as of 2026-12-31, defined as no sustained offensive operations
+      for the preceding 30 days.
+    expiry: 2026-12-31
+    review: 2026-09-01
+    sources:
+      polymarket:
+        id: "russia-ukraine-ceasefire-2026"
+      kalshi:
+        id: "KXUKRCEASE-26DEC31"
+      metaculus:
+        id: 23456
+        criteria_note: >
+          Requires signed agreement. Markets may resolve on de facto
+          cessation without signature. Expect divergence in a frozen-
+          conflict scenario.
+
+  - id: israel_iran_exchange_q4
+    question: "Direct Israel-Iran military exchange before Q4 2026"
+    domain: geopolitics
+    resolution: >
+      Kinetic strike by either state on the territory of the other,
+      publicly acknowledged or confirmed by two major outlets.
+      Proxy action does not count.
+    expiry: 2026-10-01
+    review: 2026-08-15
+    sources:
+      polymarket:
+        id: "israel-iran-strike-2026"
+      metaculus:
+        id: 34567
+
+  - id: fed_cut_september
+    question: "Fed cuts rates at the September 2026 FOMC meeting"
+    domain: macro
+    resolution: >
+      Target range lowered by 25bp or more at the September FOMC.
+    expiry: 2026-09-30
+    review: 2026-08-01
+    sources:
+      kalshi:
+        id: "KXFED-26SEP"
+      polymarket:
+        id: "fed-september-2026"
+      pinnacle:
+        id: "fed-sep-2026"
+        criteria_note: >
+          Bookmaker line, overround stripped via Shin. Thin market —
+          treat as confirming rather than leading.
+
+  - id: italy_10y_spread_200
+    question: "Italy-Germany 10y spread above 200bp at any point in 2026"
+    domain: macro
+    resolution: >
+      BTP-Bund 10-year spread closes above 200 basis points on any
+      trading day in 2026, per Bloomberg or Refinitiv.
+    expiry: 2026-12-31
+    review: 2026-09-01
+    sources:
+      polymarket:
+        id: "btp-bund-spread-2026"
+        criteria_note: >
+          Low liquidity. Filter will likely exclude this most days.
+          Kept on the board because the exposure is personally relevant,
+          not because the signal is strong.

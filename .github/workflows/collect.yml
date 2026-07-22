@@ -1,0 +1,79 @@
+name: collect
+
+# Tiered polling. Markets move intraday; forecaster medians move on human
+# timescales; bookmakers are rate-limit constrained. Polling them all at the
+# same cadence wastes the tightest budget on the slowest data.
+on:
+  schedule:
+    - cron: "0 */6 * * *"    # markets, 4x daily
+    - cron: "30 5 * * *"     # forecasters + bookmakers, once daily
+    - cron: "0 6 * * 1"      # commentary + discovery, Mondays
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: "Tier to collect"
+        required: false
+        default: "all"
+        type: choice
+        options: [all, markets, forecasters, bookmakers, commentary]
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Pick tier from schedule
+        id: tier
+        run: |
+          if [ -n "${{ inputs.tier }}" ]; then
+            echo "value=${{ inputs.tier }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "30 5 * * *" ]; then
+            echo "value=forecasters" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "0 6 * * 1" ]; then
+            echo "value=commentary" >> $GITHUB_OUTPUT
+          else
+            echo "value=markets" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Collect
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python run.py collect --tier ${{ steps.tier.outputs.value }}
+
+      - name: Bookmakers (daily slot only)
+        if: steps.tier.outputs.value == 'forecasters'
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python run.py collect --tier bookmakers
+
+      - name: Discovery (weekly slot only)
+        if: steps.tier.outputs.value == 'commentary'
+        run: python run.py discover
+
+      - name: Pool and snapshot
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python run.py pool
+
+      - name: Commit
+        run: |
+          git config user.name  "consensus-desk"
+          git config user.email "actions@github.com"
+          git add data/ dashboard/snapshot.json
+          git diff --staged --quiet || git commit -m "collect: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase --autostash || true
+          git push

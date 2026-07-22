@@ -1,0 +1,124 @@
+# Consensus Desk — runtime settings
+# Everything tunable lives here. Code reads this; code does not hardcode.
+
+pooling:
+  # linear | logodds | geometric
+  # logodds is the default and the recommended one. linear is included
+  # mainly so you can see how much underconfidence it introduces.
+  method: logodds
+
+  # Extremization factor applied to pooled log-odds.
+  # 1.0 = no extremization. 1.1-1.3 is the empirically supported range
+  # (Satopaa et al., Good Judgment Project). Above 1.5 you are inventing
+  # confidence you do not have.
+  extremize: 1.2
+
+  # Clamp pooled output so a single broken source cannot produce 0% or 100%.
+  floor: 0.005
+  ceiling: 0.995
+
+  # Sources with data older than this are excluded from the pool entirely.
+  # Below this but above the fresh window, they are included with an age flag.
+  max_age_hours: 72
+  fresh_hours: 12
+
+weights:
+  # fixed    — use the per-source weight below, never changes
+  # brier    — derive from historical Brier score on resolved questions
+  # hybrid   — fixed until min_resolved is met, then blend toward brier
+  strategy: hybrid
+  min_resolved: 30
+  # How far toward brier-derived weights to move once min_resolved is hit.
+  brier_blend: 0.7
+
+  fixed:
+    polymarket: 0.34
+    kalshi: 0.25
+    metaculus: 0.31
+    goodjudgment: 0.24
+    pinnacle: 0.20
+    betfair: 0.10
+    commentary: 0.11
+
+correlation:
+  # Sources in the same cluster are treated as partially redundant.
+  # Their combined weight is scaled by (1 / n_present ** damping).
+  # damping 0 = no correction, 1 = full "count the cluster once".
+  damping: 0.6
+  clusters:
+    real_money_markets: [polymarket, kalshi]
+    bookmakers: [pinnacle, betfair]
+    forecaster_platforms: [metaculus, goodjudgment]
+
+bias_correction:
+  # Favourite-longshot bias: real-money venues systematically overprice
+  # low-probability outcomes. Applied to market sources only.
+  longshot:
+    enabled: true
+    applies_to: [polymarket, kalshi, pinnacle, betfair]
+    # Below this probability, shrink toward zero by the factor.
+    threshold: 0.05
+    factor: 0.75
+
+  overround:
+    # proportional | shin
+    # shin is better — it accounts for insider money rather than assuming
+    # the bookmaker's margin is spread evenly across outcomes.
+    method: shin
+
+polling:
+  # Tiered by how fast each source actually moves. Polling Metaculus hourly
+  # is wasted effort; forecaster medians update on human timescales.
+  # Values are hours between collections.
+  tiers:
+    markets: 6        # polymarket, kalshi
+    forecasters: 24   # metaculus, goodjudgment
+    bookmakers: 24    # pinnacle, betfair — also the tightest rate limit
+    commentary: 168   # weekly
+
+  # Skip writing a row if the price has not moved by at least this much.
+  # Keeps the DB from filling with identical rows on dormant questions.
+  min_delta_to_record: 0.002
+
+  # Back off a source after this many consecutive failures.
+  failure_backoff_threshold: 3
+
+alerts:
+  # Absolute percentage-point move in the pooled probability.
+  move_24h_pp: 5.0
+  move_7d_pp: 10.0
+
+  # Spread between highest and lowest contributing source, in pp.
+  # High spread usually means a resolution-criteria mismatch rather
+  # than genuine disagreement. Worth surfacing either way.
+  source_spread_pp: 20.0
+
+  # Volume moved sharply but price did not — someone is accumulating.
+  volume_spike_multiple: 3.0
+
+  # Suppress repeat alerts on the same topic within this window.
+  cooldown_hours: 24
+
+discovery:
+  enabled: true
+  # Scan for untracked questions matching these filters, weekly digest only.
+  # Nothing is auto-promoted to the board — you triage.
+  min_volume_usd: 50000
+  domains: [geopolitics, macro, elections, health_policy]
+  exclude_keywords: [nfl, nba, ufc, soccer, oscar, grammy, superbowl]
+  max_suggestions_per_digest: 8
+
+llm:
+  # The model extracts and explains. It does not forecast.
+  # No LLM output is ever allowed to become a headline probability.
+  enabled: true
+  model: claude-sonnet-4-6
+  max_tokens: 1000
+  # Only run explanation when there is something to explain.
+  explain_when_spread_above_pp: 15.0
+
+output:
+  timezone: Europe/Bucharest
+  digest_hour: 7
+  snapshot_path: data/snapshot.json
+  history_days_in_snapshot: 90

@@ -1,0 +1,43 @@
+name: digest
+
+on:
+  schedule:
+    - cron: "0 4 * * *"   # 07:00 Europe/Bucharest (EEST)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Build digest
+        run: python run.py digest
+
+      - name: Job summary
+        run: cat data/digest.md >> $GITHUB_STEP_SUMMARY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: digest
+          path: data/digest.md
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - uses: actions/deploy-pages@v4
