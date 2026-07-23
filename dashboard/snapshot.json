@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T19:26:28.037233+00:00",
+  "generated_at": "2026-07-23T19:50:53.982214+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,14 +15,297 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 0,
-  "alerts": [],
+  "alerts": [
+    {
+      "topic_id": "ru_ua_ceasefire_2026",
+      "kind": "move_24h",
+      "headline": "Russia-Ukraine ceasefire agreement by year end 2026 moved down 8.5pp",
+      "detail": {
+        "from": 35.5,
+        "to": 27.0,
+        "delta_pp": -8.5,
+        "window_hours": 24
+      }
+    }
+  ],
   "topics": [
+    {
+      "id": "ru_ua_ceasefire_2026",
+      "question": "Russia-Ukraine ceasefire agreement by year end 2026",
+      "domain": "geopolitics",
+      "probability": 27.0,
+      "delta_24h_pp": -8.5,
+      "spread_pp": 14.6,
+      "n_sources": 2,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.36,
+          "adjusted": 0.36,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2044561.428198004
+        },
+        {
+          "source": "manifold",
+          "probability": 0.2138,
+          "adjusted": 0.2138,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 1.5,
+          "stale": false,
+          "volume_usd": 13149.933978965888
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
+      },
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.280119+00:00",
+          "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.290201+00:00",
+          "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T07:57:14.070502+00:00",
+          "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.688688+00:00",
+          "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T14:13:38.837378+00:00",
+          "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.824855+00:00",
+          "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.939072+00:00",
+          "p": 26.71
+        },
+        {
+          "ts": "2026-07-23T18:38:44.604397+00:00",
+          "p": 26.71
+        },
+        {
+          "ts": "2026-07-23T18:50:00.982989+00:00",
+          "p": 26.71
+        },
+        {
+          "ts": "2026-07-23T18:54:48.924034+00:00",
+          "p": 26.71
+        },
+        {
+          "ts": "2026-07-23T19:24:39.464450+00:00",
+          "p": 27.04
+        },
+        {
+          "ts": "2026-07-23T19:26:27.814077+00:00",
+          "p": 27.38
+        },
+        {
+          "ts": "2026-07-23T19:50:53.972759+00:00",
+          "p": 27.04
+        }
+      ],
+      "expiry": "2026-12-31"
+    },
+    {
+      "id": "us_invade_iran_2027",
+      "question": "US invades Iran before 2027",
+      "domain": "geopolitics",
+      "probability": 23.6,
+      "delta_24h_pp": -4.9,
+      "spread_pp": 8.7,
+      "n_sources": 2,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.305,
+          "adjusted": 0.305,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 1.5,
+          "stale": false,
+          "volume_usd": 46398309.869292185
+        },
+        {
+          "source": "manifold",
+          "probability": 0.2182,
+          "adjusted": 0.2182,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 1.5,
+          "stale": false,
+          "volume_usd": 83700.17157033243
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "polymarket": "Deepest market on the board (>$45M volume). Replaces the original \"direct Israel-Iran exchange\" question, which has no liquid market now that a ceasefire is in place."
+      },
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.281965+00:00",
+          "p": 28.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.291469+00:00",
+          "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T07:57:14.071633+00:00",
+          "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.690289+00:00",
+          "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T14:13:39.307327+00:00",
+          "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.826247+00:00",
+          "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.940648+00:00",
+          "p": 23.57
+        },
+        {
+          "ts": "2026-07-23T18:38:44.627548+00:00",
+          "p": 23.57
+        },
+        {
+          "ts": "2026-07-23T18:50:00.984039+00:00",
+          "p": 23.57
+        },
+        {
+          "ts": "2026-07-23T18:54:48.925045+00:00",
+          "p": 23.57
+        },
+        {
+          "ts": "2026-07-23T19:24:39.465489+00:00",
+          "p": 23.57
+        },
+        {
+          "ts": "2026-07-23T19:26:28.022513+00:00",
+          "p": 23.57
+        },
+        {
+          "ts": "2026-07-23T19:50:53.974960+00:00",
+          "p": 23.57
+        }
+      ],
+      "expiry": "2027-01-01"
+    },
+    {
+      "id": "iran_regime_fall_2026",
+      "question": "Iranian regime falls before 2027",
+      "domain": "geopolitics",
+      "probability": 6.0,
+      "delta_24h_pp": -4.5,
+      "spread_pp": 3.4,
+      "n_sources": 2,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.105,
+          "adjusted": 0.105,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 1.9,
+          "stale": false,
+          "volume_usd": 22928932.39597328
+        },
+        {
+          "source": "manifold",
+          "probability": 0.0715,
+          "adjusted": 0.0715,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 1.5,
+          "stale": false,
+          "volume_usd": 2934917.3031109455
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.283447+00:00",
+          "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.293054+00:00",
+          "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T07:57:14.072835+00:00",
+          "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.691402+00:00",
+          "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T14:13:39.464560+00:00",
+          "p": 9.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.827493+00:00",
+          "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.941618+00:00",
+          "p": 6.03
+        },
+        {
+          "ts": "2026-07-23T18:38:44.628958+00:00",
+          "p": 6.03
+        },
+        {
+          "ts": "2026-07-23T18:50:00.985095+00:00",
+          "p": 6.03
+        },
+        {
+          "ts": "2026-07-23T18:54:48.925998+00:00",
+          "p": 6.03
+        },
+        {
+          "ts": "2026-07-23T19:24:39.467048+00:00",
+          "p": 6.03
+        },
+        {
+          "ts": "2026-07-23T19:26:28.027215+00:00",
+          "p": 6.03
+        },
+        {
+          "ts": "2026-07-23T19:50:53.976144+00:00",
+          "p": 6.03
+        }
+      ],
+      "expiry": "2027-01-01"
+    },
     {
       "id": "taiwan_invasion_2027",
       "question": "China invades Taiwan before 2028",
       "domain": "geopolitics",
       "probability": 9.5,
-      "delta_24h_pp": null,
+      "delta_24h_pp": -2.0,
       "spread_pp": 2.3,
       "n_sources": 2,
       "contributions": [
@@ -32,7 +315,7 @@
           "adjusted": 0.125,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 10.8,
+          "age_hours": 11.2,
           "stale": false,
           "volume_usd": 2173762.453269001
         },
@@ -42,7 +325,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 1.1,
+          "age_hours": 1.5,
           "stale": false,
           "volume_usd": 177687.71553867203
         }
@@ -101,275 +384,20 @@
         {
           "ts": "2026-07-23T19:26:27.812502+00:00",
           "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T19:50:53.970895+00:00",
+          "p": 9.49
         }
       ],
       "expiry": "2028-01-01"
-    },
-    {
-      "id": "ru_ua_ceasefire_2026",
-      "question": "Russia-Ukraine ceasefire agreement by year end 2026",
-      "domain": "geopolitics",
-      "probability": 27.4,
-      "delta_24h_pp": null,
-      "spread_pp": 15.1,
-      "n_sources": 2,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.365,
-          "adjusted": 0.365,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 0.0,
-          "stale": false,
-          "volume_usd": 2044561.428198004
-        },
-        {
-          "source": "manifold",
-          "probability": 0.2138,
-          "adjusted": 0.2138,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 1.1,
-          "stale": false,
-          "volume_usd": 13149.933978965888
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {
-        "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
-      },
-      "history": [
-        {
-          "ts": "2026-07-22T19:33:49.280119+00:00",
-          "p": 35.5
-        },
-        {
-          "ts": "2026-07-23T03:20:20.290201+00:00",
-          "p": 35.5
-        },
-        {
-          "ts": "2026-07-23T07:57:14.070502+00:00",
-          "p": 35.5
-        },
-        {
-          "ts": "2026-07-23T08:36:49.688688+00:00",
-          "p": 35.5
-        },
-        {
-          "ts": "2026-07-23T14:13:38.837378+00:00",
-          "p": 35.5
-        },
-        {
-          "ts": "2026-07-23T17:59:53.824855+00:00",
-          "p": 35.5
-        },
-        {
-          "ts": "2026-07-23T18:21:26.939072+00:00",
-          "p": 26.71
-        },
-        {
-          "ts": "2026-07-23T18:38:44.604397+00:00",
-          "p": 26.71
-        },
-        {
-          "ts": "2026-07-23T18:50:00.982989+00:00",
-          "p": 26.71
-        },
-        {
-          "ts": "2026-07-23T18:54:48.924034+00:00",
-          "p": 26.71
-        },
-        {
-          "ts": "2026-07-23T19:24:39.464450+00:00",
-          "p": 27.04
-        },
-        {
-          "ts": "2026-07-23T19:26:27.814077+00:00",
-          "p": 27.38
-        }
-      ],
-      "expiry": "2026-12-31"
-    },
-    {
-      "id": "us_invade_iran_2027",
-      "question": "US invades Iran before 2027",
-      "domain": "geopolitics",
-      "probability": 23.6,
-      "delta_24h_pp": null,
-      "spread_pp": 8.7,
-      "n_sources": 2,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.305,
-          "adjusted": 0.305,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 1.1,
-          "stale": false,
-          "volume_usd": 46398309.869292185
-        },
-        {
-          "source": "manifold",
-          "probability": 0.2182,
-          "adjusted": 0.2182,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 1.1,
-          "stale": false,
-          "volume_usd": 83700.17157033243
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {
-        "polymarket": "Deepest market on the board (>$45M volume). Replaces the original \"direct Israel-Iran exchange\" question, which has no liquid market now that a ceasefire is in place."
-      },
-      "history": [
-        {
-          "ts": "2026-07-22T19:33:49.281965+00:00",
-          "p": 28.5
-        },
-        {
-          "ts": "2026-07-23T03:20:20.291469+00:00",
-          "p": 29.5
-        },
-        {
-          "ts": "2026-07-23T07:57:14.071633+00:00",
-          "p": 29.5
-        },
-        {
-          "ts": "2026-07-23T08:36:49.690289+00:00",
-          "p": 29.5
-        },
-        {
-          "ts": "2026-07-23T14:13:39.307327+00:00",
-          "p": 29.5
-        },
-        {
-          "ts": "2026-07-23T17:59:53.826247+00:00",
-          "p": 29.5
-        },
-        {
-          "ts": "2026-07-23T18:21:26.940648+00:00",
-          "p": 23.57
-        },
-        {
-          "ts": "2026-07-23T18:38:44.627548+00:00",
-          "p": 23.57
-        },
-        {
-          "ts": "2026-07-23T18:50:00.984039+00:00",
-          "p": 23.57
-        },
-        {
-          "ts": "2026-07-23T18:54:48.925045+00:00",
-          "p": 23.57
-        },
-        {
-          "ts": "2026-07-23T19:24:39.465489+00:00",
-          "p": 23.57
-        },
-        {
-          "ts": "2026-07-23T19:26:28.022513+00:00",
-          "p": 23.57
-        }
-      ],
-      "expiry": "2027-01-01"
-    },
-    {
-      "id": "iran_regime_fall_2026",
-      "question": "Iranian regime falls before 2027",
-      "domain": "geopolitics",
-      "probability": 6.0,
-      "delta_24h_pp": null,
-      "spread_pp": 3.4,
-      "n_sources": 2,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.105,
-          "adjusted": 0.105,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 1.4,
-          "stale": false,
-          "volume_usd": 22928932.39597328
-        },
-        {
-          "source": "manifold",
-          "probability": 0.0715,
-          "adjusted": 0.0715,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 1.1,
-          "stale": false,
-          "volume_usd": 2934917.3031109455
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-07-22T19:33:49.283447+00:00",
-          "p": 10.5
-        },
-        {
-          "ts": "2026-07-23T03:20:20.293054+00:00",
-          "p": 10.5
-        },
-        {
-          "ts": "2026-07-23T07:57:14.072835+00:00",
-          "p": 10.5
-        },
-        {
-          "ts": "2026-07-23T08:36:49.691402+00:00",
-          "p": 10.5
-        },
-        {
-          "ts": "2026-07-23T14:13:39.464560+00:00",
-          "p": 9.5
-        },
-        {
-          "ts": "2026-07-23T17:59:53.827493+00:00",
-          "p": 10.5
-        },
-        {
-          "ts": "2026-07-23T18:21:26.941618+00:00",
-          "p": 6.03
-        },
-        {
-          "ts": "2026-07-23T18:38:44.628958+00:00",
-          "p": 6.03
-        },
-        {
-          "ts": "2026-07-23T18:50:00.985095+00:00",
-          "p": 6.03
-        },
-        {
-          "ts": "2026-07-23T18:54:48.925998+00:00",
-          "p": 6.03
-        },
-        {
-          "ts": "2026-07-23T19:24:39.467048+00:00",
-          "p": 6.03
-        },
-        {
-          "ts": "2026-07-23T19:26:28.027215+00:00",
-          "p": 6.03
-        }
-      ],
-      "expiry": "2027-01-01"
     },
     {
       "id": "fed_july_2026_cut",
       "question": "Fed cuts 25bp at the July 2026 FOMC meeting",
       "domain": "macro",
       "probability": 0.5,
-      "delta_24h_pp": null,
+      "delta_24h_pp": 0.0,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
@@ -379,7 +407,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 23.9,
+          "age_hours": 24.3,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -437,6 +465,10 @@
         {
           "ts": "2026-07-23T19:26:28.029970+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-23T19:50:53.977244+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -456,7 +488,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.8,
+          "age_hours": 1.2,
           "stale": false,
           "volume_usd": 1461889.8463780135
         },
@@ -466,7 +498,7 @@
           "adjusted": 0.5513,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.8,
+          "age_hours": 1.2,
           "stale": false,
           "volume_usd": 88074.16441495575
         },
@@ -476,7 +508,7 @@
           "adjusted": 0.6,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 0.8,
+          "age_hours": 1.2,
           "stale": false,
           "volume_usd": null
         }
@@ -506,9 +538,46 @@
         {
           "ts": "2026-07-23T19:26:28.031982+00:00",
           "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T19:50:53.978664+00:00",
+          "p": 57.87
         }
       ],
       "expiry": "2026-11-04"
+    },
+    {
+      "id": "btc_100k_2026",
+      "question": "Bitcoin reaches $100,000 in 2026",
+      "domain": "crypto",
+      "probability": 9.5,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.095,
+          "adjusted": 0.095,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2295787.97671999
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "polymarket": "The market resolves on any trade at/above $100k; the Yahoo oracle checks daily closes, so a brief intraday spike that does not close above $100k would not auto-resolve YES. Close enough to track together."
+      },
+      "history": [
+        {
+          "ts": "2026-07-23T19:50:53.979877+00:00",
+          "p": 9.5
+        }
+      ],
+      "expiry": "2026-12-31"
     },
     {
       "id": "xi_us_visit_july",
@@ -525,7 +594,7 @@
           "adjusted": 0.018,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 1.1,
+          "age_hours": 1.5,
           "stale": false,
           "volume_usd": 6072.553115122563
         }
@@ -556,6 +625,10 @@
         },
         {
           "ts": "2026-07-23T19:26:28.035542+00:00",
+          "p": 1.8
+        },
+        {
+          "ts": "2026-07-23T19:50:53.980985+00:00",
           "p": 1.8
         }
       ],
