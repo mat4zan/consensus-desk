@@ -27,8 +27,6 @@ The pipeline stays dumb: adding an oracle is a config block, not code.
 
 from __future__ import annotations
 
-import csv
-import io
 from datetime import date, datetime, timezone
 
 import requests
@@ -66,18 +64,24 @@ def _get(url: str, **kwargs):
 # --------------------------------------------------------------- fetchers
 
 def fred_series(series_id: str) -> Series:
-    """Daily series from FRED's public CSV export. No API key required."""
-    r = _get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}")
+    """
+    FRED series, fetched via DBnomics (key-free JSON mirror of FRED). FRED's
+    own fredgraph.csv endpoint reliably times out from CI datacenter IPs, so
+    DBnomics is the transport; the series id is still the FRED id.
+    """
+    r = _get(f"https://api.db.nomics.world/v22/series/FRED/{series_id}?observations=1")
+    docs = (r.json().get("series", {}).get("docs")) or []
+    if not docs:
+        return []
+    doc = docs[0]
     out: Series = []
-    reader = csv.reader(io.StringIO(r.text))
-    next(reader, None)  # header
-    for row in reader:
-        if len(row) < 2:
+    for p, v in zip(doc.get("period") or [], doc.get("value") or []):
+        if v is None or v == "NA":
             continue
         try:
-            out.append((_to_date(row[0]), float(row[1])))
-        except ValueError:
-            continue  # FRED writes "." for missing observations
+            out.append((_to_date(p), float(v)))
+        except (ValueError, TypeError):
+            continue
     return out
 
 

@@ -7,13 +7,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.oracles import apply_rule, fred_series, yahoo_series
 
-print("=== FRED DFEDTARU (fed funds target upper) ===")
-f = fred_series("DFEDTARU")
-print(f"points={len(f)}  latest 4: {f[-4:]}")
-
-print("\n=== Yahoo ^GSPC (S&P 500) ===")
+print("=== Yahoo ^GSPC (S&P 500) ===")
 y = yahoo_series("^GSPC")
 print(f"points={len(y)}  latest: {y[-1] if y else None}")
+
+print("\n=== FRED DFEDTARU via DBnomics (fed funds target upper) ===")
+f = fred_series("DFEDTARU")
+print(f"points={len(f)}  latest 4: {f[-4:]}")
 
 print("\n=== end-to-end eval on REAL data ===")
 # Did the fed funds upper target drop >=0.25 during H2-2024 (real, historical)?
