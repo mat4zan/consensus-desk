@@ -1,29 +1,38 @@
 #!/usr/bin/env python3
-"""Verify oracle fetchers + evaluation on live data. Delete after."""
+"""Find the correct DBnomics path for a FRED series. Delete after."""
 import sys
 from pathlib import Path
 
+import requests
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from core.oracles import apply_rule, fred_series, yahoo_series
+UA = {"User-Agent": "Mozilla/5.0 consensus-desk"}
+T = 40
 
-print("=== Yahoo ^GSPC (S&P 500) ===")
-y = yahoo_series("^GSPC")
-print(f"points={len(y)}  latest: {y[-1] if y else None}")
+print("=== DBnomics search for DFEDTARU (find provider/dataset/series) ===")
+try:
+    r = requests.get("https://api.db.nomics.world/v22/search",
+                     params={"q": "DFEDTARU", "limit": 5}, headers=UA, timeout=T)
+    print("HTTP", r.status_code)
+    docs = r.json().get("results", {}).get("docs", [])
+    for d in docs[:5]:
+        print(f"  provider={d.get('provider_code')} dataset={d.get('dataset_code')} "
+              f"series={d.get('series_code')} | {d.get('series_name')}")
+except Exception as e:
+    print("search ERR", e)
 
-print("\n=== FRED DFEDTARU via DBnomics (fed funds target upper) ===")
-f = fred_series("DFEDTARU")
-print(f"points={len(f)}  latest 4: {f[-4:]}")
-
-print("\n=== end-to-end eval on REAL data ===")
-# Did the fed funds upper target drop >=0.25 during H2-2024 (real, historical)?
-fed_cfg = {"rule": "dropped", "amount": 0.25,
-           "window_start": "2024-08-01", "by": "2025-01-01"}
-print("fed 2024H2 dropped>=0.25:", apply_rule(fed_cfg, f))
-
-# Did the S&P cross above 5000 in the past year (real)?
-sp_cfg = {"rule": "crossed_above", "threshold": 5000,
-          "window_start": "2025-07-01", "by": "2026-07-01"}
-print("sp500 crossed_above 5000:", apply_rule(sp_cfg, y))
+print("\n=== try direct path variants ===")
+for url in (
+    "https://api.db.nomics.world/v22/series/FRED/DFEDTARU/DFEDTARU?observations=1",
+    "https://api.db.nomics.world/v22/series?series_ids=FRED/DFEDTARU/DFEDTARU&observations=1",
+):
+    try:
+        r = requests.get(url, headers=UA, timeout=T)
+        docs = r.json().get("series", {}).get("docs", []) if r.status_code == 200 else []
+        n = len(docs[0].get("value", [])) if docs else 0
+        print(f"  HTTP {r.status_code}  obs={n}  <- {url}")
+    except Exception as e:
+        print(f"  ERR {e}  <- {url}")
 
 print("\nDONE.")
