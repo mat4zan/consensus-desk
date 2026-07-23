@@ -303,6 +303,53 @@ class OddsApiCollector(Collector):
 
 
 @register
+class ManifoldCollector(Collector):
+    """
+    Manifold Markets. Open API, no auth. Play-money (mana), so it is a softer
+    signal than real-money venues — it carries a lower base weight and is not
+    clustered with Polymarket/Kalshi (an independent crowd, not an arbitrage
+    counterpart). `id` is the market slug from the market URL.
+    """
+
+    name = "manifold"
+    tier = "markets"
+
+    BASE = "https://api.manifold.markets/v0"
+
+    def fetch(self, source_cfg: dict) -> Quote | None:
+        slug = source_cfg.get("id")
+        if not slug:
+            return None
+
+        r = requests.get(f"{self.BASE}/slug/{slug}", headers=UA, timeout=TIMEOUT)
+        if r.status_code == 404:
+            return None
+        r.raise_for_status()
+        m = r.json()
+
+        # Only binary markets carry a single probability; skip anything else,
+        # and skip already-resolved markets (a resolved price is not a forecast).
+        if m.get("outcomeType") != "BINARY" or m.get("isResolved"):
+            return None
+        p = _f(m.get("probability"))
+        if p is None:
+            return None
+
+        return Quote(
+            probability=p,
+            raw_price=p,
+            volume_usd=_f(m.get("volume")),
+            n_traders=m.get("uniqueBettorCount"),
+            raw={"slug": slug, "url": m.get("url")},
+        )
+
+    def liquidity_ok(self, quote: Quote) -> bool:
+        # `volume` is mana (play money), not USD, so the shared USD floor does
+        # not apply. Gate on participation instead.
+        return (quote.n_traders or 0) >= 15
+
+
+@register
 class ManualCollector(Collector):
     """
     Escape hatch. Reads a hand-entered probability from topics.yml.

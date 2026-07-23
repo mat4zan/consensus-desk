@@ -5,11 +5,13 @@
 # Where they are not, write a criteria_note. The note gets surfaced in the
 # disagreement panel so you do not rediscover the mismatch every time.
 #
-# All IDs below were verified live against each platform's API on 2026-07-22:
+# All IDs below were verified live against each platform's API:
 #   polymarket -> market slug   (gamma-api.polymarket.com/markets?slug=)
 #   kalshi     -> market ticker (api.elections.kalshi.com .../markets/{ticker})
-# Metaculus/Good Judgment are intentionally omitted: the public Metaculus API
-# now returns 403 without an API token, and no Good Judgment collector exists.
+#   manifold   -> market slug   (api.manifold.markets/v0/slug/{slug})
+# Metaculus/Good Judgment are intentionally omitted: Metaculus gates aggregate
+# community-prediction data behind elevated API access a basic token lacks, and
+# no Good Judgment collector exists.
 
 topics:
 
@@ -31,6 +33,12 @@ topics:
           no liquid blockade-specific market exists. This market resolves
           on an invasion / military offensive, which is a strictly higher
           bar than interdiction. Read the level, not the label.
+      manifold:
+        id: "will-china-attempt-to-invade-taiwan"
+        criteria_note: >
+          Manifold asks "attempt to invade by end of 2027" — an attempt is a
+          slightly lower bar than Polymarket's "commences an offensive", so
+          expect it to sit marginally higher.
 
   - id: ru_ua_ceasefire_2026
     question: "Russia-Ukraine ceasefire agreement by year end 2026"
@@ -45,6 +53,13 @@ topics:
     sources:
       polymarket:
         id: "russia-x-ukraine-ceasefire-agreement-by-december-31-2026"
+      manifold:
+        id: "russia-x-ukraine-ceasefire-in-2026"
+        criteria_note: >
+          Manifold asks "a ceasefire at any point in 2026", vs Polymarket's
+          "agreement in force at year-end". Any-point-in-year is a broader
+          window, yet Manifold sits lower — the gap is a criteria/venue
+          difference to read, not a straight disagreement on likelihood.
 
   - id: us_invade_iran_2027
     question: "US invades Iran before 2027"
@@ -62,6 +77,8 @@ topics:
           Deepest market on the board (>$45M volume). Replaces the original
           "direct Israel-Iran exchange" question, which has no liquid market
           now that a ceasefire is in place.
+      manifold:
+        id: "will-the-us-invade-iran-before-the-zs06u6hptc"
 
   - id: iran_regime_fall_2026
     question: "Iranian regime falls before 2027"
@@ -75,6 +92,8 @@ topics:
     sources:
       polymarket:
         id: "will-the-iranian-regime-fall-by-the-end-of-2026"
+      manifold:
+        id: "will-irans-regime-fall-in-2026"
 
   - id: fed_july_2026_cut
     question: "Fed cuts 25bp at the July 2026 FOMC meeting"
@@ -109,3 +128,19 @@ topics:
           Ticker is the "cut exactly 25bp" outcome. A >25bp cut resolves the
           -C26 ticker instead, so this slightly under-counts the canonical
           "25bp or more". Combine C25 + C26 if that gap ever matters.
+
+  # Short-horizon topic on purpose: it resolves within days, so the full
+  # collect -> pool -> resolve -> score loop can be exercised end-to-end
+  # quickly rather than waiting months. Resolve it with:
+  #   python run.py resolve --topic xi_us_visit_july --outcome 0|1
+  - id: xi_us_visit_july
+    question: "Xi Jinping visits the USA before August 2026"
+    domain: geopolitics
+    resolution: >
+      Xi Jinping sets foot on US soil in an official capacity before
+      2026-08-01, per credible reporting.
+    expiry: 2026-07-31
+    review: 2026-07-30
+    sources:
+      manifold:
+        id: "xi-jingping-visits-usa-before-july"
