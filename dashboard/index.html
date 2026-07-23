@@ -8,19 +8,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
+:root, :root[data-theme="dark"]{
   --paper:#12100e; --panel:#1a1815; --raised:#211e1a;
-  --ink:#f2ede4; --ink-2:#a39c90; --ink-3:#6b655c;
+  --ink:#f2ede4; --ink-2:#a39c90; --ink-3:#8b8375;
   --rule:#2b2721; --rule-2:#3a352d;
   --up:#d4593f; --down:#5b9e7a; --flat:#6b655c; --mark:#c9a227;
 }
+:root[data-theme="light"]{
+  --paper:#f8f5ef; --panel:#efe9df; --raised:#e6dfd2;
+  --ink:#1c1813; --ink-2:#544d43; --ink-3:#787064;
+  --rule:#e0d8ca; --rule-2:#cbc1af;
+  --up:#b8412a; --down:#2f7355; --flat:#787064; --mark:#8a6a12;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;
-  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 0 80px}
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 0 80px;
+  transition:background-color .2s ease,color .2s ease}
 .wrap{max-width:940px;margin:0 auto;padding:0 24px}
 .mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
 
-header{border-bottom:1px solid var(--rule-2);padding:36px 0 20px;margin-bottom:32px}
+header{position:relative;border-bottom:1px solid var(--rule-2);padding:36px 0 20px;margin-bottom:32px}
+#theme-toggle{position:absolute;top:34px;right:0;width:34px;height:34px;
+  background:var(--panel);border:1px solid var(--rule-2);border-radius:6px;
+  color:var(--ink-2);font-size:15px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .15s ease}
+#theme-toggle:hover{color:var(--ink);border-color:var(--ink-3)}
 h1{font-family:Newsreader,serif;font-size:34px;font-weight:400;letter-spacing:-.015em}
 .sub{color:var(--ink-3);font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin-top:8px}
 
@@ -78,10 +90,22 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
   .src-w{display:none}
 }
 </style>
+<script>
+  // Set theme before paint to avoid a flash. Default: follow OS, else dark.
+  (function () {
+    var saved = localStorage.getItem('cd-theme');
+    if (!saved) {
+      saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+        ? 'light' : 'dark';
+    }
+    document.documentElement.setAttribute('data-theme', saved);
+  })();
+</script>
 </head>
 <body>
 <div class="wrap">
   <header>
+    <button id="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme"></button>
     <h1>Consensus desk</h1>
     <div class="sub mono" id="stamp">loading</div>
   </header>
@@ -95,6 +119,20 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
 <script>
 const pct = v => (v == null ? '—' : v.toFixed(1) + '%');
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Theme toggle: button shows the theme you'll switch TO.
+(function () {
+  const btn = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  const paint = () => { btn.textContent = root.getAttribute('data-theme') === 'light' ? '☾' : '☀'; };
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('cd-theme', next);
+    paint();
+  });
+  paint();
+})();
 
 function spark(hist, w = 100, h = 26) {
   if (!hist || hist.length < 2) return '';
