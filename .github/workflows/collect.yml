@@ -53,6 +53,8 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           METACULUS_TOKEN: ${{ secrets.METACULUS_TOKEN }}
+          KALSHI_ACCESS_KEY_ID: ${{ secrets.KALSHI_ACCESS_KEY_ID }}
+          KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
         run: python run.py collect --tier ${{ steps.tier.outputs.value }}
 
       - name: Bookmakers (daily slot only)

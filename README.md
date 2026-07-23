@@ -36,6 +36,9 @@ cd dashboard && python3 -m http.server 8000
    - `ODDS_API_KEY` — optional, for bookmaker lines
    - `METACULUS_TOKEN` — optional, for the Metaculus forecaster source
      (the public API now returns 403 without one)
+   - `KALSHI_ACCESS_KEY_ID` + `KALSHI_PRIVATE_KEY` — optional, for Kalshi
+     prices. The public API strips quotes; live prices need an RSA-signed
+     session. The collector is read-only (market data only, never trades).
 4. Settings → Actions → General → Workflow permissions: **Read and write**.
 
 It runs itself from there. The SQLite file is committed back to the repo on
