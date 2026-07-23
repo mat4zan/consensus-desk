@@ -192,7 +192,7 @@ topics:
           checks daily closes, so a brief intraday spike that does not close
           above $100k would not auto-resolve YES. Close enough to track together.
       manifold:
-        id: "will-bitcoin-reach-100000-usd-in-20"
+        id: "will-bitcoin-exceed-100000-before-d"
 
   # Short-horizon topic on purpose: it resolves within days, so the full
   # collect -> pool -> resolve -> score loop can be exercised end-to-end
