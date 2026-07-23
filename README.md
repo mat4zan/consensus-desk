@@ -39,6 +39,8 @@ cd dashboard && python3 -m http.server 8000
    - `KALSHI_ACCESS_KEY_ID` + `KALSHI_PRIVATE_KEY` — optional, for Kalshi
      prices. The public API strips quotes; live prices need an RSA-signed
      session. The collector is read-only (market data only, never trades).
+   - `FRED_API_KEY` — optional, for FRED-backed resolution oracles (Layer 2).
+     Free from fredaccount.stlouisfed.org; Yahoo-backed oracles need no key.
 4. Settings → Actions → General → Workflow permissions: **Read and write**.
 
 It runs itself from there. The SQLite file is committed back to the repo on

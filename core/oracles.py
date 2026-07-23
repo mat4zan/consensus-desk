@@ -27,6 +27,7 @@ The pipeline stays dumb: adding an oracle is a config block, not code.
 
 from __future__ import annotations
 
+import os
 from datetime import date, datetime, timezone
 
 import requests
@@ -65,22 +66,26 @@ def _get(url: str, **kwargs):
 
 def fred_series(series_id: str) -> Series:
     """
-    FRED series, fetched via DBnomics (key-free JSON mirror of FRED). FRED's
-    own fredgraph.csv endpoint reliably times out from CI datacenter IPs, so
-    DBnomics is the transport; the series id is still the FRED id.
+    FRED series via the official API. Needs a free FRED_API_KEY (public data,
+    internationally available). Without a key this returns an empty series, so
+    a FRED-backed oracle simply stays pending rather than erroring. FRED's
+    key-free fredgraph.csv endpoint is not used — it times out from CI IPs.
     """
-    r = _get(f"https://api.db.nomics.world/v22/series/FRED/{series_id}?observations=1")
-    docs = (r.json().get("series", {}).get("docs")) or []
-    if not docs:
+    key = os.environ.get("FRED_API_KEY")
+    if not key:
         return []
-    doc = docs[0]
+    r = _get(
+        "https://api.stlouisfed.org/fred/series/observations",
+        params={"series_id": series_id, "api_key": key, "file_type": "json"},
+    )
     out: Series = []
-    for p, v in zip(doc.get("period") or [], doc.get("value") or []):
-        if v is None or v == "NA":
+    for o in r.json().get("observations", []):
+        v = o.get("value")
+        if v in (None, "", "."):  # "." is FRED's missing marker
             continue
         try:
-            out.append((_to_date(p), float(v)))
-        except (ValueError, TypeError):
+            out.append((_to_date(o["date"]), float(v)))
+        except (ValueError, TypeError, KeyError):
             continue
     return out
 
