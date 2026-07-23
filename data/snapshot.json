@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T07:57:14.075576+00:00",
+  "generated_at": "2026-07-23T08:36:49.693696+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -19,20 +19,20 @@
       "id": "taiwan_invasion_2027",
       "question": "China invades Taiwan before 2028",
       "domain": "geopolitics",
-      "probability": 11.5,
+      "probability": 12.5,
       "delta_24h_pp": null,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.115,
-          "adjusted": 0.115,
+          "probability": 0.125,
+          "adjusted": 0.125,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.4,
-          "stale": true,
-          "volume_usd": 2172227.4299370013
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2173762.453269001
         }
       ],
       "excluded": [],
@@ -52,6 +52,10 @@
         {
           "ts": "2026-07-23T07:57:14.068038+00:00",
           "p": 11.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.687094+00:00",
+          "p": 12.5
         }
       ],
       "expiry": "2028-01-01"
@@ -71,7 +75,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.4,
+          "age_hours": 13.1,
           "stale": true,
           "volume_usd": 2038126.6955930036
         }
@@ -90,6 +94,10 @@
         },
         {
           "ts": "2026-07-23T07:57:14.070502+00:00",
+          "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.688688+00:00",
           "p": 35.5
         }
       ],
@@ -110,7 +118,7 @@
           "adjusted": 0.295,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 4.6,
+          "age_hours": 5.3,
           "stale": false,
           "volume_usd": 46212943.49714919
         }
@@ -132,6 +140,10 @@
         {
           "ts": "2026-07-23T07:57:14.071633+00:00",
           "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.690289+00:00",
+          "p": 29.5
         }
       ],
       "expiry": "2027-01-01"
@@ -151,7 +163,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.4,
+          "age_hours": 13.1,
           "stale": true,
           "volume_usd": 22854999.133348286
         }
@@ -170,6 +182,10 @@
         },
         {
           "ts": "2026-07-23T07:57:14.072835+00:00",
+          "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.691402+00:00",
           "p": 10.5
         }
       ],
@@ -190,7 +206,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.4,
+          "age_hours": 13.1,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -211,6 +227,10 @@
         },
         {
           "ts": "2026-07-23T07:57:14.074410+00:00",
+          "p": 0.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.692424+00:00",
           "p": 0.5
         }
       ],
