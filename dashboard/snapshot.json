@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-07-23T18:21:26.944739+00:00",
+  "generated_at": "2026-07-23T18:38:44.634863+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
     "polymarket": 0.34,
     "kalshi": 0.25,
+    "predictit": 0.22,
     "manifold": 0.18,
     "metaculus": 0.31,
     "goodjudgment": 0.24,
@@ -31,7 +32,7 @@
           "adjusted": 0.125,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 9.7,
+          "age_hours": 10.0,
           "stale": false,
           "volume_usd": 2173762.453269001
         },
@@ -41,7 +42,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 177687.71553867203
         }
@@ -80,6 +81,10 @@
         {
           "ts": "2026-07-23T18:21:26.937482+00:00",
           "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T18:38:44.535549+00:00",
+          "p": 9.49
         }
       ],
       "expiry": "2028-01-01"
@@ -99,7 +104,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 22.8,
+          "age_hours": 23.1,
           "stale": true,
           "volume_usd": 2038126.6955930036
         },
@@ -109,7 +114,7 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 13149.933978965888
         }
@@ -147,6 +152,10 @@
         {
           "ts": "2026-07-23T18:21:26.939072+00:00",
           "p": 26.71
+        },
+        {
+          "ts": "2026-07-23T18:38:44.604397+00:00",
+          "p": 26.71
         }
       ],
       "expiry": "2026-12-31"
@@ -166,7 +175,7 @@
           "adjusted": 0.305,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 46398309.869292185
         },
@@ -176,7 +185,7 @@
           "adjusted": 0.2182,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 83700.17157033243
         }
@@ -214,6 +223,10 @@
         {
           "ts": "2026-07-23T18:21:26.940648+00:00",
           "p": 23.57
+        },
+        {
+          "ts": "2026-07-23T18:38:44.627548+00:00",
+          "p": 23.57
         }
       ],
       "expiry": "2027-01-01"
@@ -233,7 +246,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.4,
+          "age_hours": 0.6,
           "stale": false,
           "volume_usd": 22928932.39597328
         },
@@ -243,7 +256,7 @@
           "adjusted": 0.0715,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 2934917.3031109455
         }
@@ -279,6 +292,10 @@
         {
           "ts": "2026-07-23T18:21:26.941618+00:00",
           "p": 6.03
+        },
+        {
+          "ts": "2026-07-23T18:38:44.628958+00:00",
+          "p": 6.03
         }
       ],
       "expiry": "2027-01-01"
@@ -298,7 +315,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 22.8,
+          "age_hours": 23.1,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -336,9 +353,66 @@
         {
           "ts": "2026-07-23T18:21:26.942679+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-23T18:38:44.630562+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
+    },
+    {
+      "id": "senate_control_2026_r",
+      "question": "Republicans control the US Senate after the 2026 midterms",
+      "domain": "elections",
+      "probability": 57.9,
+      "delta_24h_pp": null,
+      "spread_pp": 4.9,
+      "n_sources": 3,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.555,
+          "adjusted": 0.555,
+          "weight": 0.2243,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 1461889.8463780135
+        },
+        {
+          "source": "manifold",
+          "probability": 0.5513,
+          "adjusted": 0.5513,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 88074.16441495575
+        },
+        {
+          "source": "predictit",
+          "probability": 0.6,
+          "adjusted": 0.6,
+          "weight": 0.1451,
+          "raw_weight": 0.22,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": null
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "manifold": "Elections are the one theme traded on every venue at once, so this is the board's widest cross-source topic. Real-money venues (Polymarket, PredictIt) are correlation-damped together; Manifold is an independent play-money crowd."
+      },
+      "history": [
+        {
+          "ts": "2026-07-23T18:38:44.631921+00:00",
+          "p": 57.87
+        }
+      ],
+      "expiry": "2026-11-04"
     },
     {
       "id": "xi_us_visit_july",
@@ -355,7 +429,7 @@
           "adjusted": 0.018,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 6072.553115122563
         }
@@ -366,6 +440,10 @@
       "history": [
         {
           "ts": "2026-07-23T18:21:26.943867+00:00",
+          "p": 1.8
+        },
+        {
+          "ts": "2026-07-23T18:38:44.633760+00:00",
           "p": 1.8
         }
       ],
