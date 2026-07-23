@@ -7,12 +7,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   digest:
@@ -36,8 +30,6 @@ jobs:
           name: digest
           path: data/digest.md
 
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dashboard
-      - uses: actions/deploy-pages@v4
+      # Note: the LIVE dashboard is deployed by the collect workflow after each
+      # 6h run, so it is always current. This workflow only builds the daily
+      # markdown digest + Actions job summary; it no longer deploys Pages.
