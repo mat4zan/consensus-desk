@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T14:13:39.553903+00:00",
+  "generated_at": "2026-07-23T17:59:53.829736+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -30,7 +30,7 @@
           "adjusted": 0.125,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 5.6,
+          "age_hours": 9.4,
           "stale": false,
           "volume_usd": 2173762.453269001
         }
@@ -60,6 +60,10 @@
         {
           "ts": "2026-07-23T14:13:38.426050+00:00",
           "p": 12.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.823230+00:00",
+          "p": 12.5
         }
       ],
       "expiry": "2028-01-01"
@@ -79,7 +83,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 18.7,
+          "age_hours": 22.4,
           "stale": true,
           "volume_usd": 2038126.6955930036
         }
@@ -107,6 +111,10 @@
         {
           "ts": "2026-07-23T14:13:38.837378+00:00",
           "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.824855+00:00",
+          "p": 35.5
         }
       ],
       "expiry": "2026-12-31"
@@ -126,8 +134,8 @@
           "adjusted": 0.295,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 10.9,
-          "stale": false,
+          "age_hours": 14.7,
+          "stale": true,
           "volume_usd": 46212943.49714919
         }
       ],
@@ -156,6 +164,10 @@
         {
           "ts": "2026-07-23T14:13:39.307327+00:00",
           "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.826247+00:00",
+          "p": 29.5
         }
       ],
       "expiry": "2027-01-01"
@@ -164,20 +176,20 @@
       "id": "iran_regime_fall_2026",
       "question": "Iranian regime falls before 2027",
       "domain": "geopolitics",
-      "probability": 9.5,
+      "probability": 10.5,
       "delta_24h_pp": null,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.095,
-          "adjusted": 0.095,
+          "probability": 0.105,
+          "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 22900279.815443277
+          "volume_usd": 22928932.39597328
         }
       ],
       "excluded": [],
@@ -203,6 +215,10 @@
         {
           "ts": "2026-07-23T14:13:39.464560+00:00",
           "p": 9.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.827493+00:00",
+          "p": 10.5
         }
       ],
       "expiry": "2027-01-01"
@@ -222,7 +238,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 18.7,
+          "age_hours": 22.4,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -251,6 +267,10 @@
         },
         {
           "ts": "2026-07-23T14:13:39.513490+00:00",
+          "p": 0.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.828633+00:00",
           "p": 0.5
         }
       ],
