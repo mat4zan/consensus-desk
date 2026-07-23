@@ -168,6 +168,32 @@ topics:
           (Polymarket, PredictIt) are correlation-damped together; Manifold
           is an independent play-money crowd.
 
+  # Yahoo-backed oracle (no API key needed): BTC-USD daily close.
+  - id: btc_100k_2026
+    question: "Bitcoin reaches $100,000 in 2026"
+    domain: crypto
+    resolution: >
+      Bitcoin (BTC-USD) trades at or above $100,000 at any point before
+      2027-01-01, measured on daily closing price.
+    expiry: 2026-12-31
+    review: 2026-10-01
+    oracle:
+      source: yahoo
+      symbol: BTC-USD
+      rule: crossed_above
+      threshold: 100000
+      window_start: 2026-01-01
+      by: 2026-12-31
+    sources:
+      polymarket:
+        id: "will-bitcoin-reach-100000-by-december-31-2026-571-361-361"
+        criteria_note: >
+          The market resolves on any trade at/above $100k; the Yahoo oracle
+          checks daily closes, so a brief intraday spike that does not close
+          above $100k would not auto-resolve YES. Close enough to track together.
+      manifold:
+        id: "will-bitcoin-reach-100000-usd-in-20"
+
   # Short-horizon topic on purpose: it resolves within days, so the full
   # collect -> pool -> resolve -> score loop can be exercised end-to-end
   # quickly rather than waiting months. Resolve it with:
