@@ -350,6 +350,55 @@ class ManifoldCollector(Collector):
 
 
 @register
+class PredictItCollector(Collector):
+    """
+    PredictIt. Real-money (dollar-capped) US-politics exchange. Open JSON API,
+    no auth. A market has several contracts; `id` is the market id and
+    `outcome` selects the contract by name (e.g. "Republican"). The contract's
+    lastTradePrice is already a 0-1 probability.
+    """
+
+    name = "predictit"
+    tier = "markets"
+
+    BASE = "https://www.predictit.org/api/marketdata"
+
+    def fetch(self, source_cfg: dict) -> Quote | None:
+        mid = source_cfg.get("id")
+        if not mid:
+            return None
+
+        r = requests.get(f"{self.BASE}/markets/{mid}", headers=UA, timeout=TIMEOUT)
+        if r.status_code == 404:
+            return None
+        r.raise_for_status()
+        contracts = (r.json() or {}).get("contracts") or []
+        if not contracts:
+            return None
+
+        want = (source_cfg.get("outcome") or "").strip().lower()
+        chosen = None
+        if want:
+            chosen = next(
+                (c for c in contracts if (c.get("name") or "").strip().lower() == want),
+                None,
+            )
+        if chosen is None:
+            chosen = contracts[0]
+
+        p = _f(chosen.get("lastTradePrice"))
+        # 0.0 usually means "no trades yet", not a real 0% — treat as no data.
+        if p is None or p <= 0:
+            return None
+
+        return Quote(
+            probability=p,
+            raw_price=p,
+            raw={"market": mid, "contract": chosen.get("name")},
+        )
+
+
+@register
 class ManualCollector(Collector):
     """
     Escape hatch. Reads a hand-entered probability from topics.yml.

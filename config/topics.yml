@@ -129,6 +129,29 @@ topics:
           -C26 ticker instead, so this slightly under-counts the canonical
           "25bp or more". Combine C25 + C26 if that gap ever matters.
 
+  - id: senate_control_2026_r
+    question: "Republicans control the US Senate after the 2026 midterms"
+    domain: elections
+    resolution: >
+      The Republican Party holds a Senate majority (50+ seats with the VP
+      tiebreak, or 51+) in the Congress convening January 2027, per called
+      results from a consensus of major networks.
+    expiry: 2026-11-04
+    review: 2026-10-15
+    sources:
+      polymarket:
+        id: "will-the-republican-party-control-the-senate-after-the-2026-midterm-elections"
+      predictit:
+        id: 8155
+        outcome: "Republican"
+      manifold:
+        id: "will-republicans-win-the-senate-in-738388924521"
+        criteria_note: >
+          Elections are the one theme traded on every venue at once, so this
+          is the board's widest cross-source topic. Real-money venues
+          (Polymarket, PredictIt) are correlation-damped together; Manifold
+          is an independent play-money crowd.
+
   # Short-horizon topic on purpose: it resolves within days, so the full
   # collect -> pool -> resolve -> score loop can be exercised end-to-end
   # quickly rather than waiting months. Resolve it with:

@@ -34,6 +34,7 @@ weights:
   fixed:
     polymarket: 0.34
     kalshi: 0.25
+    predictit: 0.22     # real-money, dollar-capped; strong on US politics
     manifold: 0.18      # play-money: independent crowd, softer signal
     metaculus: 0.31
     goodjudgment: 0.24
@@ -47,7 +48,7 @@ correlation:
   # damping 0 = no correction, 1 = full "count the cluster once".
   damping: 0.6
   clusters:
-    real_money_markets: [polymarket, kalshi]
+    real_money_markets: [polymarket, kalshi, predictit]
     bookmakers: [pinnacle, betfair]
     forecaster_platforms: [metaculus, goodjudgment]
 
@@ -56,7 +57,7 @@ bias_correction:
   # low-probability outcomes. Applied to market sources only.
   longshot:
     enabled: true
-    applies_to: [polymarket, kalshi, manifold, pinnacle, betfair]
+    applies_to: [polymarket, kalshi, predictit, manifold, pinnacle, betfair]
     # Below this probability, shrink toward zero by the factor.
     threshold: 0.05
     factor: 0.75
