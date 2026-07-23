@@ -200,6 +200,12 @@ class Store:
         )
         self.conn.commit()
 
+    def is_resolved(self, topic_id: str) -> bool:
+        cur = self.conn.execute(
+            "SELECT 1 FROM resolutions WHERE topic_id=? LIMIT 1", (topic_id,)
+        )
+        return cur.fetchone() is not None
+
     def scoring_rows(self) -> list[dict]:
         """
         Every source forecast on a resolved topic, with days-before-resolution.

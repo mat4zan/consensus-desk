@@ -312,6 +312,34 @@ def cmd_resolve(args, cfg, store):
     print(f"Resolved {args.topic} = {args.outcome}")
 
 
+def cmd_resolve_auto(args, cfg, store):
+    """Layer 2: auto-resolve topics whose `oracle:` condition has closed."""
+    from core.oracles import evaluate
+
+    resolved = 0
+    for topic in load_topics():
+        oracle = topic.get("oracle")
+        if not oracle:
+            continue
+        tid = topic["id"]
+        if store.is_resolved(tid):
+            continue
+        try:
+            result = evaluate(oracle)
+        except Exception as e:
+            print(f"  [oracle error] {tid}: {e}")
+            continue
+        if result is None:
+            print(f"  [pending] {tid} — window open or data not yet available")
+            continue
+        outcome, note = result
+        store.record_resolution(tid, outcome, f"auto[{oracle.get('source')}]: {note}")
+        resolved += 1
+        print(f"  [resolved] {tid} = {outcome}  ({note})")
+
+    print(f"\nresolve-auto: {resolved} newly resolved")
+
+
 def cmd_score(args, cfg, store):
     rows = store.scoring_rows()
     if not rows:
@@ -345,6 +373,7 @@ def main():
     sub.add_parser("digest").set_defaults(fn=cmd_digest)
     sub.add_parser("discover").set_defaults(fn=cmd_discover)
     sub.add_parser("score").set_defaults(fn=cmd_score)
+    sub.add_parser("resolve-auto").set_defaults(fn=cmd_resolve_auto)
 
     r = sub.add_parser("resolve")
     r.add_argument("--topic", required=True)

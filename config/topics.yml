@@ -103,6 +103,15 @@ topics:
       meeting.
     expiry: 2026-07-31
     review: 2026-07-28
+    # Layer-2 oracle: the FRED fed-funds target upper limit steps down 0.25
+    # when the Fed cuts, so a drop over the meeting window resolves YES.
+    oracle:
+      source: fred
+      series: DFEDTARU
+      rule: dropped
+      amount: 0.25
+      window_start: 2026-07-20
+      by: 2026-08-01
     sources:
       polymarket:
         id: "will-the-fed-decrease-interest-rates-by-25-bps-after-the-july-2026-meeting"
@@ -121,6 +130,13 @@ topics:
       meeting.
     expiry: 2026-09-30
     review: 2026-08-15
+    oracle:
+      source: fred
+      series: DFEDTARU
+      rule: dropped
+      amount: 0.25
+      window_start: 2026-09-10
+      by: 2026-10-01
     sources:
       kalshi:
         id: "KXFEDDECISION-26SEP-C25"
