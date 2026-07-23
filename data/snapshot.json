@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T19:33:49.301573+00:00",
+  "generated_at": "2026-07-23T03:20:20.303567+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -30,7 +30,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 7.8,
           "stale": false,
           "volume_usd": 2172227.4299370013
         }
@@ -43,6 +43,10 @@
       "history": [
         {
           "ts": "2026-07-22T19:33:49.246338+00:00",
+          "p": 11.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.288255+00:00",
           "p": 11.5
         }
       ],
@@ -63,7 +67,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 7.8,
           "stale": false,
           "volume_usd": 2038126.6955930036
         }
@@ -75,6 +79,10 @@
         {
           "ts": "2026-07-22T19:33:49.280119+00:00",
           "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.290201+00:00",
+          "p": 35.5
         }
       ],
       "expiry": "2026-12-31"
@@ -83,20 +91,20 @@
       "id": "us_invade_iran_2027",
       "question": "US invades Iran before 2027",
       "domain": "geopolitics",
-      "probability": 28.5,
+      "probability": 29.5,
       "delta_24h_pp": null,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.285,
-          "adjusted": 0.285,
+          "probability": 0.295,
+          "adjusted": 0.295,
           "weight": 0.34,
           "raw_weight": 0.34,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 46161200.633241184
+          "volume_usd": 46212943.49714919
         }
       ],
       "excluded": [],
@@ -108,6 +116,10 @@
         {
           "ts": "2026-07-22T19:33:49.281965+00:00",
           "p": 28.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.291469+00:00",
+          "p": 29.5
         }
       ],
       "expiry": "2027-01-01"
@@ -127,7 +139,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 7.8,
           "stale": false,
           "volume_usd": 22854999.133348286
         }
@@ -138,6 +150,10 @@
       "history": [
         {
           "ts": "2026-07-22T19:33:49.283447+00:00",
+          "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.293054+00:00",
           "p": 10.5
         }
       ],
@@ -158,7 +174,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 7.8,
           "stale": false,
           "volume_usd": 14065556.315077111
         }
@@ -171,6 +187,10 @@
       "history": [
         {
           "ts": "2026-07-22T19:33:49.284965+00:00",
+          "p": 0.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.301987+00:00",
           "p": 0.5
         }
       ],
