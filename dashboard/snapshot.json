@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-07-23T17:59:53.829736+00:00",
+  "generated_at": "2026-07-23T18:21:26.944739+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
     "polymarket": 0.34,
     "kalshi": 0.25,
+    "manifold": 0.18,
     "metaculus": 0.31,
     "goodjudgment": 0.24,
     "pinnacle": 0.2,
@@ -19,10 +20,10 @@
       "id": "taiwan_invasion_2027",
       "question": "China invades Taiwan before 2028",
       "domain": "geopolitics",
-      "probability": 12.5,
+      "probability": 9.5,
       "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
+      "spread_pp": 2.3,
+      "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
@@ -30,15 +31,26 @@
           "adjusted": 0.125,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 9.4,
+          "age_hours": 9.7,
           "stale": false,
           "volume_usd": 2173762.453269001
+        },
+        {
+          "source": "manifold",
+          "probability": 0.1476,
+          "adjusted": 0.1476,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 177687.71553867203
         }
       ],
       "excluded": [],
       "explanation": null,
       "criteria_notes": {
-        "polymarket": "Reframed from the original \"blockade or quarantine\" question: no liquid blockade-specific market exists. This market resolves on an invasion / military offensive, which is a strictly higher bar than interdiction. Read the level, not the label."
+        "polymarket": "Reframed from the original \"blockade or quarantine\" question: no liquid blockade-specific market exists. This market resolves on an invasion / military offensive, which is a strictly higher bar than interdiction. Read the level, not the label.",
+        "manifold": "Manifold asks \"attempt to invade by end of 2027\" \u2014 an attempt is a slightly lower bar than Polymarket's \"commences an offensive\", so expect it to sit marginally higher."
       },
       "history": [
         {
@@ -64,6 +76,10 @@
         {
           "ts": "2026-07-23T17:59:53.823230+00:00",
           "p": 12.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.937482+00:00",
+          "p": 9.49
         }
       ],
       "expiry": "2028-01-01"
@@ -72,10 +88,10 @@
       "id": "ru_ua_ceasefire_2026",
       "question": "Russia-Ukraine ceasefire agreement by year end 2026",
       "domain": "geopolitics",
-      "probability": 35.5,
+      "probability": 26.7,
       "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
+      "spread_pp": 14.1,
+      "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
@@ -83,14 +99,26 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 22.4,
+          "age_hours": 22.8,
           "stale": true,
           "volume_usd": 2038126.6955930036
+        },
+        {
+          "source": "manifold",
+          "probability": 0.2138,
+          "adjusted": 0.2138,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 13149.933978965888
         }
       ],
       "excluded": [],
       "explanation": null,
-      "criteria_notes": {},
+      "criteria_notes": {
+        "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
+      },
       "history": [
         {
           "ts": "2026-07-22T19:33:49.280119+00:00",
@@ -115,6 +143,10 @@
         {
           "ts": "2026-07-23T17:59:53.824855+00:00",
           "p": 35.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.939072+00:00",
+          "p": 26.71
         }
       ],
       "expiry": "2026-12-31"
@@ -123,20 +155,30 @@
       "id": "us_invade_iran_2027",
       "question": "US invades Iran before 2027",
       "domain": "geopolitics",
-      "probability": 29.5,
+      "probability": 23.6,
       "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
+      "spread_pp": 8.7,
+      "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.295,
-          "adjusted": 0.295,
+          "probability": 0.305,
+          "adjusted": 0.305,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 14.7,
-          "stale": true,
-          "volume_usd": 46212943.49714919
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 46398309.869292185
+        },
+        {
+          "source": "manifold",
+          "probability": 0.2182,
+          "adjusted": 0.2182,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 83700.17157033243
         }
       ],
       "excluded": [],
@@ -168,6 +210,10 @@
         {
           "ts": "2026-07-23T17:59:53.826247+00:00",
           "p": 29.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.940648+00:00",
+          "p": 23.57
         }
       ],
       "expiry": "2027-01-01"
@@ -176,10 +222,10 @@
       "id": "iran_regime_fall_2026",
       "question": "Iranian regime falls before 2027",
       "domain": "geopolitics",
-      "probability": 10.5,
+      "probability": 6.0,
       "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
+      "spread_pp": 3.4,
+      "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
@@ -187,9 +233,19 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.4,
           "stale": false,
           "volume_usd": 22928932.39597328
+        },
+        {
+          "source": "manifold",
+          "probability": 0.0715,
+          "adjusted": 0.0715,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2934917.3031109455
         }
       ],
       "excluded": [],
@@ -219,6 +275,10 @@
         {
           "ts": "2026-07-23T17:59:53.827493+00:00",
           "p": 10.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.941618+00:00",
+          "p": 6.03
         }
       ],
       "expiry": "2027-01-01"
@@ -238,7 +298,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 22.4,
+          "age_hours": 22.8,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -272,6 +332,41 @@
         {
           "ts": "2026-07-23T17:59:53.828633+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.942679+00:00",
+          "p": 0.5
+        }
+      ],
+      "expiry": "2026-07-31"
+    },
+    {
+      "id": "xi_us_visit_july",
+      "question": "Xi Jinping visits the USA before August 2026",
+      "domain": "geopolitics",
+      "probability": 1.8,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "manifold",
+          "probability": 0.024,
+          "adjusted": 0.018,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 6072.553115122563
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-23T18:21:26.943867+00:00",
+          "p": 1.8
         }
       ],
       "expiry": "2026-07-31"
