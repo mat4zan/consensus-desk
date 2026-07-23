@@ -37,7 +37,7 @@ UA = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 }
-TIMEOUT = 25
+TIMEOUT = 45
 
 Series = list[tuple[date, float]]
 
@@ -50,15 +50,24 @@ def _to_date(v) -> date:
     return v if isinstance(v, date) else datetime.fromisoformat(str(v)).date()
 
 
+def _get(url: str, **kwargs):
+    """GET with one retry — FRED/Yahoo occasionally cold-start slowly."""
+    last = None
+    for attempt in range(2):
+        try:
+            r = requests.get(url, headers=UA, timeout=TIMEOUT, **kwargs)
+            r.raise_for_status()
+            return r
+        except requests.RequestException as e:
+            last = e
+    raise last
+
+
 # --------------------------------------------------------------- fetchers
 
 def fred_series(series_id: str) -> Series:
     """Daily series from FRED's public CSV export. No API key required."""
-    r = requests.get(
-        "https://fred.stlouisfed.org/graph/fredgraph.csv",
-        params={"id": series_id}, headers=UA, timeout=TIMEOUT,
-    )
-    r.raise_for_status()
+    r = _get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}")
     out: Series = []
     reader = csv.reader(io.StringIO(r.text))
     next(reader, None)  # header
@@ -74,11 +83,10 @@ def fred_series(series_id: str) -> Series:
 
 def yahoo_series(symbol: str) -> Series:
     """Daily closes from Yahoo's public chart endpoint. No API key required."""
-    r = requests.get(
-        f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
-        params={"range": "2y", "interval": "1d"}, headers=UA, timeout=TIMEOUT,
+    r = _get(
+        f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+        "?range=2y&interval=1d"
     )
-    r.raise_for_status()
     result = (r.json().get("chart", {}).get("result") or [None])[0]
     if not result:
         return []
