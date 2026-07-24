@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T11:58:24.157262+00:00",
+  "generated_at": "2026-07-24T12:01:21.331154+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -42,13 +42,13 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 17.6,
+          "age_hours": 17.7,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria difference actually runs *against* the direction of the gap: Manifold's \"at any point in 2026\" should yield a *higher* probability than Polymarket's \"in force at year-end\" (a ceasefire could be struck then collapse), yet Manifold is 15pp lower. This suggests the gap is driven by venue and participant differences \u2014 Polymarket attracts larger, more liquid markets with sophisticated traders who may be pricing in active diplomacy optimistically, while Manifold's play-money environment draws a different participant pool that may weight the political and military obstacles more heavily. There is likely also genuine disagreement about likelihood layered on top, with Manifold participants more skeptical that a comprehensive mutual ceasefire (excluding partial deals) can be negotiated and sustained within the timeframe.",
+      "explanation": "The resolution criteria difference actually runs *against* the observed gap: Manifold's \"any point in 2026\" framing should produce a higher probability than Polymarket's \"in force at year-end,\" yet Manifold is 15pp lower, indicating the criteria mismatch explanation is insufficient here. The divergence likely reflects genuine differences in trader populations and market depth \u2014 Polymarket attracts higher-volume, often more sophisticated prediction market participants whose prices may incorporate more active arbitrage, while Manifold's play-money or lower-liquidity environment can leave prices anchored to less-updated sentiment. The combination of a smaller, potentially less engaged Manifold market and possible recency effects (Polymarket is 12 hours fresher, capturing any recent diplomatic signals) likely accounts for most of the spread.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -140,6 +140,10 @@
         {
           "ts": "2026-07-24T11:58:18.582690+00:00",
           "p": 27.38
+        },
+        {
+          "ts": "2026-07-24T12:01:15.316563+00:00",
+          "p": 27.38
         }
       ],
       "expiry": "2026-12-31"
@@ -169,7 +173,7 @@
           "adjusted": 0.2023,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 3.4,
+          "age_hours": 3.5,
           "stale": false,
           "volume_usd": 84200.17157033243
         }
@@ -266,6 +270,10 @@
         },
         {
           "ts": "2026-07-24T11:58:24.145963+00:00",
+          "p": 22.21
+        },
+        {
+          "ts": "2026-07-24T12:01:21.320194+00:00",
           "p": 22.21
         }
       ],
@@ -392,6 +400,10 @@
         {
           "ts": "2026-07-24T11:58:24.147529+00:00",
           "p": 6.11
+        },
+        {
+          "ts": "2026-07-24T12:01:21.321807+00:00",
+          "p": 6.11
         }
       ],
       "expiry": "2027-01-01"
@@ -421,7 +433,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 17.6,
+          "age_hours": 17.7,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -520,6 +532,10 @@
         {
           "ts": "2026-07-24T11:58:18.581014+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:01:15.314828+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -539,7 +555,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 40.4,
+          "age_hours": 40.5,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -637,6 +653,10 @@
         {
           "ts": "2026-07-24T11:58:24.148777+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-24T12:01:21.322950+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -656,7 +676,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 17.3,
+          "age_hours": 17.4,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -666,7 +686,7 @@
           "adjusted": 0.5587,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.7,
+          "age_hours": 8.8,
           "stale": false,
           "volume_usd": 88229.40441495574
         },
@@ -676,7 +696,7 @@
           "adjusted": 0.6,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 17.3,
+          "age_hours": 17.4,
           "stale": true,
           "volume_usd": null
         }
@@ -746,6 +766,10 @@
         {
           "ts": "2026-07-24T11:58:24.150025+00:00",
           "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T12:01:21.324137+00:00",
+          "p": 58.16
         }
       ],
       "expiry": "2026-11-04"
@@ -765,7 +789,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 2297541.3003549906
         },
@@ -825,6 +849,10 @@
         {
           "ts": "2026-07-24T11:58:24.151249+00:00",
           "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:01:21.325201+00:00",
+          "p": 8.05
         }
       ],
       "expiry": "2026-12-31"
@@ -844,7 +872,7 @@
           "adjusted": 0.0075,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.7,
+          "age_hours": 8.8,
           "stale": false,
           "volume_usd": 9652.057930824965
         }
@@ -916,6 +944,10 @@
         {
           "ts": "2026-07-24T11:58:24.152391+00:00",
           "p": 0.75
+        },
+        {
+          "ts": "2026-07-24T12:01:21.326247+00:00",
+          "p": 0.75
         }
       ],
       "expiry": "2026-07-31"
@@ -963,6 +995,10 @@
         {
           "ts": "2026-07-24T11:58:24.153537+00:00",
           "p": 82.28
+        },
+        {
+          "ts": "2026-07-24T12:01:21.327280+00:00",
+          "p": 82.28
         }
       ],
       "expiry": "2026-11-03"
@@ -998,6 +1034,10 @@
         {
           "ts": "2026-07-24T11:58:24.154719+00:00",
           "p": 1.69
+        },
+        {
+          "ts": "2026-07-24T12:01:21.328473+00:00",
+          "p": 1.69
         }
       ],
       "expiry": "2026-12-31"
@@ -1017,7 +1057,7 @@
           "adjusted": 0.0232,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 1034982.1906520004
         }
@@ -1029,9 +1069,54 @@
         {
           "ts": "2026-07-24T11:58:24.156172+00:00",
           "p": 2.33
+        },
+        {
+          "ts": "2026-07-24T12:01:21.329451+00:00",
+          "p": 2.33
         }
       ],
       "expiry": "2026-12-31"
+    },
+    {
+      "id": "republican_win_2028_us_presidential_election",
+      "question": "Will the Republican party win the 2028 US presidential election?",
+      "domain": "elections",
+      "probability": 40.7,
+      "delta_24h_pp": null,
+      "spread_pp": 4.5,
+      "n_sources": 2,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.405,
+          "adjusted": 0.405,
+          "weight": 0.2243,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 1064221.9891059943
+        },
+        {
+          "source": "predictit",
+          "probability": 0.45,
+          "adjusted": 0.45,
+          "weight": 0.1451,
+          "raw_weight": 0.22,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": null
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-24T12:01:21.330310+00:00",
+          "p": 40.74
+        }
+      ],
+      "expiry": "2029-01-20"
     }
   ]
 }

@@ -252,3 +252,18 @@ topics:
     sources:
       polymarket:
         id: "will-bitcoin-reach-150000-by-december-31-2026-557-246-971"
+
+  - id: republican_win_2028_us_presidential_election
+    question: "Will the Republican party win the 2028 US presidential election?"
+    domain: elections
+    resolution: >
+      Resolves YES if the Republican Party's nominee wins the 2028 US presidential election, per official election results.
+    expiry: 2029-01-20
+    review: 2029-01-20
+    # Auto-added from a topic request on 2026-07-24.
+    sources:
+      polymarket:
+        id: "will-the-republicans-win-the-2028-us-presidential-election"
+      predictit:
+        id: "8181"
+        outcome: "Republican"
