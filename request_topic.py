@@ -245,12 +245,17 @@ def yaml_block(topic: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
-def _is_number(v) -> bool:
-    try:
-        float(v)
-        return True
-    except (TypeError, ValueError):
-        return False
+def _num(v):
+    """Coerce a threshold/amount to float, tolerating '$150,000' / '150k' style."""
+    if isinstance(v, (int, float)):
+        return float(v)
+    if isinstance(v, str):
+        s = normalize_nums(v).strip()
+        try:
+            return float(s)
+        except ValueError:
+            return None
+    return None
 
 
 def sanitize_oracle(orc, expiry) -> dict | None:
@@ -275,11 +280,11 @@ def sanitize_oracle(orc, expiry) -> dict | None:
     orc.setdefault("by", expiry)                    # deadline defaults to expiry
     if rule in ("crossed_above", "crossed_below", "dropped", "rose"):
         orc.setdefault("window_start", str(orc["by"])[:4] + "-01-01")
-    if rule in ("dropped", "rose"):
-        if not _is_number(orc.get("amount")):
-            return None
-    elif not _is_number(orc.get("threshold")):
+    key = "amount" if rule in ("dropped", "rose") else "threshold"
+    num = _num(orc.get(key))
+    if num is None:
         return None
+    orc[key] = num
     keep = {"source", "symbol", "series", "rule", "threshold",
             "amount", "window_start", "by"}
     return {k: orc[k] for k in keep if k in orc}
