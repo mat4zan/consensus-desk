@@ -95,33 +95,6 @@ topics:
       manifold:
         id: "will-irans-regime-fall-in-2026"
 
-  - id: fed_july_2026_cut
-    question: "Fed cuts 25bp at the July 2026 FOMC meeting"
-    domain: macro
-    resolution: >
-      The FOMC lowers the target range by exactly 25bp at its July 2026
-      meeting.
-    expiry: 2026-07-31
-    review: 2026-07-28
-    # Layer-2 oracle: the FRED fed-funds target upper limit steps down 0.25
-    # when the Fed cuts, so a drop over the meeting window resolves YES.
-    oracle:
-      source: fred
-      series: DFEDTARU
-      rule: dropped
-      amount: 0.25
-      window_start: 2026-07-20
-      by: 2026-08-01
-    sources:
-      polymarket:
-        id: "will-the-fed-decrease-interest-rates-by-25-bps-after-the-july-2026-meeting"
-      kalshi:
-        id: "KXFEDDECISION-26JUL-C25"
-        criteria_note: >
-          Same event on both venues — this is the one genuinely cross-source
-          topic on the board, kept short-horizon on purpose to demonstrate the
-          pooling and to accumulate a resolved question quickly for scoring.
-
   - id: fed_september_2026_cut
     question: "Fed cuts 25bp at the September 2026 FOMC meeting"
     domain: macro
