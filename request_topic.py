@@ -83,7 +83,7 @@ def search_manifold(request: str, limit: int = 8) -> list[dict]:
     try:
         r = requests.get("https://api.manifold.markets/v0/search-markets",
                          params={"term": request, "filter": "open",
-                                 "contractType": "BINARY", "sort": "score", "limit": limit},
+                                 "contractType": "BINARY", "sort": "liquidity", "limit": limit},
                          headers=UA, timeout=T)
         r.raise_for_status()
     except Exception:
@@ -143,6 +143,7 @@ def choose_topic(request: str, candidates: dict) -> dict | None:
         f"Request: {request}\n\nToday: {date.today().isoformat()}\n\n"
         f"Candidates JSON:\n{json.dumps(candidates, indent=1)[:12000]}"
     )
+    r = None
     try:
         r = requests.post(API_URL,
                           headers={"content-type": "application/json", "x-api-key": key,
@@ -151,7 +152,9 @@ def choose_topic(request: str, candidates: dict) -> dict | None:
                                 "system": system,
                                 "messages": [{"role": "user", "content": user}]},
                           timeout=90)
-        r.raise_for_status()
+        if r.status_code != 200:
+            print(f"Claude HTTP {r.status_code} (model={MODEL}): {r.text[:400]}", file=sys.stderr)
+            return None
         blocks = r.json().get("content", [])
         raw = "\n".join(b.get("text", "") for b in blocks if b.get("type") == "text").strip()
         raw = raw.replace("```json", "").replace("```", "").strip()
