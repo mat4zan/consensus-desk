@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T08:33:22.118474+00:00",
+  "generated_at": "2026-07-24T11:12:14.524225+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -32,7 +32,7 @@
           "adjusted": 0.365,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 2.1,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 2045337.5301050039
         },
@@ -42,13 +42,13 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 14.2,
+          "age_hours": 16.8,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
       ],
       "excluded": [],
-      "explanation": null,
+      "explanation": "The resolution criteria actually favor Manifold being *higher* \u2014 \"ceasefire at any point in 2026\" is a broader condition than \"in force at year-end\" \u2014 yet Manifold is 15pp lower, meaning the gap reflects venue/crowd differences rather than criteria mismatch. Polymarket attracts larger financial stakes and more sophisticated traders who may be pricing in active diplomatic momentum (Trump-era pressure, ongoing negotiations), while Manifold's play-money environment tends to draw a different participant pool whose calibration on geopolitical tail events skews more pessimistic. This is genuine crowd disagreement about the likelihood of a negotiated settlement, amplified by differing incentive structures across the two platforms.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -132,6 +132,10 @@
         {
           "ts": "2026-07-24T08:33:21.918848+00:00",
           "p": 27.38
+        },
+        {
+          "ts": "2026-07-24T11:12:09.275241+00:00",
+          "p": 27.38
         }
       ],
       "expiry": "2026-12-31"
@@ -151,7 +155,7 @@
           "adjusted": 0.295,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 2.1,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 46536362.392312236
         },
@@ -161,7 +165,7 @@
           "adjusted": 0.2023,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 2.6,
           "stale": false,
           "volume_usd": 84200.17157033243
         }
@@ -251,6 +255,10 @@
         {
           "ts": "2026-07-24T08:33:22.109391+00:00",
           "p": 22.21
+        },
+        {
+          "ts": "2026-07-24T11:12:14.513052+00:00",
+          "p": 22.21
         }
       ],
       "expiry": "2027-01-01"
@@ -270,7 +278,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 14.6,
+          "age_hours": 17.2,
           "stale": true,
           "volume_usd": 22928932.39597328
         },
@@ -280,7 +288,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 2.1,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 2935012.7356325327
         }
@@ -368,6 +376,10 @@
         {
           "ts": "2026-07-24T08:33:22.110868+00:00",
           "p": 6.11
+        },
+        {
+          "ts": "2026-07-24T11:12:14.515055+00:00",
+          "p": 6.11
         }
       ],
       "expiry": "2027-01-01"
@@ -377,7 +389,7 @@
       "question": "China invades Taiwan before 2028",
       "domain": "geopolitics",
       "probability": 8.9,
-      "delta_24h_pp": -2.6,
+      "delta_24h_pp": -3.6,
       "spread_pp": 3.3,
       "n_sources": 2,
       "contributions": [
@@ -387,7 +399,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 2.1,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 2176961.3125100015
         },
@@ -397,7 +409,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 14.2,
+          "age_hours": 16.8,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -488,6 +500,10 @@
         {
           "ts": "2026-07-24T08:33:21.917007+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T11:12:09.272520+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -507,7 +523,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 37.0,
+          "age_hours": 39.6,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -597,6 +613,10 @@
         {
           "ts": "2026-07-24T08:33:22.112186+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-24T11:12:14.516462+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -616,7 +636,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 13.9,
+          "age_hours": 16.6,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -626,7 +646,7 @@
           "adjusted": 0.5587,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.3,
+          "age_hours": 8.0,
           "stale": false,
           "volume_usd": 88229.40441495574
         },
@@ -636,7 +656,7 @@
           "adjusted": 0.6,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 13.9,
+          "age_hours": 16.6,
           "stale": true,
           "volume_usd": null
         }
@@ -698,6 +718,10 @@
         {
           "ts": "2026-07-24T08:33:22.113440+00:00",
           "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T11:12:14.517723+00:00",
+          "p": 58.16
         }
       ],
       "expiry": "2026-11-04"
@@ -706,20 +730,20 @@
       "id": "btc_100k_2026",
       "question": "Bitcoin reaches $100,000 in 2026",
       "domain": "crypto",
-      "probability": 7.4,
+      "probability": 7.7,
       "delta_24h_pp": null,
-      "spread_pp": 4.5,
+      "spread_pp": 4.0,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.095,
-          "adjusted": 0.095,
+          "probability": 0.1,
+          "adjusted": 0.1,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.7,
-          "stale": true,
-          "volume_usd": 2295787.97671999
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2297541.3003549906
         },
         {
           "source": "manifold",
@@ -727,7 +751,7 @@
           "adjusted": 0.1398,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 12.7,
+          "age_hours": 15.3,
           "stale": true,
           "volume_usd": 1540.3791175474698
         }
@@ -769,6 +793,10 @@
         {
           "ts": "2026-07-24T08:33:22.114661+00:00",
           "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T11:12:14.519222+00:00",
+          "p": 7.74
         }
       ],
       "expiry": "2026-12-31"
@@ -788,7 +816,7 @@
           "adjusted": 0.0075,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.3,
+          "age_hours": 8.0,
           "stale": false,
           "volume_usd": 9652.057930824965
         }
@@ -852,6 +880,10 @@
         {
           "ts": "2026-07-24T08:33:22.115812+00:00",
           "p": 0.75
+        },
+        {
+          "ts": "2026-07-24T11:12:14.520394+00:00",
+          "p": 0.75
         }
       ],
       "expiry": "2026-07-31"
@@ -871,7 +903,7 @@
           "adjusted": 0.8228,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 1.5,
+          "age_hours": 4.1,
           "stale": false,
           "volume_usd": 4823.476419225722
         }
@@ -891,9 +923,44 @@
         {
           "ts": "2026-07-24T08:33:22.116976+00:00",
           "p": 82.28
+        },
+        {
+          "ts": "2026-07-24T11:12:14.521560+00:00",
+          "p": 82.28
         }
       ],
       "expiry": "2026-11-03"
+    },
+    {
+      "id": "bitcoin_200k_by_2026",
+      "question": "Will Bitcoin reach $200,000 by end of 2026?",
+      "domain": "crypto",
+      "probability": 1.7,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.0225,
+          "adjusted": 0.0169,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 1906514.1955519998
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-24T11:12:14.522842+00:00",
+          "p": 1.69
+        }
+      ],
+      "expiry": "2026-12-31"
     }
   ]
 }
