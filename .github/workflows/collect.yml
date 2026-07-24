@@ -103,7 +103,11 @@ jobs:
       group: pages
       cancel-in-progress: false
     steps:
+      # Check out the tip of main so we publish the data the collect job just
+      # committed, not the commit that triggered this run.
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
