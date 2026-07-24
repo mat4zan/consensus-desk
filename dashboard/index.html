@@ -89,6 +89,10 @@ svg.spark{display:block;width:100%;height:auto}
 .detail-actions{margin-top:20px;border-top:1px solid var(--rule);padding-top:12px}
 .remove-link{color:var(--ink-3);font-size:12px;text-decoration:none;letter-spacing:.05em}
 .remove-link:hover{color:var(--up)}
+#cd-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:8px;font-size:13px;
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;max-width:90vw}
+#cd-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
   font-size:11px;color:var(--ink-3);letter-spacing:.04em;display:flex;
@@ -169,9 +173,46 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 // Add-a-topic: describe in plain English -> pre-filled GitHub issue -> the
 // workflow runs the multi-source Claude matcher and wires the topic.
 const REPO = 'mat4zan/consensus-desk';
+// Set this to your deployed serverless endpoint to make add/remove happen
+// directly from the dashboard — no GitHub visit, no email. Empty = fall back
+// to the one-click GitHub issue.
+window.WORKER_URL = '';
+
+function manageSecret() {
+  let s = localStorage.getItem('cd-manage-key');
+  if (!s) {
+    s = (prompt('Enter your management passphrase (stored once in this browser):') || '').trim();
+    if (s) localStorage.setItem('cd-manage-key', s);
+  }
+  return s;
+}
+
+async function postManage(action, payload) {
+  const secret = manageSecret();
+  if (!secret) return false;
+  try {
+    const r = await fetch(window.WORKER_URL, {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(Object.assign({ action, secret }, payload))
+    });
+    if (r.status === 401) { localStorage.removeItem('cd-manage-key'); toast('Wrong passphrase — try again.'); return false; }
+    if (!r.ok) { toast('Request failed (' + r.status + ').'); return false; }
+    toast(action === 'add' ? 'Got it — building the topic…' : 'Removing…');
+    return true;
+  } catch (e) { toast('Could not reach the server.'); return false; }
+}
+
+function toast(msg) {
+  let el = document.getElementById('cd-toast');
+  if (!el) { el = document.createElement('div'); el.id = 'cd-toast'; document.body.appendChild(el); }
+  el.textContent = msg; el.classList.add('show');
+  clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('show'), 3500);
+}
+
 function addTopic() {
   const q = document.getElementById('add-q').value.trim();
   if (!q) return;
+  if (window.WORKER_URL) { postManage('add', { request: q }); document.getElementById('add-q').value = ''; return; }
   const body = 'Requested from the dashboard. The line below is machine-read; leave it intact.'
     + '\n\nrequest: ' + q;
   const url = 'https://github.com/' + REPO + '/issues/new?title='
@@ -328,40 +369,40 @@ function render(s) {
   document.getElementById('app').innerHTML = parts.join('');
 
   const byId = Object.fromEntries(s.topics.map(t => [t.id, t]));
-  const THRESH = 90;              // px past which a swipe removes
+  const THRESH = 80;              // px past which a swipe removes
   document.querySelectorAll('.row').forEach(row => {
-    let sx = 0, sy = 0, mode = null, dx = 0;   // mode: null | 'swipe' | 'scroll'
+    let sx = 0, sy = 0, mode = null, dx = 0, active = false;
 
     const settle = () => { row.style.transition = 'transform .18s ease';
       row.style.transform = ''; row.classList.remove('will-remove'); };
-
-    row.addEventListener('pointerdown', e => {
-      sx = e.clientX; sy = e.clientY; mode = null; dx = 0; row.style.transition = 'none';
-    });
-    row.addEventListener('pointermove', e => {
-      if (e.pointerType === 'mouse' && e.buttons === 0) return;
-      const mx = e.clientX - sx, my = e.clientY - sy;
+    const start = (x, y) => { sx = x; sy = y; mode = null; dx = 0; active = true;
+      row.style.transition = 'none'; };
+    const move = (x, y, ev) => {
+      if (!active) return;
+      const mx = x - sx, my = y - sy;
       if (mode === null) {
-        if (Math.abs(mx) > 10 && Math.abs(mx) > Math.abs(my) + 4) {
-          mode = 'swipe'; try { row.setPointerCapture(e.pointerId); } catch (_) {}
-        } else if (Math.abs(my) > 10) { mode = 'scroll'; }
+        if (Math.abs(mx) > 8 && Math.abs(mx) > Math.abs(my) + 3) mode = 'swipe';
+        else if (Math.abs(my) > 8) { mode = 'scroll'; active = false; return; }
       }
       if (mode === 'swipe') {
-        e.preventDefault();
+        if (ev.cancelable) ev.preventDefault();       // claim the gesture from the browser
         dx = Math.max(-150, Math.min(150, mx));
         row.style.transform = `translateX(${dx}px)`;
         row.classList.toggle('will-remove', Math.abs(dx) > THRESH);
       }
-    });
-    const endSwipe = () => {
-      if (mode === 'swipe' && Math.abs(dx) > THRESH) {
-        window.open(removeIssueUrl(row.dataset.id), '_blank', 'noopener');
-      }
-      if (mode === 'swipe') settle();
-      mode = null;
     };
-    row.addEventListener('pointerup', endSwipe);
-    row.addEventListener('pointercancel', () => { settle(); mode = null; });
+    const end = () => {
+      if (mode === 'swipe') { if (Math.abs(dx) > THRESH) removeTopic(row.dataset.id); settle(); }
+      active = false; mode = null;
+    };
+
+    row.addEventListener('touchstart', e => start(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    row.addEventListener('touchmove', e => move(e.touches[0].clientX, e.touches[0].clientY, e), { passive: false });
+    row.addEventListener('touchend', end);
+    row.addEventListener('touchcancel', () => { settle(); active = false; mode = null; });
+    row.addEventListener('mousedown', e => start(e.clientX, e.clientY));
+    window.addEventListener('mousemove', e => { if (active) move(e.clientX, e.clientY, e); });
+    window.addEventListener('mouseup', () => { if (active) end(); });
 
     row.addEventListener('click', () => {
       if (Math.abs(dx) > 10) { dx = 0; return; }   // that was a swipe, not a tap
@@ -370,6 +411,17 @@ function render(s) {
       slot.innerHTML = slot.innerHTML ? '' : detailHtml(byId[id]);
     });
   });
+}
+
+// How removal happens. When a serverless endpoint is configured (WORKER_URL),
+// this posts directly — no GitHub, no email. Otherwise it falls back to the
+// one-click GitHub issue.
+function removeTopic(id) {
+  if (window.WORKER_URL) {
+    postManage('remove', { id });
+  } else {
+    window.open(removeIssueUrl(id), '_blank', 'noopener');
+  }
 }
 
 fetch('snapshot.json?' + Date.now())

@@ -5,6 +5,8 @@ name: topic-remove
 on:
   issues:
     types: [opened]
+  repository_dispatch:            # from the serverless endpoint (no GitHub UI)
+    types: [topic-remove]
 
 concurrency:
   group: collect
@@ -13,8 +15,9 @@ concurrency:
 jobs:
   remove:
     if: >-
-      startsWith(github.event.issue.title, '[remove-topic]') &&
-      github.event.issue.user.login == github.event.repository.owner.login
+      github.event_name == 'repository_dispatch' ||
+      (startsWith(github.event.issue.title, '[remove-topic]') &&
+       github.event.issue.user.login == github.event.repository.owner.login)
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -33,6 +36,7 @@ jobs:
         id: rm
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
+          REMOVE_ID: ${{ github.event.client_payload.id }}
         run: |
           set +e
           python remove_topic.py | tee /tmp/out.txt
@@ -56,7 +60,7 @@ jobs:
           git push
 
       - name: Reply and close the issue
-        if: always()
+        if: always() && github.event_name == 'issues'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
