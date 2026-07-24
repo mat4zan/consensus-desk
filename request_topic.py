@@ -44,11 +44,20 @@ STOP = {"will", "the", "any", "before", "after", "by", "in", "on", "of", "to",
         "2025", "2026", "2027", "reach", "above", "below", "topic", "add"}
 
 
+def normalize_nums(text: str) -> str:
+    """
+    Make money/number mentions comparable across venues: "$150,000", "150k",
+    "1.5m" all become plain digits. Prediction markets phrase the same threshold
+    every which way, so matching fails without this.
+    """
+    t = text.lower().replace(",", "")
+    t = re.sub(r"\$?(\d+(?:\.\d+)?)\s*k\b", lambda m: str(int(float(m.group(1)) * 1_000)), t)
+    t = re.sub(r"\$?(\d+(?:\.\d+)?)\s*m\b", lambda m: str(int(float(m.group(1)) * 1_000_000)), t)
+    return t.replace("$", " ")
+
+
 def keywords(text: str) -> list[str]:
-    # Strip $ and thousands commas so "$200,000" stays one token ("200000")
-    # instead of splitting into "200"/"000" and breaking Manifold's search.
-    cleaned = text.lower().replace(",", "").replace("$", " ")
-    words = re.findall(r"[a-z0-9]+", cleaned)
+    words = re.findall(r"[a-z0-9]+", normalize_nums(text))
     return [w for w in words if len(w) > 2 and w not in STOP]
 
 
@@ -71,7 +80,7 @@ def search_polymarket(kws: list[str], limit: int = 12) -> list[dict]:
         markets += b
     out = []
     for m in markets:
-        q = (m.get("question") or "").lower()
+        q = normalize_nums(m.get("question") or "")
         hits = sum(1 for k in kws if k in q)
         if hits:
             out.append({"venue": "polymarket", "id": m.get("slug"),
@@ -82,18 +91,34 @@ def search_polymarket(kws: list[str], limit: int = 12) -> list[dict]:
     return out[:limit]
 
 
-def search_manifold(request: str, limit: int = 8) -> list[dict]:
+def _manifold_query(term: str, limit: int) -> list:
     try:
         r = requests.get("https://api.manifold.markets/v0/search-markets",
-                         params={"term": request, "filter": "open",
+                         params={"term": term, "filter": "open",
                                  "contractType": "BINARY", "sort": "liquidity", "limit": limit},
                          headers=UA, timeout=T)
         r.raise_for_status()
+        return r.json()
     except Exception:
         return []
-    return [{"venue": "manifold", "id": m.get("slug"), "question": m.get("question"),
-             "prob": m.get("probability"), "bettors": m.get("uniqueBettorCount")}
-            for m in r.json()]
+
+
+def search_manifold(kws: list[str], limit: int = 8) -> list[dict]:
+    # Manifold's fulltext is finicky: try the full keyword query, then fall back
+    # to the most salient single keyword so we don't miss on phrasing.
+    terms = [" ".join(kws)]
+    if kws:
+        terms.append(max(kws, key=len))
+    seen = {}
+    for term in terms:
+        for m in _manifold_query(term, limit):
+            slug = m.get("slug")
+            if slug and slug not in seen:
+                seen[slug] = {"venue": "manifold", "id": slug, "question": m.get("question"),
+                              "prob": m.get("probability"), "bettors": m.get("uniqueBettorCount")}
+        if len(seen) >= 3:
+            break
+    return list(seen.values())[:limit]
 
 
 def search_predictit(kws: list[str], limit: int = 10) -> list[dict]:
@@ -105,8 +130,8 @@ def search_predictit(kws: list[str], limit: int = 10) -> list[dict]:
         return []
     out = []
     for mk in markets:
-        name = (mk.get("name") or "") + " " + (mk.get("shortName") or "")
-        hits = sum(1 for k in kws if k in name.lower())
+        name = normalize_nums((mk.get("name") or "") + " " + (mk.get("shortName") or ""))
+        hits = sum(1 for k in kws if k in name)
         if hits:
             out.append({"venue": "predictit", "id": mk.get("id"),
                         "question": mk.get("shortName"),
@@ -270,7 +295,7 @@ def main() -> int:
     kws = keywords(request)
     candidates = {
         "polymarket": search_polymarket(kws),
-        "manifold": search_manifold(" ".join(kws) or request),
+        "manifold": search_manifold(kws),
         "predictit": search_predictit(kws),
     }
     n = sum(len(v) for v in candidates.values())
