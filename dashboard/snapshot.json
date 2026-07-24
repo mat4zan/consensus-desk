@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T12:39:57.926595+00:00",
+  "generated_at": "2026-07-24T12:40:44.855819+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -48,7 +48,7 @@
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria note flags an apparent paradox: Manifold's \"any point in 2026\" framing should yield a *higher* probability than Polymarket's \"in force at year-end\" (since a ceasefire could occur and collapse), yet Manifold is 15pp lower. This suggests the gap is driven primarily by venue and participant differences \u2014 Polymarket attracts higher-stakes, more liquid markets with participants who may be more optimistic about near-term diplomacy, while Manifold's play-money environment draws a different crowd with systematically different priors. The criteria mismatch actually works against explaining the direction of the gap, meaning the underlying disagreement about geopolitical likelihood is the dominant driver here.",
+      "explanation": "The resolution criteria difference actually runs against the observed spread: Manifold's \"any point in 2026\" framing should yield a *higher* probability than Polymarket's \"in force at year-end\" (since a ceasefire could occur and collapse), yet Manifold is 15pp lower. This suggests the gap is driven by venue and participant differences\u2014Polymarket attracts higher-volume traders with real financial stakes who may be pricing in active diplomatic momentum (Trump-era negotiations), while Manifold's play-money environment draws a different forecaster pool that appears more skeptical of a durable agreement materializing. The criteria mismatch cannot explain the direction of the spread, so this is genuine disagreement about the underlying likelihood.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -163,6 +163,10 @@
         },
         {
           "ts": "2026-07-24T12:39:53.039259+00:00",
+          "p": 27.38
+        },
+        {
+          "ts": "2026-07-24T12:40:39.755192+00:00",
           "p": 27.38
         }
       ],
@@ -315,6 +319,10 @@
         {
           "ts": "2026-07-24T12:39:57.907551+00:00",
           "p": 21.56
+        },
+        {
+          "ts": "2026-07-24T12:40:44.846215+00:00",
+          "p": 21.56
         }
       ],
       "expiry": "2027-01-01"
@@ -463,6 +471,10 @@
         },
         {
           "ts": "2026-07-24T12:39:57.909703+00:00",
+          "p": 6.11
+        },
+        {
+          "ts": "2026-07-24T12:40:44.847917+00:00",
           "p": 6.11
         }
       ],
@@ -616,6 +628,10 @@
         {
           "ts": "2026-07-24T12:39:52.938920+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:40:39.752423+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -757,6 +773,10 @@
         {
           "ts": "2026-07-24T12:39:57.911244+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-24T12:40:44.849712+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -890,6 +910,10 @@
         {
           "ts": "2026-07-24T12:39:57.913259+00:00",
           "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:40:44.851338+00:00",
+          "p": 58.0
         }
       ],
       "expiry": "2026-11-04"
@@ -992,6 +1016,10 @@
         },
         {
           "ts": "2026-07-24T12:39:57.914792+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:40:44.853351+00:00",
           "p": 8.05
         }
       ],
@@ -1108,80 +1136,13 @@
         {
           "ts": "2026-07-24T12:39:57.923990+00:00",
           "p": 0.75
+        },
+        {
+          "ts": "2026-07-24T12:40:44.854664+00:00",
+          "p": 0.75
         }
       ],
       "expiry": "2026-07-31"
-    },
-    {
-      "id": "will_democrats_win_back_the_house_in_2026",
-      "question": "Will Democrats win back the House in 2026 ?",
-      "domain": "other",
-      "probability": 82.3,
-      "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
-      "contributions": [
-        {
-          "source": "manifold",
-          "probability": 0.8228,
-          "adjusted": 0.8228,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 5.6,
-          "stale": false,
-          "volume_usd": 4823.476419225722
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-07-24T07:05:29.449631+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T07:54:08.592600+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T08:33:22.116976+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T11:12:14.521560+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T11:58:24.153537+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T12:01:21.327280+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T12:16:17.191296+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T12:19:39.759880+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T12:26:00.686300+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T12:32:20.247659+00:00",
-          "p": 82.28
-        },
-        {
-          "ts": "2026-07-24T12:39:57.925331+00:00",
-          "p": 82.28
-        }
-      ],
-      "expiry": "2026-11-03"
     }
   ]
 }
