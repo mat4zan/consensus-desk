@@ -322,8 +322,12 @@ function detailHtml(t) {
 }
 
 function render(s) {
+  const upd = new Date(s.generated_at);
+  const local = upd.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+  const mins = Math.max(0, Math.round((Date.now() - upd.getTime()) / 60000));
+  const rel = mins < 1 ? 'just now' : mins < 60 ? mins + 'm ago' : Math.round(mins / 60) + 'h ago';
   document.getElementById('stamp').textContent =
-    'last update: ' + s.generated_at.slice(0, 16).replace('T', ' ') + 'Z · ' + s.topics.length + ' topics';
+    'last update: ' + local + ' (' + rel + ') · ' + s.topics.length + ' topics';
   document.getElementById('foot-method').textContent =
     `pooling ${s.method} · extremize ${s.extremize} · weights ${s.weight_strategy} (${s.n_resolved} resolved)`;
   // Show weights only for sources actually contributing to the board.

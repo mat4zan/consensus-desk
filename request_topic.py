@@ -56,9 +56,19 @@ def normalize_nums(text: str) -> str:
     return t.replace("$", " ")
 
 
+# Common tickers/abbreviations markets phrase differently than users type.
+SYN = {"btc": "bitcoin", "bitcoin": "btc", "eth": "ethereum", "ethereum": "eth",
+       "sol": "solana", "solana": "sol", "doge": "dogecoin", "dogecoin": "doge",
+       "potus": "president", "gop": "republican", "dems": "democratic",
+       "fed": "federal reserve", "recession": "recession"}
+
+
 def keywords(text: str) -> list[str]:
     words = re.findall(r"[a-z0-9]+", normalize_nums(text))
-    return [w for w in words if len(w) > 2 and w not in STOP]
+    kws = [w for w in words if len(w) > 2 and w not in STOP]
+    extra = [SYN[w] for w in kws if w in SYN]     # e.g. "btc" -> also match "bitcoin"
+    # keep order, drop dupes
+    return list(dict.fromkeys(kws + [w for pair in extra for w in pair.split()]))
 
 
 # --------------------------------------------------------------- venue search
