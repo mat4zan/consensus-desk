@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T03:14:00.681142+00:00",
+  "generated_at": "2026-07-24T06:28:51.759172+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,26 +15,38 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 0,
-  "alerts": [],
+  "alerts": [
+    {
+      "topic_id": "us_invade_iran_2027",
+      "kind": "move_24h",
+      "headline": "US invades Iran before 2027 moved down 6.6pp",
+      "detail": {
+        "from": 29.5,
+        "to": 22.9,
+        "delta_pp": -6.6,
+        "window_hours": 24
+      }
+    }
+  ],
   "topics": [
     {
       "id": "ru_ua_ceasefire_2026",
       "question": "Russia-Ukraine ceasefire agreement by year end 2026",
       "domain": "geopolitics",
-      "probability": 26.7,
-      "delta_24h_pp": -8.8,
-      "spread_pp": 14.1,
+      "probability": 27.4,
+      "delta_24h_pp": -8.1,
+      "spread_pp": 15.1,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.355,
-          "adjusted": 0.355,
+          "probability": 0.365,
+          "adjusted": 0.365,
           "weight": 0.34,
           "raw_weight": 0.34,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 2045047.772812004
+          "volume_usd": 2045337.5301050039
         },
         {
           "source": "manifold",
@@ -42,8 +54,8 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.9,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 13149.933978965888
         }
       ],
@@ -116,6 +128,10 @@
         {
           "ts": "2026-07-24T03:14:00.672362+00:00",
           "p": 26.71
+        },
+        {
+          "ts": "2026-07-24T06:28:50.977631+00:00",
+          "p": 27.38
         }
       ],
       "expiry": "2026-12-31"
@@ -124,20 +140,20 @@
       "id": "us_invade_iran_2027",
       "question": "US invades Iran before 2027",
       "domain": "geopolitics",
-      "probability": 23.6,
-      "delta_24h_pp": -4.9,
-      "spread_pp": 8.7,
+      "probability": 22.9,
+      "delta_24h_pp": -6.6,
+      "spread_pp": 7.7,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.305,
-          "adjusted": 0.305,
+          "probability": 0.295,
+          "adjusted": 0.295,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 8.9,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 46398309.869292185
+          "volume_usd": 46536362.392312236
         },
         {
           "source": "manifold",
@@ -145,8 +161,8 @@
           "adjusted": 0.2182,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.9,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 83700.17157033243
         }
       ],
@@ -219,6 +235,10 @@
         {
           "ts": "2026-07-24T03:14:00.673703+00:00",
           "p": 23.57
+        },
+        {
+          "ts": "2026-07-24T06:28:51.749401+00:00",
+          "p": 22.9
         }
       ],
       "expiry": "2027-01-01"
@@ -227,9 +247,9 @@
       "id": "iran_regime_fall_2026",
       "question": "Iranian regime falls before 2027",
       "domain": "geopolitics",
-      "probability": 6.0,
-      "delta_24h_pp": -4.5,
-      "spread_pp": 3.4,
+      "probability": 6.1,
+      "delta_24h_pp": -4.4,
+      "spread_pp": 3.1,
       "n_sources": 2,
       "contributions": [
         {
@@ -238,19 +258,19 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 9.2,
-          "stale": false,
+          "age_hours": 12.5,
+          "stale": true,
           "volume_usd": 22928932.39597328
         },
         {
           "source": "manifold",
-          "probability": 0.0715,
-          "adjusted": 0.0715,
+          "probability": 0.0737,
+          "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.9,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 2934917.3031109455
+          "volume_usd": 2935012.7356325327
         }
       ],
       "excluded": [],
@@ -320,6 +340,10 @@
         {
           "ts": "2026-07-24T03:14:00.674944+00:00",
           "p": 6.03
+        },
+        {
+          "ts": "2026-07-24T06:28:51.752422+00:00",
+          "p": 6.11
         }
       ],
       "expiry": "2027-01-01"
@@ -328,20 +352,20 @@
       "id": "taiwan_invasion_2027",
       "question": "China invades Taiwan before 2028",
       "domain": "geopolitics",
-      "probability": 9.5,
-      "delta_24h_pp": -2.0,
-      "spread_pp": 2.3,
+      "probability": 8.9,
+      "delta_24h_pp": -2.6,
+      "spread_pp": 3.3,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.125,
-          "adjusted": 0.125,
+          "probability": 0.115,
+          "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 18.6,
-          "stale": true,
-          "volume_usd": 2173762.453269001
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2176961.3125100015
         },
         {
           "source": "manifold",
@@ -349,8 +373,8 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.9,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 177687.71553867203
         }
       ],
@@ -424,6 +448,10 @@
         {
           "ts": "2026-07-24T03:14:00.670585+00:00",
           "p": 9.49
+        },
+        {
+          "ts": "2026-07-24T06:28:50.975788+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -443,7 +471,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 31.7,
+          "age_hours": 34.9,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -517,6 +545,10 @@
         {
           "ts": "2026-07-24T03:14:00.676463+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-24T06:28:51.753837+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -536,7 +568,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 8.6,
+          "age_hours": 11.8,
           "stale": false,
           "volume_usd": 1461889.8463780135
         },
@@ -546,7 +578,7 @@
           "adjusted": 0.5587,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 3.2,
           "stale": false,
           "volume_usd": 88229.40441495574
         },
@@ -556,7 +588,7 @@
           "adjusted": 0.6,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 8.6,
+          "age_hours": 11.8,
           "stale": false,
           "volume_usd": null
         }
@@ -602,6 +634,10 @@
         {
           "ts": "2026-07-24T03:14:00.677716+00:00",
           "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T06:28:51.755207+00:00",
+          "p": 58.16
         }
       ],
       "expiry": "2026-11-04"
@@ -621,7 +657,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.4,
+          "age_hours": 10.6,
           "stale": false,
           "volume_usd": 2295787.97671999
         },
@@ -631,7 +667,7 @@
           "adjusted": 0.1398,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.3,
+          "age_hours": 10.6,
           "stale": false,
           "volume_usd": 1540.3791175474698
         }
@@ -657,6 +693,10 @@
         {
           "ts": "2026-07-24T03:14:00.678893+00:00",
           "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T06:28:51.757002+00:00",
+          "p": 7.42
         }
       ],
       "expiry": "2026-12-31"
@@ -676,7 +716,7 @@
           "adjusted": 0.0075,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 3.2,
           "stale": false,
           "volume_usd": 9652.057930824965
         }
@@ -723,6 +763,10 @@
         },
         {
           "ts": "2026-07-24T03:14:00.680109+00:00",
+          "p": 0.75
+        },
+        {
+          "ts": "2026-07-24T06:28:51.758101+00:00",
           "p": 0.75
         }
       ],
