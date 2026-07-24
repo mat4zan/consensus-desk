@@ -241,18 +241,6 @@ topics:
       polymarket:
         id: "will-bitcoin-reach-200000-by-december-31-2026-752-232-389"
 
-  - id: bitcoin_150k_by_end_2026
-    question: "Will Bitcoin reach $150,000 by the end of 2026?"
-    domain: crypto
-    resolution: >
-      Resolves YES if Bitcoin (BTC-USD) trades at or above $150,000 at any point from January 1, 2026 through December 31, 2026, based on standard price index data.
-    expiry: 2026-12-31
-    review: 2026-12-31
-    # Auto-added from a topic request on 2026-07-24.
-    sources:
-      polymarket:
-        id: "will-bitcoin-reach-150000-by-december-31-2026-557-246-971"
-
   - id: republican_win_2028_us_presidential_election
     question: "Will the Republican party win the 2028 US presidential election?"
     domain: elections

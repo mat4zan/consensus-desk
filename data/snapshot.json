@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T12:16:17.195797+00:00",
+  "generated_at": "2026-07-24T12:19:39.763054+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -42,13 +42,13 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 17.9,
+          "age_hours": 18.0,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria difference actually works against Manifold being lower: \"ceasefire at any point in 2026\" should yield a *higher* probability than \"in force at year-end,\" since the latter requires the ceasefire to both occur and hold. The fact that Manifold is instead 15pp *lower* suggests genuine disagreement about underlying likelihood, likely driven by differences in the participant pools \u2014 Polymarket attracts financially incentivized traders who may be pricing in active diplomacy signals, while Manifold's play-money participants may reflect a more skeptical baseline about Russia-Ukraine negotiations reaching a full bilateral agreement.",
+      "explanation": "The resolution criteria difference actually runs *against* Manifold's lower probability \u2014 \"ceasefire at any point in 2026\" should be easier to satisfy than \"in force on December 31,\" since a ceasefire could occur and collapse before year-end. The fact that Manifold is lower despite the broader window points to a genuine disagreement about likelihood, likely driven by audience composition: Polymarket attracts financially-motivated forecasters who may be pricing in active diplomatic momentum (Trump-era negotiations, etc.), while Manifold's play-money environment draws a different forecaster pool that may be more skeptical of Russian compliance or deal durability. The 15pp gap is thus a real divergence in assessed probability, not merely a criteria mismatch.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -148,6 +148,10 @@
         {
           "ts": "2026-07-24T12:16:12.306294+00:00",
           "p": 27.38
+        },
+        {
+          "ts": "2026-07-24T12:19:35.070523+00:00",
+          "p": 27.38
         }
       ],
       "expiry": "2026-12-31"
@@ -177,7 +181,7 @@
           "adjusted": 0.2023,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 3.7,
+          "age_hours": 3.8,
           "stale": false,
           "volume_usd": 84200.17157033243
         }
@@ -282,6 +286,10 @@
         },
         {
           "ts": "2026-07-24T12:16:17.182461+00:00",
+          "p": 22.21
+        },
+        {
+          "ts": "2026-07-24T12:19:39.749787+00:00",
           "p": 22.21
         }
       ],
@@ -416,6 +424,10 @@
         {
           "ts": "2026-07-24T12:16:17.184189+00:00",
           "p": 6.11
+        },
+        {
+          "ts": "2026-07-24T12:19:39.752176+00:00",
+          "p": 6.11
         }
       ],
       "expiry": "2027-01-01"
@@ -445,7 +457,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 17.9,
+          "age_hours": 18.0,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -552,6 +564,10 @@
         {
           "ts": "2026-07-24T12:16:12.304125+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:19:35.067959+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -571,7 +587,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 40.7,
+          "age_hours": 40.8,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -677,6 +693,10 @@
         {
           "ts": "2026-07-24T12:16:17.185548+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-24T12:19:39.754478+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -696,7 +716,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 17.6,
+          "age_hours": 17.7,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -706,7 +726,7 @@
           "adjusted": 0.5544,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 88255.99441495574
         },
@@ -716,7 +736,7 @@
           "adjusted": 0.6,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 17.6,
+          "age_hours": 17.7,
           "stale": true,
           "volume_usd": null
         }
@@ -794,6 +814,10 @@
         {
           "ts": "2026-07-24T12:16:17.187215+00:00",
           "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:19:39.755966+00:00",
+          "p": 58.0
         }
       ],
       "expiry": "2026-11-04"
@@ -813,7 +837,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.3,
+          "age_hours": 0.4,
           "stale": false,
           "volume_usd": 2297541.3003549906
         },
@@ -881,6 +905,10 @@
         {
           "ts": "2026-07-24T12:16:17.188593+00:00",
           "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:19:39.757703+00:00",
+          "p": 8.05
         }
       ],
       "expiry": "2026-12-31"
@@ -900,7 +928,7 @@
           "adjusted": 0.0075,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 9.0,
+          "age_hours": 9.1,
           "stale": false,
           "volume_usd": 9652.057930824965
         }
@@ -980,6 +1008,10 @@
         {
           "ts": "2026-07-24T12:16:17.190155+00:00",
           "p": 0.75
+        },
+        {
+          "ts": "2026-07-24T12:19:39.758771+00:00",
+          "p": 0.75
         }
       ],
       "expiry": "2026-07-31"
@@ -1035,6 +1067,10 @@
         {
           "ts": "2026-07-24T12:16:17.191296+00:00",
           "p": 82.28
+        },
+        {
+          "ts": "2026-07-24T12:19:39.759880+00:00",
+          "p": 82.28
         }
       ],
       "expiry": "2026-11-03"
@@ -1078,45 +1114,10 @@
         {
           "ts": "2026-07-24T12:16:17.192459+00:00",
           "p": 1.69
-        }
-      ],
-      "expiry": "2026-12-31"
-    },
-    {
-      "id": "bitcoin_150k_by_end_2026",
-      "question": "Will Bitcoin reach $150,000 by the end of 2026?",
-      "domain": "crypto",
-      "probability": 2.3,
-      "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.031,
-          "adjusted": 0.0232,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 0.3,
-          "stale": false,
-          "volume_usd": 1034982.1906520004
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-07-24T11:58:24.156172+00:00",
-          "p": 2.33
         },
         {
-          "ts": "2026-07-24T12:01:21.329451+00:00",
-          "p": 2.33
-        },
-        {
-          "ts": "2026-07-24T12:16:17.193473+00:00",
-          "p": 2.33
+          "ts": "2026-07-24T12:19:39.760919+00:00",
+          "p": 1.69
         }
       ],
       "expiry": "2026-12-31"
@@ -1161,6 +1162,10 @@
         },
         {
           "ts": "2026-07-24T12:16:17.194663+00:00",
+          "p": 40.74
+        },
+        {
+          "ts": "2026-07-24T12:19:39.762046+00:00",
           "p": 40.74
         }
       ],
