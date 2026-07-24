@@ -49,8 +49,12 @@ h1{font-family:Newsreader,serif;font-size:34px;font-weight:400;letter-spacing:-.
 .quiet{color:var(--ink-3);font-size:14px;padding:14px 0}
 
 .row{display:grid;grid-template-columns:1fr 108px 92px;gap:18px;align-items:center;
-  padding:16px 0;border-bottom:1px solid var(--rule);cursor:pointer}
+  padding:16px 0;border-bottom:1px solid var(--rule);cursor:pointer;
+  background:var(--paper);touch-action:pan-y;will-change:transform}
 .row:hover{background:var(--panel)}
+.row.will-remove{background:var(--up)}
+.row.will-remove .row-q,.row.will-remove .row-p{color:#fff}
+.row.will-remove .row-meta{color:rgba(255,255,255,.75)}
 .row-q{font-size:15px}
 .row-meta{font-size:11px;color:var(--ink-3);margin-top:3px;letter-spacing:.03em}
 .row-val{text-align:right}
@@ -207,6 +211,13 @@ function spark(hist, w = 100, h = 26) {
 }
 
 // Full-width line chart for the detail panel (visible on mobile too).
+function removeIssueUrl(id) {
+  const body = 'Requested from the dashboard. The line below is machine-read; leave it intact.'
+    + '\n\nremove: ' + id;
+  return 'https://github.com/' + REPO + '/issues/new?title='
+    + encodeURIComponent('[remove-topic] ' + id) + '&body=' + encodeURIComponent(body);
+}
+
 function bigChart(hist) {
   if (!hist || hist.length < 2)
     return '<div class="chart-cap mono">Not enough history yet for a chart.</div>';
@@ -256,10 +267,7 @@ function detailHtml(t) {
   const exc = (t.excluded || []).length
     ? `<div class="crit" style="margin-top:12px">Excluded: ${t.excluded.map(e => esc(e.source) + ' (' + esc(e.reason) + ')').join(', ')}</div>`
     : '';
-  const rmBody = 'Requested from the dashboard. The line below is machine-read; leave it intact.'
-    + '\n\nremove: ' + t.id;
-  const rmUrl = 'https://github.com/' + REPO + '/issues/new?title='
-    + encodeURIComponent('[remove-topic] ' + t.id) + '&body=' + encodeURIComponent(rmBody);
+  const rmUrl = removeIssueUrl(t.id);
   return `<div class="detail">
     <div class="detail-head">
       <span class="detail-q">${esc(t.question)}</span>
@@ -320,8 +328,43 @@ function render(s) {
   document.getElementById('app').innerHTML = parts.join('');
 
   const byId = Object.fromEntries(s.topics.map(t => [t.id, t]));
+  const THRESH = 90;              // px past which a swipe removes
   document.querySelectorAll('.row').forEach(row => {
+    let sx = 0, sy = 0, mode = null, dx = 0;   // mode: null | 'swipe' | 'scroll'
+
+    const settle = () => { row.style.transition = 'transform .18s ease';
+      row.style.transform = ''; row.classList.remove('will-remove'); };
+
+    row.addEventListener('pointerdown', e => {
+      sx = e.clientX; sy = e.clientY; mode = null; dx = 0; row.style.transition = 'none';
+    });
+    row.addEventListener('pointermove', e => {
+      if (e.pointerType === 'mouse' && e.buttons === 0) return;
+      const mx = e.clientX - sx, my = e.clientY - sy;
+      if (mode === null) {
+        if (Math.abs(mx) > 10 && Math.abs(mx) > Math.abs(my) + 4) {
+          mode = 'swipe'; try { row.setPointerCapture(e.pointerId); } catch (_) {}
+        } else if (Math.abs(my) > 10) { mode = 'scroll'; }
+      }
+      if (mode === 'swipe') {
+        e.preventDefault();
+        dx = Math.max(-150, Math.min(150, mx));
+        row.style.transform = `translateX(${dx}px)`;
+        row.classList.toggle('will-remove', Math.abs(dx) > THRESH);
+      }
+    });
+    const endSwipe = () => {
+      if (mode === 'swipe' && Math.abs(dx) > THRESH) {
+        window.open(removeIssueUrl(row.dataset.id), '_blank', 'noopener');
+      }
+      if (mode === 'swipe') settle();
+      mode = null;
+    };
+    row.addEventListener('pointerup', endSwipe);
+    row.addEventListener('pointercancel', () => { settle(); mode = null; });
+
     row.addEventListener('click', () => {
+      if (Math.abs(dx) > 10) { dx = 0; return; }   // that was a swipe, not a tap
       const id = row.dataset.id;
       const slot = document.querySelector(`[data-slot="${id}"]`);
       slot.innerHTML = slot.innerHTML ? '' : detailHtml(byId[id]);
