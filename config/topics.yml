@@ -194,19 +194,3 @@ topics:
       manifold:
         id: "will-bitcoin-exceed-100000-before-d"
 
-  # Short-horizon topic on purpose: it resolves within days, so the full
-  # collect -> pool -> resolve -> score loop can be exercised end-to-end
-  # quickly rather than waiting months. Resolve it with:
-  #   python run.py resolve --topic xi_us_visit_july --outcome 0|1
-  - id: xi_us_visit_july
-    question: "Xi Jinping visits the USA before August 2026"
-    domain: geopolitics
-    resolution: >
-      Xi Jinping sets foot on US soil in an official capacity before
-      2026-08-01, per credible reporting.
-    expiry: 2026-07-31
-    review: 2026-07-30
-    sources:
-      manifold:
-        id: "xi-jingping-visits-usa-before-july"
-

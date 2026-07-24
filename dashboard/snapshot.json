@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T12:40:44.855819+00:00",
+  "generated_at": "2026-07-24T12:49:38.385121+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -32,7 +32,7 @@
           "adjusted": 0.365,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 6.2,
+          "age_hours": 6.3,
           "stale": false,
           "volume_usd": 2045337.5301050039
         },
@@ -42,13 +42,13 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 18.3,
+          "age_hours": 18.5,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria difference actually runs against the observed spread: Manifold's \"any point in 2026\" framing should yield a *higher* probability than Polymarket's \"in force at year-end\" (since a ceasefire could occur and collapse), yet Manifold is 15pp lower. This suggests the gap is driven by venue and participant differences\u2014Polymarket attracts higher-volume traders with real financial stakes who may be pricing in active diplomatic momentum (Trump-era negotiations), while Manifold's play-money environment draws a different forecaster pool that appears more skeptical of a durable agreement materializing. The criteria mismatch cannot explain the direction of the spread, so this is genuine disagreement about the underlying likelihood.",
+      "explanation": "The resolution criteria difference actually runs against the observed gap: Manifold's \"any point in 2026\" framing should yield a *higher* probability than Polymarket's \"in force at year-end\" (since a ceasefire could be signed then collapse), yet Manifold is 15pp lower. This points to venue and participant differences\u2014Polymarket attracts larger, more sophisticated traders with real financial stakes, while Manifold uses play-money, and Polymarket's market may also reflect more optimism following recent diplomatic signals that hadn't fully propagated to Manifold at time of measurement. The gap is therefore primarily a market-structure and participant-sophistication difference, with the criteria mismatch working in the opposite direction and thus likely masking an even larger underlying disagreement about the probability itself.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -168,6 +168,10 @@
         {
           "ts": "2026-07-24T12:40:39.755192+00:00",
           "p": 27.38
+        },
+        {
+          "ts": "2026-07-24T12:49:32.696885+00:00",
+          "p": 27.38
         }
       ],
       "expiry": "2026-12-31"
@@ -187,7 +191,7 @@
           "adjusted": 0.285,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 46607685.66707231
         },
@@ -197,7 +201,7 @@
           "adjusted": 0.2023,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.1,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 84200.17157033243
         }
@@ -323,6 +327,10 @@
         {
           "ts": "2026-07-24T12:40:44.846215+00:00",
           "p": 21.56
+        },
+        {
+          "ts": "2026-07-24T12:49:38.377995+00:00",
+          "p": 21.56
         }
       ],
       "expiry": "2027-01-01"
@@ -342,7 +350,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 18.7,
+          "age_hours": 18.8,
           "stale": true,
           "volume_usd": 22928932.39597328
         },
@@ -352,7 +360,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 6.2,
+          "age_hours": 6.3,
           "stale": false,
           "volume_usd": 2935012.7356325327
         }
@@ -476,6 +484,10 @@
         {
           "ts": "2026-07-24T12:40:44.847917+00:00",
           "p": 6.11
+        },
+        {
+          "ts": "2026-07-24T12:49:38.379836+00:00",
+          "p": 6.11
         }
       ],
       "expiry": "2027-01-01"
@@ -495,7 +507,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 6.2,
+          "age_hours": 6.3,
           "stale": false,
           "volume_usd": 2176961.3125100015
         },
@@ -505,7 +517,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 18.3,
+          "age_hours": 18.5,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -632,6 +644,10 @@
         {
           "ts": "2026-07-24T12:40:39.752423+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:49:32.694269+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -651,7 +667,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 41.1,
+          "age_hours": 41.3,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -777,6 +793,10 @@
         {
           "ts": "2026-07-24T12:40:44.849712+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-24T12:49:38.381060+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -796,7 +816,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 18.0,
+          "age_hours": 18.2,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -806,7 +826,7 @@
           "adjusted": 0.5544,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.4,
+          "age_hours": 0.6,
           "stale": false,
           "volume_usd": 88255.99441495574
         },
@@ -816,7 +836,7 @@
           "adjusted": 0.6,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 18.0,
+          "age_hours": 18.2,
           "stale": true,
           "volume_usd": null
         }
@@ -914,6 +934,10 @@
         {
           "ts": "2026-07-24T12:40:44.851338+00:00",
           "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:49:38.382564+00:00",
+          "p": 58.0
         }
       ],
       "expiry": "2026-11-04"
@@ -933,7 +957,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.7,
+          "age_hours": 0.9,
           "stale": false,
           "volume_usd": 2297541.3003549906
         },
@@ -943,7 +967,7 @@
           "adjusted": 0.1398,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 16.8,
+          "age_hours": 16.9,
           "stale": true,
           "volume_usd": 1540.3791175474698
         }
@@ -1021,128 +1045,13 @@
         {
           "ts": "2026-07-24T12:40:44.853351+00:00",
           "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:49:38.383793+00:00",
+          "p": 8.05
         }
       ],
       "expiry": "2026-12-31"
-    },
-    {
-      "id": "xi_us_visit_july",
-      "question": "Xi Jinping visits the USA before August 2026",
-      "domain": "geopolitics",
-      "probability": 0.8,
-      "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
-      "contributions": [
-        {
-          "source": "manifold",
-          "probability": 0.01,
-          "adjusted": 0.0075,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 9.4,
-          "stale": false,
-          "volume_usd": 9652.057930824965
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-07-23T18:21:26.943867+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T18:38:44.633760+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T18:50:00.987910+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T18:54:48.928991+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T19:24:39.469768+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T19:26:28.035542+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T19:50:53.980985+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T19:52:37.051635+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-23T19:53:53.941450+00:00",
-          "p": 1.8
-        },
-        {
-          "ts": "2026-07-24T03:14:00.680109+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T06:28:51.758101+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T07:05:29.448768+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T07:54:08.591070+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T08:33:22.115812+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T11:12:14.520394+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T11:58:24.152391+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T12:01:21.326247+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T12:16:17.190155+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T12:19:39.758771+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T12:26:00.685237+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T12:32:20.244164+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T12:39:57.923990+00:00",
-          "p": 0.75
-        },
-        {
-          "ts": "2026-07-24T12:40:44.854664+00:00",
-          "p": 0.75
-        }
-      ],
-      "expiry": "2026-07-31"
     }
   ]
 }
