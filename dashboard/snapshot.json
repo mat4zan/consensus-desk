@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T13:54:09.770196+00:00",
+  "generated_at": "2026-07-24T15:40:59.449253+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -32,7 +32,7 @@
           "adjusted": 0.365,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.4,
+          "age_hours": 9.2,
           "stale": false,
           "volume_usd": 2045337.5301050039
         },
@@ -42,13 +42,13 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 19.5,
+          "age_hours": 21.3,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria difference actually runs *against* the direction of the gap: Manifold's \"at any point in 2026\" framing should yield a higher probability than Polymarket's \"in force at year-end\" (since a ceasefire could be agreed and then collapse before December 31), yet Manifold is 15pp lower. This suggests the gap is primarily a venue/crowd composition difference \u2014 Polymarket attracts higher-stakes, more financially motivated traders who may be pricing in recent diplomatic momentum more aggressively, while Manifold's play-money environment tends to draw a different forecaster population with distinct updating behavior. There may also be a timing artifact, as the Polymarket price is 13 hours fresher and could reflect news cycles that Manifold participants haven't yet incorporated.",
+      "explanation": "The resolution criteria difference actually cuts against explaining the gap: Manifold's \"any point in 2026\" framing should yield a *higher* probability than Polymarket's \"in force at year-end,\" yet Manifold is 15pp lower, meaning the criteria mismatch masks an even larger underlying disagreement about likelihood. This reflects genuine divergence between the two platforms' user bases \u2014 Polymarket attracts financially-motivated traders with real-money stakes who may be pricing in recent diplomatic momentum (Trump-era pressure, ongoing negotiations), while Manifold's play-money environment draws a different forecaster population that appears more skeptical a full bilateral ceasefire materializes within this timeframe.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -176,6 +176,10 @@
         {
           "ts": "2026-07-24T13:54:04.298934+00:00",
           "p": 27.38
+        },
+        {
+          "ts": "2026-07-24T15:40:54.294594+00:00",
+          "p": 27.38
         }
       ],
       "expiry": "2026-12-31"
@@ -184,30 +188,30 @@
       "id": "us_invade_iran_2027",
       "question": "US invades Iran before 2027",
       "domain": "geopolitics",
-      "probability": 21.6,
-      "delta_24h_pp": -7.9,
-      "spread_pp": 8.3,
+      "probability": 22.3,
+      "delta_24h_pp": -7.2,
+      "spread_pp": 9.0,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.285,
-          "adjusted": 0.285,
+          "probability": 0.295,
+          "adjusted": 0.295,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 1.4,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 46607685.66707231
+          "volume_usd": 46700739.06544153
         },
         {
           "source": "manifold",
-          "probability": 0.2023,
-          "adjusted": 0.2023,
+          "probability": 0.2046,
+          "adjusted": 0.2046,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.3,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 84200.17157033243
+          "volume_usd": 84219.17157033243
         }
       ],
       "excluded": [],
@@ -339,6 +343,10 @@
         {
           "ts": "2026-07-24T13:54:09.763526+00:00",
           "p": 21.56
+        },
+        {
+          "ts": "2026-07-24T15:40:59.439789+00:00",
+          "p": 22.31
         }
       ],
       "expiry": "2027-01-01"
@@ -347,20 +355,20 @@
       "id": "iran_regime_fall_2026",
       "question": "Iranian regime falls before 2027",
       "domain": "geopolitics",
-      "probability": 6.1,
-      "delta_24h_pp": -4.4,
-      "spread_pp": 3.1,
+      "probability": 5.6,
+      "delta_24h_pp": -3.9,
+      "spread_pp": 2.1,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.105,
-          "adjusted": 0.105,
+          "probability": 0.095,
+          "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 19.9,
-          "stale": true,
-          "volume_usd": 22928932.39597328
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 23043847.619062264
         },
         {
           "source": "manifold",
@@ -368,7 +376,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.4,
+          "age_hours": 9.2,
           "stale": false,
           "volume_usd": 2935012.7356325327
         }
@@ -500,6 +508,10 @@
         {
           "ts": "2026-07-24T13:54:09.765136+00:00",
           "p": 6.11
+        },
+        {
+          "ts": "2026-07-24T15:40:59.441449+00:00",
+          "p": 5.63
         }
       ],
       "expiry": "2027-01-01"
@@ -519,7 +531,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.4,
+          "age_hours": 9.2,
           "stale": false,
           "volume_usd": 2176961.3125100015
         },
@@ -529,7 +541,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 19.5,
+          "age_hours": 21.3,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -664,6 +676,10 @@
         {
           "ts": "2026-07-24T13:54:04.296754+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T15:40:54.282655+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -683,7 +699,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 42.3,
+          "age_hours": 44.1,
           "stale": true,
           "volume_usd": 14065556.315077111
         }
@@ -817,6 +833,10 @@
         {
           "ts": "2026-07-24T13:54:09.766386+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-07-24T15:40:59.442580+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-07-31"
@@ -836,7 +856,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 19.3,
+          "age_hours": 21.0,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -846,7 +866,7 @@
           "adjusted": 0.5577,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 1.8,
           "stale": false,
           "volume_usd": 88502.14166957414
         },
@@ -856,7 +876,7 @@
           "adjusted": 0.61,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 0.0,
+          "age_hours": 1.8,
           "stale": false,
           "volume_usd": null
         }
@@ -962,6 +982,10 @@
         {
           "ts": "2026-07-24T13:54:09.767670+00:00",
           "p": 58.45
+        },
+        {
+          "ts": "2026-07-24T15:40:59.446933+00:00",
+          "p": 58.45
         }
       ],
       "expiry": "2026-11-04"
@@ -981,7 +1005,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 1.9,
+          "age_hours": 3.7,
           "stale": false,
           "volume_usd": 2297541.3003549906
         },
@@ -991,7 +1015,7 @@
           "adjusted": 0.1398,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 18.0,
+          "age_hours": 19.8,
           "stale": true,
           "volume_usd": 1540.3791175474698
         }
@@ -1076,6 +1100,10 @@
         },
         {
           "ts": "2026-07-24T13:54:09.768988+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T15:40:59.448033+00:00",
           "p": 8.05
         }
       ],
