@@ -222,22 +222,3 @@ topics:
       manifold:
         id: "will-democrats-win-back-the-house-i"
 
-  - id: bitcoin_200k_by_2026
-    question: "Will Bitcoin reach $200,000 by end of 2026?"
-    domain: crypto
-    resolution: >
-      Resolves YES if Bitcoin (BTC-USD) trades at or above $200,000 on any major exchange at any point before December 31, 2026, 23:59 UTC.
-    expiry: 2026-12-31
-    review: 2026-12-31
-    # Auto-added from a topic request on 2026-07-24.
-    oracle:
-      source: yahoo
-      symbol: BTC-USD
-      rule: crossed_above
-      threshold: 200000
-      window_start: 2026-01-01
-      by: 2026-12-31
-    sources:
-      polymarket:
-        id: "will-bitcoin-reach-200000-by-december-31-2026-752-232-389"
-
