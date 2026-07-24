@@ -30,22 +30,27 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
 
-      - name: Wire the picked market
+      - name: Wire the topic
         id: wire
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           set +e
-          python wire_market.py | tee /tmp/out.txt
+          # A plain-English "request:" runs the multi-source Claude matcher;
+          # a "venue:/id:" (manual pick) runs the no-LLM wiring.
+          REQ=$(printf '%s\n' "$ISSUE_BODY" | sed -n 's/^[[:space:]]*request:[[:space:]]*//p' | head -1)
+          if [ -n "$REQ" ]; then
+            echo "Mode: multi-source Claude match"
+            REQUEST_TEXT="$REQ" python request_topic.py | tee /tmp/out.txt
+          else
+            echo "Mode: manual pick"
+            python wire_market.py | tee /tmp/out.txt
+          fi
           if grep -q '^ADDED_TOPIC_ID=' /tmp/out.txt; then
             echo "added=true" >> $GITHUB_OUTPUT
-            echo "msg=✅ Added **$(grep '^ADDED_QUESTION=' /tmp/out.txt | cut -d= -f2-)** to the board. It will appear on the dashboard within a few minutes." >> $GITHUB_OUTPUT
-          elif grep -q '^ALREADY_EXISTS=' /tmp/out.txt; then
-            echo "added=false" >> $GITHUB_OUTPUT
-            echo "msg=ℹ️ That question is already tracked — nothing to add." >> $GITHUB_OUTPUT
           else
             echo "added=false" >> $GITHUB_OUTPUT
-            echo "msg=⚠️ Could not add that market (no live price or unsupported). Nothing changed." >> $GITHUB_OUTPUT
           fi
           exit 0
 
@@ -70,10 +75,22 @@ jobs:
           git push
 
       - name: Reply and close the issue
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh issue comment ${{ github.event.issue.number }} --body "${{ steps.wire.outputs.msg }}"
+          if grep -q '^ADDED_TOPIC_ID=' /tmp/out.txt 2>/dev/null; then
+            Q=$(grep '^ADDED_QUESTION=' /tmp/out.txt | cut -d= -f2-)
+            S=$(grep '^ADDED_SOURCES=' /tmp/out.txt | cut -d= -f2-)
+            printf '✅ Added **%s** to the board (sources: %s). Live on the dashboard in a few minutes.' \
+              "$Q" "${S:-manifold}" > /tmp/msg.txt
+          elif grep -q '^ALREADY_EXISTS=' /tmp/out.txt 2>/dev/null; then
+            printf 'ℹ️ That question looks already tracked — nothing to add.' > /tmp/msg.txt
+          else
+            R=$(grep '^REASON=' /tmp/out.txt 2>/dev/null | cut -d= -f2-)
+            printf '⚠️ Could not add it. %s' "${R:-Nothing changed.}" > /tmp/msg.txt
+          fi
+          gh issue comment ${{ github.event.issue.number }} --body-file /tmp/msg.txt
           gh issue close ${{ github.event.issue.number }}
 
   deploy:

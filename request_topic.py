@@ -227,18 +227,22 @@ def main() -> int:
           f"pi={len(candidates['predictit'])})")
     if n == 0:
         print("::warning::no candidate markets matched")
+        print("REASON=No prediction markets matched that request on any venue.")
         return 2
 
     result = choose_topic(request, candidates)
     if not result or not result.get("ok"):
-        print(f"::warning::no topic wired: {result.get('reason') if result else 'model error'}")
+        reason = (result.get("reason") if result else None) or "the matcher could not use the request"
+        print(f"::warning::no topic wired: {reason}")
+        print(f"REASON={reason}")
         return 2
     topic = result["topic"]
     print(f"Draft topic: {topic.get('id')} — {topic.get('question')}")
 
     if topic["id"] in existing_ids():
         print(f"::warning::topic id {topic['id']} already exists")
-        return 2
+        print("ALREADY_EXISTS=" + topic["id"])
+        return 0
 
     verified = {}
     for venue, scfg in (topic.get("sources") or {}).items():
@@ -248,6 +252,7 @@ def main() -> int:
             verified[venue] = scfg
     if not verified:
         print("::warning::no source verified with a live price")
+        print("REASON=A match was found but its market had no live price.")
         return 2
     topic["sources"] = verified
 
@@ -255,6 +260,8 @@ def main() -> int:
     path.write_text(path.read_text().rstrip() + "\n\n" + yaml_block(topic))
     print(f"::notice::Added topic '{topic['id']}' with sources: {', '.join(verified)}")
     print("ADDED_TOPIC_ID=" + topic["id"])
+    print("ADDED_QUESTION=" + topic["question"])
+    print("ADDED_SOURCES=" + ", ".join(verified))
     return 0
 
 
