@@ -83,6 +83,30 @@ svg.spark{display:block}
 footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
   font-size:11px;color:var(--ink-3);letter-spacing:.04em;display:flex;
   justify-content:space-between;flex-wrap:wrap;gap:10px}
+#add-topic{border:1px solid var(--rule-2);border-radius:8px;background:var(--panel);margin-bottom:28px}
+#add-topic summary{cursor:pointer;padding:12px 16px;font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-2);user-select:none;list-style:none}
+#add-topic summary::-webkit-details-marker{display:none}
+#add-topic summary:hover{color:var(--ink)}
+#add-topic[open] summary{border-bottom:1px solid var(--rule);color:var(--ink)}
+.add-body{padding:14px 16px}
+.add-row{display:flex;gap:8px}
+#add-q{flex:1;background:var(--paper);border:1px solid var(--rule-2);color:var(--ink);
+  padding:9px 12px;border-radius:6px;font-family:inherit;font-size:14px;min-width:0}
+#add-q:focus{outline:none;border-color:var(--ink-3)}
+#add-search{background:var(--ink);color:var(--paper);border:none;border-radius:6px;
+  padding:9px 18px;font-size:13px;cursor:pointer;font-family:inherit}
+#add-search:hover{opacity:.88}
+#add-results{margin-top:6px}
+.cand{display:flex;justify-content:space-between;align-items:center;gap:14px;
+  padding:11px 0;border-bottom:1px solid var(--rule)}
+.cand-main{min-width:0}
+.cand-q{font-size:14px}
+.cand-meta{font-size:11px;color:var(--ink-3);margin-top:2px}
+.cand-add{color:var(--mark);text-decoration:none;font-size:13px;white-space:nowrap;
+  border:1px solid var(--rule-2);padding:6px 13px;border-radius:6px}
+.cand-add:hover{border-color:var(--mark)}
+.add-hint{font-size:11px;color:var(--ink-3);margin-top:12px;line-height:1.55}
 @media(max-width:640px){
   .row{grid-template-columns:1fr 72px}
   svg.spark{display:none}
@@ -109,6 +133,19 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
     <h1>Consensus desk</h1>
     <div class="sub mono" id="stamp">loading</div>
   </header>
+  <details id="add-topic">
+    <summary>+ Add a topic</summary>
+    <div class="add-body">
+      <div class="add-row">
+        <input id="add-q" type="text" autocomplete="off"
+               placeholder="Describe a question — e.g. ethereum $10k, UK election, recession 2026" />
+        <button id="add-search">Search</button>
+      </div>
+      <div id="add-results"></div>
+      <div class="add-hint">Searches Manifold. Pick a market and it opens a pre-filled
+        GitHub issue — confirm it and the topic joins the board within a few minutes.</div>
+    </div>
+  </details>
   <div id="app"></div>
   <footer>
     <span id="foot-method"></span>
@@ -119,6 +156,40 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
 <script>
 const pct = v => (v == null ? '—' : v.toFixed(1) + '%');
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Add-a-topic: client-side Manifold search, then a pre-filled GitHub issue.
+const REPO = 'mat4zan/consensus-desk';
+async function addSearch() {
+  const q = document.getElementById('add-q').value.trim();
+  const box = document.getElementById('add-results');
+  if (!q) { box.innerHTML = ''; return; }
+  box.innerHTML = '<div class="quiet">Searching Manifold…</div>';
+  try {
+    const params = new URLSearchParams({ term: q, filter: 'open',
+      contractType: 'BINARY', sort: 'liquidity', limit: '6' });
+    const r = await fetch('https://api.manifold.markets/v0/search-markets?' + params);
+    const ms = await r.json();
+    if (!Array.isArray(ms) || !ms.length) {
+      box.innerHTML = '<div class="quiet">No open markets matched. Try different words.</div>';
+      return;
+    }
+    box.innerHTML = ms.map(m => {
+      const p = m.probability != null ? (m.probability * 100).toFixed(0) + '%' : '—';
+      const body = 'Requested from the dashboard. The block below is machine-read; leave it intact.'
+        + '\n\nvenue: manifold\nid: ' + m.slug + '\nquestion: ' + m.question;
+      const url = 'https://github.com/' + REPO + '/issues/new?title='
+        + encodeURIComponent('[add-topic] ' + m.question) + '&body=' + encodeURIComponent(body);
+      return '<div class="cand"><div class="cand-main"><div class="cand-q">' + esc(m.question)
+        + '</div><div class="cand-meta mono">manifold · ' + p + ' · '
+        + (m.uniqueBettorCount || 0) + ' traders</div></div>'
+        + '<a class="cand-add" href="' + url + '" target="_blank" rel="noopener">Add →</a></div>';
+    }).join('');
+  } catch (e) {
+    box.innerHTML = '<div class="quiet">Search failed (network).</div>';
+  }
+}
+document.getElementById('add-search').addEventListener('click', addSearch);
+document.getElementById('add-q').addEventListener('keydown', e => { if (e.key === 'Enter') addSearch(); });
 
 // Theme toggle: button shows the theme you'll switch TO.
 (function () {

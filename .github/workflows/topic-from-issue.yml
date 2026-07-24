@@ -1,0 +1,101 @@
+name: topic-from-issue
+
+# Lean "add a topic" flow: the dashboard picker opens a pre-filled [add-topic]
+# issue carrying the chosen Manifold market; this wires it. Restricted to the
+# repo owner's issues so the public repo cannot be spammed with topics.
+on:
+  issues:
+    types: [opened]
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  wire:
+    if: >-
+      startsWith(github.event.issue.title, '[add-topic]') &&
+      github.event.issue.user.login == github.event.repository.owner.login
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    outputs:
+      added: ${{ steps.wire.outputs.added }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Wire the picked market
+        id: wire
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set +e
+          python wire_market.py | tee /tmp/out.txt
+          if grep -q '^ADDED_TOPIC_ID=' /tmp/out.txt; then
+            echo "added=true" >> $GITHUB_OUTPUT
+            echo "msg=✅ Added **$(grep '^ADDED_QUESTION=' /tmp/out.txt | cut -d= -f2-)** to the board. It will appear on the dashboard within a few minutes." >> $GITHUB_OUTPUT
+          elif grep -q '^ALREADY_EXISTS=' /tmp/out.txt; then
+            echo "added=false" >> $GITHUB_OUTPUT
+            echo "msg=ℹ️ That question is already tracked — nothing to add." >> $GITHUB_OUTPUT
+          else
+            echo "added=false" >> $GITHUB_OUTPUT
+            echo "msg=⚠️ Could not add that market (no live price or unsupported). Nothing changed." >> $GITHUB_OUTPUT
+          fi
+          exit 0
+
+      - name: Collect, pool, resolve for the new topic
+        if: steps.wire.outputs.added == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          python run.py collect --tier all
+          python run.py pool
+          python run.py resolve-auto
+
+      - name: Commit
+        if: steps.wire.outputs.added == 'true'
+        run: |
+          git config user.name  "consensus-desk"
+          git config user.email "actions@github.com"
+          git add config/topics.yml data/ dashboard/snapshot.json
+          git diff --staged --quiet || git commit -m "add-topic: ${{ github.event.issue.title }}"
+          git pull --rebase --autostash || true
+          git push
+
+      - name: Reply and close the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} --body "${{ steps.wire.outputs.msg }}"
+          gh issue close ${{ github.event.issue.number }}
+
+  deploy:
+    needs: wire
+    if: needs.wire.outputs.added == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4
