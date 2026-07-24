@@ -218,7 +218,7 @@ def main() -> int:
     kws = keywords(request)
     candidates = {
         "polymarket": search_polymarket(kws),
-        "manifold": search_manifold(request),
+        "manifold": search_manifold(" ".join(kws) or request),
         "predictit": search_predictit(kws),
     }
     n = sum(len(v) for v in candidates.values())
