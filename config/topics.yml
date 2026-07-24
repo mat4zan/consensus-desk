@@ -209,3 +209,15 @@ topics:
     sources:
       manifold:
         id: "xi-jingping-visits-usa-before-july"
+
+  - id: will_democrats_win_back_the_house_in_2026
+    question: "Will Democrats win back the House in 2026 ?"
+    domain: other
+    resolution: >
+      Resolution criteria This market will resolve to "Yes" if the Democratic Party secures a majority of seats in the United States House of Representatives following the 2026 midterm elections. Otherwise, it will resolve to "No." Resolution will be determined by the official certification of results by the Clerk of the U.S. House of Representatives and reports f
+    expiry: 2026-11-03
+    review: 2026-11-03
+    # Auto-added from a topic request on 2026-07-24.
+    sources:
+      manifold:
+        id: "will-democrats-win-back-the-house-i"
