@@ -57,7 +57,8 @@ h1{font-family:Newsreader,serif;font-size:34px;font-weight:400;letter-spacing:-.
 .row-p{font-size:19px}
 .row-d{font-size:11px;margin-top:2px}
 .up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--flat)}
-svg.spark{display:block}
+.spark-cell{min-width:0}
+svg.spark{display:block;width:100%;height:auto}
 
 .detail{background:var(--panel);border-left:2px solid var(--rule-2);padding:22px 24px;margin:0 0 8px}
 .detail-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:2px}
@@ -79,6 +80,11 @@ svg.spark{display:block}
 .note-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
 .note-body{font-family:Newsreader,serif;font-size:16px;line-height:1.65;color:var(--ink)}
 .crit{font-size:12px;color:var(--ink-2);margin-top:10px;padding-left:12px;border-left:1px solid var(--rule-2)}
+.chart svg{display:block;width:100%;height:88px;background:var(--raised);border-radius:5px}
+.chart-cap{font-size:10px;color:var(--ink-3);margin:6px 0 16px;letter-spacing:.04em}
+.detail-actions{margin-top:20px;border-top:1px solid var(--rule);padding-top:12px}
+.remove-link{color:var(--ink-3);font-size:12px;text-decoration:none;letter-spacing:.05em}
+.remove-link:hover{color:var(--up)}
 
 footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
   font-size:11px;color:var(--ink-3);letter-spacing:.04em;display:flex;
@@ -108,8 +114,7 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
 .cand-add:hover{border-color:var(--mark)}
 .add-hint{font-size:11px;color:var(--ink-3);margin-top:12px;line-height:1.55}
 @media(max-width:640px){
-  .row{grid-template-columns:1fr 72px}
-  svg.spark{display:none}
+  .row{grid-template-columns:1fr 54px 58px;gap:10px}
   .src{grid-template-columns:96px 1fr 46px}
   .src-w{display:none}
 }
@@ -201,6 +206,24 @@ function spark(hist, w = 100, h = 26) {
     <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.3"/></svg>`;
 }
 
+// Full-width line chart for the detail panel (visible on mobile too).
+function bigChart(hist) {
+  if (!hist || hist.length < 2)
+    return '<div class="chart-cap mono">Not enough history yet for a chart.</div>';
+  const w = 600, h = 88, pad = 8;
+  const ys = hist.map(d => d.p);
+  const lo = Math.min(...ys), hi = Math.max(...ys), rng = (hi - lo) || 1;
+  const pts = hist.map((d, i) => {
+    const x = (i / (hist.length - 1)) * w;
+    const y = h - pad - ((d.p - lo) / rng) * (h - 2 * pad);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const col = ys[ys.length - 1] >= ys[0] ? 'var(--up)' : 'var(--down)';
+  return `<div class="chart"><svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
+    <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    </svg></div><div class="chart-cap mono">${hist.length} points · ${ys[0].toFixed(1)}% → ${ys[ys.length - 1].toFixed(1)}%</div>`;
+}
+
 function deltaHtml(d) {
   if (d == null) return '<span class="flat mono">—</span>';
   if (Math.abs(d) < 0.5) return '<span class="flat mono">—</span>';
@@ -233,23 +256,32 @@ function detailHtml(t) {
   const exc = (t.excluded || []).length
     ? `<div class="crit" style="margin-top:12px">Excluded: ${t.excluded.map(e => esc(e.source) + ' (' + esc(e.reason) + ')').join(', ')}</div>`
     : '';
+  const rmBody = 'Requested from the dashboard. The line below is machine-read; leave it intact.'
+    + '\n\nremove: ' + t.id;
+  const rmUrl = 'https://github.com/' + REPO + '/issues/new?title='
+    + encodeURIComponent('[remove-topic] ' + t.id) + '&body=' + encodeURIComponent(rmBody);
   return `<div class="detail">
     <div class="detail-head">
       <span class="detail-q">${esc(t.question)}</span>
       <span class="detail-p mono">${t.probability.toFixed(1)}%</span>
     </div>
     <div class="detail-meta mono">${t.n_sources} sources · spread ${t.spread_pp.toFixed(0)}pp · expires ${esc(t.expiry).slice(0, 10)}</div>
+    ${bigChart(t.history)}
     ${sourcesHtml(t)}${exp}${exc}
+    <div class="detail-actions"><a class="remove-link" href="${rmUrl}" target="_blank" rel="noopener">Remove from board →</a></div>
   </div>`;
 }
 
 function render(s) {
   document.getElementById('stamp').textContent =
-    s.generated_at.slice(0, 16).replace('T', ' ') + 'Z · ' + s.topics.length + ' topics';
+    'last update: ' + s.generated_at.slice(0, 16).replace('T', ' ') + 'Z · ' + s.topics.length + ' topics';
   document.getElementById('foot-method').textContent =
     `pooling ${s.method} · extremize ${s.extremize} · weights ${s.weight_strategy} (${s.n_resolved} resolved)`;
+  // Show weights only for sources actually contributing to the board.
+  const active = new Set();
+  s.topics.forEach(t => (t.contributions || []).forEach(c => active.add(c.source)));
   document.getElementById('foot-weights').textContent =
-    Object.entries(s.weights).map(([k, v]) => `${k} ${v}`).join('  ');
+    Object.entries(s.weights).filter(([k]) => active.has(k)).map(([k, v]) => `${k} ${v}`).join('  ');
 
   const parts = [];
 
@@ -277,7 +309,7 @@ function render(s) {
         <div class="row-q">${esc(t.question)}</div>
         <div class="row-meta mono">${t.contributions.map(c => esc(c.source)).join(' · ')}</div>
       </div>
-      ${spark(t.history)}
+      <span class="spark-cell">${spark(t.history)}</span>
       <div class="row-val">
         <div class="row-p mono">${t.probability.toFixed(1)}%</div>
         <div class="row-d">${deltaHtml(t.delta_24h_pp)}</div>

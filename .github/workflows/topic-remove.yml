@@ -1,0 +1,96 @@
+name: topic-remove
+
+# Fired by the dashboard's "Remove from board" link, which opens a pre-filled
+# [remove-topic] issue. Owner-only so the public repo cannot be tampered with.
+on:
+  issues:
+    types: [opened]
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  remove:
+    if: >-
+      startsWith(github.event.issue.title, '[remove-topic]') &&
+      github.event.issue.user.login == github.event.repository.owner.login
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    outputs:
+      removed: ${{ steps.rm.outputs.removed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Remove the topic
+        id: rm
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set +e
+          python remove_topic.py | tee /tmp/out.txt
+          grep -q '^REMOVED_TOPIC_ID=' /tmp/out.txt && echo "removed=true" >> $GITHUB_OUTPUT || echo "removed=false" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: Re-pool without the topic
+        if: steps.rm.outputs.removed == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python run.py pool
+
+      - name: Commit
+        if: steps.rm.outputs.removed == 'true'
+        run: |
+          git config user.name  "consensus-desk"
+          git config user.email "actions@github.com"
+          git add config/topics.yml data/ dashboard/snapshot.json
+          git diff --staged --quiet || git commit -m "remove-topic: ${{ github.event.issue.title }}"
+          git pull --rebase --autostash || true
+          git push
+
+      - name: Reply and close the issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q '^REMOVED_TOPIC_ID=' /tmp/out.txt 2>/dev/null; then
+            printf '🗑️ Removed **%s** from the board. Gone from the dashboard in a few minutes.' \
+              "$(grep '^REMOVED_TOPIC_ID=' /tmp/out.txt | cut -d= -f2-)" > /tmp/msg.txt
+          elif grep -q '^NOT_FOUND=' /tmp/out.txt 2>/dev/null; then
+            printf 'ℹ️ %s' "$(grep '^REASON=' /tmp/out.txt | cut -d= -f2-)" > /tmp/msg.txt
+          else
+            printf '⚠️ %s' "$(grep '^REASON=' /tmp/out.txt 2>/dev/null | cut -d= -f2- || echo 'Nothing changed.')" > /tmp/msg.txt
+          fi
+          gh issue comment ${{ github.event.issue.number }} --body-file /tmp/msg.txt
+          gh issue close ${{ github.event.issue.number }}
+
+  deploy:
+    needs: remove
+    if: needs.remove.outputs.removed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4
