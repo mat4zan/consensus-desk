@@ -1,0 +1,91 @@
+name: topic-request
+
+# Background worker behind the dashboard's "Add a topic" form.
+# Fired by a repository_dispatch (from the serverless form endpoint) or manually.
+on:
+  repository_dispatch:
+    types: [topic-request]
+  workflow_dispatch:
+    inputs:
+      request:
+        description: "Topic request (free text)"
+        required: true
+        type: string
+
+concurrency:
+  group: collect          # serialise with collect so topics.yml edits don't clash
+  cancel-in-progress: false
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      added: ${{ steps.wire.outputs.added }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Wire the requested topic
+        id: wire
+        env:
+          REQUEST_TEXT: ${{ github.event.client_payload.request || github.event.inputs.request }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set +e
+          python request_topic.py | tee /tmp/out.txt
+          code=${PIPESTATUS[0]}
+          if grep -q '^ADDED_TOPIC_ID=' /tmp/out.txt; then
+            echo "added=true" >> $GITHUB_OUTPUT
+          else
+            echo "added=false" >> $GITHUB_OUTPUT
+          fi
+          exit 0
+
+      - name: Collect, pool and resolve for the new topic
+        if: steps.wire.outputs.added == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          METACULUS_TOKEN: ${{ secrets.METACULUS_TOKEN }}
+        run: |
+          python run.py collect --tier all
+          python run.py pool
+          python run.py resolve-auto
+
+      - name: Commit
+        if: steps.wire.outputs.added == 'true'
+        run: |
+          git config user.name  "consensus-desk"
+          git config user.email "actions@github.com"
+          git add config/topics.yml data/ dashboard/snapshot.json
+          git diff --staged --quiet || git commit -m "topic-request: add tracked topic"
+          git pull --rebase --autostash || true
+          git push
+
+  deploy:
+    needs: add
+    if: needs.add.outputs.added == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4
