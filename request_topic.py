@@ -45,7 +45,10 @@ STOP = {"will", "the", "any", "before", "after", "by", "in", "on", "of", "to",
 
 
 def keywords(text: str) -> list[str]:
-    words = re.findall(r"[a-z0-9$]+", text.lower())
+    # Strip $ and thousands commas so "$200,000" stays one token ("200000")
+    # instead of splitting into "200"/"000" and breaking Manifold's search.
+    cleaned = text.lower().replace(",", "").replace("$", " ")
+    words = re.findall(r"[a-z0-9]+", cleaned)
     return [w for w in words if len(w) > 2 and w not in STOP]
 
 
@@ -128,11 +131,20 @@ def choose_topic(request: str, candidates: dict) -> dict | None:
         "from several venues. Choose the SINGLE best-matching market on each venue "
         "whose resolution criteria fit the request; omit a venue if nothing fits. "
         "You may ONLY use ids that appear verbatim in the candidates. Do not invent ids. "
-        "Also draft the canonical topic. If (and only if) the outcome is objectively "
-        "resolvable from public market/economic data, add an oracle: use source 'yahoo' "
-        "with a `symbol` (e.g. BTC-USD, ^GSPC, ^TNX) for prices, or source 'fred' with a "
-        "`series` for macro; rules: above|below|crossed_above|crossed_below|dropped|rose. "
-        "Otherwise omit the oracle. Respond with ONLY a JSON object, no markdown fences:\n"
+        "Also draft the canonical topic. Add an `oracle` ONLY if the outcome is "
+        "objectively resolvable from public price/economic data (crypto, indices, yields, "
+        "rates) — NOT for elections, wars, approvals, or human events. Oracle schema, use "
+        "these EXACT keys:\n"
+        "  source: 'yahoo' with `symbol` (BTC-USD, ETH-USD, ^GSPC, ^TNX) OR "
+        "'fred' with `series` (e.g. DFEDTARU).\n"
+        "  rule + params (ALL required for that rule):\n"
+        "    crossed_above / crossed_below: `threshold` (number), `window_start` (YYYY-MM-DD), `by` (YYYY-MM-DD)\n"
+        "    above / below: `threshold` (number), `by` (YYYY-MM-DD)\n"
+        "    dropped / rose: `amount` (number), `window_start`, `by`\n"
+        "  Use the key `threshold` (never `value`). `by` is the resolution deadline; "
+        "`window_start` is usually Jan 1 of the deadline's year. For 'reach/hit X by DATE', "
+        "use crossed_above (any touch counts): threshold=X, window_start=<Jan 1 that year>, by=<DATE>. "
+        "Omit the oracle entirely if unsure. Respond with ONLY a JSON object, no markdown fences:\n"
         '{"ok": bool, "reason": str, "topic": {"id": snake_case_str, "question": str, '
         '"domain": "geopolitics|macro|elections|crypto|tech|other", "resolution": str, '
         '"expiry": "YYYY-MM-DD", "sources": {"<venue>": {"id": <id>, "outcome": <predictit '
@@ -208,6 +220,46 @@ def yaml_block(topic: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _is_number(v) -> bool:
+    try:
+        float(v)
+        return True
+    except (TypeError, ValueError):
+        return False
+
+
+def sanitize_oracle(orc, expiry) -> dict | None:
+    """
+    Validate/repair a model-produced oracle against the schema core/oracles.py
+    actually understands. Returns a clean oracle or None (drop it) — a broken
+    oracle that silently fails to resolve is worse than no oracle.
+    """
+    if not isinstance(orc, dict):
+        return None
+    src, rule = orc.get("source"), orc.get("rule")
+    if src not in ("yahoo", "fred"):
+        return None
+    if rule not in {"crossed_above", "crossed_below", "above", "below", "dropped", "rose"}:
+        return None
+    if src == "yahoo" and not orc.get("symbol"):
+        return None
+    if src == "fred" and not orc.get("series"):
+        return None
+    if "threshold" not in orc and "value" in orc:   # common model slip
+        orc["threshold"] = orc["value"]
+    orc.setdefault("by", expiry)                    # deadline defaults to expiry
+    if rule in ("crossed_above", "crossed_below", "dropped", "rose"):
+        orc.setdefault("window_start", str(orc["by"])[:4] + "-01-01")
+    if rule in ("dropped", "rose"):
+        if not _is_number(orc.get("amount")):
+            return None
+    elif not _is_number(orc.get("threshold")):
+        return None
+    keep = {"source", "symbol", "series", "rule", "threshold",
+            "amount", "window_start", "by"}
+    return {k: orc[k] for k in keep if k in orc}
+
+
 def main() -> int:
     request = (os.environ.get("REQUEST_TEXT") or "").strip()
     if not request:
@@ -255,6 +307,15 @@ def main() -> int:
         print("REASON=A match was found but its market had no live price.")
         return 2
     topic["sources"] = verified
+
+    if topic.get("oracle"):
+        clean = sanitize_oracle(topic["oracle"], topic.get("expiry"))
+        if clean:
+            topic["oracle"] = clean
+            print(f"  oracle: {clean.get('source')} {clean.get('rule')} kept")
+        else:
+            topic.pop("oracle", None)
+            print("  oracle: dropped (could not validate)")
 
     path = ROOT / "config" / "topics.yml"
     path.write_text(path.read_text().rstrip() + "\n\n" + yaml_block(topic))

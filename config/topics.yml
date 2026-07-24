@@ -231,10 +231,12 @@ topics:
     review: 2026-12-31
     # Auto-added from a topic request on 2026-07-24.
     oracle:
-      source: "yahoo"
-      symbol: "BTC-USD"
-      rule: "above"
-      value: 200000
+      source: yahoo
+      symbol: BTC-USD
+      rule: crossed_above
+      threshold: 200000
+      window_start: 2026-01-01
+      by: 2026-12-31
     sources:
       polymarket:
         id: "will-bitcoin-reach-200000-by-december-31-2026-752-232-389"
