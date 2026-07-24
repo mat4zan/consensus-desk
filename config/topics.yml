@@ -167,14 +167,3 @@ topics:
       manifold:
         id: "will-bitcoin-exceed-100000-before-d"
 
-  - id: jesus_christ_return_by_dec_2026
-    question: "Will Jesus Christ return before 2027 (by December 31, 2026)?"
-    domain: other
-    resolution: >
-      Resolves YES if a broadly recognized second coming of Jesus Christ is confirmed by credible, verifiable sources before January 1, 2027; otherwise NO.
-    expiry: 2026-12-31
-    review: 2026-12-31
-    # Auto-added from a topic request on 2026-07-24.
-    sources:
-      polymarket:
-        id: "will-jesus-christ-return-before-2027"
