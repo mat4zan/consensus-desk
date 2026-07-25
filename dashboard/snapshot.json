@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T11:49:54.822696+00:00",
+  "generated_at": "2026-07-25T12:00:02.913644+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -32,7 +32,7 @@
           "adjusted": 0.275,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 47284034.768612675
         },
@@ -42,7 +42,7 @@
           "adjusted": 0.22,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.6,
+          "age_hours": 8.8,
           "stale": false,
           "volume_usd": 84819.17157033243
         }
@@ -236,9 +236,192 @@
         {
           "ts": "2026-07-25T11:49:50.958993+00:00",
           "p": 21.65
+        },
+        {
+          "ts": "2026-07-25T11:59:58.859275+00:00",
+          "p": 21.65
         }
       ],
       "expiry": "2027-01-01"
+    },
+    {
+      "id": "btc_100k_2026",
+      "question": "Bitcoin reaches $100,000 in 2026",
+      "domain": "crypto",
+      "probability": 7.4,
+      "delta_24h_pp": -0.6,
+      "spread_pp": 4.5,
+      "n_sources": 2,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.095,
+          "adjusted": 0.095,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 3.8,
+          "stale": false,
+          "volume_usd": 2300198.864896991
+        },
+        {
+          "source": "manifold",
+          "probability": 0.1398,
+          "adjusted": 0.1398,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 40.1,
+          "stale": true,
+          "volume_usd": 1540.3791175474698
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "polymarket": "The market resolves on any trade at/above $100k; the Yahoo oracle checks daily closes, so a brief intraday spike that does not close above $100k would not auto-resolve YES. Close enough to track together."
+      },
+      "history": [
+        {
+          "ts": "2026-07-23T19:50:53.979877+00:00",
+          "p": 9.5
+        },
+        {
+          "ts": "2026-07-23T19:52:37.049840+00:00",
+          "p": 9.5
+        },
+        {
+          "ts": "2026-07-23T19:53:53.940146+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T03:14:00.678893+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T06:28:51.757002+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T07:05:29.447600+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T07:54:08.589772+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T08:33:22.114661+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T11:12:14.519222+00:00",
+          "p": 7.74
+        },
+        {
+          "ts": "2026-07-24T11:58:24.151249+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:01:21.325201+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:16:17.188593+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:19:39.757703+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:26:00.684146+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:32:20.240749+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:39:57.914792+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:40:44.853351+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:49:38.383793+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T13:54:09.768988+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T15:40:59.448033+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T15:49:42.034363+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T16:40:51.296181+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T16:51:05.929731+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T16:51:59.437064+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T19:06:53.739263+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T19:35:53.067634+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T03:13:57.764179+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T04:46:21.063345+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T05:15:24.945204+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T07:32:51.419282+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T08:12:43.726762+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T09:38:41.249017+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T11:44:20.029274+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T11:49:50.963025+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T11:59:58.863228+00:00",
+          "p": 7.42
+        }
+      ],
+      "expiry": "2026-12-31"
     },
     {
       "id": "iran_regime_fall_2026",
@@ -255,7 +438,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 20.1,
+          "age_hours": 20.3,
           "stale": true,
           "volume_usd": 23043847.619062264
         },
@@ -265,7 +448,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 29.4,
+          "age_hours": 29.5,
           "stale": true,
           "volume_usd": 2935012.7356325327
         }
@@ -457,6 +640,10 @@
         {
           "ts": "2026-07-25T11:49:50.960323+00:00",
           "p": 5.63
+        },
+        {
+          "ts": "2026-07-25T11:59:58.860572+00:00",
+          "p": 5.63
         }
       ],
       "expiry": "2027-01-01"
@@ -476,7 +663,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 41.2,
+          "age_hours": 41.4,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -486,7 +673,7 @@
           "adjusted": 0.5613,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 90139.27166957434
         },
@@ -496,7 +683,7 @@
           "adjusted": 0.61,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 21.9,
+          "age_hours": 22.1,
           "stale": true,
           "volume_usd": null
         }
@@ -662,6 +849,10 @@
         {
           "ts": "2026-07-25T11:49:50.961640+00:00",
           "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T11:59:58.861866+00:00",
+          "p": 58.59
         }
       ],
       "expiry": "2026-11-04"
@@ -681,7 +872,7 @@
           "adjusted": 0.36,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 2059211.9421290043
         },
@@ -691,7 +882,7 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 41.5,
+          "age_hours": 41.6,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
@@ -885,181 +1076,10 @@
         {
           "ts": "2026-07-25T11:49:50.955334+00:00",
           "p": 27.04
-        }
-      ],
-      "expiry": "2026-12-31"
-    },
-    {
-      "id": "btc_100k_2026",
-      "question": "Bitcoin reaches $100,000 in 2026",
-      "domain": "crypto",
-      "probability": 7.4,
-      "delta_24h_pp": -0.3,
-      "spread_pp": 4.5,
-      "n_sources": 2,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.095,
-          "adjusted": 0.095,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 3.6,
-          "stale": false,
-          "volume_usd": 2300198.864896991
         },
         {
-          "source": "manifold",
-          "probability": 0.1398,
-          "adjusted": 0.1398,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 39.9,
-          "stale": true,
-          "volume_usd": 1540.3791175474698
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {
-        "polymarket": "The market resolves on any trade at/above $100k; the Yahoo oracle checks daily closes, so a brief intraday spike that does not close above $100k would not auto-resolve YES. Close enough to track together."
-      },
-      "history": [
-        {
-          "ts": "2026-07-23T19:50:53.979877+00:00",
-          "p": 9.5
-        },
-        {
-          "ts": "2026-07-23T19:52:37.049840+00:00",
-          "p": 9.5
-        },
-        {
-          "ts": "2026-07-23T19:53:53.940146+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T03:14:00.678893+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T06:28:51.757002+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T07:05:29.447600+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T07:54:08.589772+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T08:33:22.114661+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T11:12:14.519222+00:00",
-          "p": 7.74
-        },
-        {
-          "ts": "2026-07-24T11:58:24.151249+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:01:21.325201+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:16:17.188593+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:19:39.757703+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:26:00.684146+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:32:20.240749+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:39:57.914792+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:40:44.853351+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:49:38.383793+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T13:54:09.768988+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T15:40:59.448033+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T15:49:42.034363+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T16:40:51.296181+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T16:51:05.929731+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T16:51:59.437064+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T19:06:53.739263+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T19:35:53.067634+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T03:13:57.764179+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T04:46:21.063345+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T05:15:24.945204+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T07:32:51.419282+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T08:12:43.726762+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T09:38:41.249017+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T11:44:20.029274+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T11:49:50.963025+00:00",
-          "p": 7.42
+          "ts": "2026-07-25T11:59:58.857847+00:00",
+          "p": 27.04
         }
       ],
       "expiry": "2026-12-31"
@@ -1079,7 +1099,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 29.4,
+          "age_hours": 29.5,
           "stale": true,
           "volume_usd": 2176961.3125100015
         },
@@ -1089,7 +1109,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 41.5,
+          "age_hours": 41.6,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -1284,6 +1304,10 @@
         {
           "ts": "2026-07-25T11:49:50.953418+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T11:59:58.855256+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -1303,7 +1327,7 @@
           "adjusted": 0.9535,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 6.6,
+          "age_hours": 6.7,
           "stale": false,
           "volume_usd": 311612.68790700065
         }
@@ -1335,6 +1359,10 @@
         {
           "ts": "2026-07-25T11:49:50.964228+00:00",
           "p": 95.35
+        },
+        {
+          "ts": "2026-07-25T11:59:58.864403+00:00",
+          "p": 95.35
         }
       ],
       "expiry": "2026-12-31"
@@ -1354,7 +1382,7 @@
           "adjusted": 0.355,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 2659137.347057988
         },
@@ -1364,7 +1392,7 @@
           "adjusted": 0.41,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 2.2,
+          "age_hours": 2.4,
           "stale": false,
           "volume_usd": 81644.22224665254
         },
@@ -1374,13 +1402,13 @@
           "adjusted": 0.57,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 2.2,
+          "age_hours": 2.4,
           "stale": false,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "PredictIt's higher probability likely reflects its more retail-oriented, politically-engaged user base that may be more optimistic about Republican-controlled Congress delivering on crypto-friendly legislation, while Polymarket's lower estimate reflects a sharper assessment of legislative bottlenecks\u2014conference committee reconciliation with the Senate, competing priorities, and the tight 2026 timeline. The resolution criteria appear equivalent across sources, so the spread is genuine disagreement about the probability of legislative completion rather than definitional ambiguity.",
+      "explanation": "PredictIt's higher probability likely reflects its user base skewing toward political insiders who may be more optimistic about legislative momentum under a crypto-friendly administration, while Polymarket's lower estimate reflects a broader, more internationally diverse crowd that historically discounts Congressional action completing within a single calendar year. The 22pp spread is also consistent with genuine disagreement about the probability of Senate passage and conference reconciliation completing before year-end, not a resolution-criteria mismatch, since all three markets treat enactment (presidential signature) by December 31, 2026 equivalently.",
       "criteria_notes": {},
       "history": [
         {
@@ -1393,6 +1421,10 @@
         },
         {
           "ts": "2026-07-25T11:49:50.965361+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T11:59:58.865539+00:00",
           "p": 41.43
         }
       ],
@@ -1413,7 +1445,7 @@
           "adjusted": 0.1183,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 5704.513523652541
         }
@@ -1429,9 +1461,54 @@
         {
           "ts": "2026-07-25T11:49:54.821308+00:00",
           "p": 11.83
+        },
+        {
+          "ts": "2026-07-25T12:00:02.910536+00:00",
+          "p": 11.83
         }
       ],
       "expiry": "2030-01-01"
+    },
+    {
+      "id": "world_war_3_2026",
+      "question": "Will a global war (proxied by Russia invading a NATO country) break out in 2026?",
+      "domain": "geopolitics",
+      "probability": 5.2,
+      "delta_24h_pp": null,
+      "spread_pp": 2.0,
+      "n_sources": 2,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.075,
+          "adjusted": 0.075,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 180652.28540899997
+        },
+        {
+          "source": "manifold",
+          "probability": 0.0953,
+          "adjusted": 0.0953,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 7798.806546684613
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-25T12:00:02.912365+00:00",
+          "p": 5.18
+        }
+      ],
+      "expiry": "2026-12-31"
     }
   ]
 }
