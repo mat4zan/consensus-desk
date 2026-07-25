@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T11:44:24.612374+00:00",
+  "generated_at": "2026-07-25T11:49:54.822696+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -32,7 +32,7 @@
           "adjusted": 0.275,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 47284034.768612675
         },
@@ -42,7 +42,7 @@
           "adjusted": 0.22,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.5,
+          "age_hours": 8.6,
           "stale": false,
           "volume_usd": 84819.17157033243
         }
@@ -232,6 +232,10 @@
         {
           "ts": "2026-07-25T11:44:20.025395+00:00",
           "p": 21.65
+        },
+        {
+          "ts": "2026-07-25T11:49:50.958993+00:00",
+          "p": 21.65
         }
       ],
       "expiry": "2027-01-01"
@@ -261,7 +265,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 29.3,
+          "age_hours": 29.4,
           "stale": true,
           "volume_usd": 2935012.7356325327
         }
@@ -449,6 +453,10 @@
         {
           "ts": "2026-07-25T11:44:20.026667+00:00",
           "p": 5.63
+        },
+        {
+          "ts": "2026-07-25T11:49:50.960323+00:00",
+          "p": 5.63
         }
       ],
       "expiry": "2027-01-01"
@@ -468,7 +476,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 41.1,
+          "age_hours": 41.2,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -478,7 +486,7 @@
           "adjusted": 0.5613,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 90139.27166957434
         },
@@ -488,7 +496,7 @@
           "adjusted": 0.61,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 21.8,
+          "age_hours": 21.9,
           "stale": true,
           "volume_usd": null
         }
@@ -650,6 +658,10 @@
         {
           "ts": "2026-07-25T11:44:20.027973+00:00",
           "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T11:49:50.961640+00:00",
+          "p": 58.59
         }
       ],
       "expiry": "2026-11-04"
@@ -669,7 +681,7 @@
           "adjusted": 0.36,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 2059211.9421290043
         },
@@ -679,7 +691,7 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 41.4,
+          "age_hours": 41.5,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
@@ -869,6 +881,10 @@
         {
           "ts": "2026-07-25T11:44:20.023934+00:00",
           "p": 27.04
+        },
+        {
+          "ts": "2026-07-25T11:49:50.955334+00:00",
+          "p": 27.04
         }
       ],
       "expiry": "2026-12-31"
@@ -888,7 +904,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 3.5,
+          "age_hours": 3.6,
           "stale": false,
           "volume_usd": 2300198.864896991
         },
@@ -898,7 +914,7 @@
           "adjusted": 0.1398,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 39.8,
+          "age_hours": 39.9,
           "stale": true,
           "volume_usd": 1540.3791175474698
         }
@@ -1040,6 +1056,10 @@
         {
           "ts": "2026-07-25T11:44:20.029274+00:00",
           "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T11:49:50.963025+00:00",
+          "p": 7.42
         }
       ],
       "expiry": "2026-12-31"
@@ -1059,7 +1079,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 29.3,
+          "age_hours": 29.4,
           "stale": true,
           "volume_usd": 2176961.3125100015
         },
@@ -1069,7 +1089,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 41.4,
+          "age_hours": 41.5,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -1260,6 +1280,10 @@
         {
           "ts": "2026-07-25T11:44:20.021726+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T11:49:50.953418+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -1279,7 +1303,7 @@
           "adjusted": 0.9535,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 6.5,
+          "age_hours": 6.6,
           "stale": false,
           "volume_usd": 311612.68790700065
         }
@@ -1307,6 +1331,10 @@
         {
           "ts": "2026-07-25T11:44:20.030575+00:00",
           "p": 95.35
+        },
+        {
+          "ts": "2026-07-25T11:49:50.964228+00:00",
+          "p": 95.35
         }
       ],
       "expiry": "2026-12-31"
@@ -1326,7 +1354,7 @@
           "adjusted": 0.355,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 2659137.347057988
         },
@@ -1336,7 +1364,7 @@
           "adjusted": 0.41,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 2.1,
+          "age_hours": 2.2,
           "stale": false,
           "volume_usd": 81644.22224665254
         },
@@ -1346,13 +1374,13 @@
           "adjusted": 0.57,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 2.1,
+          "age_hours": 2.2,
           "stale": false,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "The PredictIt market's higher probability likely reflects its trader demographics and possible framing effects \u2014 retail political bettors may be more optimistic about crypto-friendly legislation under the current administration. The Polymarket-Manifold gap is modest and within normal noise, but Manifold's play-money environment can diverge from real-money markets due to lower stakes calibration pressure. The spread is genuine disagreement about legislative timeline likelihood rather than a resolution-criteria mismatch, as all three sources appear to be tracking the same signing-into-law outcome by end of 2026.",
+      "explanation": "PredictIt's higher probability likely reflects its more retail-oriented, politically-engaged user base that may be more optimistic about Republican-controlled Congress delivering on crypto-friendly legislation, while Polymarket's lower estimate reflects a sharper assessment of legislative bottlenecks\u2014conference committee reconciliation with the Senate, competing priorities, and the tight 2026 timeline. The resolution criteria appear equivalent across sources, so the spread is genuine disagreement about the probability of legislative completion rather than definitional ambiguity.",
       "criteria_notes": {},
       "history": [
         {
@@ -1361,6 +1389,10 @@
         },
         {
           "ts": "2026-07-25T11:44:20.034568+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T11:49:50.965361+00:00",
           "p": 41.43
         }
       ],
@@ -1381,7 +1413,7 @@
           "adjusted": 0.1183,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 5704.513523652541
         }
@@ -1392,6 +1424,10 @@
       "history": [
         {
           "ts": "2026-07-25T11:44:24.610648+00:00",
+          "p": 11.83
+        },
+        {
+          "ts": "2026-07-25T11:49:54.821308+00:00",
           "p": 11.83
         }
       ],
