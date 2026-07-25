@@ -196,15 +196,3 @@ topics:
         id: "8804"
         outcome: "Will crypto regulation (Clarity Act) be enacted in 2026?"
 
-  - id: world_war_3_by_2030
-    question: "Will a World War 3 (global great-power conflict) occur by 2030?"
-    domain: geopolitics
-    resolution: >
-      Resolves based on the closest matching market: 'Will the US be at war with Russia at any point until 2030?' on Manifold, used as a proxy for a broader global conflict scenario since no market explicitly covers 'World War 3'.
-    expiry: 2030-01-01
-    review: 2030-01-01
-    # Auto-added from a topic request on 2026-07-25.
-    sources:
-      manifold:
-        id: "will-the-us-be-at-war-with-russia-a"
-

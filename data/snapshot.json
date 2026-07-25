@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T12:01:40.355530+00:00",
+  "generated_at": "2026-07-25T12:03:24.894353+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -244,6 +244,10 @@
         {
           "ts": "2026-07-25T12:01:35.490559+00:00",
           "p": 21.65
+        },
+        {
+          "ts": "2026-07-25T12:03:19.117288+00:00",
+          "p": 21.65
         }
       ],
       "expiry": "2027-01-01"
@@ -273,7 +277,7 @@
           "adjusted": 0.1398,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 40.1,
+          "age_hours": 40.2,
           "stale": true,
           "volume_usd": 1540.3791175474698
         }
@@ -427,6 +431,10 @@
         {
           "ts": "2026-07-25T12:01:35.494729+00:00",
           "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T12:03:19.121426+00:00",
+          "p": 7.42
         }
       ],
       "expiry": "2026-12-31"
@@ -446,7 +454,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 20.3,
+          "age_hours": 20.4,
           "stale": true,
           "volume_usd": 23043847.619062264
         },
@@ -456,7 +464,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 29.5,
+          "age_hours": 29.6,
           "stale": true,
           "volume_usd": 2935012.7356325327
         }
@@ -656,6 +664,10 @@
         {
           "ts": "2026-07-25T12:01:35.491923+00:00",
           "p": 5.63
+        },
+        {
+          "ts": "2026-07-25T12:03:19.118629+00:00",
+          "p": 5.63
         }
       ],
       "expiry": "2027-01-01"
@@ -695,7 +707,7 @@
           "adjusted": 0.61,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 22.1,
+          "age_hours": 22.2,
           "stale": true,
           "volume_usd": null
         }
@@ -868,6 +880,10 @@
         },
         {
           "ts": "2026-07-25T12:01:35.493308+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T12:03:19.120101+00:00",
           "p": 58.59
         }
       ],
@@ -1100,6 +1116,10 @@
         {
           "ts": "2026-07-25T12:01:35.488969+00:00",
           "p": 27.04
+        },
+        {
+          "ts": "2026-07-25T12:03:19.116025+00:00",
+          "p": 27.04
         }
       ],
       "expiry": "2026-12-31"
@@ -1119,7 +1139,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 29.5,
+          "age_hours": 29.6,
           "stale": true,
           "volume_usd": 2176961.3125100015
         },
@@ -1332,6 +1352,10 @@
         {
           "ts": "2026-07-25T12:01:35.285375+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T12:03:19.113215+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -1391,6 +1415,10 @@
         {
           "ts": "2026-07-25T12:01:35.495975+00:00",
           "p": 95.35
+        },
+        {
+          "ts": "2026-07-25T12:03:19.122732+00:00",
+          "p": 95.35
         }
       ],
       "expiry": "2026-12-31"
@@ -1436,7 +1464,7 @@
         }
       ],
       "excluded": [],
-      "explanation": "The PredictIt market's notably higher probability likely reflects its participant base skewing toward politically engaged traders who may be more optimistic about Republican-led Congress delivering on crypto-friendly legislation, while Polymarket's more internationally diverse and sophisticated trader base may be applying steeper discounts for legislative timeline risk. There is no meaningful resolution-criteria mismatch here since all three markets treat enactment by December 31, 2026 as the standard \u2014 the spread reflects genuine disagreement about whether Congress can pass complex market structure legislation within the timeframe given competing priorities, Senate dynamics, and historical difficulty of moving crypto bills through to signature.",
+      "explanation": "PredictIt's higher probability likely reflects its trader base skewing toward politically engaged participants who may be more optimistic about Republican-controlled Congress delivering on crypto-friendly legislation, while Polymarket's more globally distributed, financially sophisticated traders may be pricing in greater legislative friction (Senate filibuster, competing priorities, timeline risk). The spread is genuine disagreement about likelihood rather than a resolution-criteria mismatch, since all three sources are treating passage and enactment by end of 2026 equivalently. Manifold sits between the two, consistent with its mixed community of forecasters.",
       "criteria_notes": {},
       "history": [
         {
@@ -1458,52 +1486,13 @@
         {
           "ts": "2026-07-25T12:01:35.497440+00:00",
           "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T12:03:19.124256+00:00",
+          "p": 41.43
         }
       ],
       "expiry": "2026-12-31"
-    },
-    {
-      "id": "world_war_3_by_2030",
-      "question": "Will a World War 3 (global great-power conflict) occur by 2030?",
-      "domain": "geopolitics",
-      "probability": 11.8,
-      "delta_24h_pp": null,
-      "spread_pp": 0.0,
-      "n_sources": 1,
-      "contributions": [
-        {
-          "source": "manifold",
-          "probability": 0.1183,
-          "adjusted": 0.1183,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 0.3,
-          "stale": false,
-          "volume_usd": 5704.513523652541
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-07-25T11:44:24.610648+00:00",
-          "p": 11.83
-        },
-        {
-          "ts": "2026-07-25T11:49:54.821308+00:00",
-          "p": 11.83
-        },
-        {
-          "ts": "2026-07-25T12:00:02.910536+00:00",
-          "p": 11.83
-        },
-        {
-          "ts": "2026-07-25T12:01:40.353792+00:00",
-          "p": 11.83
-        }
-      ],
-      "expiry": "2030-01-01"
     }
   ]
 }
