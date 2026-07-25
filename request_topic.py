@@ -222,6 +222,13 @@ def choose_topic(request: str, candidates: dict) -> dict | None:
         "plainly in the `resolution` text. Only set ok=false if NO market on the subject "
         "exists at all. "
         "You may ONLY use ids that appear verbatim in the candidates. Do not invent ids. "
+        "Some Polymarket events split one direction into several magnitude-bucket markets "
+        "(e.g. an FOMC decision as separate 'no change'/'hike 25bp'/'hike 50bp'/'cut 25bp' "
+        "markets, each Yes/No). If the request is a DIRECTION spanning multiple such buckets "
+        "(e.g. 'will the Fed hike/raise rates' = hike-25bp OR hike-50bp), set that venue's "
+        "source to {\"ids\": [slug1, slug2, ...]} (their probabilities get summed as mutually "
+        "exclusive outcomes) instead of a single \"id\". Use plain \"id\" when one candidate "
+        "already matches the exact request. "
         "Also draft the canonical topic. Add an `oracle` ONLY if the outcome is "
         "objectively resolvable from public price/economic data (crypto, indices, yields, "
         "rates) — NOT for elections, wars, approvals, or human events. Oracle schema, use "
@@ -238,8 +245,8 @@ def choose_topic(request: str, candidates: dict) -> dict | None:
         "Omit the oracle entirely if unsure. Respond with ONLY a JSON object, no markdown fences:\n"
         '{"ok": bool, "reason": str, "topic": {"id": snake_case_str, "question": str, '
         '"domain": "geopolitics|macro|elections|crypto|tech|other", "resolution": str, '
-        '"expiry": "YYYY-MM-DD", "sources": {"<venue>": {"id": <id>, "outcome": <predictit '
-        'contract name if predictit>}}, "oracle": {optional}}}. '
+        '"expiry": "YYYY-MM-DD", "sources": {"<venue>": {"id": <id> OR "ids": [<id>,...], '
+        '"outcome": <predictit contract name if predictit>}}, "oracle": {optional}}}. '
         "Set ok=false with a reason if no candidate genuinely matches."
     )
     user = (
@@ -317,7 +324,12 @@ def yaml_block(topic: dict) -> str:
     lines.append("    sources:")
     for venue, scfg in topic["sources"].items():
         lines.append(f"      {venue}:")
-        lines.append(f"        id: {json.dumps(str(scfg['id']))}")
+        if scfg.get("ids"):
+            lines.append("        ids:")
+            for sid in scfg["ids"]:
+                lines.append(f"          - {json.dumps(str(sid))}")
+        else:
+            lines.append(f"        id: {json.dumps(str(scfg['id']))}")
         if scfg.get("outcome"):
             lines.append(f"        outcome: {json.dumps(scfg['outcome'])}")
     return "\n".join(lines) + "\n"

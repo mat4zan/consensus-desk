@@ -28,16 +28,22 @@ def _f(v, default=None):
 
 @register
 class PolymarketCollector(Collector):
+    """
+    Polymarket. `id` is a single market slug. Some events (FOMC decisions,
+    multi-candidate elections) are split into one binary market per outcome
+    bucket rather than one market for a whole direction — e.g. "increase 25bp"
+    and "increase 50+bp" are separate markets, and "will they increase" is
+    their sum. Use `ids: [slug, slug, ...]` (instead of `id`) to sum several
+    mutually-exclusive outcome buckets into one probability; missing/dead
+    slugs in the list are skipped rather than failing the whole topic.
+    """
+
     name = "polymarket"
     tier = "markets"
 
     BASE = "https://gamma-api.polymarket.com"
 
-    def fetch(self, source_cfg: dict) -> Quote | None:
-        slug = source_cfg.get("id")
-        if not slug:
-            return None
-
+    def _one(self, slug: str) -> tuple[float, float | None] | None:
         r = requests.get(
             f"{self.BASE}/markets", params={"slug": slug}, headers=UA, timeout=TIMEOUT
         )
@@ -62,14 +68,33 @@ class PolymarketCollector(Collector):
         p = _f(prices[0])
         if p is None:
             return None
+        return p, _f(m.get("volumeNum") or m.get("volume"))
 
-        vol = _f(m.get("volumeNum") or m.get("volume"))
+    def fetch(self, source_cfg: dict) -> Quote | None:
+        slugs = source_cfg.get("ids") or ([source_cfg["id"]] if source_cfg.get("id") else None)
+        if not slugs:
+            return None
+
+        total_p, total_vol, hit = 0.0, 0.0, []
+        for slug in slugs:
+            try:
+                got = self._one(slug)
+            except Exception:
+                got = None
+            if got is None:
+                continue
+            p, vol = got
+            total_p += p
+            total_vol += vol or 0
+            hit.append(slug)
+        if not hit:
+            return None
 
         return Quote(
-            probability=p,
-            raw_price=p,
-            volume_usd=vol,
-            raw={"slug": slug, "liquidity": m.get("liquidityNum"), "closed": m.get("closed")},
+            probability=min(total_p, 1.0),
+            raw_price=total_p,
+            volume_usd=total_vol or None,
+            raw={"slugs": hit, "summed": len(slugs) > 1},
         )
 
     def discover(self, filters: dict) -> list[dict]:
