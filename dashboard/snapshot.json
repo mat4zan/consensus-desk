@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T16:06:44.037777+00:00",
+  "generated_at": "2026-07-25T18:07:33.553799+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,26 +15,43 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 0,
-  "alerts": [],
+  "alerts": [
+    {
+      "topic_id": "fed_rate_hike_by_july_2026",
+      "kind": "spread",
+      "headline": "Will the Federal Reserve increase interest rates by the end of July 2026?: sources disagree by 44pp",
+      "detail": {
+        "spread_pp": 43.5,
+        "highest": {
+          "source": "manifold",
+          "p": 68.3
+        },
+        "lowest": {
+          "source": "polymarket",
+          "p": 24.8
+        }
+      }
+    }
+  ],
   "topics": [
     {
       "id": "us_invade_iran_2027",
       "question": "US invades Iran before 2027",
       "domain": "geopolitics",
-      "probability": 19.5,
-      "delta_24h_pp": -2.8,
-      "spread_pp": 2.8,
+      "probability": 20.2,
+      "delta_24h_pp": -0.8,
+      "spread_pp": 3.8,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.245,
-          "adjusted": 0.245,
+          "probability": 0.255,
+          "adjusted": 0.255,
           "weight": 0.34,
           "raw_weight": 0.34,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 47502821.273700684
+          "volume_usd": 47544827.66714268
         },
         {
           "source": "manifold",
@@ -42,7 +59,7 @@
           "adjusted": 0.2167,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 2.0,
           "stale": false,
           "volume_usd": 85249.17157033243
         }
@@ -260,16 +277,223 @@
         {
           "ts": "2026-07-25T16:06:32.516055+00:00",
           "p": 19.51
+        },
+        {
+          "ts": "2026-07-25T18:07:18.960501+00:00",
+          "p": 20.18
         }
       ],
       "expiry": "2027-01-01"
+    },
+    {
+      "id": "btc_100k_2026",
+      "question": "Bitcoin reaches $100,000 in 2026",
+      "domain": "crypto",
+      "probability": 7.4,
+      "delta_24h_pp": -0.6,
+      "spread_pp": 4.5,
+      "n_sources": 2,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.095,
+          "adjusted": 0.095,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 9.9,
+          "stale": false,
+          "volume_usd": 2300198.864896991
+        },
+        {
+          "source": "manifold",
+          "probability": 0.1398,
+          "adjusted": 0.1398,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 46.2,
+          "stale": true,
+          "volume_usd": 1540.3791175474698
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "polymarket": "The market resolves on any trade at/above $100k; the Yahoo oracle checks daily closes, so a brief intraday spike that does not close above $100k would not auto-resolve YES. Close enough to track together."
+      },
+      "history": [
+        {
+          "ts": "2026-07-23T19:50:53.979877+00:00",
+          "p": 9.5
+        },
+        {
+          "ts": "2026-07-23T19:52:37.049840+00:00",
+          "p": 9.5
+        },
+        {
+          "ts": "2026-07-23T19:53:53.940146+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T03:14:00.678893+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T06:28:51.757002+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T07:05:29.447600+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T07:54:08.589772+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T08:33:22.114661+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-24T11:12:14.519222+00:00",
+          "p": 7.74
+        },
+        {
+          "ts": "2026-07-24T11:58:24.151249+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:01:21.325201+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:16:17.188593+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:19:39.757703+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:26:00.684146+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:32:20.240749+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:39:57.914792+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:40:44.853351+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T12:49:38.383793+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T13:54:09.768988+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T15:40:59.448033+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T15:49:42.034363+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T16:40:51.296181+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T16:51:05.929731+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T16:51:59.437064+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T19:06:53.739263+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-24T19:35:53.067634+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T03:13:57.764179+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T04:46:21.063345+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T05:15:24.945204+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T07:32:51.419282+00:00",
+          "p": 8.05
+        },
+        {
+          "ts": "2026-07-25T08:12:43.726762+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T09:38:41.249017+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T11:44:20.029274+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T11:49:50.963025+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T11:59:58.863228+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T12:01:35.494729+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T12:03:19.121426+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T12:05:03.240732+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T13:44:29.324699+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T16:06:32.519325+00:00",
+          "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T18:07:18.965241+00:00",
+          "p": 7.42
+        }
+      ],
+      "expiry": "2026-12-31"
     },
     {
       "id": "ru_ua_ceasefire_2026",
       "question": "Russia-Ukraine ceasefire agreement by year end 2026",
       "domain": "geopolitics",
       "probability": 26.7,
-      "delta_24h_pp": -0.7,
+      "delta_24h_pp": -0.3,
       "spread_pp": 14.1,
       "n_sources": 2,
       "contributions": [
@@ -279,7 +503,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 2.4,
+          "age_hours": 4.4,
           "stale": false,
           "volume_usd": 2059211.9421290043
         },
@@ -289,7 +513,7 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 45.8,
+          "age_hours": 47.8,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
@@ -507,437 +731,13 @@
         {
           "ts": "2026-07-25T16:06:32.514870+00:00",
           "p": 26.71
+        },
+        {
+          "ts": "2026-07-25T18:07:18.959012+00:00",
+          "p": 26.71
         }
       ],
       "expiry": "2026-12-31"
-    },
-    {
-      "id": "btc_100k_2026",
-      "question": "Bitcoin reaches $100,000 in 2026",
-      "domain": "crypto",
-      "probability": 7.4,
-      "delta_24h_pp": -0.6,
-      "spread_pp": 4.5,
-      "n_sources": 2,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.095,
-          "adjusted": 0.095,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 7.9,
-          "stale": false,
-          "volume_usd": 2300198.864896991
-        },
-        {
-          "source": "manifold",
-          "probability": 0.1398,
-          "adjusted": 0.1398,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 44.2,
-          "stale": true,
-          "volume_usd": 1540.3791175474698
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {
-        "polymarket": "The market resolves on any trade at/above $100k; the Yahoo oracle checks daily closes, so a brief intraday spike that does not close above $100k would not auto-resolve YES. Close enough to track together."
-      },
-      "history": [
-        {
-          "ts": "2026-07-23T19:50:53.979877+00:00",
-          "p": 9.5
-        },
-        {
-          "ts": "2026-07-23T19:52:37.049840+00:00",
-          "p": 9.5
-        },
-        {
-          "ts": "2026-07-23T19:53:53.940146+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T03:14:00.678893+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T06:28:51.757002+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T07:05:29.447600+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T07:54:08.589772+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T08:33:22.114661+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-24T11:12:14.519222+00:00",
-          "p": 7.74
-        },
-        {
-          "ts": "2026-07-24T11:58:24.151249+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:01:21.325201+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:16:17.188593+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:19:39.757703+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:26:00.684146+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:32:20.240749+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:39:57.914792+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:40:44.853351+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T12:49:38.383793+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T13:54:09.768988+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T15:40:59.448033+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T15:49:42.034363+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T16:40:51.296181+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T16:51:05.929731+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T16:51:59.437064+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T19:06:53.739263+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-24T19:35:53.067634+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T03:13:57.764179+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T04:46:21.063345+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T05:15:24.945204+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T07:32:51.419282+00:00",
-          "p": 8.05
-        },
-        {
-          "ts": "2026-07-25T08:12:43.726762+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T09:38:41.249017+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T11:44:20.029274+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T11:49:50.963025+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T11:59:58.863228+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T12:01:35.494729+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T12:03:19.121426+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T12:05:03.240732+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T13:44:29.324699+00:00",
-          "p": 7.42
-        },
-        {
-          "ts": "2026-07-25T16:06:32.519325+00:00",
-          "p": 7.42
-        }
-      ],
-      "expiry": "2026-12-31"
-    },
-    {
-      "id": "senate_control_2026_r",
-      "question": "Republicans control the US Senate after the 2026 midterms",
-      "domain": "elections",
-      "probability": 58.9,
-      "delta_24h_pp": 0.5,
-      "spread_pp": 5.5,
-      "n_sources": 3,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.555,
-          "adjusted": 0.555,
-          "weight": 0.2243,
-          "raw_weight": 0.34,
-          "age_hours": 45.5,
-          "stale": true,
-          "volume_usd": 1461889.8463780135
-        },
-        {
-          "source": "manifold",
-          "probability": 0.57,
-          "adjusted": 0.57,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 0.0,
-          "stale": false,
-          "volume_usd": 90333.22981990369
-        },
-        {
-          "source": "predictit",
-          "probability": 0.61,
-          "adjusted": 0.61,
-          "weight": 0.1451,
-          "raw_weight": 0.22,
-          "age_hours": 26.2,
-          "stale": true,
-          "volume_usd": null
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {
-        "manifold": "Elections are the one theme traded on every venue at once, so this is the board's widest cross-source topic. Real-money venues (Polymarket, PredictIt) are correlation-damped together; Manifold is an independent play-money crowd."
-      },
-      "history": [
-        {
-          "ts": "2026-07-23T18:38:44.631921+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-23T18:50:00.987012+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-23T18:54:48.928033+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-23T19:24:39.468871+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-23T19:26:28.031982+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-23T19:50:53.978664+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-23T19:52:37.048002+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-23T19:53:53.938859+00:00",
-          "p": 57.87
-        },
-        {
-          "ts": "2026-07-24T03:14:00.677716+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T06:28:51.755207+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T07:05:29.446534+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T07:54:08.588283+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T08:33:22.113440+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T11:12:14.517723+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T11:58:24.150025+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T12:01:21.324137+00:00",
-          "p": 58.16
-        },
-        {
-          "ts": "2026-07-24T12:16:17.187215+00:00",
-          "p": 58.0
-        },
-        {
-          "ts": "2026-07-24T12:19:39.755966+00:00",
-          "p": 58.0
-        },
-        {
-          "ts": "2026-07-24T12:26:00.683063+00:00",
-          "p": 58.0
-        },
-        {
-          "ts": "2026-07-24T12:32:20.237434+00:00",
-          "p": 58.0
-        },
-        {
-          "ts": "2026-07-24T12:39:57.913259+00:00",
-          "p": 58.0
-        },
-        {
-          "ts": "2026-07-24T12:40:44.851338+00:00",
-          "p": 58.0
-        },
-        {
-          "ts": "2026-07-24T12:49:38.382564+00:00",
-          "p": 58.0
-        },
-        {
-          "ts": "2026-07-24T13:54:09.767670+00:00",
-          "p": 58.45
-        },
-        {
-          "ts": "2026-07-24T15:40:59.446933+00:00",
-          "p": 58.45
-        },
-        {
-          "ts": "2026-07-24T15:49:42.033342+00:00",
-          "p": 58.45
-        },
-        {
-          "ts": "2026-07-24T16:40:51.294571+00:00",
-          "p": 58.55
-        },
-        {
-          "ts": "2026-07-24T16:51:05.928362+00:00",
-          "p": 58.55
-        },
-        {
-          "ts": "2026-07-24T16:51:59.435671+00:00",
-          "p": 58.55
-        },
-        {
-          "ts": "2026-07-24T19:06:53.737867+00:00",
-          "p": 58.55
-        },
-        {
-          "ts": "2026-07-24T19:35:53.065598+00:00",
-          "p": 58.63
-        },
-        {
-          "ts": "2026-07-25T03:13:57.762783+00:00",
-          "p": 58.63
-        },
-        {
-          "ts": "2026-07-25T04:46:21.062077+00:00",
-          "p": 58.63
-        },
-        {
-          "ts": "2026-07-25T05:15:24.943827+00:00",
-          "p": 58.63
-        },
-        {
-          "ts": "2026-07-25T07:32:51.417348+00:00",
-          "p": 58.63
-        },
-        {
-          "ts": "2026-07-25T08:12:43.725385+00:00",
-          "p": 58.63
-        },
-        {
-          "ts": "2026-07-25T09:38:41.247633+00:00",
-          "p": 58.41
-        },
-        {
-          "ts": "2026-07-25T11:44:20.027973+00:00",
-          "p": 58.59
-        },
-        {
-          "ts": "2026-07-25T11:49:50.961640+00:00",
-          "p": 58.59
-        },
-        {
-          "ts": "2026-07-25T11:59:58.861866+00:00",
-          "p": 58.59
-        },
-        {
-          "ts": "2026-07-25T12:01:35.493308+00:00",
-          "p": 58.59
-        },
-        {
-          "ts": "2026-07-25T12:03:19.120101+00:00",
-          "p": 58.59
-        },
-        {
-          "ts": "2026-07-25T12:05:03.239246+00:00",
-          "p": 58.59
-        },
-        {
-          "ts": "2026-07-25T13:44:29.323491+00:00",
-          "p": 58.59
-        },
-        {
-          "ts": "2026-07-25T16:06:32.518171+00:00",
-          "p": 58.92
-        }
-      ],
-      "expiry": "2026-11-04"
     },
     {
       "id": "taiwan_invasion_2027",
@@ -954,7 +754,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 33.6,
+          "age_hours": 35.6,
           "stale": true,
           "volume_usd": 2176961.3125100015
         },
@@ -964,7 +764,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 45.8,
+          "age_hours": 47.8,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -1183,6 +983,10 @@
         {
           "ts": "2026-07-25T16:06:32.513212+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T18:07:18.956726+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -1202,7 +1006,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.4,
+          "age_hours": 26.4,
           "stale": true,
           "volume_usd": 23043847.619062264
         },
@@ -1212,7 +1016,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 33.6,
+          "age_hours": 35.6,
           "stale": true,
           "volume_usd": 2935012.7356325327
         }
@@ -1428,9 +1232,246 @@
         {
           "ts": "2026-07-25T16:06:32.517092+00:00",
           "p": 5.63
+        },
+        {
+          "ts": "2026-07-25T18:07:18.961973+00:00",
+          "p": 5.63
         }
       ],
       "expiry": "2027-01-01"
+    },
+    {
+      "id": "senate_control_2026_r",
+      "question": "Republicans control the US Senate after the 2026 midterms",
+      "domain": "elections",
+      "probability": 58.6,
+      "delta_24h_pp": 0.0,
+      "spread_pp": 5.5,
+      "n_sources": 3,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.555,
+          "adjusted": 0.555,
+          "weight": 0.2243,
+          "raw_weight": 0.34,
+          "age_hours": 47.5,
+          "stale": true,
+          "volume_usd": 1461889.8463780135
+        },
+        {
+          "source": "manifold",
+          "probability": 0.5613,
+          "adjusted": 0.5613,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 90347.80981990369
+        },
+        {
+          "source": "predictit",
+          "probability": 0.61,
+          "adjusted": 0.61,
+          "weight": 0.1451,
+          "raw_weight": 0.22,
+          "age_hours": 28.2,
+          "stale": true,
+          "volume_usd": null
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {
+        "manifold": "Elections are the one theme traded on every venue at once, so this is the board's widest cross-source topic. Real-money venues (Polymarket, PredictIt) are correlation-damped together; Manifold is an independent play-money crowd."
+      },
+      "history": [
+        {
+          "ts": "2026-07-23T18:38:44.631921+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T18:50:00.987012+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T18:54:48.928033+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T19:24:39.468871+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T19:26:28.031982+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T19:50:53.978664+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T19:52:37.048002+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-23T19:53:53.938859+00:00",
+          "p": 57.87
+        },
+        {
+          "ts": "2026-07-24T03:14:00.677716+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T06:28:51.755207+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T07:05:29.446534+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T07:54:08.588283+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T08:33:22.113440+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T11:12:14.517723+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T11:58:24.150025+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T12:01:21.324137+00:00",
+          "p": 58.16
+        },
+        {
+          "ts": "2026-07-24T12:16:17.187215+00:00",
+          "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:19:39.755966+00:00",
+          "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:26:00.683063+00:00",
+          "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:32:20.237434+00:00",
+          "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:39:57.913259+00:00",
+          "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:40:44.851338+00:00",
+          "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T12:49:38.382564+00:00",
+          "p": 58.0
+        },
+        {
+          "ts": "2026-07-24T13:54:09.767670+00:00",
+          "p": 58.45
+        },
+        {
+          "ts": "2026-07-24T15:40:59.446933+00:00",
+          "p": 58.45
+        },
+        {
+          "ts": "2026-07-24T15:49:42.033342+00:00",
+          "p": 58.45
+        },
+        {
+          "ts": "2026-07-24T16:40:51.294571+00:00",
+          "p": 58.55
+        },
+        {
+          "ts": "2026-07-24T16:51:05.928362+00:00",
+          "p": 58.55
+        },
+        {
+          "ts": "2026-07-24T16:51:59.435671+00:00",
+          "p": 58.55
+        },
+        {
+          "ts": "2026-07-24T19:06:53.737867+00:00",
+          "p": 58.55
+        },
+        {
+          "ts": "2026-07-24T19:35:53.065598+00:00",
+          "p": 58.63
+        },
+        {
+          "ts": "2026-07-25T03:13:57.762783+00:00",
+          "p": 58.63
+        },
+        {
+          "ts": "2026-07-25T04:46:21.062077+00:00",
+          "p": 58.63
+        },
+        {
+          "ts": "2026-07-25T05:15:24.943827+00:00",
+          "p": 58.63
+        },
+        {
+          "ts": "2026-07-25T07:32:51.417348+00:00",
+          "p": 58.63
+        },
+        {
+          "ts": "2026-07-25T08:12:43.725385+00:00",
+          "p": 58.63
+        },
+        {
+          "ts": "2026-07-25T09:38:41.247633+00:00",
+          "p": 58.41
+        },
+        {
+          "ts": "2026-07-25T11:44:20.027973+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T11:49:50.961640+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T11:59:58.861866+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T12:01:35.493308+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T12:03:19.120101+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T12:05:03.239246+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T13:44:29.323491+00:00",
+          "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T16:06:32.518171+00:00",
+          "p": 58.92
+        },
+        {
+          "ts": "2026-07-25T18:07:18.963374+00:00",
+          "p": 58.59
+        }
+      ],
+      "expiry": "2026-11-04"
     },
     {
       "id": "romania_new_pm_sep2026",
@@ -1447,8 +1488,8 @@
           "adjusted": 0.9535,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 10.9,
-          "stale": false,
+          "age_hours": 12.9,
+          "stale": true,
           "volume_usd": 311612.68790700065
         }
       ],
@@ -1503,6 +1544,10 @@
         {
           "ts": "2026-07-25T16:06:32.520649+00:00",
           "p": 95.35
+        },
+        {
+          "ts": "2026-07-25T18:07:18.966638+00:00",
+          "p": 95.35
         }
       ],
       "expiry": "2026-12-31"
@@ -1511,30 +1556,30 @@
       "id": "clarity_act_law_2026",
       "question": "Will the CLARITY Act become law in 2026?",
       "domain": "geopolitics",
-      "probability": 41.9,
+      "probability": 40.0,
       "delta_24h_pp": null,
-      "spread_pp": 21.5,
+      "spread_pp": 23.5,
       "n_sources": 3,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.355,
-          "adjusted": 0.355,
+          "probability": 0.335,
+          "adjusted": 0.335,
           "weight": 0.2243,
           "raw_weight": 0.34,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 2669032.420440987
+          "volume_usd": 2675758.6207519863
         },
         {
           "source": "manifold",
-          "probability": 0.4206,
-          "adjusted": 0.4206,
+          "probability": 0.4011,
+          "adjusted": 0.4011,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 2.4,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 81756.17389347852
+          "volume_usd": 81976.17389347852
         },
         {
           "source": "predictit",
@@ -1542,13 +1587,13 @@
           "adjusted": 0.57,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 6.5,
+          "age_hours": 8.5,
           "stale": false,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "The spread likely reflects differences in trader composition and market mechanics rather than genuine disagreement: PredictIt attracts more retail/politically-engaged traders who may be reacting to recent legislative momentum signals or congressional statements, while Polymarket draws a more globally-diverse, often more skeptical crowd that discounts legislative optimism. There may also be a mild resolution-criteria ambiguity \u2014 PredictIt's phrasing (\"enacted in 2026\") could be interpreted by some traders as including passage by Congress even before presidential signature, slightly inflating that market's probability. The underlying genuine uncertainty is about Senate dynamics and whether crypto legislation can clear a 60-vote threshold before year-end, which all three markets are pricing differently based on their user bases' priors.",
+      "explanation": "The PredictIt market likely attracts a different participant pool \u2014 more politically engaged traders who may be more bullish on Republican legislative momentum and crypto-friendly Congressional dynamics in 2025-26 \u2014 producing a systematically higher estimate. The Polymarket-Manifold gap is smaller and likely reflects normal noise and liquidity differences rather than meaningful interpretive divergence, since all three sources appear to share the same resolution criteria (enactment by end of 2026). The spread is therefore mostly genuine disagreement about the probability of legislative success, not a resolution-criteria mismatch.",
       "criteria_notes": {},
       "history": [
         {
@@ -1586,6 +1631,10 @@
         {
           "ts": "2026-07-25T16:06:32.521622+00:00",
           "p": 41.85
+        },
+        {
+          "ts": "2026-07-25T18:07:18.967727+00:00",
+          "p": 40.03
         }
       ],
       "expiry": "2026-12-31"
@@ -1605,7 +1654,7 @@
           "adjusted": 0.245,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 2.0,
           "stale": false,
           "volume_usd": 753164.8113010031
         },
@@ -1615,13 +1664,13 @@
           "adjusted": 0.0255,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 6911.4850757504355
         }
       ],
       "excluded": [],
-      "explanation": "The 21pp spread is almost entirely a resolution-criteria mismatch rather than genuine disagreement. Polymarket's market asks about a NATO-Russia *military clash* by end-2026 \u2014 a much lower bar than full-scale world war, covering any direct kinetic exchange between NATO and Russian forces. Manifold's market explicitly requires nuclear weapons use alongside a WW3-scale conflict, which is a far more restrictive condition stacked on top of an already-unlikely event. The combination of a higher threshold (nuclear + global war vs. any military clash), a longer timeframe penalized by discounting, and Manifold's typically lower-liquidity calibration on extreme events fully accounts for the gap.",
+      "explanation": "The sources are measuring fundamentally different things rather than expressing genuine disagreement about the same event. Polymarket's 24.5% covers a NATO-Russia military clash by end of 2026\u2014a much lower threshold (any direct military confrontation) over a shorter timeframe\u2014while Manifold's 3.4% specifically requires nuclear weapons and full World War 3 recognition, a far more extreme outcome. The gap almost entirely reflects this resolution-criteria mismatch: a NATO-Russia clash is orders of magnitude more probable than one that escalates to nuclear world war, so the numbers are not in tension with each other.",
       "criteria_notes": {},
       "history": [
         {
@@ -1651,6 +1700,10 @@
         {
           "ts": "2026-07-25T16:06:38.674473+00:00",
           "p": 8.34
+        },
+        {
+          "ts": "2026-07-25T18:07:23.111879+00:00",
+          "p": 8.34
         }
       ],
       "expiry": "2030-01-01"
@@ -1659,20 +1712,20 @@
       "id": "fed_rate_hike_by_july_2026",
       "question": "Will the Federal Reserve increase interest rates by the end of July 2026?",
       "domain": "macro",
-      "probability": 67.7,
+      "probability": 47.8,
       "delta_24h_pp": null,
-      "spread_pp": 6.3,
-      "n_sources": 2,
+      "spread_pp": 43.5,
+      "n_sources": 3,
       "contributions": [
         {
-          "source": "predictit",
-          "probability": 0.62,
-          "adjusted": 0.62,
-          "weight": 0.22,
-          "raw_weight": 0.22,
+          "source": "polymarket",
+          "probability": 0.248,
+          "adjusted": 0.248,
+          "weight": 0.2243,
+          "raw_weight": 0.34,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": null
+          "volume_usd": 36415059.00907655
         },
         {
           "source": "manifold",
@@ -1680,18 +1733,34 @@
           "adjusted": 0.683,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 2.0,
           "stale": false,
           "volume_usd": 11901.987125556252
+        },
+        {
+          "source": "predictit",
+          "probability": 0.62,
+          "adjusted": 0.62,
+          "weight": 0.1451,
+          "raw_weight": 0.22,
+          "age_hours": 2.0,
+          "stale": false,
+          "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
+      "explanation": "The dominant driver of the 44pp spread is a resolution-criteria mismatch, not genuine disagreement: Polymarket resolves only on the **July 2026 FOMC meeting specifically**, while Manifold covers **all of 2026** and PredictIt extends to **September 16, 2026** \u2014 giving those markets many additional decision points (September, November, December meetings) to accumulate probability of at least one hike. The Manifold/PredictIt convergence around 62\u201368% versus Polymarket's ~25% is almost entirely explained by this time-horizon difference, since a hike skipped in July could still occur later in the year. There may also be a secondary methodological artifact in the Polymarket figure, as summing two separate bucket markets introduces slight pricing inefficiencies, but this is minor compared to the deadline mismatch.",
+      "criteria_notes": {
+        "polymarket": "Polymarket splits the July FOMC decision into one binary market per outcome bucket (no change / hike 25bp / hike 50bp / cut 25bp / cut 50bp) rather than a single \"will they hike\" market. The two hike buckets are summed here as mutually exclusive outcomes to get P(any increase) \u2014 verified live: ~24.05% + ~0.75% = ~24.8%."
+      },
       "history": [
         {
           "ts": "2026-07-25T16:06:44.036477+00:00",
           "p": 67.65
+        },
+        {
+          "ts": "2026-07-25T18:07:27.726046+00:00",
+          "p": 47.84
         }
       ],
       "expiry": "2026-07-31"
