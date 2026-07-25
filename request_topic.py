@@ -76,6 +76,36 @@ def keywords(text: str) -> list[str]:
 
 # --------------------------------------------------------------- venue search
 
+def expand_queries(request: str) -> list[str]:
+    """
+    Cheap Haiku call: turn a concept into the phrases markets actually use, so a
+    'World War 3' request also searches 'NATO Russia war', 'Russia invade NATO',
+    etc. Bridges the concept→market-proxy gap that keyword search cannot.
+    """
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        return []
+    try:
+        r = requests.post(API_URL,
+                          headers={"content-type": "application/json", "x-api-key": key,
+                                   "anthropic-version": "2023-06-01"},
+                          json={"model": "claude-haiku-4-5-20251001", "max_tokens": 150,
+                                "system": "Given a forecasting topic, output ONLY a JSON array of "
+                                          "3-5 short search phrases prediction markets would use for "
+                                          "it, including concrete proxies. Example: 'World War 3' -> "
+                                          '["NATO Russia war","Russia invade NATO","nuclear weapon used"]. '
+                                          "No prose.",
+                                "messages": [{"role": "user", "content": request[:200]}]},
+                          timeout=30)
+        if r.status_code != 200:
+            return []
+        raw = "".join(b.get("text", "") for b in r.json().get("content", []) if b.get("type") == "text")
+        raw = raw.replace("```json", "").replace("```", "").strip()
+        return [str(x).strip() for x in json.loads(raw) if str(x).strip()][:5]
+    except Exception:
+        return []
+
+
 def _pm_search(term: str, limit: int = 20) -> list:
     try:
         r = requests.get("https://gamma-api.polymarket.com/public-search",
@@ -87,7 +117,8 @@ def _pm_search(term: str, limit: int = 20) -> list:
         return []
 
 
-def search_polymarket(request: str, kws: list[str], limit: int = 16) -> list[dict]:
+def search_polymarket(request: str, kws: list[str], extra: list[str] | None = None,
+                      limit: int = 16) -> list[dict]:
     """
     Polymarket relevance search (public-search). Volume-paging missed niche
     markets entirely (e.g. a Romania PM market), and the full request dilutes
@@ -95,7 +126,8 @@ def search_polymarket(request: str, kws: list[str], limit: int = 16) -> list[dic
     their own — that's what surfaces the right market.
     """
     salient = sorted({k for k in kws if len(k) >= 5}, key=len, reverse=True)[:3]
-    terms = salient + [" ".join(kws)]      # specific entity terms first, then all
+    # model-expanded market phrases first, then specific keywords, then all
+    terms = (extra or []) + salient + [" ".join(kws)]
     seen = {}
     for term in terms:
         if not term.strip():
@@ -132,10 +164,10 @@ def _manifold_query(term: str, limit: int) -> list:
         return []
 
 
-def search_manifold(kws: list[str], limit: int = 8) -> list[dict]:
-    # Manifold's fulltext is finicky: try the full keyword query, then fall back
-    # to the most salient single keyword so we don't miss on phrasing.
-    terms = [" ".join(kws)]
+def search_manifold(kws: list[str], extra: list[str] | None = None, limit: int = 8) -> list[dict]:
+    # Manifold's fulltext is finicky: try model-expanded phrases, the full
+    # keyword query, then the most salient single keyword.
+    terms = list(extra or []) + [" ".join(kws)]
     if kws:
         terms.append(max(kws, key=len))
     seen = {}
@@ -344,9 +376,12 @@ def main() -> int:
     print(f"Request: {request}")
 
     kws = keywords(request)
+    queries = expand_queries(request)      # concept -> market-proxy phrases
+    if queries:
+        print("expanded:", queries)
     candidates = {
-        "polymarket": search_polymarket(request, kws),
-        "manifold": search_manifold(kws),
+        "polymarket": search_polymarket(request, kws, queries),
+        "manifold": search_manifold(kws, queries),
         "predictit": search_predictit(kws),
     }
     n = sum(len(v) for v in candidates.values())
