@@ -48,11 +48,16 @@ h1{font-family:Newsreader,serif;font-size:34px;font-weight:400;letter-spacing:-.
 .alert-detail{font-size:12px;color:var(--ink-2);margin-top:4px}
 .quiet{color:var(--ink-3);font-size:14px;padding:14px 0}
 
-.row{display:grid;grid-template-columns:1fr 108px 92px;gap:18px;align-items:center;
+.row{display:grid;grid-template-columns:18px 1fr 108px 92px;gap:14px;align-items:center;
   padding:16px 0;border-bottom:1px solid var(--rule);cursor:pointer;
   background:var(--paper);touch-action:pan-y;will-change:transform}
 .row:hover{background:var(--panel)}
 .row.will-remove{background:var(--up)}
+.grip{cursor:grab;color:var(--ink-3);font-size:15px;line-height:1;text-align:center;
+  touch-action:none;user-select:none;letter-spacing:-1px}
+.grip:hover{color:var(--ink)}
+.item.dragging{opacity:.55}
+.item.dragging .row{background:var(--panel)}
 .row.will-remove .row-q,.row.will-remove .row-p{color:#fff}
 .row.will-remove .row-meta{color:rgba(255,255,255,.75)}
 .row-q{font-size:15px}
@@ -122,7 +127,7 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
 .cand-add:hover{border-color:var(--mark)}
 .add-hint{font-size:11px;color:var(--ink-3);margin-top:12px;line-height:1.55}
 @media(max-width:640px){
-  .row{grid-template-columns:1fr 54px 58px;gap:10px}
+  .row{grid-template-columns:16px 1fr 50px 56px;gap:9px}
   .src{grid-template-columns:96px 1fr 46px}
   .src-w{display:none}
 }
@@ -398,8 +403,12 @@ function render(s) {
   }
 
   parts.push('<div class="eyebrow">Board</div>');
-  for (const t of s.topics) {
-    parts.push(`<div class="row" data-id="${esc(t.id)}">
+  const saved = JSON.parse(localStorage.getItem('cd-order') || '[]');
+  const ord = id => { const i = saved.indexOf(id); return i === -1 ? 1e9 : i; };
+  const ordered = [...s.topics].sort((a, b) => ord(a.id) - ord(b.id));
+  for (const t of ordered) {
+    parts.push(`<div class="item" data-id="${esc(t.id)}"><div class="row" data-id="${esc(t.id)}">
+      <span class="grip" data-grip title="drag to reorder">⠿</span>
       <div>
         <div class="row-q">${esc(t.question)}</div>
         <div class="row-meta mono">${t.contributions.map(c => esc(c.source)).join(' · ')}</div>
@@ -409,10 +418,11 @@ function render(s) {
         <div class="row-p mono">${t.probability.toFixed(1)}%</div>
         <div class="row-d">${deltaHtml(t.delta_24h_pp)}</div>
       </div>
-    </div><div class="slot" data-slot="${esc(t.id)}"></div>`);
+    </div><div class="slot" data-slot="${esc(t.id)}"></div></div>`);
   }
 
   document.getElementById('app').innerHTML = parts.join('');
+  attachGrips();
 
   const byId = Object.fromEntries(s.topics.map(t => [t.id, t]));
   const THRESH = 80;              // px past which a swipe removes
@@ -468,6 +478,46 @@ function removeTopic(id) {
   } else {
     window.open(removeIssueUrl(id), '_blank', 'noopener');
   }
+}
+
+// --- Drag-to-reorder via the grip handle (mouse + touch). Order is saved per
+// browser and re-applied on load. ---
+let __drag = null;
+function __itemAt(y) {
+  return [...document.querySelectorAll('.item')].find(it => {
+    const r = it.getBoundingClientRect();
+    return y >= r.top && y <= r.bottom;
+  });
+}
+function __dragMove(y) {
+  if (!__drag) return;
+  const over = __itemAt(y);
+  if (over && over !== __drag) {
+    const r = over.getBoundingClientRect();
+    over.parentNode.insertBefore(__drag, y < r.top + r.height / 2 ? over : over.nextSibling);
+  }
+}
+function __dragEnd() {
+  if (!__drag) return;
+  __drag.classList.remove('dragging');
+  __drag = null;
+  const order = [...document.querySelectorAll('.item')].map(it => it.dataset.id);
+  localStorage.setItem('cd-order', JSON.stringify(order));
+  toast('Order saved.');
+}
+window.addEventListener('mousemove', e => { if (__drag) { e.preventDefault(); __dragMove(e.clientY); } });
+window.addEventListener('mouseup', __dragEnd);
+window.addEventListener('touchmove', e => { if (__drag) { e.preventDefault(); __dragMove(e.touches[0].clientY); } }, { passive: false });
+window.addEventListener('touchend', __dragEnd);
+window.addEventListener('touchcancel', __dragEnd);
+
+function attachGrips() {
+  document.querySelectorAll('[data-grip]').forEach(grip => {
+    const begin = () => { __drag = grip.closest('.item'); if (__drag) __drag.classList.add('dragging'); };
+    grip.addEventListener('mousedown', e => { e.preventDefault(); e.stopPropagation(); begin(); });
+    grip.addEventListener('touchstart', e => { e.preventDefault(); e.stopPropagation(); begin(); }, { passive: false });
+    grip.addEventListener('click', e => e.stopPropagation());
+  });
 }
 
 fetch('snapshot.json?' + Date.now())
