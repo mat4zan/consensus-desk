@@ -167,3 +167,14 @@ topics:
       manifold:
         id: "will-bitcoin-exceed-100000-before-d"
 
+  - id: romania_new_pm_sep2026
+    question: "Will there be a new Romanian Prime Minister by end of September 2026?"
+    domain: elections
+    resolution: >
+      Resolves YES if current PM Bolojan leaves office (is replaced) by September 30, 2026. Matched to Polymarket's 'Romanian PM Bolojan out by December 31?' market, which uses a later deadline (Dec 31, 2026) than the requested Sep 30, 2026 cutoff — treat as an approximation since no Sep-specific market exists.
+    expiry: 2026-12-31
+    review: 2026-12-31
+    # Auto-added from a topic request on 2026-07-25.
+    sources:
+      polymarket:
+        id: "romanian-pm-bolojan-out-by-december-31-832-595"
