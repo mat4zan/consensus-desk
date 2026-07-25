@@ -84,6 +84,9 @@ polling:
 
   # Back off a source after this many consecutive failures.
   failure_backoff_threshold: 3
+  # ...but self-heal: retry once this many hours after the last failure,
+  # rather than staying silenced forever. A fresh failure re-arms the wait.
+  failure_backoff_retry_hours: 6
 
 alerts:
   # Absolute percentage-point move in the pooled probability.

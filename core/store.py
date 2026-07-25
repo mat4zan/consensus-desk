@@ -59,7 +59,8 @@ CREATE TABLE IF NOT EXISTS collector_health (
     source            TEXT PRIMARY KEY,
     last_success      TEXT,
     consecutive_fails INTEGER DEFAULT 0,
-    last_error        TEXT
+    last_error        TEXT,
+    last_failure      TEXT
 );
 
 CREATE TABLE IF NOT EXISTS discovery_queue (
@@ -86,6 +87,10 @@ class Store:
         self.conn = sqlite3.connect(self.path)
         self.conn.row_factory = sqlite3.Row
         self.conn.executescript(SCHEMA)
+        try:  # migrate DBs created before last_failure existed
+            self.conn.execute("ALTER TABLE collector_health ADD COLUMN last_failure TEXT")
+        except sqlite3.OperationalError:
+            pass  # column already there
         self.conn.commit()
 
     def close(self) -> None:
@@ -270,11 +275,12 @@ class Store:
 
     def mark_failure(self, source: str, error: str) -> int:
         self.conn.execute(
-            "INSERT INTO collector_health (source, last_success, consecutive_fails, last_error) "
-            "VALUES (?,NULL,1,?) "
+            "INSERT INTO collector_health (source, last_success, consecutive_fails, last_error, last_failure) "
+            "VALUES (?,NULL,1,?,?) "
             "ON CONFLICT(source) DO UPDATE SET "
-            "consecutive_fails=collector_health.consecutive_fails+1, last_error=excluded.last_error",
-            (source, error[:500]),
+            "consecutive_fails=collector_health.consecutive_fails+1, "
+            "last_error=excluded.last_error, last_failure=excluded.last_failure",
+            (source, error[:500], _now()),
         )
         self.conn.commit()
         cur = self.conn.execute(
@@ -283,12 +289,24 @@ class Store:
         row = cur.fetchone()
         return row["consecutive_fails"] if row else 0
 
-    def is_backed_off(self, source: str, threshold: int) -> bool:
+    def is_backed_off(self, source: str, threshold: int, retry_after_hours: float = 6.0) -> bool:
+        """
+        True once `source` has hit `threshold` consecutive failures — UNLESS
+        it's been more than `retry_after_hours` since the last one, in which
+        case one retry is allowed (self-heals a transient outage instead of
+        silencing the venue forever; a fresh failure re-arms the cooldown).
+        """
         cur = self.conn.execute(
-            "SELECT consecutive_fails FROM collector_health WHERE source=?", (source,)
+            "SELECT consecutive_fails, last_failure FROM collector_health WHERE source=?",
+            (source,),
         )
         row = cur.fetchone()
-        return bool(row and row["consecutive_fails"] >= threshold)
+        if not row or row["consecutive_fails"] < threshold:
+            return False
+        if not row["last_failure"]:
+            return True  # pre-migration row with no timestamp: keep old behavior
+        age = datetime.now(timezone.utc) - datetime.fromisoformat(row["last_failure"])
+        return age < timedelta(hours=retry_after_hours)
 
     # ---------- discovery ----------
 

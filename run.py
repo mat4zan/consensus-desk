@@ -66,6 +66,7 @@ def cmd_collect(args, cfg, store):
     tiers_cfg = cfg.get("polling", {}).get("tiers", {})
     min_delta = cfg.get("polling", {}).get("min_delta_to_record", 0.0)
     backoff = cfg.get("polling", {}).get("failure_backoff_threshold", 3)
+    backoff_retry_hours = cfg.get("polling", {}).get("failure_backoff_retry_hours", 6)
 
     registry = all_collectors()
     written = skipped = failed = 0
@@ -78,7 +79,7 @@ def cmd_collect(args, cfg, store):
                 continue
             if tier != "all" and cls.tier != tier:
                 continue
-            if store.is_backed_off(source_name, backoff):
+            if store.is_backed_off(source_name, backoff, backoff_retry_hours):
                 print(f"  [backoff] {source_name} — skipping")
                 continue
 
