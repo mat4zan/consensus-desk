@@ -197,9 +197,34 @@ async function postManage(action, payload) {
     });
     if (r.status === 401) { localStorage.removeItem('cd-manage-key'); toast('Wrong passphrase — try again.'); return false; }
     if (!r.ok) { toast('Request failed (' + r.status + ').'); return false; }
-    toast(action === 'add' ? 'Got it — building the topic…' : 'Removing…');
+    toast(action === 'add' ? 'Searching markets…' : 'Removing…');
+    pollResult(action, payload);   // watch the board and report the real outcome
     return true;
   } catch (e) { toast('Could not reach the server.'); return false; }
+}
+
+// After an add/remove, poll the snapshot to report what actually happened —
+// so you never have to check GitHub. Add can legitimately find no market.
+function pollResult(action, payload) {
+  const before = (window.__lastSnap && window.__lastSnap.topics.length) || 0;
+  const start = Date.now();
+  const tick = async () => {
+    let s;
+    try { s = await (await fetch('snapshot.json?_=' + Date.now())).json(); } catch (e) { s = null; }
+    if (s) {
+      const has = id => s.topics.some(t => t.id === id);
+      if (action === 'remove' && payload.id && !has(payload.id)) { render(s); toast('🗑️ Removed.'); return; }
+      if (action === 'add' && s.topics.length > before) { render(s); toast('✅ Added to the board.'); return; }
+    }
+    if (Date.now() - start > 150000) {
+      toast(action === 'add'
+        ? '⚠️ No matching market found. Try a specific, market-style question.'
+        : 'Still processing — refresh in a moment.');
+      return;
+    }
+    setTimeout(tick, 8000);
+  };
+  setTimeout(tick, 9000);
 }
 
 function toast(msg) {
@@ -322,6 +347,7 @@ function detailHtml(t) {
 }
 
 function render(s) {
+  window.__lastSnap = s;
   const upd = new Date(s.generated_at);
   const local = upd.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
   const mins = Math.max(0, Math.round((Date.now() - upd.getTime()) / 60000));
