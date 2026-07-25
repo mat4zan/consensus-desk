@@ -473,31 +473,8 @@ function render(s) {
       <span class="chip${activeDomain === '' ? ' active' : ''}" data-domain="">all</span>
       ${domains.map(d => `<span class="chip${activeDomain === d ? ' active' : ''}" data-domain="${esc(d)}">${esc(d)}</span>`).join('')}
     </div>
-  </div>`);
-
-  const saved = JSON.parse(localStorage.getItem('cd-order') || '[]');
-  const ord = id => { const i = saved.indexOf(id); return i === -1 ? 1e9 : i; };
-  const q = boardFilter.trim().toLowerCase();
-  const visible = s.topics.filter(t =>
-    (!q || t.question.toLowerCase().includes(q)) &&
-    (!activeDomain || t.domain === activeDomain));
-  const ordered = visible.sort((a, b) => ord(a.id) - ord(b.id));
-  if (!ordered.length) parts.push('<div class="quiet">No topics match.</div>');
-  for (const t of ordered) {
-    const dom = t.domain ? `<span class="row-domain">${esc(t.domain)}</span>` : '';
-    parts.push(`<div class="item" data-id="${esc(t.id)}"><div class="row" data-id="${esc(t.id)}">
-      <span class="grip" data-grip title="drag to reorder">⠿</span>
-      <div>
-        <div class="row-q">${esc(t.question)}</div>
-        <div class="row-meta mono">${dom}${t.contributions.map(c => esc(c.source)).join(' · ')}</div>
-      </div>
-      <span class="spark-cell">${spark(t.history)}</span>
-      <div class="row-val">
-        <div class="row-p mono">${t.probability.toFixed(1)}%</div>
-        <div class="row-d">${deltaHtml(t.delta_24h_pp)}</div>
-      </div>
-    </div><div class="slot" data-slot="${esc(t.id)}"></div></div>`);
-  }
+  </div>
+  <div id="board-list"></div>`);
 
   if (s.resolved && s.resolved.length) {
     parts.push('<div class="eyebrow">Resolved</div>');
@@ -511,58 +488,116 @@ function render(s) {
     }
   }
 
+  // The shell (search input, chips, header) is built ONCE per real data
+  // refresh. Typing/filtering only ever touches #board-list below — never
+  // this innerHTML — so the input element is never destroyed and the mobile
+  // keyboard never gets dismissed mid-keystroke.
   document.getElementById('app').innerHTML = parts.join('');
-  attachGrips();
 
   const searchEl = document.getElementById('board-search');
   if (searchEl) {
-    const hadFocus = document.activeElement && document.activeElement.id === 'board-search';
-    const caret = hadFocus ? document.activeElement.selectionStart : null;
-    if (hadFocus) { searchEl.focus(); if (caret != null) searchEl.setSelectionRange(caret, caret); }
-    searchEl.addEventListener('input', () => { boardFilter = searchEl.value; render(s); });
+    searchEl.addEventListener('input', () => { boardFilter = searchEl.value; renderBoardList(); });
   }
   document.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', () => { activeDomain = chip.dataset.domain; render(s); });
+    chip.addEventListener('click', () => {
+      activeDomain = chip.dataset.domain;
+      document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === chip));
+      renderBoardList();
+    });
   });
 
-  const byId = Object.fromEntries(s.topics.map(t => [t.id, t]));
-  const THRESH = 80;              // px past which a swipe removes
-  document.querySelectorAll('.row').forEach(row => {
-    let sx = 0, sy = 0, mode = null, dx = 0, active = false;
+  renderBoardList();
+}
 
-    const settle = () => { row.style.transition = 'transform .18s ease';
-      row.style.transform = ''; row.classList.remove('will-remove'); };
-    const start = (x, y) => { sx = x; sy = y; mode = null; dx = 0; active = true;
-      row.style.transition = 'none'; };
-    const move = (x, y, ev) => {
-      if (!active) return;
-      const mx = x - sx, my = y - sy;
-      if (mode === null) {
-        if (Math.abs(mx) > 8 && Math.abs(mx) > Math.abs(my) + 3) mode = 'swipe';
-        else if (Math.abs(my) > 8) { mode = 'scroll'; active = false; return; }
-      }
-      if (mode === 'swipe') {
-        if (ev.cancelable) ev.preventDefault();       // claim the gesture from the browser
-        dx = Math.max(-150, Math.min(150, mx));
-        row.style.transform = `translateX(${dx}px)`;
-        row.classList.toggle('will-remove', Math.abs(dx) > THRESH);
-      }
-    };
-    const end = () => {
-      if (mode === 'swipe') { if (Math.abs(dx) > THRESH) removeTopic(row.dataset.id); settle(); }
-      active = false; mode = null;
-    };
+// Rebuilds ONLY the row list into #board-list, per boardFilter/activeDomain.
+// Called on every keystroke — must never touch #board-search itself.
+function renderBoardList() {
+  const s = window.__lastSnap;
+  const list = document.getElementById('board-list');
+  if (!s || !list) return;
 
-    row.addEventListener('touchstart', e => start(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
-    row.addEventListener('touchmove', e => move(e.touches[0].clientX, e.touches[0].clientY, e), { passive: false });
-    row.addEventListener('touchend', end);
-    row.addEventListener('touchcancel', () => { settle(); active = false; mode = null; });
-    row.addEventListener('mousedown', e => start(e.clientX, e.clientY));
-    window.addEventListener('mousemove', e => { if (active) move(e.clientX, e.clientY, e); });
-    window.addEventListener('mouseup', () => { if (active) end(); });
+  const saved = JSON.parse(localStorage.getItem('cd-order') || '[]');
+  const ord = id => { const i = saved.indexOf(id); return i === -1 ? 1e9 : i; };
+  const q = boardFilter.trim().toLowerCase();
+  const visible = s.topics.filter(t =>
+    (!q || t.question.toLowerCase().includes(q)) &&
+    (!activeDomain || t.domain === activeDomain));
+  const ordered = visible.sort((a, b) => ord(a.id) - ord(b.id));
 
+  const rows = [];
+  if (!ordered.length) rows.push('<div class="quiet">No topics match.</div>');
+  for (const t of ordered) {
+    const dom = t.domain ? `<span class="row-domain">${esc(t.domain)}</span>` : '';
+    rows.push(`<div class="item" data-id="${esc(t.id)}"><div class="row" data-id="${esc(t.id)}">
+      <span class="grip" data-grip title="drag to reorder">⠿</span>
+      <div>
+        <div class="row-q">${esc(t.question)}</div>
+        <div class="row-meta mono">${dom}${t.contributions.map(c => esc(c.source)).join(' · ')}</div>
+      </div>
+      <span class="spark-cell">${spark(t.history)}</span>
+      <div class="row-val">
+        <div class="row-p mono">${t.probability.toFixed(1)}%</div>
+        <div class="row-d">${deltaHtml(t.delta_24h_pp)}</div>
+      </div>
+    </div><div class="slot" data-slot="${esc(t.id)}"></div></div>`);
+  }
+  list.innerHTML = rows.join('');
+
+  attachGrips();
+  attachRowInteractions(Object.fromEntries(s.topics.map(t => [t.id, t])));
+}
+
+// Swipe-to-remove: ONE shared state + ONE set of window-level listeners
+// (attached once, below), rather than new listeners per row per render —
+// renderBoardList() can now fire on every keystroke without piling these up.
+let swipe = null;
+const SWIPE_THRESH = 80;
+
+function swipeMove(x, y, ev) {
+  if (!swipe) return;
+  const mx = x - swipe.sx, my = y - swipe.sy;
+  if (swipe.mode === null) {
+    if (Math.abs(mx) > 8 && Math.abs(mx) > Math.abs(my) + 3) swipe.mode = 'swipe';
+    else if (Math.abs(my) > 8) { swipe = null; return; }
+  }
+  if (swipe && swipe.mode === 'swipe') {
+    if (ev.cancelable) ev.preventDefault();       // claim the gesture from the browser
+    swipe.dx = Math.max(-150, Math.min(150, mx));
+    swipe.row.style.transform = `translateX(${swipe.dx}px)`;
+    swipe.row.classList.toggle('will-remove', Math.abs(swipe.dx) > SWIPE_THRESH);
+  }
+}
+function swipeEnd() {
+  if (!swipe) return;
+  const { row, mode, dx } = swipe;
+  row.__dx = dx || 0;
+  if (mode === 'swipe') {
+    if (Math.abs(dx) > SWIPE_THRESH) removeTopic(row.dataset.id);
+    row.style.transition = 'transform .18s ease';
+    row.style.transform = '';
+    row.classList.remove('will-remove');
+  }
+  swipe = null;
+}
+window.addEventListener('mousemove', e => swipeMove(e.clientX, e.clientY, e));
+window.addEventListener('mouseup', swipeEnd);
+window.addEventListener('touchmove', e => { if (swipe) swipeMove(e.touches[0].clientX, e.touches[0].clientY, e); }, { passive: false });
+window.addEventListener('touchend', swipeEnd);
+window.addEventListener('touchcancel', swipeEnd);
+
+function attachRowInteractions(byId) {
+  document.querySelectorAll('#board-list .row').forEach(row => {
+    row.__dx = 0;
+    row.addEventListener('touchstart', e => {
+      swipe = { row, sx: e.touches[0].clientX, sy: e.touches[0].clientY, mode: null, dx: 0 };
+      row.style.transition = 'none';
+    }, { passive: true });
+    row.addEventListener('mousedown', e => {
+      swipe = { row, sx: e.clientX, sy: e.clientY, mode: null, dx: 0 };
+      row.style.transition = 'none';
+    });
     row.addEventListener('click', () => {
-      if (Math.abs(dx) > 10) { dx = 0; return; }   // that was a swipe, not a tap
+      if (Math.abs(row.__dx || 0) > 10) { row.__dx = 0; return; }   // that was a swipe, not a tap
       const id = row.dataset.id;
       const slot = document.querySelector(`[data-slot="${id}"]`);
       slot.innerHTML = slot.innerHTML ? '' : detailHtml(byId[id]);
