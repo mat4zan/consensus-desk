@@ -219,6 +219,16 @@ topics:
     review: 2026-07-31
     # Auto-added from a topic request on 2026-07-25.
     sources:
+      polymarket:
+        ids:
+          - "will-the-fed-increase-interest-rates-by-25-bps-after-the-july-2026-meeting"
+          - "will-the-fed-increase-interest-rates-by-50-bps-after-the-july-2026-meeting"
+        criteria_note: >
+          Polymarket splits the July FOMC decision into one binary market per
+          outcome bucket (no change / hike 25bp / hike 50bp / cut 25bp / cut
+          50bp) rather than a single "will they hike" market. The two hike
+          buckets are summed here as mutually exclusive outcomes to get
+          P(any increase) — verified live: ~24.05% + ~0.75% = ~24.8%.
       manifold:
         id: "will-the-federal-reserve-hike-inter-gcPlnRdpUp"
       predictit:
