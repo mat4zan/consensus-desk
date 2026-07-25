@@ -211,6 +211,22 @@ class Store:
         )
         return cur.fetchone() is not None
 
+    def all_resolutions(self, limit: int = 20) -> list[sqlite3.Row]:
+        cur = self.conn.execute(
+            "SELECT * FROM resolutions ORDER BY resolved_at DESC LIMIT ?", (limit,)
+        )
+        return cur.fetchall()
+
+    def latest_pooled(self, topic_id: str) -> sqlite3.Row | None:
+        """The crowd's last known probability before a topic stopped being polled
+        (once resolved/expired it drops out of `pool`, so this is naturally its
+        final pre-resolution reading)."""
+        cur = self.conn.execute(
+            "SELECT probability FROM pooled WHERE topic_id=? ORDER BY ts DESC LIMIT 1",
+            (topic_id,),
+        )
+        return cur.fetchone()
+
     def scoring_rows(self) -> list[dict]:
         """
         Every source forecast on a resolved topic, with days-before-resolution.

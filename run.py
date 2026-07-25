@@ -198,6 +198,23 @@ def cmd_pool(args, cfg, store):
         )
         print(f"  {tid}: {result.probability * 100:.1f}% (spread {result.spread_pp:.0f}pp)")
 
+    all_topics_by_id = {t["id"]: t for t in load_topics()}
+    resolved = []
+    for r in store.all_resolutions():
+        topic_cfg = all_topics_by_id.get(r["topic_id"])
+        if not topic_cfg:
+            continue  # config since deleted; nothing to label it with
+        last = store.latest_pooled(r["topic_id"])
+        resolved.append(
+            {
+                "id": r["topic_id"],
+                "question": topic_cfg["question"],
+                "outcome": r["outcome"],
+                "resolved_at": r["resolved_at"],
+                "last_probability": round(last["probability"] * 100, 1) if last else None,
+            }
+        )
+
     snapshot = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "method": cfg["pooling"]["method"],
@@ -210,6 +227,7 @@ def cmd_pool(args, cfg, store):
             for a in all_alerts
         ],
         "topics": sorted(snapshot_topics, key=lambda t: -abs(t.get("delta_24h_pp") or 0)),
+        "resolved": resolved,
     }
 
     out_path = ROOT / cfg["output"]["snapshot_path"]

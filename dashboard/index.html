@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Consensus desk</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Consensus">
+<meta name="theme-color" id="theme-color-meta" content="#12100e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -43,6 +50,18 @@ h1{font-family:Newsreader,serif;font-size:34px;font-weight:400;letter-spacing:-.
   margin:36px 0 14px;display:flex;align-items:center;gap:12px}
 .eyebrow::after{content:'';flex:1;height:1px;background:var(--rule)}
 
+.board-filter{margin-bottom:8px}
+#board-search{width:100%;background:var(--panel);border:1px solid var(--rule-2);color:var(--ink);
+  padding:8px 12px;border-radius:6px;font-family:inherit;font-size:13px;box-sizing:border-box}
+#board-search:focus{outline:none;border-color:var(--ink-3)}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:11px;letter-spacing:.03em;color:var(--ink-3);border:1px solid var(--rule-2);
+  padding:3px 10px;border-radius:99px;cursor:pointer;user-select:none}
+.chip:hover{color:var(--ink)}
+.chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.row-domain{color:var(--ink-3);border:1px solid var(--rule-2);border-radius:4px;
+  padding:1px 6px;margin-right:8px;font-size:10px}
+
 .alert{border-left:2px solid var(--danger);background:var(--panel);padding:14px 18px;margin-bottom:8px}
 .alert.spread{border-left-color:var(--mark)}
 .alert.volume_divergence{border-left-color:var(--ink-2)}
@@ -78,13 +97,14 @@ svg.spark{display:block;width:100%;height:auto}
 .detail-p{font-size:30px}
 .detail-meta{font-size:11px;color:var(--ink-3);letter-spacing:.05em;margin-bottom:20px}
 
-.src{display:grid;grid-template-columns:120px 1fr 52px 68px;gap:12px;align-items:center;
+.src{display:grid;grid-template-columns:120px 1fr 52px 60px 68px;gap:12px;align-items:center;
   padding:7px 0;font-size:13px}
 .src-name{color:var(--ink)}
 .src-track{height:5px;background:var(--raised)}
 .src-fill{height:5px;background:var(--ink-2)}
 .src-fill.lead{background:var(--mark)}
 .src-p{text-align:right}
+.src-vol{text-align:right;font-size:11px;color:var(--ink-3)}
 .src-w{text-align:right;font-size:11px;color:var(--ink-3)}
 .stale{color:var(--mark)}
 
@@ -96,6 +116,9 @@ svg.spark{display:block;width:100%;height:auto}
 .chart-axis{display:flex;justify-content:space-between;font-size:10px;color:var(--ink-3);
   margin-top:4px;letter-spacing:.03em}
 .chart-cap{font-size:10px;color:var(--ink-3);margin:2px 0 16px;letter-spacing:.04em}
+.resolved-row{padding:11px 0;border-bottom:1px solid var(--rule)}
+.resolved-q{font-size:14px;color:var(--ink-2)}
+.resolved-meta{font-size:11px;color:var(--ink-3);margin-top:3px;letter-spacing:.03em}
 .detail-actions{margin-top:20px;border-top:1px solid var(--rule);padding-top:12px}
 .remove-link{color:var(--ink-3);font-size:12px;text-decoration:none;letter-spacing:.05em}
 .remove-link:hover{color:var(--danger)}
@@ -134,7 +157,7 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
 @media(max-width:640px){
   .row{grid-template-columns:16px 1fr 50px 56px;gap:9px}
   .src{grid-template-columns:96px 1fr 46px}
-  .src-w{display:none}
+  .src-w,.src-vol{display:none}
 }
 </style>
 <script>
@@ -183,6 +206,8 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 // Add-a-topic: describe in plain English -> pre-filled GitHub issue -> the
 // workflow runs the multi-source Claude matcher and wires the topic.
 const REPO = 'mat4zan/consensus-desk';
+let boardFilter = '';
+let activeDomain = '';
 // Set this to your deployed serverless endpoint to make add/remove happen
 // directly from the dashboard — no GitHub visit, no email. Empty = fall back
 // to the one-click GitHub issue.
@@ -277,7 +302,12 @@ document.getElementById('add-q').addEventListener('keydown', e => { if (e.key ==
 (function () {
   const btn = document.getElementById('theme-toggle');
   const root = document.documentElement;
-  const paint = () => { btn.textContent = root.getAttribute('data-theme') === 'light' ? '☾' : '☀'; };
+  const paint = () => {
+    const light = root.getAttribute('data-theme') === 'light';
+    btn.textContent = light ? '☾' : '☀';
+    const tc = document.getElementById('theme-color-meta');
+    if (tc) tc.setAttribute('content', light ? '#f8f5ef' : '#12100e');
+  };
   btn.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     root.setAttribute('data-theme', next);
@@ -355,6 +385,13 @@ function deltaHtml(d) {
   return `<span class="${cls} mono">${arrow} ${Math.abs(d).toFixed(1)}</span>`;
 }
 
+function fmtVol(v) {
+  if (v == null) return '—';
+  if (v >= 1e6) return '$' + (v / 1e6).toFixed(1) + 'M';
+  if (v >= 1e3) return '$' + (v / 1e3).toFixed(0) + 'k';
+  return '$' + Math.round(v);
+}
+
 function sourcesHtml(t) {
   const maxW = Math.max(...t.contributions.map(c => c.weight), 0.01);
   return t.contributions.map(c => {
@@ -364,6 +401,7 @@ function sourcesHtml(t) {
       <span class="src-name">${esc(c.source)}${stale}</span>
       <span class="src-track"><span class="src-fill${lead}" style="width:${(c.probability * 100).toFixed(1)}%"></span></span>
       <span class="src-p mono">${(c.probability * 100).toFixed(0)}%</span>
+      <span class="src-vol mono" title="liquidity behind this quote">${fmtVol(c.volume_usd)}</span>
       <span class="src-w mono">w ${c.weight.toFixed(2)}</span>
     </div>`;
   }).join('');
@@ -428,15 +466,30 @@ function render(s) {
   }
 
   parts.push('<div class="eyebrow">Board</div>');
+  const domains = [...new Set(s.topics.map(t => t.domain).filter(Boolean))].sort();
+  parts.push(`<div class="board-filter">
+    <input id="board-search" type="text" autocomplete="off" placeholder="Filter…" value="${esc(boardFilter)}" />
+    <div class="chip-row">
+      <span class="chip${activeDomain === '' ? ' active' : ''}" data-domain="">all</span>
+      ${domains.map(d => `<span class="chip${activeDomain === d ? ' active' : ''}" data-domain="${esc(d)}">${esc(d)}</span>`).join('')}
+    </div>
+  </div>`);
+
   const saved = JSON.parse(localStorage.getItem('cd-order') || '[]');
   const ord = id => { const i = saved.indexOf(id); return i === -1 ? 1e9 : i; };
-  const ordered = [...s.topics].sort((a, b) => ord(a.id) - ord(b.id));
+  const q = boardFilter.trim().toLowerCase();
+  const visible = s.topics.filter(t =>
+    (!q || t.question.toLowerCase().includes(q)) &&
+    (!activeDomain || t.domain === activeDomain));
+  const ordered = visible.sort((a, b) => ord(a.id) - ord(b.id));
+  if (!ordered.length) parts.push('<div class="quiet">No topics match.</div>');
   for (const t of ordered) {
+    const dom = t.domain ? `<span class="row-domain">${esc(t.domain)}</span>` : '';
     parts.push(`<div class="item" data-id="${esc(t.id)}"><div class="row" data-id="${esc(t.id)}">
       <span class="grip" data-grip title="drag to reorder">⠿</span>
       <div>
         <div class="row-q">${esc(t.question)}</div>
-        <div class="row-meta mono">${t.contributions.map(c => esc(c.source)).join(' · ')}</div>
+        <div class="row-meta mono">${dom}${t.contributions.map(c => esc(c.source)).join(' · ')}</div>
       </div>
       <span class="spark-cell">${spark(t.history)}</span>
       <div class="row-val">
@@ -446,8 +499,31 @@ function render(s) {
     </div><div class="slot" data-slot="${esc(t.id)}"></div></div>`);
   }
 
+  if (s.resolved && s.resolved.length) {
+    parts.push('<div class="eyebrow">Resolved</div>');
+    for (const r of s.resolved) {
+      const badge = r.outcome ? '✓ YES' : '✗ NO';
+      const lp = r.last_probability != null ? `crowd said ${r.last_probability}%` : 'no prior reading';
+      parts.push(`<div class="resolved-row">
+        <div class="resolved-q">${esc(r.question)}</div>
+        <div class="resolved-meta mono">${badge} · ${esc(lp)} · ${esc((r.resolved_at || '').slice(0, 10))}</div>
+      </div>`);
+    }
+  }
+
   document.getElementById('app').innerHTML = parts.join('');
   attachGrips();
+
+  const searchEl = document.getElementById('board-search');
+  if (searchEl) {
+    const hadFocus = document.activeElement && document.activeElement.id === 'board-search';
+    const caret = hadFocus ? document.activeElement.selectionStart : null;
+    if (hadFocus) { searchEl.focus(); if (caret != null) searchEl.setSelectionRange(caret, caret); }
+    searchEl.addEventListener('input', () => { boardFilter = searchEl.value; render(s); });
+  }
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => { activeDomain = chip.dataset.domain; render(s); });
+  });
 
   const byId = Object.fromEntries(s.topics.map(t => [t.id, t]));
   const THRESH = 80;              // px past which a swipe removes

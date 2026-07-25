@@ -1,0 +1,20 @@
+name: genicons
+on: {workflow_dispatch: {}}
+jobs:
+  g:
+    runs-on: ubuntu-latest
+    permissions: {contents: write}
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install pillow
+      - run: python tools/gen_icons.py
+      - run: |
+          git config user.name  "consensus-desk"
+          git config user.email "actions@github.com"
+          git add dashboard/icon-*.png
+          git commit -m "Generate PWA home-screen icons"
+          git pull --rebase --autostash || true
+          git push
