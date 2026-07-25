@@ -178,3 +178,20 @@ topics:
     sources:
       polymarket:
         id: "romanian-pm-bolojan-out-by-december-31-832-595"
+
+  - id: clarity_act_law_2026
+    question: "Will the CLARITY Act become law in 2026?"
+    domain: geopolitics
+    resolution: >
+      Resolves YES if the CLARITY Act (crypto market structure legislation) is signed into law in the United States by December 31, 2026. PredictIt market is phrased as 'crypto regulation (Clarity Act) be enacted in 2026' which is treated as equivalent.
+    expiry: 2026-12-31
+    review: 2026-12-31
+    # Auto-added from a topic request on 2026-07-25.
+    sources:
+      polymarket:
+        id: "clarity-act-signed-into-law-in-2026"
+      manifold:
+        id: "clarity-act-signed-into-law-in-2026"
+      predictit:
+        id: "8804"
+        outcome: "Will crypto regulation (Clarity Act) be enacted in 2026?"
