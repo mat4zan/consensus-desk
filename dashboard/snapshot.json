@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T18:46:53.692838+00:00",
+  "generated_at": "2026-07-25T18:55:37.015700+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -32,7 +32,7 @@
           "adjusted": 0.255,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 47600811.12701469
         },
@@ -42,7 +42,7 @@
           "adjusted": 0.2167,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 2.7,
+          "age_hours": 2.8,
           "stale": false,
           "volume_usd": 85249.17157033243
         }
@@ -272,6 +272,10 @@
         {
           "ts": "2026-07-25T18:46:36.169441+00:00",
           "p": 20.18
+        },
+        {
+          "ts": "2026-07-25T18:55:18.831934+00:00",
+          "p": 20.18
         }
       ],
       "expiry": "2027-01-01"
@@ -291,7 +295,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 10.6,
+          "age_hours": 10.7,
           "stale": false,
           "volume_usd": 2300198.864896991
         },
@@ -301,7 +305,7 @@
           "adjusted": 0.1398,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 46.9,
+          "age_hours": 47.0,
           "stale": true,
           "volume_usd": 1540.3791175474698
         }
@@ -483,6 +487,10 @@
         {
           "ts": "2026-07-25T18:46:36.174176+00:00",
           "p": 7.42
+        },
+        {
+          "ts": "2026-07-25T18:55:18.838031+00:00",
+          "p": 7.42
         }
       ],
       "expiry": "2026-12-31"
@@ -502,7 +510,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 5.0,
+          "age_hours": 5.2,
           "stale": false,
           "volume_usd": 2059211.9421290043
         },
@@ -512,7 +520,7 @@
           "adjusted": 0.2138,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 48.4,
+          "age_hours": 48.6,
           "stale": true,
           "volume_usd": 13149.933978965888
         }
@@ -742,6 +750,10 @@
         {
           "ts": "2026-07-25T18:46:36.167803+00:00",
           "p": 26.71
+        },
+        {
+          "ts": "2026-07-25T18:55:18.829608+00:00",
+          "p": 26.71
         }
       ],
       "expiry": "2026-12-31"
@@ -761,7 +773,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 36.3,
+          "age_hours": 36.4,
           "stale": true,
           "volume_usd": 2176961.3125100015
         },
@@ -771,7 +783,7 @@
           "adjusted": 0.1476,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 48.4,
+          "age_hours": 48.6,
           "stale": true,
           "volume_usd": 177687.71553867203
         }
@@ -1002,6 +1014,10 @@
         {
           "ts": "2026-07-25T18:46:36.165293+00:00",
           "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T18:55:18.826499+00:00",
+          "p": 8.87
         }
       ],
       "expiry": "2028-01-01"
@@ -1021,7 +1037,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 27.1,
+          "age_hours": 27.2,
           "stale": true,
           "volume_usd": 23043847.619062264
         },
@@ -1031,7 +1047,7 @@
           "adjusted": 0.0737,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 36.3,
+          "age_hours": 36.4,
           "stale": true,
           "volume_usd": 2935012.7356325327
         }
@@ -1259,6 +1275,10 @@
         {
           "ts": "2026-07-25T18:46:36.171045+00:00",
           "p": 5.63
+        },
+        {
+          "ts": "2026-07-25T18:55:18.833737+00:00",
+          "p": 5.63
         }
       ],
       "expiry": "2027-01-01"
@@ -1278,7 +1298,7 @@
           "adjusted": 0.555,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 48.1,
+          "age_hours": 48.3,
           "stale": true,
           "volume_usd": 1461889.8463780135
         },
@@ -1288,7 +1308,7 @@
           "adjusted": 0.5613,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.7,
+          "age_hours": 0.8,
           "stale": false,
           "volume_usd": 90347.80981990369
         },
@@ -1298,7 +1318,7 @@
           "adjusted": 0.61,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 28.9,
+          "age_hours": 29.0,
           "stale": true,
           "volume_usd": null
         }
@@ -1500,6 +1520,10 @@
         {
           "ts": "2026-07-25T18:46:36.172493+00:00",
           "p": 58.59
+        },
+        {
+          "ts": "2026-07-25T18:55:18.835802+00:00",
+          "p": 58.59
         }
       ],
       "expiry": "2026-11-04"
@@ -1519,7 +1543,7 @@
           "adjusted": 0.9535,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 13.5,
+          "age_hours": 13.7,
           "stale": true,
           "volume_usd": 311612.68790700065
         }
@@ -1587,6 +1611,10 @@
         {
           "ts": "2026-07-25T18:46:36.175595+00:00",
           "p": 95.35
+        },
+        {
+          "ts": "2026-07-25T18:55:18.839980+00:00",
+          "p": 95.35
         }
       ],
       "expiry": "2026-12-31"
@@ -1606,7 +1634,7 @@
           "adjusted": 0.335,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.7,
+          "age_hours": 0.8,
           "stale": false,
           "volume_usd": 2675758.6207519863
         },
@@ -1616,7 +1644,7 @@
           "adjusted": 0.4011,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.7,
+          "age_hours": 0.8,
           "stale": false,
           "volume_usd": 81976.17389347852
         },
@@ -1626,13 +1654,13 @@
           "adjusted": 0.57,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 9.1,
+          "age_hours": 9.3,
           "stale": false,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "PredictIt's higher probability likely reflects its trader base being more attuned to Washington political dynamics and the current Republican-controlled Congress's stated priority of passing crypto legislation, while Polymarket's lower estimate reflects a more globally-distributed, prediction-market-savvy crowd that discounts legislative timelines more heavily given Congress's historically poor record of completing complex financial regulation within a single calendar year. The spread is genuine disagreement about likelihood rather than a resolution-criteria mismatch, since all three sources use essentially equivalent phrasing around enactment in 2026. PredictIt's smaller, more politically-focused market may also be prone to optimism bias on high-profile legislative items compared to Polymarket's larger liquidity pool.",
+      "explanation": "PredictIt's significantly higher probability likely reflects its trader composition skewing toward politically-engaged participants who may be more optimistic about Republican-led crypto legislation passing under a favorable administration, while Polymarket and Manifold attract a broader, more internationally-diverse crowd that discounts legislative timeline risks more heavily. The spread is genuine disagreement about likelihood rather than a resolution-criteria mismatch, since all three markets are treating the same signing-into-law threshold equivalently \u2014 the divergence reflects differing assessments of Congressional bandwidth, Senate dynamics, and whether momentum behind crypto-friendly legislation will actually translate to enactment within 2026's tight legislative calendar.",
       "criteria_notes": {},
       "history": [
         {
@@ -1682,6 +1710,10 @@
         {
           "ts": "2026-07-25T18:46:36.176942+00:00",
           "p": 40.03
+        },
+        {
+          "ts": "2026-07-25T18:55:18.841622+00:00",
+          "p": 40.03
         }
       ],
       "expiry": "2026-12-31"
@@ -1701,7 +1733,7 @@
           "adjusted": 0.245,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 2.7,
+          "age_hours": 2.8,
           "stale": false,
           "volume_usd": 753164.8113010031
         },
@@ -1711,13 +1743,13 @@
           "adjusted": 0.0255,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 6.7,
+          "age_hours": 6.8,
           "stale": false,
           "volume_usd": 6911.4850757504355
         }
       ],
       "excluded": [],
-      "explanation": "The sources are measuring fundamentally different things, making this primarily a resolution-criteria mismatch rather than genuine disagreement. Polymarket's market asks about a NATO-Russia military clash (a much lower threshold \u2014 any direct military engagement qualifies), while Manifold's market requires the far more specific outcome of a nuclear World War 3, a dramatically higher bar. The additional scope difference (Polymarket's shorter 2026 horizon vs. Manifold's open-ended framing) is secondary; the core driver of the 21pp spread is that \"NATO-Russia clash\" can resolve YES on a single skirmish, whereas \"WW3 with nuclear\" requires civilizational-scale escalation.",
+      "explanation": "The 21pp spread is almost entirely a resolution-criteria mismatch rather than genuine disagreement. Polymarket's market asks about a NATO-Russia military clash by end of 2026 \u2014 a much lower bar (any direct military confrontation counts) over a shorter window \u2014 while Manifold's market requires the specific additional condition of nuclear weapons use in a WW3-scale conflict, a far rarer and more extreme threshold. The Polymarket figure is also capturing near-term escalation risk in an active conflict (Ukraine), inflating it relative to the Manifold estimate, which implicitly prices in both the probability of nuclear use and the \"widely recognized as WW3\" framing.",
       "criteria_notes": {},
       "history": [
         {
@@ -1759,6 +1791,10 @@
         {
           "ts": "2026-07-25T18:46:41.159395+00:00",
           "p": 8.34
+        },
+        {
+          "ts": "2026-07-25T18:55:23.896530+00:00",
+          "p": 8.34
         }
       ],
       "expiry": "2030-01-01"
@@ -1778,7 +1814,7 @@
           "adjusted": 0.244,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 0.1,
           "stale": false,
           "volume_usd": 36444802.08234756
         },
@@ -1788,7 +1824,7 @@
           "adjusted": 0.683,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 2.7,
+          "age_hours": 2.8,
           "stale": false,
           "volume_usd": 11901.987125556252
         },
@@ -1798,13 +1834,13 @@
           "adjusted": 0.62,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 2.7,
+          "age_hours": 2.8,
           "stale": false,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "The dominant driver of the 44pp spread is resolution-criteria mismatch, not genuine disagreement. Polymarket resolves only on the **July 2026 FOMC meeting specifically**, while Manifold covers **all of 2026** and PredictIt extends to **September 16, 2026** \u2014 both giving the Fed many additional meetings to hike, which mechanically inflates their probabilities relative to Polymarket's single-meeting window. The residual gap between Manifold (68%) and PredictIt (62%) likely reflects Manifold's even broader full-year window plus its known susceptibility to low-liquidity optimistic bias, rather than a meaningful difference in views about Fed policy.",
+      "explanation": "The dominant driver of the 44pp spread is almost certainly a resolution-criteria mismatch rather than genuine disagreement about Fed policy. Polymarket resolves specifically on the **July 2026 FOMC meeting** (a single binary event), while Manifold covers **all of 2026** and PredictIt extends to **September 16, 2026** \u2014 both giving far more calendar runway for a hike to occur, which mechanically inflates their probabilities even if all three sources agree on the underlying rate path. The residual gap between Manifold (68%) and PredictIt (62%) likely reflects the slightly different end dates plus differences in market liquidity, participant composition, and how each platform prices tail scenarios, but these are secondary effects compared to the deadline mismatch driving Polymarket's much lower figure.",
       "criteria_notes": {
         "polymarket": "Polymarket splits the July FOMC decision into one binary market per outcome bucket (no change / hike 25bp / hike 50bp / cut 25bp / cut 50bp) rather than a single \"will they hike\" market. The two hike buckets are summed here as mutually exclusive outcomes to get P(any increase) \u2014 verified live: ~24.05% + ~0.75% = ~24.8%."
       },
@@ -1823,6 +1859,10 @@
         },
         {
           "ts": "2026-07-25T18:46:49.217022+00:00",
+          "p": 47.57
+        },
+        {
+          "ts": "2026-07-25T18:55:31.818688+00:00",
           "p": 47.57
         }
       ],
