@@ -84,14 +84,19 @@ def _pm_search(term: str, limit: int = 20) -> list:
         return []
 
 
-def search_polymarket(request: str, kws: list[str], limit: int = 14) -> list[dict]:
+def search_polymarket(request: str, kws: list[str], limit: int = 16) -> list[dict]:
     """
     Polymarket relevance search (public-search). Volume-paging missed niche
-    markets — e.g. a Romania PM market that isn't in the top hundreds by
-    volume. Try the natural request, then the keyword string as backup.
+    markets entirely (e.g. a Romania PM market), and the full request dilutes
+    relevance, so query the keyword string plus the most salient keywords on
+    their own — that's what surfaces the right market.
     """
+    salient = sorted({k for k in kws if len(k) >= 5}, key=len, reverse=True)[:3]
+    terms = [" ".join(kws)] + salient
     seen = {}
-    for term in [request, " ".join(kws)]:
+    for term in terms:
+        if not term.strip():
+            continue
         for e in _pm_search(term):
             for m in (e.get("markets") or []):
                 slug = m.get("slug")
@@ -107,7 +112,7 @@ def search_polymarket(request: str, kws: list[str], limit: int = 14) -> list[dic
                               "question": m.get("question") or e.get("title"),
                               "prob": prices[0] if prices else None,
                               "volume": m.get("volumeNum")}
-        if len(seen) >= 6:
+        if len(seen) >= limit:
             break
     return list(seen.values())[:limit]
 
