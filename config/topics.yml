@@ -208,16 +208,3 @@ topics:
       manifold:
         id: "will-the-us-be-at-war-with-russia-a"
 
-  - id: world_war_3_2026
-    question: "Will a global war (proxied by Russia invading a NATO country) break out in 2026?"
-    domain: geopolitics
-    resolution: >
-      Resolves YES if Russia launches a military invasion of a NATO member state by December 31, 2026, per the underlying Polymarket/Manifold criteria. This is used as the closest available proxy for a 'World War 3' outbreak in 2026, since no market directly defines or resolves on 'WW3' as a term; other flashpoints (e.g., China-Taiwan) are not included here to keep the proxy singular and clear.
-    expiry: 2026-12-31
-    review: 2026-12-31
-    # Auto-added from a topic request on 2026-07-25.
-    sources:
-      polymarket:
-        id: "will-russia-invade-a-nato-country-by-december-31-2026"
-      manifold:
-        id: "will-russia-invade-any-nato-country-e02c9aeb4b88"
