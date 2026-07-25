@@ -41,7 +41,10 @@ API_URL = "https://api.anthropic.com/v1/messages"
 
 STOP = {"will", "the", "any", "before", "after", "by", "in", "on", "of", "to",
         "a", "an", "and", "or", "be", "is", "are", "at", "for", "this", "that",
-        "2025", "2026", "2027", "reach", "above", "below", "topic", "add"}
+        "2025", "2026", "2027", "2028", "reach", "above", "below", "topic", "add",
+        "new", "next", "end", "get", "have", "happen", "year", "probability",
+        "january", "february", "march", "april", "june", "july",
+        "august", "september", "october", "november", "december"}
 
 
 def normalize_nums(text: str) -> str:
@@ -92,7 +95,7 @@ def search_polymarket(request: str, kws: list[str], limit: int = 16) -> list[dic
     their own — that's what surfaces the right market.
     """
     salient = sorted({k for k in kws if len(k) >= 5}, key=len, reverse=True)[:3]
-    terms = [" ".join(kws)] + salient
+    terms = salient + [" ".join(kws)]      # specific entity terms first, then all
     seen = {}
     for term in terms:
         if not term.strip():
@@ -181,6 +184,11 @@ def choose_topic(request: str, candidates: dict) -> dict | None:
         "aggregator. You are given a user's request and candidate prediction markets "
         "from several venues. Choose the SINGLE best-matching market on each venue "
         "whose resolution criteria fit the request; omit a venue if nothing fits. "
+        "Prefer the CLOSEST reasonable market over declining: if a market on the same "
+        "subject exists but differs slightly (e.g. a nearby date threshold, or 'who will "
+        "be next' vs 'will there be a new one by DATE'), pick it and state the difference "
+        "plainly in the `resolution` text. Only set ok=false if NO market on the subject "
+        "exists at all. "
         "You may ONLY use ids that appear verbatim in the candidates. Do not invent ids. "
         "Also draft the canonical topic. Add an `oracle` ONLY if the outcome is "
         "objectively resolvable from public price/economic data (crypto, indices, yields, "
