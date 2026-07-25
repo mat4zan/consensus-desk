@@ -97,8 +97,9 @@ svg.spark{display:block;width:100%;height:auto}
 .detail-p{font-size:30px}
 .detail-meta{font-size:11px;color:var(--ink-3);letter-spacing:.05em;margin-bottom:20px}
 
+.src-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .src{display:grid;grid-template-columns:120px 1fr 52px 60px 68px;gap:12px;align-items:center;
-  padding:7px 0;font-size:13px}
+  padding:7px 0;font-size:13px;min-width:420px}
 .src-name{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .src-track{height:5px;background:var(--raised)}
 .src-fill{height:5px;background:var(--ink-2)}
@@ -156,8 +157,11 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
 .add-hint{font-size:11px;color:var(--ink-3);margin-top:12px;line-height:1.55}
 @media(max-width:640px){
   .row{grid-template-columns:16px 1fr 50px 56px;gap:9px}
-  .src{grid-template-columns:78px 1fr 34px 48px;gap:8px}
-  .src-w{display:none}
+  /* Sources no longer shrink/hide columns on mobile -- they scroll instead
+     (see .src-scroll), so weight and volume stay visible at full width. */
+  .src-scroll{position:relative}
+  .src-scroll::after{content:'';position:absolute;top:0;right:0;bottom:0;width:22px;
+    background:linear-gradient(to right, transparent, var(--panel));pointer-events:none}
 }
 </style>
 <script>
@@ -394,7 +398,7 @@ function fmtVol(v) {
 
 function sourcesHtml(t) {
   const maxW = Math.max(...t.contributions.map(c => c.weight), 0.01);
-  return t.contributions.map(c => {
+  const rows = t.contributions.map(c => {
     const lead = c.weight >= maxW ? ' lead' : '';
     const stale = c.stale ? ` <span class="stale">·${Math.round(c.age_hours)}h</span>` : '';
     return `<div class="src">
@@ -405,6 +409,9 @@ function sourcesHtml(t) {
       <span class="src-w mono">w ${c.weight.toFixed(2)}</span>
     </div>`;
   }).join('');
+  // Full 5-column layout at every width -- narrow screens scroll horizontally
+  // (see .src-scroll) instead of hiding weight/volume/name.
+  return `<div class="src-scroll">${rows}</div>`;
 }
 
 function detailHtml(t) {
