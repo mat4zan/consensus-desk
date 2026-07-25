@@ -196,3 +196,16 @@ topics:
         id: "8804"
         outcome: "Will crypto regulation (Clarity Act) be enacted in 2026?"
 
+  - id: world_war_3_by_2030
+    question: "Will a World War 3 scale global conflict occur by 2030?"
+    domain: geopolitics
+    resolution: >
+      Resolves YES if a conflict widely recognized as 'World War 3' (a large-scale multi-power global war, potentially involving nuclear weapons) breaks out before January 1, 2030. Because no venue has an exact WW3-by-2030 market, we use the closest available proxies: Polymarket's NATO x Russia military clash market (narrower time horizon, by Dec 31 2026) as an escalation-risk proxy, and Manifold's 'Ww3 with nuclear' market as the closest thematic match (no explicit end date, treated as an ongoing probability estimate).
+    expiry: 2030-01-01
+    review: 2030-01-01
+    # Auto-added from a topic request on 2026-07-25.
+    sources:
+      polymarket:
+        id: "nato-x-russia-military-clash-by-december-31-2026-244"
+      manifold:
+        id: "ww3-with-nuclear"
