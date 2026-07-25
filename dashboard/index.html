@@ -227,11 +227,27 @@ function pollResult(action, payload) {
   setTimeout(tick, 9000);
 }
 
-function toast(msg) {
+function toast(msg, ms) {
   let el = document.getElementById('cd-toast');
   if (!el) { el = document.createElement('div'); el.id = 'cd-toast'; document.body.appendChild(el); }
   el.textContent = msg; el.classList.add('show');
-  clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('show'), 3500);
+  clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('show'), ms || 3500);
+}
+
+// Show the outcome of the last add/remove on load — survives a locked phone,
+// unlike the in-page poll. Each result is shown once per browser.
+async function checkLastResult() {
+  try {
+    const r = await fetch('last_result.json?_=' + Date.now());
+    if (!r.ok) return;
+    const res = await r.json();
+    if (!res.ts || res.ts === localStorage.getItem('cd-seen-result')) return;
+    localStorage.setItem('cd-seen-result', res.ts);
+    if (Date.now() - new Date(res.ts).getTime() > 1800000) return;   // ignore >30min old
+    const icon = res.status === 'added' ? '✅' : res.status === 'removed' ? '🗑️'
+      : res.status === 'exists' ? 'ℹ️' : '⚠️';
+    toast(icon + ' ' + res.message, 7000);
+  } catch (e) {}
 }
 
 function addTopic() {
@@ -457,6 +473,7 @@ function removeTopic(id) {
 fetch('snapshot.json?' + Date.now())
   .then(r => r.json())
   .then(render)
+  .then(checkLastResult)
   .catch(() => {
     document.getElementById('app').innerHTML =
       '<div class="quiet">No snapshot found. Run <span class="mono">python run.py pool</span>.</div>';

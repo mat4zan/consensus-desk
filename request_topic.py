@@ -73,32 +73,43 @@ def keywords(text: str) -> list[str]:
 
 # --------------------------------------------------------------- venue search
 
-def search_polymarket(kws: list[str], limit: int = 12) -> list[dict]:
-    markets = []
-    for off in range(0, 600, 100):
-        try:
-            r = requests.get("https://gamma-api.polymarket.com/markets",
-                             params={"active": "true", "closed": "false", "limit": 100,
-                                     "offset": off, "order": "volumeNum", "ascending": "false"},
-                             headers=UA, timeout=T)
-            r.raise_for_status()
-            b = r.json()
-        except Exception:
+def _pm_search(term: str, limit: int = 20) -> list:
+    try:
+        r = requests.get("https://gamma-api.polymarket.com/public-search",
+                         params={"q": term, "limit_per_type": limit},
+                         headers=UA, timeout=T)
+        r.raise_for_status()
+        return r.json().get("events", [])
+    except Exception:
+        return []
+
+
+def search_polymarket(request: str, kws: list[str], limit: int = 14) -> list[dict]:
+    """
+    Polymarket relevance search (public-search). Volume-paging missed niche
+    markets — e.g. a Romania PM market that isn't in the top hundreds by
+    volume. Try the natural request, then the keyword string as backup.
+    """
+    seen = {}
+    for term in [request, " ".join(kws)]:
+        for e in _pm_search(term):
+            for m in (e.get("markets") or []):
+                slug = m.get("slug")
+                if not slug or slug in seen or m.get("closed"):
+                    continue
+                prices = m.get("outcomePrices")
+                if isinstance(prices, str):
+                    try:
+                        prices = json.loads(prices)
+                    except Exception:
+                        prices = None
+                seen[slug] = {"venue": "polymarket", "id": slug,
+                              "question": m.get("question") or e.get("title"),
+                              "prob": prices[0] if prices else None,
+                              "volume": m.get("volumeNum")}
+        if len(seen) >= 6:
             break
-        if not b:
-            break
-        markets += b
-    out = []
-    for m in markets:
-        q = normalize_nums(m.get("question") or "")
-        hits = sum(1 for k in kws if k in q)
-        if hits:
-            out.append({"venue": "polymarket", "id": m.get("slug"),
-                        "question": m.get("question"),
-                        "prob": (m.get("outcomePrices") or [None])[0],
-                        "volume": m.get("volumeNum"), "_hits": hits})
-    out.sort(key=lambda x: (x["_hits"], x.get("volume") or 0), reverse=True)
-    return out[:limit]
+    return list(seen.values())[:limit]
 
 
 def _manifold_query(term: str, limit: int) -> list:
@@ -231,6 +242,18 @@ def existing_ids() -> set:
     return {t.get("id") for t in data.get("topics", [])}
 
 
+def write_result(status: str, message: str, request: str, action: str = "add") -> None:
+    """Persist the outcome so the dashboard shows it on next load (survives a
+    locked phone, unlike the in-page poll)."""
+    try:
+        (ROOT / "dashboard" / "last_result.json").write_text(json.dumps({
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "action": action, "status": status, "message": message, "request": request,
+        }))
+    except Exception:
+        pass
+
+
 def yaml_block(topic: dict) -> str:
     """Render one topic as a YAML list item, appended to preserve the file's comments."""
     lines = [f"  - id: {topic['id']}",
@@ -309,7 +332,7 @@ def main() -> int:
 
     kws = keywords(request)
     candidates = {
-        "polymarket": search_polymarket(kws),
+        "polymarket": search_polymarket(request, kws),
         "manifold": search_manifold(kws),
         "predictit": search_predictit(kws),
     }
@@ -320,6 +343,7 @@ def main() -> int:
     if n == 0:
         print("::warning::no candidate markets matched")
         print("REASON=No prediction markets matched that request on any venue.")
+        write_result("declined", "No prediction market matched that request on any venue.", request)
         return 2
 
     result = choose_topic(request, candidates)
@@ -327,6 +351,7 @@ def main() -> int:
         reason = (result.get("reason") if result else None) or "the matcher could not use the request"
         print(f"::warning::no topic wired: {reason}")
         print(f"REASON={reason}")
+        write_result("declined", reason, request)
         return 2
     topic = result["topic"]
     print(f"Draft topic: {topic.get('id')} — {topic.get('question')}")
@@ -334,6 +359,7 @@ def main() -> int:
     if topic["id"] in existing_ids():
         print(f"::warning::topic id {topic['id']} already exists")
         print("ALREADY_EXISTS=" + topic["id"])
+        write_result("exists", f"“{topic.get('question', topic['id'])}” is already on the board.", request)
         return 0
 
     verified = {}
@@ -345,6 +371,7 @@ def main() -> int:
     if not verified:
         print("::warning::no source verified with a live price")
         print("REASON=A match was found but its market had no live price.")
+        write_result("declined", "A matching market was found but had no live price.", request)
         return 2
     topic["sources"] = verified
 
@@ -363,6 +390,7 @@ def main() -> int:
     print("ADDED_TOPIC_ID=" + topic["id"])
     print("ADDED_QUESTION=" + topic["question"])
     print("ADDED_SOURCES=" + ", ".join(verified))
+    write_result("added", f"Added “{topic['question']}” ({', '.join(verified)}).", request)
     return 0
 
 

@@ -11,14 +11,27 @@ emits active topics, so the removed one drops off the board on the next pool.
 from __future__ import annotations
 
 import os
+import json
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parent
 ID_RE = re.compile(r"^\s*-\s+id:\s*(.+?)\s*$")
+
+
+def write_result(status: str, message: str, ident: str = "") -> None:
+    """Persist the outcome so the dashboard shows it on next load."""
+    try:
+        (ROOT / "dashboard" / "last_result.json").write_text(json.dumps({
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "action": "remove", "status": status, "message": message, "request": ident,
+        }))
+    except Exception:
+        pass
 
 
 def wanted_id() -> str:
@@ -43,6 +56,7 @@ def main() -> int:
     if tid not in ids:
         print(f"NOT_FOUND={tid}")
         print(f"REASON=No topic '{tid}' is on the board.")
+        write_result("not_found", f"“{tid}” was not on the board.", tid)
         return 0
 
     lines = text.splitlines(keepends=True)
@@ -69,6 +83,7 @@ def main() -> int:
     path.write_text("".join(lines))
     print(f"::notice::Removed topic {tid}")
     print(f"REMOVED_TOPIC_ID={tid}")
+    write_result("removed", f"Removed “{tid}” from the board.", tid)
     return 0
 
 
