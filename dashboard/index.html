@@ -99,7 +99,7 @@ svg.spark{display:block;width:100%;height:auto}
 
 .src{display:grid;grid-template-columns:120px 1fr 52px 60px 68px;gap:12px;align-items:center;
   padding:7px 0;font-size:13px}
-.src-name{color:var(--ink)}
+.src-name{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .src-track{height:5px;background:var(--raised)}
 .src-fill{height:5px;background:var(--ink-2)}
 .src-fill.lead{background:var(--mark)}
@@ -156,8 +156,8 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
 .add-hint{font-size:11px;color:var(--ink-3);margin-top:12px;line-height:1.55}
 @media(max-width:640px){
   .row{grid-template-columns:16px 1fr 50px 56px;gap:9px}
-  .src{grid-template-columns:96px 1fr 46px}
-  .src-w,.src-vol{display:none}
+  .src{grid-template-columns:78px 1fr 34px 48px;gap:8px}
+  .src-w{display:none}
 }
 </style>
 <script>
