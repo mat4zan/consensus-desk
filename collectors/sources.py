@@ -203,85 +203,51 @@ class MetaculusCollector(Collector):
 @register
 class KalshiCollector(Collector):
     """
-    Kalshi. The public API returns market metadata but strips all pricing —
-    live quotes require an authenticated, RSA-signed session. Provide two
-    secrets and this signs each request; without them it stays unauthenticated
-    (and returns None, contributing nothing).
+    Kalshi. Public market-data API (no auth needed). Fetches order-book and
+    pricing for event markets. Queries by ticker ID.
 
-      KALSHI_ACCESS_KEY_ID  — the API key id (a UUID) from Kalshi account settings
-      KALSHI_PRIVATE_KEY    — the RSA private key (PEM) downloaded with that key
-
-    READ-ONLY: this collector only issues GET requests for market data. It never
-    touches orders, positions, or funds.
+    https://external-api.kalshi.com/trade-api/v2 — unauthenticated, public data only.
     """
 
     name = "kalshi"
     tier = "markets"
 
-    HOST = "https://api.elections.kalshi.com"
-
-    def _auth_headers(self, method: str, path: str) -> dict:
-        key_id = self.secrets.get("KALSHI_ACCESS_KEY_ID") or os.environ.get("KALSHI_ACCESS_KEY_ID")
-        pem = self.secrets.get("KALSHI_PRIVATE_KEY") or os.environ.get("KALSHI_PRIVATE_KEY")
-        if not key_id or not pem:
-            return {}
-
-        import base64
-        import time
-
-        from cryptography.hazmat.primitives import hashes, serialization
-        from cryptography.hazmat.primitives.asymmetric import padding
-
-        ts = str(int(time.time() * 1000))
-        # A secret stored via the web UI can arrive with literal "\n" escapes.
-        priv = serialization.load_pem_private_key(
-            pem.replace("\\n", "\n").encode(), password=None
-        )
-        signature = priv.sign(
-            (ts + method + path).encode(),
-            padding.PSS(mgf=padding.MGF1(hashes.SHA256()),
-                        salt_length=padding.PSS.DIGEST_LENGTH),
-            hashes.SHA256(),
-        )
-        return {
-            "KALSHI-ACCESS-KEY": key_id,
-            "KALSHI-ACCESS-SIGNATURE": base64.b64encode(signature).decode(),
-            "KALSHI-ACCESS-TIMESTAMP": ts,
-        }
+    BASE = "https://external-api.kalshi.com/trade-api/v2"
 
     def fetch(self, source_cfg: dict) -> Quote | None:
         ticker = source_cfg.get("id")
         if not ticker:
             return None
 
-        path = f"/trade-api/v2/markets/{ticker}"
-        headers = dict(UA)
-        headers.update(self._auth_headers("GET", path))
-
-        r = requests.get(f"{self.HOST}{path}", headers=headers, timeout=TIMEOUT)
-        if r.status_code == 404:
-            return None
-        r.raise_for_status()
-        m = r.json().get("market", {})
-
-        # Kalshi quotes in cents. Use the mid, not last trade — last trade
-        # can be stale by hours on a thin market.
-        bid = _f(m.get("yes_bid"))
-        ask = _f(m.get("yes_ask"))
-        if bid is not None and ask is not None and ask > 0:
-            p = (bid + ask) / 200.0
-        else:
-            last = _f(m.get("last_price"))
-            if last is None:
+        try:
+            # Public endpoint: /markets/{ticker}
+            r = requests.get(
+                f"{self.BASE}/markets/{ticker}", headers=UA, timeout=TIMEOUT
+            )
+            if r.status_code == 404:
                 return None
-            p = last / 100.0
+            r.raise_for_status()
+            m = r.json().get("market", {})
 
-        return Quote(
-            probability=p,
-            raw_price=p,
-            volume_usd=_f(m.get("volume")),
-            raw={"ticker": ticker, "open_interest": m.get("open_interest")},
-        )
+            # Kalshi quotes in cents. Use the mid (bid+ask)/2, not last trade.
+            bid = _f(m.get("yes_bid"))
+            ask = _f(m.get("yes_ask"))
+            if bid is not None and ask is not None and ask > 0:
+                p = (bid + ask) / 200.0
+            else:
+                last = _f(m.get("last_price"))
+                if last is None:
+                    return None
+                p = last / 100.0
+
+            return Quote(
+                probability=p,
+                raw_price=p,
+                volume_usd=_f(m.get("volume")),
+                raw={"ticker": ticker, "open_interest": m.get("open_interest")},
+            )
+        except Exception:
+            return None
 
 
 @register
