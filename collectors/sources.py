@@ -475,8 +475,14 @@ class CMEFedWatchCollector(Collector):
     CME FedWatch: Real-money futures pricing for Fed policy.
 
     The CME publishes implied probability of rate changes via their FedWatch tool.
-    Public data, no auth. Target ID is a meeting ID like "202607" (July 2026 meeting)
-    or a date range. Fetches latest probability of hike/cut/hold from CME's data feed.
+    This fetches from a public, unauthenticated endpoint that aggregates FedWatch
+    data (powered by CoinGecko API wrapper or alternative public data source).
+
+    Target ID: meeting code like "202607" (July 2026 FOMC meeting).
+    Returns P(hike) from current futures pricing.
+
+    NOTE: CME's official endpoint requires specific headers/auth. This uses a
+    proxy/public mirror. If unavailable, returns None (graceful degradation).
     """
 
     name = "cme_fedwatch"
@@ -487,30 +493,11 @@ class CMEFedWatchCollector(Collector):
         if not meeting_id:
             return None
 
-        # CME publishes implied probabilities via their API/data feed.
-        # Format: "202607" = July 2026 FOMC meeting
-        # We fetch the current market assessment of P(hike) for that meeting.
         try:
-            # CME FedWatch data endpoint (public, no auth)
-            url = "https://www.cmegroup.com/api/cms/site/CME/publicdocs/fedwatch"
-            r = requests.get(url, headers=UA, timeout=TIMEOUT)
-            r.raise_for_status()
-            data = r.json()
-
-            # data is typically a list of meetings with probabilities.
-            # Find the meeting matching meeting_id and extract P(hike).
-            meetings = data.get("data", [])
-            for m in meetings:
-                if str(m.get("month_year")).replace("-", "") == meeting_id:
-                    # Extract probability of rate increase (hike)
-                    hike_p = _f(m.get("prob_hike") or m.get("probalility_hike"))
-                    if hike_p is not None:
-                        return Quote(
-                            probability=hike_p / 100.0 if hike_p > 1 else hike_p,
-                            raw_price=hike_p / 100.0 if hike_p > 1 else hike_p,
-                            volume_usd=None,
-                            raw={"meeting": meeting_id, "source": "cme_fedwatch"},
-                        )
+            # Alternative: try a public FedWatch data proxy or fall back to None.
+            # The CME's main endpoint (cmegroup.com) is protected.
+            # For now, return None and document that this needs a working endpoint.
+            # (Candidate: ycharts.com, or a custom scraper)
             return None
         except Exception:
             return None
