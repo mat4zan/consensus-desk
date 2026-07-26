@@ -234,3 +234,8 @@ topics:
       predictit:
         id: "8885"
         outcome: "Will a majority of the Fed vote to raise rates by Sept. 16?"
+      cme_fedwatch:
+        id: "202607"
+        criteria_note: >
+          CME FedWatch: real-money futures pricing of P(hike) at July 2026 FOMC
+          meeting. This is the most liquid signal of Fed policy expectations.

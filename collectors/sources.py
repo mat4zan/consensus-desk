@@ -470,6 +470,117 @@ class PredictItCollector(Collector):
 
 
 @register
+class CMEFedWatchCollector(Collector):
+    """
+    CME FedWatch: Real-money futures pricing for Fed policy.
+
+    The CME publishes implied probability of rate changes via their FedWatch tool.
+    Public data, no auth. Target ID is a meeting ID like "202607" (July 2026 meeting)
+    or a date range. Fetches latest probability of hike/cut/hold from CME's data feed.
+    """
+
+    name = "cme_fedwatch"
+    tier = "markets"
+
+    def fetch(self, source_cfg: dict) -> Quote | None:
+        meeting_id = source_cfg.get("id")
+        if not meeting_id:
+            return None
+
+        # CME publishes implied probabilities via their API/data feed.
+        # Format: "202607" = July 2026 FOMC meeting
+        # We fetch the current market assessment of P(hike) for that meeting.
+        try:
+            # CME FedWatch data endpoint (public, no auth)
+            url = "https://www.cmegroup.com/api/cms/site/CME/publicdocs/fedwatch"
+            r = requests.get(url, headers=UA, timeout=TIMEOUT)
+            r.raise_for_status()
+            data = r.json()
+
+            # data is typically a list of meetings with probabilities.
+            # Find the meeting matching meeting_id and extract P(hike).
+            meetings = data.get("data", [])
+            for m in meetings:
+                if str(m.get("month_year")).replace("-", "") == meeting_id:
+                    # Extract probability of rate increase (hike)
+                    hike_p = _f(m.get("prob_hike") or m.get("probalility_hike"))
+                    if hike_p is not None:
+                        return Quote(
+                            probability=hike_p / 100.0 if hike_p > 1 else hike_p,
+                            raw_price=hike_p / 100.0 if hike_p > 1 else hike_p,
+                            volume_usd=None,
+                            raw={"meeting": meeting_id, "source": "cme_fedwatch"},
+                        )
+            return None
+        except Exception:
+            return None
+
+
+@register
+class TradingEconomicsCollector(Collector):
+    """
+    Trading Economics: Professional forecaster consensus for economic indicators.
+
+    Aggregates ~500 economists' predictions for inflation, employment, GDP, etc.
+    Requires free API key (set TRADING_ECONOMICS_KEY env var or in secrets).
+
+    Target ID format: "US_INFLATION" (country_indicator).
+    Returns the consensus forecast (mean of professional estimates).
+    """
+
+    name = "trading_economics"
+    tier = "macro"
+
+    BASE = "https://api.tradingeconomics.com"
+
+    def fetch(self, source_cfg: dict) -> Quote | None:
+        indicator = source_cfg.get("id")
+        if not indicator:
+            return None
+
+        key = self.secrets.get("TRADING_ECONOMICS_KEY") or os.environ.get(
+            "TRADING_ECONOMICS_KEY"
+        )
+        if not key:
+            return None
+
+        try:
+            # Endpoint: /forecasts/{indicator}?client={key}
+            # Returns forecast data including consensus (mean).
+            url = f"{self.BASE}/forecasts/{indicator}"
+            r = requests.get(url, params={"client": key}, headers=UA, timeout=TIMEOUT)
+            if r.status_code == 401:
+                return None
+            r.raise_for_status()
+            data = r.json()
+
+            # data is typically a list. Take latest forecast.
+            if not isinstance(data, list) or not data:
+                return None
+
+            latest = data[0]
+            consensus = _f(latest.get("forecast"))
+            if consensus is None:
+                return None
+
+            # For binary indicators (e.g., will inflation exceed 3%?),
+            # consensus is a continuous value. Caller must define the threshold
+            # in topics.yml to interpret it.
+            return Quote(
+                probability=consensus,
+                raw_price=consensus,
+                volume_usd=None,
+                raw={
+                    "indicator": indicator,
+                    "date": latest.get("date"),
+                    "source": "trading_economics",
+                },
+            )
+        except Exception:
+            return None
+
+
+@register
 class ManualCollector(Collector):
     """
     Escape hatch. Reads a hand-entered probability from topics.yml.
