@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T03:35:25.501271+00:00",
+  "generated_at": "2026-07-27T08:55:25.448260+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,7 +15,19 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 0,
-  "alerts": [],
+  "alerts": [
+    {
+      "topic_id": "taiwan_invasion_2027",
+      "kind": "move_24h",
+      "headline": "China invades Taiwan before 2028 moved up 6.5pp",
+      "detail": {
+        "from": 8.9,
+        "to": 15.4,
+        "delta_pp": 6.5,
+        "window_hours": 24
+      }
+    }
+  ],
   "topics": [
     {
       "id": "ru_ua_ceasefire_2026",
@@ -32,7 +44,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 37.8,
+          "age_hours": 43.2,
           "stale": true,
           "volume_usd": 2059211.9421290043
         }
@@ -41,7 +53,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 81.2
+          "age_hours": 86.6
         }
       ],
       "explanation": null,
@@ -324,9 +336,329 @@
         {
           "ts": "2026-07-27T03:35:02.738475+00:00",
           "p": 35.5
+        },
+        {
+          "ts": "2026-07-27T08:55:10.836002+00:00",
+          "p": 35.5
         }
       ],
       "expiry": "2026-12-31"
+    },
+    {
+      "id": "taiwan_invasion_2027",
+      "question": "China invades Taiwan before 2028",
+      "domain": "geopolitics",
+      "probability": 15.4,
+      "delta_24h_pp": 6.5,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "manifold",
+          "probability": 0.1541,
+          "adjusted": 0.1541,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 13.6,
+          "stale": true,
+          "volume_usd": 177737.71553867203
+        }
+      ],
+      "excluded": [
+        {
+          "source": "polymarket",
+          "reason": "stale",
+          "age_hours": 74.4
+        }
+      ],
+      "explanation": null,
+      "criteria_notes": {
+        "polymarket": "Reframed from the original \"blockade or quarantine\" question: no liquid blockade-specific market exists. This market resolves on an invasion / military offensive, which is a strictly higher bar than interdiction. Read the level, not the label.",
+        "manifold": "Manifold asks \"attempt to invade by end of 2027\" \u2014 an attempt is a slightly lower bar than Polymarket's \"commences an offensive\", so expect it to sit marginally higher."
+      },
+      "history": [
+        {
+          "ts": "2026-07-22T19:33:49.246338+00:00",
+          "p": 11.5
+        },
+        {
+          "ts": "2026-07-23T03:20:20.288255+00:00",
+          "p": 11.5
+        },
+        {
+          "ts": "2026-07-23T07:57:14.068038+00:00",
+          "p": 11.5
+        },
+        {
+          "ts": "2026-07-23T08:36:49.687094+00:00",
+          "p": 12.5
+        },
+        {
+          "ts": "2026-07-23T14:13:38.426050+00:00",
+          "p": 12.5
+        },
+        {
+          "ts": "2026-07-23T17:59:53.823230+00:00",
+          "p": 12.5
+        },
+        {
+          "ts": "2026-07-23T18:21:26.937482+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T18:38:44.535549+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T18:50:00.981431+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T18:54:48.922197+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T19:24:39.462782+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T19:26:27.812502+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T19:50:53.970895+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T19:52:37.037243+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-23T19:53:53.931845+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-24T03:14:00.670585+00:00",
+          "p": 9.49
+        },
+        {
+          "ts": "2026-07-24T06:28:50.975788+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T07:05:28.220367+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T07:54:08.338869+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T08:33:21.917007+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T11:12:09.272520+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T11:58:18.581014+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:01:15.314828+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:16:12.304125+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:19:35.067959+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:25:55.516327+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:32:14.460454+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:39:52.938920+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:40:39.752423+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T12:49:32.694269+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T13:54:04.296754+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T15:40:54.282655+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T15:49:36.156813+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T16:40:51.287039+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T16:51:05.921601+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T16:51:59.428923+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T19:06:53.730684+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-24T19:35:47.483492+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T03:13:51.989382+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T04:46:15.676307+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T05:15:20.073468+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T07:32:46.154587+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T08:12:37.963904+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T09:38:35.587792+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T11:44:20.021726+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T11:49:50.953418+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T11:59:58.855256+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T12:01:35.285375+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T12:03:19.113215+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T12:05:03.229931+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T13:44:29.317431+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T16:06:32.513212+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T18:07:18.956726+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T18:38:12.217537+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T18:46:36.165293+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T18:55:18.826499+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T19:14:42.763143+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T19:15:47.917394+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T19:25:13.538452+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T19:41:02.381245+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-25T19:49:29.393453+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-26T03:25:56.720852+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-26T07:55:14.151109+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-26T08:32:54.426879+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-26T13:38:48.710047+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-26T17:51:38.801260+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-26T18:13:32.987490+00:00",
+          "p": 8.87
+        },
+        {
+          "ts": "2026-07-26T19:17:56.693421+00:00",
+          "p": 9.04
+        },
+        {
+          "ts": "2026-07-27T03:35:02.736250+00:00",
+          "p": 9.04
+        },
+        {
+          "ts": "2026-07-27T08:55:10.832397+00:00",
+          "p": 15.41
+        }
+      ],
+      "expiry": "2028-01-01"
     },
     {
       "id": "btc_100k_2026",
@@ -343,7 +675,7 @@
           "adjusted": 0.105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.3,
           "stale": false,
           "volume_usd": 2311268.607510989
         }
@@ -352,7 +684,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 79.7
+          "age_hours": 85.0
         }
       ],
       "explanation": null,
@@ -587,6 +919,10 @@
         {
           "ts": "2026-07-27T03:35:02.744488+00:00",
           "p": 10.5
+        },
+        {
+          "ts": "2026-07-27T08:55:10.841026+00:00",
+          "p": 10.5
         }
       ],
       "expiry": "2026-12-31"
@@ -606,7 +942,7 @@
           "adjusted": 0.61,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 61.7,
+          "age_hours": 67.0,
           "stale": true,
           "volume_usd": null
         },
@@ -616,8 +952,8 @@
           "adjusted": 0.563,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 9.7,
-          "stale": false,
+          "age_hours": 15.1,
+          "stale": true,
           "volume_usd": 90696.92524940288
         }
       ],
@@ -625,7 +961,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 80.9
+          "age_hours": 86.3
         }
       ],
       "explanation": null,
@@ -880,6 +1216,10 @@
         {
           "ts": "2026-07-27T03:35:02.743119+00:00",
           "p": 60.64
+        },
+        {
+          "ts": "2026-07-27T08:55:10.839883+00:00",
+          "p": 60.64
         }
       ],
       "expiry": "2026-11-04"
@@ -899,8 +1239,8 @@
           "adjusted": 0.205,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 9.7,
-          "stale": false,
+          "age_hours": 15.1,
+          "stale": true,
           "volume_usd": 48488565.822454676
         },
         {
@@ -909,7 +1249,7 @@
           "adjusted": 0.2167,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 35.5,
+          "age_hours": 40.8,
           "stale": true,
           "volume_usd": 85249.17157033243
         }
@@ -1195,6 +1535,10 @@
         {
           "ts": "2026-07-27T03:35:02.740149+00:00",
           "p": 16.84
+        },
+        {
+          "ts": "2026-07-27T08:55:10.837215+00:00",
+          "p": 16.84
         }
       ],
       "expiry": "2027-01-01"
@@ -1214,8 +1558,8 @@
           "adjusted": 0.9375,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 9.7,
-          "stale": false,
+          "age_hours": 15.1,
+          "stale": true,
           "volume_usd": 312554.31964900065
         }
       ],
@@ -1338,6 +1682,10 @@
         {
           "ts": "2026-07-27T03:35:02.745792+00:00",
           "p": 93.75
+        },
+        {
+          "ts": "2026-07-27T08:55:10.842190+00:00",
+          "p": 93.75
         }
       ],
       "expiry": "2026-12-31"
@@ -1347,7 +1695,7 @@
       "question": "Will a World War 3 scale global conflict occur by 2030?",
       "domain": "geopolitics",
       "probability": 9.3,
-      "delta_24h_pp": 1.0,
+      "delta_24h_pp": 0.7,
       "spread_pp": 24.1,
       "n_sources": 2,
       "contributions": [
@@ -1357,8 +1705,8 @@
           "adjusted": 0.275,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 9.7,
-          "stale": false,
+          "age_hours": 15.1,
+          "stale": true,
           "volume_usd": 828215.7489060031
         },
         {
@@ -1367,13 +1715,13 @@
           "adjusted": 0.0255,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 39.5,
+          "age_hours": 44.8,
           "stale": true,
           "volume_usd": 6911.4850757504355
         }
       ],
       "excluded": [],
-      "explanation": "The two sources are measuring fundamentally different things, making this primarily a resolution-criteria mismatch rather than genuine disagreement. Polymarket's NATO-Russia military clash market captures a much lower threshold event (any direct military confrontation between NATO and Russia by end of 2026), which is far easier to satisfy than an actual World War 3 scenario, inflating its probability relative to the canonical question. Manifold's market explicitly requires nuclear involvement and implicitly demands the full \"World War 3\" threshold, making it a much stricter criterion that naturally yields a far lower probability. The 24pp spread is almost entirely explained by this definitional gap\u2014a NATO-Russia clash is a necessary but insufficient condition for WW3, so Polymarket's figure should be expected to be substantially higher regardless of any genuine disagreement about underlying geopolitical risk.",
+      "explanation": "The sources are measuring fundamentally different things rather than genuinely disagreeing about the same event. Polymarket's 27.5% reflects the probability of *any* NATO-Russia military clash by end of 2026 \u2014 a much lower threshold than full-scale world war \u2014 while Manifold's 3.4% requires the specific condition of nuclear weapons use in a recognized WW3, a dramatically higher bar. The 24-point spread is almost entirely a resolution-criteria mismatch: a limited border skirmish or naval incident would resolve Polymarket YES but Manifold NO, collapsing most of the apparent disagreement.",
       "criteria_notes": {},
       "history": [
         {
@@ -1471,160 +1819,13 @@
         {
           "ts": "2026-07-27T03:35:08.241023+00:00",
           "p": 9.32
+        },
+        {
+          "ts": "2026-07-27T08:55:15.805466+00:00",
+          "p": 9.32
         }
       ],
       "expiry": "2030-01-01"
-    },
-    {
-      "id": "clarity_act_law_2026",
-      "question": "Will the CLARITY Act become law in 2026?",
-      "domain": "geopolitics",
-      "probability": 41.7,
-      "delta_24h_pp": 0.5,
-      "spread_pp": 19.5,
-      "n_sources": 3,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.375,
-          "adjusted": 0.375,
-          "weight": 0.2243,
-          "raw_weight": 0.34,
-          "age_hours": 19.0,
-          "stale": true,
-          "volume_usd": 2734453.5920669856
-        },
-        {
-          "source": "manifold",
-          "probability": 0.392,
-          "adjusted": 0.392,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 32.3,
-          "stale": true,
-          "volume_usd": 82076.17389347852
-        },
-        {
-          "source": "predictit",
-          "probability": 0.57,
-          "adjusted": 0.57,
-          "weight": 0.1451,
-          "raw_weight": 0.22,
-          "age_hours": 41.9,
-          "stale": true,
-          "volume_usd": null
-        }
-      ],
-      "excluded": [],
-      "explanation": "PredictIt's significantly higher probability (57%) likely reflects its different trader demographics and market microstructure \u2014 PredictIt attracts more politically-focused traders who may be more optimistic about Republican-led crypto legislation passing given the current congressional majority and White House support. The 20pp spread between PredictIt and the crypto-native Polymarket/Manifold markets likely represents genuine disagreement about the probability of legislative success rather than a resolution-criteria mismatch, since all three markets are tracking the same signing-into-law outcome. Polymarket and Manifold traders, who tend to be more calibrated on prediction market mechanics and may be more skeptical of Congress's ability to finalize complex regulatory legislation within a tight deadline, are converging around 38-39%.",
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-07-25T09:38:41.251379+00:00",
-          "p": 39.85
-        },
-        {
-          "ts": "2026-07-25T11:44:20.034568+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T11:49:50.965361+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T11:59:58.865539+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T12:01:35.497440+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T12:03:19.124256+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T12:05:03.243817+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T13:44:29.327241+00:00",
-          "p": 41.32
-        },
-        {
-          "ts": "2026-07-25T16:06:32.521622+00:00",
-          "p": 41.85
-        },
-        {
-          "ts": "2026-07-25T18:07:18.967727+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T18:38:12.226829+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T18:46:36.176942+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T18:55:18.841622+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T19:14:42.774051+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:15:47.928850+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:25:13.548602+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:41:02.392553+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:49:29.405028+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-26T03:25:56.729808+00:00",
-          "p": 41.23
-        },
-        {
-          "ts": "2026-07-26T07:55:14.163006+00:00",
-          "p": 41.23
-        },
-        {
-          "ts": "2026-07-26T08:32:54.442198+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T13:38:48.727505+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T17:51:40.843933+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T18:13:32.999135+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T19:17:56.706529+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-27T03:35:02.747694+00:00",
-          "p": 41.74
-        }
-      ],
-      "expiry": "2026-12-31"
     },
     {
       "id": "iran_regime_fall_2026",
@@ -1641,7 +1842,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 13.9,
+          "age_hours": 19.3,
           "stale": true,
           "volume_usd": 23147339.936700314
         },
@@ -1651,7 +1852,7 @@
           "adjusted": 0.0767,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 5.3,
           "stale": false,
           "volume_usd": 2935610.820389235
         }
@@ -1935,6 +2136,10 @@
         {
           "ts": "2026-07-27T03:35:02.741650+00:00",
           "p": 5.23
+        },
+        {
+          "ts": "2026-07-27T08:55:10.838476+00:00",
+          "p": 5.23
         }
       ],
       "expiry": "2027-01-01"
@@ -1944,7 +2149,7 @@
       "question": "Will the Federal Reserve increase interest rates by the end of July 2026?",
       "domain": "macro",
       "probability": 44.5,
-      "delta_24h_pp": -0.3,
+      "delta_24h_pp": -0.2,
       "spread_pp": 48.2,
       "n_sources": 3,
       "contributions": [
@@ -1954,7 +2159,7 @@
           "adjusted": 0.201,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.3,
           "stale": false,
           "volume_usd": 37832761.147657275
         },
@@ -1964,7 +2169,7 @@
           "adjusted": 0.683,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 35.5,
+          "age_hours": 40.8,
           "stale": true,
           "volume_usd": 11901.987125556252
         },
@@ -1974,13 +2179,13 @@
           "adjusted": 0.62,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 35.5,
+          "age_hours": 40.8,
           "stale": true,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "The dominant driver of the 48pp spread is a resolution-criteria mismatch, not genuine disagreement. Manifold covers any Fed hike during all of 2026, and PredictIt extends to September 16, 2026\u2014both giving substantially more time and FOMC meetings for a hike to occur compared to the canonical end-of-July 2026 deadline that Polymarket's market appears to be pricing. The additional meetings (September in particular) meaningfully inflate Manifold and PredictIt probabilities relative to Polymarket's narrower July-only window. There may also be some genuine disagreement in base rates between prediction market audiences, but the timeline difference alone is sufficient to explain most of the gap.",
+      "explanation": "The dominant driver here is resolution-criteria mismatch, not genuine disagreement. Manifold covers any Fed hike during all of 2026, and PredictIt extends to September 16, 2026, giving both markets five to nine additional months of opportunity for a rate increase compared to the end-of-July deadline in the canonical question \u2014 naturally inflating their probabilities relative to Polymarket's July-only FOMC meeting market. Polymarket's ~24.8% reflects only the single July meeting outcome, while Manifold's 68.3% and PredictIt's 62.0% aggregate the cumulative probability across many more meetings and a much longer window. The residual gap between Manifold and PredictIt likely reflects their different end-dates and liquidity/trader-composition differences rather than a substantive disagreement about Fed policy direction.",
       "criteria_notes": {
         "polymarket": "Polymarket splits the July FOMC decision into one binary market per outcome bucket (no change / hike 25bp / hike 50bp / cut 25bp / cut 50bp) rather than a single \"will they hike\" market. The two hike buckets are summed here as mutually exclusive outcomes to get P(any increase) \u2014 verified live: ~24.05% + ~0.75% = ~24.8%.",
         "cme_fedwatch": "CME FedWatch: real-money futures pricing of P(hike) at July 2026 FOMC meeting. This is the most liquid signal of Fed policy expectations."
@@ -2057,325 +2262,168 @@
         {
           "ts": "2026-07-27T03:35:20.615632+00:00",
           "p": 44.54
+        },
+        {
+          "ts": "2026-07-27T08:55:20.215249+00:00",
+          "p": 44.54
         }
       ],
       "expiry": "2026-07-31"
     },
     {
-      "id": "taiwan_invasion_2027",
-      "question": "China invades Taiwan before 2028",
+      "id": "clarity_act_law_2026",
+      "question": "Will the CLARITY Act become law in 2026?",
       "domain": "geopolitics",
-      "probability": 9.0,
-      "delta_24h_pp": 0.2,
-      "spread_pp": 3.9,
-      "n_sources": 2,
+      "probability": 41.7,
+      "delta_24h_pp": 0.0,
+      "spread_pp": 19.5,
+      "n_sources": 3,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.115,
-          "adjusted": 0.115,
-          "weight": 0.34,
+          "probability": 0.375,
+          "adjusted": 0.375,
+          "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 69.1,
+          "age_hours": 24.4,
           "stale": true,
-          "volume_usd": 2176961.3125100015
+          "volume_usd": 2734453.5920669856
         },
         {
           "source": "manifold",
-          "probability": 0.1541,
-          "adjusted": 0.1541,
+          "probability": 0.392,
+          "adjusted": 0.392,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 8.3,
-          "stale": false,
-          "volume_usd": 177737.71553867203
+          "age_hours": 37.7,
+          "stale": true,
+          "volume_usd": 82076.17389347852
+        },
+        {
+          "source": "predictit",
+          "probability": 0.57,
+          "adjusted": 0.57,
+          "weight": 0.1451,
+          "raw_weight": 0.22,
+          "age_hours": 47.3,
+          "stale": true,
+          "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": null,
-      "criteria_notes": {
-        "polymarket": "Reframed from the original \"blockade or quarantine\" question: no liquid blockade-specific market exists. This market resolves on an invasion / military offensive, which is a strictly higher bar than interdiction. Read the level, not the label.",
-        "manifold": "Manifold asks \"attempt to invade by end of 2027\" \u2014 an attempt is a slightly lower bar than Polymarket's \"commences an offensive\", so expect it to sit marginally higher."
-      },
+      "explanation": "The PredictIt market's higher probability (57%) likely reflects a different trader population\u2014PredictIt attracts more politically-engaged bettors who may be pricing in Republican Congressional momentum and Trump administration crypto-friendliness more optimistically. Polymarket and Manifold traders tend to be more crypto-native and may be discounting the significant legislative hurdles (Senate passage, reconciliation with the GENIUS Act/stablecoin bills, floor time competition) that could prevent enactment within the 2026 calendar year specifically. The 20pp spread is most likely genuine disagreement about legislative probability rather than resolution-criteria mismatch, since the criteria are treated as equivalent across platforms.",
+      "criteria_notes": {},
       "history": [
         {
-          "ts": "2026-07-22T19:33:49.246338+00:00",
-          "p": 11.5
+          "ts": "2026-07-25T09:38:41.251379+00:00",
+          "p": 39.85
         },
         {
-          "ts": "2026-07-23T03:20:20.288255+00:00",
-          "p": 11.5
+          "ts": "2026-07-25T11:44:20.034568+00:00",
+          "p": 41.43
         },
         {
-          "ts": "2026-07-23T07:57:14.068038+00:00",
-          "p": 11.5
+          "ts": "2026-07-25T11:49:50.965361+00:00",
+          "p": 41.43
         },
         {
-          "ts": "2026-07-23T08:36:49.687094+00:00",
-          "p": 12.5
+          "ts": "2026-07-25T11:59:58.865539+00:00",
+          "p": 41.43
         },
         {
-          "ts": "2026-07-23T14:13:38.426050+00:00",
-          "p": 12.5
+          "ts": "2026-07-25T12:01:35.497440+00:00",
+          "p": 41.43
         },
         {
-          "ts": "2026-07-23T17:59:53.823230+00:00",
-          "p": 12.5
+          "ts": "2026-07-25T12:03:19.124256+00:00",
+          "p": 41.43
         },
         {
-          "ts": "2026-07-23T18:21:26.937482+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T12:05:03.243817+00:00",
+          "p": 41.43
         },
         {
-          "ts": "2026-07-23T18:38:44.535549+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T13:44:29.327241+00:00",
+          "p": 41.32
         },
         {
-          "ts": "2026-07-23T18:50:00.981431+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T16:06:32.521622+00:00",
+          "p": 41.85
         },
         {
-          "ts": "2026-07-23T18:54:48.922197+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T18:07:18.967727+00:00",
+          "p": 40.03
         },
         {
-          "ts": "2026-07-23T19:24:39.462782+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T18:38:12.226829+00:00",
+          "p": 40.03
         },
         {
-          "ts": "2026-07-23T19:26:27.812502+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T18:46:36.176942+00:00",
+          "p": 40.03
         },
         {
-          "ts": "2026-07-23T19:50:53.970895+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T18:55:18.841622+00:00",
+          "p": 40.03
         },
         {
-          "ts": "2026-07-23T19:52:37.037243+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T19:14:42.774051+00:00",
+          "p": 39.67
         },
         {
-          "ts": "2026-07-23T19:53:53.931845+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T19:15:47.928850+00:00",
+          "p": 39.67
         },
         {
-          "ts": "2026-07-24T03:14:00.670585+00:00",
-          "p": 9.49
+          "ts": "2026-07-25T19:25:13.548602+00:00",
+          "p": 39.67
         },
         {
-          "ts": "2026-07-24T06:28:50.975788+00:00",
-          "p": 8.87
+          "ts": "2026-07-25T19:41:02.392553+00:00",
+          "p": 39.67
         },
         {
-          "ts": "2026-07-24T07:05:28.220367+00:00",
-          "p": 8.87
+          "ts": "2026-07-25T19:49:29.405028+00:00",
+          "p": 39.67
         },
         {
-          "ts": "2026-07-24T07:54:08.338869+00:00",
-          "p": 8.87
+          "ts": "2026-07-26T03:25:56.729808+00:00",
+          "p": 41.23
         },
         {
-          "ts": "2026-07-24T08:33:21.917007+00:00",
-          "p": 8.87
+          "ts": "2026-07-26T07:55:14.163006+00:00",
+          "p": 41.23
         },
         {
-          "ts": "2026-07-24T11:12:09.272520+00:00",
-          "p": 8.87
+          "ts": "2026-07-26T08:32:54.442198+00:00",
+          "p": 41.74
         },
         {
-          "ts": "2026-07-24T11:58:18.581014+00:00",
-          "p": 8.87
+          "ts": "2026-07-26T13:38:48.727505+00:00",
+          "p": 41.74
         },
         {
-          "ts": "2026-07-24T12:01:15.314828+00:00",
-          "p": 8.87
+          "ts": "2026-07-26T17:51:40.843933+00:00",
+          "p": 41.74
         },
         {
-          "ts": "2026-07-24T12:16:12.304125+00:00",
-          "p": 8.87
+          "ts": "2026-07-26T18:13:32.999135+00:00",
+          "p": 41.74
         },
         {
-          "ts": "2026-07-24T12:19:35.067959+00:00",
-          "p": 8.87
+          "ts": "2026-07-26T19:17:56.706529+00:00",
+          "p": 41.74
         },
         {
-          "ts": "2026-07-24T12:25:55.516327+00:00",
-          "p": 8.87
+          "ts": "2026-07-27T03:35:02.747694+00:00",
+          "p": 41.74
         },
         {
-          "ts": "2026-07-24T12:32:14.460454+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T12:39:52.938920+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T12:40:39.752423+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T12:49:32.694269+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T13:54:04.296754+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T15:40:54.282655+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T15:49:36.156813+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T16:40:51.287039+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T16:51:05.921601+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T16:51:59.428923+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T19:06:53.730684+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-24T19:35:47.483492+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T03:13:51.989382+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T04:46:15.676307+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T05:15:20.073468+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T07:32:46.154587+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T08:12:37.963904+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T09:38:35.587792+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T11:44:20.021726+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T11:49:50.953418+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T11:59:58.855256+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T12:01:35.285375+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T12:03:19.113215+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T12:05:03.229931+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T13:44:29.317431+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T16:06:32.513212+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T18:07:18.956726+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T18:38:12.217537+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T18:46:36.165293+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T18:55:18.826499+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T19:14:42.763143+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T19:15:47.917394+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T19:25:13.538452+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T19:41:02.381245+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-25T19:49:29.393453+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-26T03:25:56.720852+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-26T07:55:14.151109+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-26T08:32:54.426879+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-26T13:38:48.710047+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-26T17:51:38.801260+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-26T18:13:32.987490+00:00",
-          "p": 8.87
-        },
-        {
-          "ts": "2026-07-26T19:17:56.693421+00:00",
-          "p": 9.04
-        },
-        {
-          "ts": "2026-07-27T03:35:02.736250+00:00",
-          "p": 9.04
+          "ts": "2026-07-27T08:55:10.843602+00:00",
+          "p": 41.74
         }
       ],
-      "expiry": "2028-01-01"
+      "expiry": "2026-12-31"
     }
   ],
   "resolved": []
