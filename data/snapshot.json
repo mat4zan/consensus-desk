@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T19:41:47.437007+00:00",
+  "generated_at": "2026-07-28T02:51:21.370056+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -17,40 +17,18 @@
   "n_resolved": 0,
   "alerts": [
     {
-      "topic_id": "senate_control_2026_r",
-      "kind": "move_24h",
-      "headline": "Republicans control the US Senate after the 2026 midterms moved down 5.4pp",
-      "detail": {
-        "from": 60.6,
-        "to": 55.3,
-        "delta_pp": -5.4,
-        "window_hours": 24
-      }
-    },
-    {
-      "topic_id": "fed_rate_hike_by_july_2026",
-      "kind": "move_24h",
-      "headline": "Will the Federal Reserve increase interest rates by the end of July 2026? moved up 6.7pp",
-      "detail": {
-        "from": 42.6,
-        "to": 49.3,
-        "delta_pp": 6.7,
-        "window_hours": 24
-      }
-    },
-    {
-      "topic_id": "fed_rate_hike_by_july_2026",
+      "topic_id": "clarity_act_law_2026",
       "kind": "spread",
-      "headline": "Will the Federal Reserve increase interest rates by the end of July 2026?: sources disagree by 41pp",
+      "headline": "Will the CLARITY Act become law in 2026?: sources disagree by 20pp",
       "detail": {
-        "spread_pp": 41.2,
+        "spread_pp": 20.5,
         "highest": {
-          "source": "manifold",
-          "p": 68.3
+          "source": "predictit",
+          "p": 57.0
         },
         "lowest": {
           "source": "polymarket",
-          "p": 27.1
+          "p": 36.5
         }
       }
     }
@@ -60,30 +38,30 @@
       "id": "fed_rate_hike_by_july_2026",
       "question": "Will the Federal Reserve increase interest rates by the end of July 2026?",
       "domain": "macro",
-      "probability": 49.3,
-      "delta_24h_pp": 6.7,
-      "spread_pp": 41.2,
+      "probability": 50.2,
+      "delta_24h_pp": 7.6,
+      "spread_pp": 39.5,
       "n_sources": 3,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.271,
-          "adjusted": 0.271,
+          "probability": 0.2865,
+          "adjusted": 0.2865,
           "weight": 0.2243,
           "raw_weight": 0.34,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 39629952.4850703
+          "volume_usd": 41422240.25222528
         },
         {
           "source": "manifold",
-          "probability": 0.683,
-          "adjusted": 0.683,
+          "probability": 0.681,
+          "adjusted": 0.681,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 51.6,
-          "stale": true,
-          "volume_usd": 11901.987125556252
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 11908.806874042302
         },
         {
           "source": "predictit",
@@ -91,13 +69,13 @@
           "adjusted": 0.62,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 51.6,
+          "age_hours": 58.7,
           "stale": true,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "The dominant driver is resolution-criteria mismatch: Manifold covers any Fed hike during all of 2026 and PredictIt extends to September 16, 2026, while Polymarket is specifically pricing only the July 2026 FOMC meeting outcome, making it a much narrower event with lower base probability. The remaining gap between Manifold (68.3%) and PredictIt (62.0%) is modest and likely reflects their different deadlines plus differing trader pools and liquidity rather than genuine disagreement about Fed policy trajectory.",
+      "explanation": "The dominant driver is resolution-criteria mismatch, not genuine disagreement. Manifold covers any Fed hike during all of 2026 and PredictIt extends to September 16, 2026, giving both markets several additional FOMC meetings beyond the end-of-July deadline that Polymarket's summed buckets specifically target \u2014 the extra meetings meaningfully inflate the probability of *at least one* hike occurring somewhere in that wider window. Polymarket's ~24.8% reflects only the single July 2026 FOMC decision, which is a much narrower event than what Manifold and PredictIt are pricing. The residual gap between Manifold (68.1%) and PredictIt (62.0%) likely reflects Manifold's even broader full-year window plus its known susceptibility to thinner liquidity and optimistic user priors.",
       "criteria_notes": {
         "polymarket": "Polymarket splits the July FOMC decision into one binary market per outcome bucket (no change / hike 25bp / hike 50bp / cut 25bp / cut 50bp) rather than a single \"will they hike\" market. The two hike buckets are summed here as mutually exclusive outcomes to get P(any increase) \u2014 verified live: ~24.05% + ~0.75% = ~24.8%.",
         "cme_fedwatch": "CME FedWatch: real-money futures pricing of P(hike) at July 2026 FOMC meeting. This is the most liquid signal of Fed policy expectations."
@@ -194,6 +172,10 @@
         {
           "ts": "2026-07-27T19:41:42.002715+00:00",
           "p": 49.3
+        },
+        {
+          "ts": "2026-07-28T02:51:16.033984+00:00",
+          "p": 50.16
         }
       ],
       "expiry": "2026-07-31"
@@ -202,32 +184,32 @@
       "id": "senate_control_2026_r",
       "question": "Republicans control the US Senate after the 2026 midterms",
       "domain": "elections",
-      "probability": 55.3,
-      "delta_24h_pp": -5.4,
+      "probability": 58.2,
+      "delta_24h_pp": -2.4,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
         {
           "source": "manifold",
-          "probability": 0.5528,
-          "adjusted": 0.5528,
+          "probability": 0.5825,
+          "adjusted": 0.5825,
           "weight": 0.18,
           "raw_weight": 0.18,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 92092.01238741385
+          "volume_usd": 101054.72907703219
         }
       ],
       "excluded": [
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 97.0
+          "age_hours": 104.2
         },
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 77.8
+          "age_hours": 85.0
         }
       ],
       "explanation": null,
@@ -502,6 +484,10 @@
         {
           "ts": "2026-07-27T19:41:32.295806+00:00",
           "p": 55.28
+        },
+        {
+          "ts": "2026-07-28T02:51:07.391969+00:00",
+          "p": 58.25
         }
       ],
       "expiry": "2026-11-04"
@@ -510,27 +496,27 @@
       "id": "btc_100k_2026",
       "question": "Bitcoin reaches $100,000 in 2026",
       "domain": "crypto",
-      "probability": 10.5,
-      "delta_24h_pp": 3.1,
+      "probability": 9.5,
+      "delta_24h_pp": 2.1,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.105,
-          "adjusted": 0.105,
+          "probability": 0.095,
+          "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 4.9,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 2315262.4302319884
+          "volume_usd": 2316673.292048989
         }
       ],
       "excluded": [
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 95.8
+          "age_hours": 103.0
         }
       ],
       "explanation": null,
@@ -785,6 +771,10 @@
         {
           "ts": "2026-07-27T19:41:32.298547+00:00",
           "p": 10.5
+        },
+        {
+          "ts": "2026-07-28T02:51:07.393110+00:00",
+          "p": 9.5
         }
       ],
       "expiry": "2026-12-31"
@@ -804,8 +794,8 @@
           "adjusted": 0.125,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 9.7,
-          "stale": false,
+          "age_hours": 16.9,
+          "stale": true,
           "volume_usd": 2208198.6550260014
         },
         {
@@ -814,7 +804,7 @@
           "adjusted": 0.1541,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 24.4,
+          "age_hours": 31.6,
           "stale": true,
           "volume_usd": 177737.71553867203
         }
@@ -1121,6 +1111,10 @@
         {
           "ts": "2026-07-27T19:41:32.288241+00:00",
           "p": 9.67
+        },
+        {
+          "ts": "2026-07-28T02:51:07.385646+00:00",
+          "p": 9.67
         }
       ],
       "expiry": "2028-01-01"
@@ -1140,8 +1134,8 @@
           "adjusted": 0.215,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 4.9,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 48555330.444750816
         },
         {
@@ -1150,8 +1144,8 @@
           "adjusted": 0.2134,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.9,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 85349.17157033243
         }
       ],
@@ -1456,180 +1450,13 @@
         {
           "ts": "2026-07-27T19:41:32.292250+00:00",
           "p": 17.39
+        },
+        {
+          "ts": "2026-07-28T02:51:07.389221+00:00",
+          "p": 17.39
         }
       ],
       "expiry": "2027-01-01"
-    },
-    {
-      "id": "clarity_act_law_2026",
-      "question": "Will the CLARITY Act become law in 2026?",
-      "domain": "geopolitics",
-      "probability": 42.1,
-      "delta_24h_pp": 0.4,
-      "spread_pp": 19.5,
-      "n_sources": 3,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.375,
-          "adjusted": 0.375,
-          "weight": 0.2243,
-          "raw_weight": 0.34,
-          "age_hours": 35.1,
-          "stale": true,
-          "volume_usd": 2734453.5920669856
-        },
-        {
-          "source": "manifold",
-          "probability": 0.4022,
-          "adjusted": 0.4022,
-          "weight": 0.18,
-          "raw_weight": 0.18,
-          "age_hours": 0.0,
-          "stale": false,
-          "volume_usd": 82217.53576789763
-        },
-        {
-          "source": "predictit",
-          "probability": 0.57,
-          "adjusted": 0.57,
-          "weight": 0.1451,
-          "raw_weight": 0.22,
-          "age_hours": 58.0,
-          "stale": true,
-          "volume_usd": null
-        }
-      ],
-      "excluded": [],
-      "explanation": "PredictIt's notably higher probability likely reflects its participant pool skewing toward politically-engaged traders who may be more optimistic about Republican-controlled Congress delivering on crypto priorities, while Polymarket and Manifold attract a broader, more internationally-diverse base that discounts legislative execution risk more heavily. The 20pp spread is not a resolution-criteria mismatch \u2014 all three sources are treating enactment by end of 2026 as the condition \u2014 but rather genuine disagreement about the probability that congressional momentum translates into a signed bill given historical attrition rates for complex financial legislation.",
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-07-25T09:38:41.251379+00:00",
-          "p": 39.85
-        },
-        {
-          "ts": "2026-07-25T11:44:20.034568+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T11:49:50.965361+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T11:59:58.865539+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T12:01:35.497440+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T12:03:19.124256+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T12:05:03.243817+00:00",
-          "p": 41.43
-        },
-        {
-          "ts": "2026-07-25T13:44:29.327241+00:00",
-          "p": 41.32
-        },
-        {
-          "ts": "2026-07-25T16:06:32.521622+00:00",
-          "p": 41.85
-        },
-        {
-          "ts": "2026-07-25T18:07:18.967727+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T18:38:12.226829+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T18:46:36.176942+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T18:55:18.841622+00:00",
-          "p": 40.03
-        },
-        {
-          "ts": "2026-07-25T19:14:42.774051+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:15:47.928850+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:25:13.548602+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:41:02.392553+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-25T19:49:29.405028+00:00",
-          "p": 39.67
-        },
-        {
-          "ts": "2026-07-26T03:25:56.729808+00:00",
-          "p": 41.23
-        },
-        {
-          "ts": "2026-07-26T07:55:14.163006+00:00",
-          "p": 41.23
-        },
-        {
-          "ts": "2026-07-26T08:32:54.442198+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T13:38:48.727505+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T17:51:40.843933+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T18:13:32.999135+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-26T19:17:56.706529+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-27T03:35:02.747694+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-27T08:55:10.843602+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-27T09:39:10.160483+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-27T09:59:26.588222+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-27T14:46:14.554455+00:00",
-          "p": 41.74
-        },
-        {
-          "ts": "2026-07-27T19:41:32.301997+00:00",
-          "p": 42.15
-        }
-      ],
-      "expiry": "2026-12-31"
     },
     {
       "id": "romania_new_pm_sep2026",
@@ -1646,8 +1473,8 @@
           "adjusted": 0.9395,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 4.9,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 312871.00515500066
         }
       ],
@@ -1790,6 +1617,185 @@
         {
           "ts": "2026-07-27T19:41:32.300535+00:00",
           "p": 93.95
+        },
+        {
+          "ts": "2026-07-28T02:51:07.394548+00:00",
+          "p": 93.95
+        }
+      ],
+      "expiry": "2026-12-31"
+    },
+    {
+      "id": "clarity_act_law_2026",
+      "question": "Will the CLARITY Act become law in 2026?",
+      "domain": "geopolitics",
+      "probability": 41.6,
+      "delta_24h_pp": -0.1,
+      "spread_pp": 20.5,
+      "n_sources": 3,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.365,
+          "adjusted": 0.365,
+          "weight": 0.2243,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 2814061.3213459793
+        },
+        {
+          "source": "manifold",
+          "probability": 0.4022,
+          "adjusted": 0.4022,
+          "weight": 0.18,
+          "raw_weight": 0.18,
+          "age_hours": 7.2,
+          "stale": false,
+          "volume_usd": 82217.53576789763
+        },
+        {
+          "source": "predictit",
+          "probability": 0.57,
+          "adjusted": 0.57,
+          "weight": 0.1451,
+          "raw_weight": 0.22,
+          "age_hours": 65.2,
+          "stale": true,
+          "volume_usd": null
+        }
+      ],
+      "excluded": [],
+      "explanation": "The PredictIt market is likely trading at a premium due to its different participant pool (more politically-engaged traders who may be more optimistic about the Republican-controlled Congress's appetite for crypto legislation) and the fact that it is 65 hours stale, meaning it may not reflect recent developments that Polymarket and Manifold have already priced in. The 20pp spread most likely reflects genuine disagreement about the probability of Senate passage and reconciliation with any Senate crypto bill, rather than a resolution-criteria mismatch, since all three markets are treating enactment by December 31, 2026 as equivalent.",
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-07-25T09:38:41.251379+00:00",
+          "p": 39.85
+        },
+        {
+          "ts": "2026-07-25T11:44:20.034568+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T11:49:50.965361+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T11:59:58.865539+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T12:01:35.497440+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T12:03:19.124256+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T12:05:03.243817+00:00",
+          "p": 41.43
+        },
+        {
+          "ts": "2026-07-25T13:44:29.327241+00:00",
+          "p": 41.32
+        },
+        {
+          "ts": "2026-07-25T16:06:32.521622+00:00",
+          "p": 41.85
+        },
+        {
+          "ts": "2026-07-25T18:07:18.967727+00:00",
+          "p": 40.03
+        },
+        {
+          "ts": "2026-07-25T18:38:12.226829+00:00",
+          "p": 40.03
+        },
+        {
+          "ts": "2026-07-25T18:46:36.176942+00:00",
+          "p": 40.03
+        },
+        {
+          "ts": "2026-07-25T18:55:18.841622+00:00",
+          "p": 40.03
+        },
+        {
+          "ts": "2026-07-25T19:14:42.774051+00:00",
+          "p": 39.67
+        },
+        {
+          "ts": "2026-07-25T19:15:47.928850+00:00",
+          "p": 39.67
+        },
+        {
+          "ts": "2026-07-25T19:25:13.548602+00:00",
+          "p": 39.67
+        },
+        {
+          "ts": "2026-07-25T19:41:02.392553+00:00",
+          "p": 39.67
+        },
+        {
+          "ts": "2026-07-25T19:49:29.405028+00:00",
+          "p": 39.67
+        },
+        {
+          "ts": "2026-07-26T03:25:56.729808+00:00",
+          "p": 41.23
+        },
+        {
+          "ts": "2026-07-26T07:55:14.163006+00:00",
+          "p": 41.23
+        },
+        {
+          "ts": "2026-07-26T08:32:54.442198+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-26T13:38:48.727505+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-26T17:51:40.843933+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-26T18:13:32.999135+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-26T19:17:56.706529+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-27T03:35:02.747694+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-27T08:55:10.843602+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-27T09:39:10.160483+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-27T09:59:26.588222+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-27T14:46:14.554455+00:00",
+          "p": 41.74
+        },
+        {
+          "ts": "2026-07-27T19:41:32.301997+00:00",
+          "p": 42.15
+        },
+        {
+          "ts": "2026-07-28T02:51:07.395707+00:00",
+          "p": 41.64
         }
       ],
       "expiry": "2026-12-31"
@@ -1809,7 +1815,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 54.0,
+          "age_hours": 61.1,
           "stale": true,
           "volume_usd": 2059211.9421290043
         }
@@ -1818,7 +1824,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 97.3
+          "age_hours": 104.5
         }
       ],
       "explanation": null,
@@ -2121,6 +2127,10 @@
         {
           "ts": "2026-07-27T19:41:32.290669+00:00",
           "p": 35.5
+        },
+        {
+          "ts": "2026-07-28T02:51:07.387952+00:00",
+          "p": 35.5
         }
       ],
       "expiry": "2026-12-31"
@@ -2140,7 +2150,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 30.0,
+          "age_hours": 37.2,
           "stale": true,
           "volume_usd": 23147339.936700314
         },
@@ -2150,8 +2160,8 @@
           "adjusted": 0.0729,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.9,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 2938980.326441327
         }
       ],
@@ -2454,6 +2464,10 @@
         {
           "ts": "2026-07-27T19:41:32.294177+00:00",
           "p": 5.12
+        },
+        {
+          "ts": "2026-07-28T02:51:07.390625+00:00",
+          "p": 5.12
         }
       ],
       "expiry": "2027-01-01"
@@ -2473,7 +2487,7 @@
           "adjusted": 0.275,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 25.8,
+          "age_hours": 33.0,
           "stale": true,
           "volume_usd": 828215.7489060031
         },
@@ -2483,13 +2497,13 @@
           "adjusted": 0.0255,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 55.6,
+          "age_hours": 62.8,
           "stale": true,
           "volume_usd": 6911.4850757504355
         }
       ],
       "excluded": [],
-      "explanation": "The two sources are measuring fundamentally different things: Polymarket's 27.5% captures the probability of *any* NATO-Russia military clash by end of 2026 \u2014 a much lower bar than full-scale world war \u2014 while Manifold's 3.4% specifically requires nuclear involvement and a WW3-scale conflict, a far more extreme threshold. The spread is almost entirely a resolution-criteria mismatch rather than genuine disagreement about geopolitical risk; a NATO-Russia skirmish could easily occur without escalating to nuclear world war, so the two estimates are actually compatible. The shorter Polymarket time horizon (2026 vs. 2030) works in the opposite direction and would normally push it lower, making the criteria difference even more stark.",
+      "explanation": "The sources are measuring fundamentally different things rather than disagreeing about the same event. Polymarket's 27.5% captures the probability of *any* NATO-Russia military clash by end of 2026 \u2014 a much lower threshold than full-scale world war \u2014 while Manifold's 3.4% explicitly requires nuclear involvement, a far more extreme outcome. The apparent 24-point spread is almost entirely a resolution-criteria mismatch: a NATO-Russia skirmish (Polymarket's bar) can resolve YES without anything resembling WW3, whereas Manifold's nuclear condition filters out the vast majority of conflict escalation scenarios.",
       "criteria_notes": {},
       "history": [
         {
@@ -2606,6 +2620,10 @@
         },
         {
           "ts": "2026-07-27T19:41:36.913712+00:00",
+          "p": 9.32
+        },
+        {
+          "ts": "2026-07-28T02:51:11.758913+00:00",
           "p": 9.32
         }
       ],
