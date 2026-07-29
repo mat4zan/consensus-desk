@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T02:58:17.717264+00:00",
+  "generated_at": "2026-07-29T08:05:02.393161+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,35 +15,7 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 0,
-  "alerts": [
-    {
-      "topic_id": "fed_rate_hike_by_july_2026",
-      "kind": "move_24h",
-      "headline": "Will the Federal Reserve increase interest rates by the end of July 2026? moved up 7.5pp",
-      "detail": {
-        "from": 50.2,
-        "to": 57.6,
-        "delta_pp": 7.5,
-        "window_hours": 24
-      }
-    },
-    {
-      "topic_id": "fed_rate_hike_by_july_2026",
-      "kind": "spread",
-      "headline": "Will the Federal Reserve increase interest rates by the end of July 2026?: sources disagree by 55pp",
-      "detail": {
-        "spread_pp": 55.2,
-        "highest": {
-          "source": "predictit",
-          "p": 80.0
-        },
-        "lowest": {
-          "source": "polymarket",
-          "p": 24.9
-        }
-      }
-    }
-  ],
+  "alerts": [],
   "topics": [
     {
       "id": "world_war_3_by_2030",
@@ -60,7 +32,7 @@
           "adjusted": 0.275,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 57.1,
+          "age_hours": 62.2,
           "stale": true,
           "volume_usd": 828215.7489060031
         }
@@ -69,7 +41,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 86.9
+          "age_hours": 92.0
         }
       ],
       "explanation": null,
@@ -214,6 +186,10 @@
         {
           "ts": "2026-07-29T02:58:11.854291+00:00",
           "p": 27.5
+        },
+        {
+          "ts": "2026-07-29T08:04:56.970621+00:00",
+          "p": 27.5
         }
       ],
       "expiry": "2030-01-01"
@@ -233,7 +209,7 @@
           "adjusted": 0.315,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 2877537.551674986
         },
@@ -243,7 +219,7 @@
           "adjusted": 0.4156,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 82797.53576789763
         }
@@ -252,7 +228,7 @@
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 89.3
+          "age_hours": 94.4
         }
       ],
       "explanation": null,
@@ -405,6 +381,10 @@
         {
           "ts": "2026-07-29T02:58:11.853154+00:00",
           "p": 32.06
+        },
+        {
+          "ts": "2026-07-29T08:04:56.969363+00:00",
+          "p": 32.06
         }
       ],
       "expiry": "2026-12-31"
@@ -424,7 +404,7 @@
           "adjusted": 0.2485,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 46459589.02018504
         },
@@ -434,8 +414,8 @@
           "adjusted": 0.7396,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.3,
-          "stale": false,
+          "age_hours": 12.4,
+          "stale": true,
           "volume_usd": 12041.51523695406
         },
         {
@@ -444,13 +424,13 @@
           "adjusted": 0.8,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 7.3,
-          "stale": false,
+          "age_hours": 12.4,
+          "stale": true,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "The dominant driver of the 55pp spread is almost certainly resolution-criteria mismatch rather than genuine disagreement about Fed policy. Manifold covers any hike during all of 2026 (12 FOMC meetings) and PredictIt extends to September 16, 2026 (8+ meetings), while Polymarket's summed figure reflects only the single July 2026 FOMC meeting \u2014 a much narrower window that excludes later meetings where a hike could still occur. The probability of at least one hike across many meetings is substantially higher than the probability of a hike at one specific meeting, which mechanically explains most of the gap between ~25% and ~74\u201380%. The residual difference between Manifold and PredictIt likely reflects their slightly different end dates and differing liquidity/participant pools rather than any substantive disagreement about the likelihood of Fed tightening.",
+      "explanation": "The dominant driver here is a resolution-criteria mismatch, not genuine disagreement about Fed behavior. Polymarket resolves on the *July 2025* FOMC meeting specifically\u2014asking whether the Fed hikes at that single meeting\u2014while Manifold covers any hike across all of 2026 and PredictIt extends through September 2026, giving the Fed many more opportunities to act. A market asking \"will the Fed hike at this one meeting in the near term\" naturally yields a much lower probability than one asking \"will the Fed hike at any point over the next 12\u201318 months.\" The residual gap between Manifold (74%) and PredictIt (80%) is smaller and likely reflects PredictIt's slightly longer window plus possible liquidity/trader-composition differences between the two platforms.",
       "criteria_notes": {
         "polymarket": "Polymarket splits the July FOMC decision into one binary market per outcome bucket (no change / hike 25bp / hike 50bp / cut 25bp / cut 50bp) rather than a single \"will they hike\" market. The two hike buckets are summed here as mutually exclusive outcomes to get P(any increase) \u2014 verified live: ~24.05% + ~0.75% = ~24.8%.",
         "cme_fedwatch": "CME FedWatch: real-money futures pricing of P(hike) at July 2026 FOMC meeting. This is the most liquid signal of Fed policy expectations."
@@ -571,6 +551,10 @@
         {
           "ts": "2026-07-29T02:58:11.855571+00:00",
           "p": 57.63
+        },
+        {
+          "ts": "2026-07-29T08:04:56.971863+00:00",
+          "p": 57.63
         }
       ],
       "expiry": "2026-07-31"
@@ -590,7 +574,7 @@
           "adjusted": 0.61,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": null
         },
@@ -600,7 +584,7 @@
           "adjusted": 0.6104,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 105683.84727999724
         }
@@ -609,7 +593,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 128.3
+          "age_hours": 133.4
         }
       ],
       "explanation": null,
@@ -908,6 +892,10 @@
         {
           "ts": "2026-07-29T02:58:11.848809+00:00",
           "p": 63.13
+        },
+        {
+          "ts": "2026-07-29T08:04:56.964679+00:00",
+          "p": 63.13
         }
       ],
       "expiry": "2026-11-04"
@@ -927,7 +915,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.1,
+          "age_hours": 29.2,
           "stale": true,
           "volume_usd": 2316673.292048989
         },
@@ -937,7 +925,7 @@
           "adjusted": 0.15,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 18.3,
+          "age_hours": 23.4,
           "stale": true,
           "volume_usd": 1542.0726795936912
         }
@@ -1219,6 +1207,10 @@
         {
           "ts": "2026-07-29T02:58:11.850487+00:00",
           "p": 7.66
+        },
+        {
+          "ts": "2026-07-29T08:04:56.966584+00:00",
+          "p": 7.66
         }
       ],
       "expiry": "2026-12-31"
@@ -1238,7 +1230,7 @@
           "adjusted": 0.235,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 49001635.59602677
         },
@@ -1248,7 +1240,7 @@
           "adjusted": 0.2044,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 86199.17157033243
         }
@@ -1578,6 +1570,10 @@
         {
           "ts": "2026-07-29T02:58:11.845797+00:00",
           "p": 18.38
+        },
+        {
+          "ts": "2026-07-29T08:04:56.961824+00:00",
+          "p": 18.38
         }
       ],
       "expiry": "2027-01-01"
@@ -1597,7 +1593,7 @@
           "adjusted": 0.095,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 23289996.404660277
         },
@@ -1607,7 +1603,7 @@
           "adjusted": 0.0758,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 2939775.2977000833
         }
@@ -1935,6 +1931,10 @@
         {
           "ts": "2026-07-29T02:58:11.847297+00:00",
           "p": 5.69
+        },
+        {
+          "ts": "2026-07-29T08:04:56.963306+00:00",
+          "p": 5.69
         }
       ],
       "expiry": "2027-01-01"
@@ -1954,7 +1954,7 @@
           "adjusted": 0.13,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 2240798.373711001
         },
@@ -1964,7 +1964,7 @@
           "adjusted": 0.1541,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 55.7,
+          "age_hours": 60.8,
           "stale": true,
           "volume_usd": 177737.71553867203
         }
@@ -2295,6 +2295,10 @@
         {
           "ts": "2026-07-29T02:58:11.843562+00:00",
           "p": 9.99
+        },
+        {
+          "ts": "2026-07-29T08:04:56.958530+00:00",
+          "p": 9.99
         }
       ],
       "expiry": "2028-01-01"
@@ -2314,7 +2318,7 @@
           "adjusted": 0.9395,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 36.2,
+          "age_hours": 41.3,
           "stale": true,
           "volume_usd": 312871.00515500066
         }
@@ -2481,6 +2485,10 @@
         },
         {
           "ts": "2026-07-29T02:58:11.851850+00:00",
+          "p": 93.95
+        },
+        {
+          "ts": "2026-07-29T08:04:56.968179+00:00",
           "p": 93.95
         }
       ],
