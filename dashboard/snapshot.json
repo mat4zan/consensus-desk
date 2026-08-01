@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T07:42:01.550674+00:00",
+  "generated_at": "2026-08-01T08:27:03.108108+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -21,9 +21,9 @@
       "id": "clarity_act_law_2026",
       "question": "Will the CLARITY Act become law in 2026?",
       "domain": "geopolitics",
-      "probability": 20.0,
-      "delta_24h_pp": -5.6,
-      "spread_pp": 6.8,
+      "probability": 20.4,
+      "delta_24h_pp": -5.2,
+      "spread_pp": 5.8,
       "n_sources": 2,
       "contributions": [
         {
@@ -32,26 +32,26 @@
           "adjusted": 0.265,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 4.3,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 3567531.823615
         },
         {
           "source": "manifold",
-          "probability": 0.1967,
-          "adjusted": 0.1967,
+          "probability": 0.207,
+          "adjusted": 0.207,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.3,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 89460.7487018268
+          "volume_usd": 89520.7487018268
         }
       ],
       "excluded": [
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 166.1
+          "age_hours": 166.8
         }
       ],
       "explanation": null,
@@ -268,6 +268,10 @@
         {
           "ts": "2026-08-01T07:42:01.537327+00:00",
           "p": 20.02
+        },
+        {
+          "ts": "2026-08-01T08:27:03.095015+00:00",
+          "p": 20.45
         }
       ],
       "expiry": "2026-12-31"
@@ -287,7 +291,7 @@
           "adjusted": 0.145,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 4.3,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 2525862.523228999
         },
@@ -297,7 +301,7 @@
           "adjusted": 0.1494,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.3,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 178038.0136775976
         }
@@ -692,6 +696,10 @@
         {
           "ts": "2026-08-01T07:42:01.527222+00:00",
           "p": 10.77
+        },
+        {
+          "ts": "2026-08-01T08:27:03.085388+00:00",
+          "p": 10.77
         }
       ],
       "expiry": "2028-01-01"
@@ -700,20 +708,20 @@
       "id": "us_invade_iran_2027",
       "question": "US invades Iran before 2027",
       "domain": "geopolitics",
-      "probability": 18.0,
-      "delta_24h_pp": -1.3,
-      "spread_pp": 4.1,
+      "probability": 18.6,
+      "delta_24h_pp": -0.7,
+      "spread_pp": 5.1,
       "n_sources": 2,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.235,
-          "adjusted": 0.235,
+          "probability": 0.245,
+          "adjusted": 0.245,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.0,
-          "stale": true,
-          "volume_usd": 51026374.848398015
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 51530244.742961995
         },
         {
           "source": "manifold",
@@ -721,7 +729,7 @@
           "adjusted": 0.1942,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.3,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 91631.80152910063
         }
@@ -1115,6 +1123,10 @@
         {
           "ts": "2026-08-01T07:42:01.532217+00:00",
           "p": 17.99
+        },
+        {
+          "ts": "2026-08-01T08:27:03.089027+00:00",
+          "p": 18.63
         }
       ],
       "expiry": "2027-01-01"
@@ -1123,9 +1135,9 @@
       "id": "senate_control_2026_r",
       "question": "Republicans control the US Senate after the 2026 midterms",
       "domain": "elections",
-      "probability": 59.0,
-      "delta_24h_pp": -0.5,
-      "spread_pp": 1.0,
+      "probability": 59.2,
+      "delta_24h_pp": -0.4,
+      "spread_pp": 0.8,
       "n_sources": 2,
       "contributions": [
         {
@@ -1134,26 +1146,26 @@
           "adjusted": 0.58,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 22.8,
+          "age_hours": 23.5,
           "stale": true,
           "volume_usd": null
         },
         {
           "source": "manifold",
-          "probability": 0.5697,
-          "adjusted": 0.5697,
+          "probability": 0.5724,
+          "adjusted": 0.5724,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 4.3,
+          "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 115991.46308897235
+          "volume_usd": 116144.0504496442
         }
       ],
       "excluded": [
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 205.1
+          "age_hours": 205.8
         }
       ],
       "explanation": null,
@@ -1516,6 +1528,10 @@
         {
           "ts": "2026-08-01T07:42:01.534861+00:00",
           "p": 59.01
+        },
+        {
+          "ts": "2026-08-01T08:27:03.092498+00:00",
+          "p": 59.16
         }
       ],
       "expiry": "2026-11-04"
@@ -1535,7 +1551,7 @@
           "adjusted": 0.9245,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 4.3,
+          "age_hours": 5.1,
           "stale": false,
           "volume_usd": 313247.9127019999
         }
@@ -1767,6 +1783,10 @@
         {
           "ts": "2026-08-01T07:42:01.536171+00:00",
           "p": 92.45
+        },
+        {
+          "ts": "2026-08-01T08:27:03.093875+00:00",
+          "p": 92.45
         }
       ],
       "expiry": "2026-12-31"
@@ -1786,7 +1806,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 53.0,
+          "age_hours": 53.7,
           "stale": true,
           "volume_usd": 23346766.09408701
         },
@@ -1796,7 +1816,7 @@
           "adjusted": 0.075,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 22.8,
+          "age_hours": 23.5,
           "stale": true,
           "volume_usd": 2941428.523767988
         }
@@ -2188,6 +2208,10 @@
         {
           "ts": "2026-08-01T07:42:01.533493+00:00",
           "p": 5.17
+        },
+        {
+          "ts": "2026-08-01T08:27:03.091083+00:00",
+          "p": 5.17
         }
       ],
       "expiry": "2027-01-01"
@@ -2207,7 +2231,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 41.5,
+          "age_hours": 42.2,
           "stale": true,
           "volume_usd": 2072456.5350250003
         },
@@ -2217,7 +2241,7 @@
           "adjusted": 0.2202,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 41.5,
+          "age_hours": 42.2,
           "stale": true,
           "volume_usd": 13159.933978965888
         }
@@ -2586,6 +2610,10 @@
         },
         {
           "ts": "2026-08-01T07:42:01.530711+00:00",
+          "p": 27.02
+        },
+        {
+          "ts": "2026-08-01T08:27:03.087639+00:00",
           "p": 27.02
         }
       ],
