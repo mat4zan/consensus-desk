@@ -251,3 +251,15 @@ topics:
     sources:
       polymarket:
         id: "will-helen-zille-be-the-next-mayor-of-johannesburg-20260609220255151"
+
+  - id: next_mayor_johannesburg_chikane
+    question: "Will Frank Chikane be the next Mayor of Johannesburg?"
+    domain: geopolitics
+    resolution: >
+      Resolves Yes if Frank Chikane becomes the next Mayor of Johannesburg, per Polymarket's resolution criteria for the 'Will Frank Chikane be the next mayor of Johannesburg?' market.
+    expiry: 2026-12-31
+    review: 2026-12-31
+    # Auto-added from a topic request on 2026-08-07.
+    sources:
+      polymarket:
+        id: "will-frank-chikane-be-the-next-mayor-of-johannesburg"

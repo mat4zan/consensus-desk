@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T19:58:13.207558+00:00",
+  "generated_at": "2026-08-07T19:59:55.905909+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -544,6 +544,10 @@
         {
           "ts": "2026-08-07T19:58:13.184711+00:00",
           "p": 35.5
+        },
+        {
+          "ts": "2026-08-07T19:59:55.671308+00:00",
+          "p": 35.5
         }
       ],
       "expiry": "2026-12-31"
@@ -572,7 +576,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 77.5
+          "age_hours": 77.6
         }
       ],
       "explanation": null,
@@ -1097,6 +1101,10 @@
         {
           "ts": "2026-08-07T19:58:13.187470+00:00",
           "p": 5.94
+        },
+        {
+          "ts": "2026-08-07T19:59:55.687534+00:00",
+          "p": 5.94
         }
       ],
       "expiry": "2027-01-01"
@@ -1135,7 +1143,7 @@
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 322.3
+          "age_hours": 322.4
         }
       ],
       "explanation": null,
@@ -1488,6 +1496,10 @@
         {
           "ts": "2026-08-07T19:58:13.192915+00:00",
           "p": 10.43
+        },
+        {
+          "ts": "2026-08-07T19:59:55.891305+00:00",
+          "p": 10.43
         }
       ],
       "expiry": "2026-12-31"
@@ -1496,9 +1508,9 @@
       "id": "senate_control_2026_r",
       "question": "Republicans control the US Senate after the 2026 midterms",
       "domain": "elections",
-      "probability": 55.8,
-      "delta_24h_pp": -1.1,
-      "spread_pp": 1.8,
+      "probability": 55.4,
+      "delta_24h_pp": -1.4,
+      "spread_pp": 2.7,
       "n_sources": 3,
       "contributions": [
         {
@@ -1513,13 +1525,13 @@
         },
         {
           "source": "manifold",
-          "probability": 0.5421,
-          "adjusted": 0.5421,
+          "probability": 0.5335,
+          "adjusted": 0.5335,
           "weight": 0.18,
           "raw_weight": 0.18,
           "age_hours": 0.0,
           "stale": false,
-          "volume_usd": 126740.05199618502
+          "volume_usd": 126755.05199618502
         },
         {
           "source": "predictit",
@@ -2029,6 +2041,10 @@
         {
           "ts": "2026-08-07T19:58:13.188830+00:00",
           "p": 55.76
+        },
+        {
+          "ts": "2026-08-07T19:59:55.698227+00:00",
+          "p": 55.42
         }
       ],
       "expiry": "2026-11-04"
@@ -2048,7 +2064,7 @@
           "adjusted": 0.175,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 6.7,
+          "age_hours": 6.8,
           "stale": false,
           "volume_usd": 57521896.061749995
         },
@@ -2588,6 +2604,10 @@
         {
           "ts": "2026-08-07T19:58:13.186128+00:00",
           "p": 13.1
+        },
+        {
+          "ts": "2026-08-07T19:59:55.677670+00:00",
+          "p": 13.1
         }
       ],
       "expiry": "2027-01-01"
@@ -2974,6 +2994,10 @@
         },
         {
           "ts": "2026-08-07T19:58:13.191617+00:00",
+          "p": 92.05
+        },
+        {
+          "ts": "2026-08-07T19:59:55.708669+00:00",
           "p": 92.05
         }
       ],
@@ -3527,6 +3551,10 @@
         {
           "ts": "2026-08-07T19:58:13.182231+00:00",
           "p": 12.5
+        },
+        {
+          "ts": "2026-08-07T19:59:55.668973+00:00",
+          "p": 12.5
         }
       ],
       "expiry": "2028-01-01"
@@ -4002,6 +4030,10 @@
         {
           "ts": "2026-08-07T19:58:13.190353+00:00",
           "p": 7.5
+        },
+        {
+          "ts": "2026-08-07T19:59:55.699599+00:00",
+          "p": 7.5
         }
       ],
       "expiry": "2026-12-31"
@@ -4033,6 +4065,41 @@
         {
           "ts": "2026-08-07T19:58:13.194153+00:00",
           "p": 48.0
+        },
+        {
+          "ts": "2026-08-07T19:59:55.893260+00:00",
+          "p": 48.0
+        }
+      ],
+      "expiry": "2026-12-31"
+    },
+    {
+      "id": "next_mayor_johannesburg_chikane",
+      "question": "Will Frank Chikane be the next Mayor of Johannesburg?",
+      "domain": "geopolitics",
+      "probability": 30.9,
+      "delta_24h_pp": null,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.3085,
+          "adjusted": 0.3085,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 14298.900219000003
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-08-07T19:59:55.894453+00:00",
+          "p": 30.85
         }
       ],
       "expiry": "2026-12-31"
