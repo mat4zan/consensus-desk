@@ -239,3 +239,15 @@ topics:
         criteria_note: >
           CME FedWatch: real-money futures pricing of P(hike) at July 2026 FOMC
           meeting. This is the most liquid signal of Fed policy expectations.
+
+  - id: next_mayor_of_johannesburg_helen_zille
+    question: "Will Helen Zille be the next Mayor of Johannesburg?"
+    domain: elections
+    resolution: >
+      Resolves YES if Helen Zille is elected/appointed as the next Mayor of Johannesburg, per the Polymarket market resolution criteria. (Interpreting 'Zillow' in the request as a likely typo for 'Zille'.)
+    expiry: 2026-12-31
+    review: 2026-12-31
+    # Auto-added from a topic request on 2026-08-07.
+    sources:
+      polymarket:
+        id: "will-helen-zille-be-the-next-mayor-of-johannesburg-20260609220255151"
