@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T07:00:24.960596+00:00",
+  "generated_at": "2026-08-08T07:01:02.607806+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -590,6 +590,10 @@
         {
           "ts": "2026-08-08T07:00:24.932085+00:00",
           "p": 5.94
+        },
+        {
+          "ts": "2026-08-08T07:01:02.575412+00:00",
+          "p": 5.94
         }
       ],
       "expiry": "2027-01-01"
@@ -1154,6 +1158,10 @@
         },
         {
           "ts": "2026-08-08T07:00:24.933594+00:00",
+          "p": 56.38
+        },
+        {
+          "ts": "2026-08-08T07:01:02.577606+00:00",
           "p": 56.38
         }
       ],
@@ -1730,6 +1738,10 @@
         },
         {
           "ts": "2026-08-08T07:00:18.414487+00:00",
+          "p": 11.5
+        },
+        {
+          "ts": "2026-08-08T07:00:58.382307+00:00",
           "p": 11.5
         }
       ],
@@ -2314,6 +2326,10 @@
         {
           "ts": "2026-08-08T07:00:24.927505+00:00",
           "p": 12.48
+        },
+        {
+          "ts": "2026-08-08T07:01:02.573251+00:00",
+          "p": 12.48
         }
       ],
       "expiry": "2027-01-01"
@@ -2349,7 +2365,7 @@
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria difference actually runs *against* the direction of the gap: Manifold's \"any point in 2026\" framing should yield a higher probability than Polymarket's \"in force at year-end\" requirement, yet Manifold is 16pp lower, suggesting venue-specific crowd differences (Manifold's smaller, less liquid market with a different participant base) are driving the gap more than criteria mismatch. Polymarket's market is likely better-capitalized and more actively arbitraged, making it more responsive to recent diplomatic signals like U.S.-brokered talks, while Manifold's crowd may be more skeptical of near-term resolution and less updated on recent developments given the market is only 5 hours old versus 41 hours for Polymarket. This is genuine disagreement about likelihood amplified by liquidity and crowd composition differences, not a criteria explanation.",
+      "explanation": "The resolution criteria note is actually inverted: Manifold's \"at any point in 2026\" framing should yield *higher* probabilities than Polymarket's \"in force at year-end\" (since a ceasefire could occur but collapse before December 31), yet Manifold sits 16pp lower, meaning the gap reflects genuine disagreement about likelihood rather than criteria mismatch. This likely stems from differences in trader demographics and incentive structures \u2014 Polymarket attracts larger financial stakes and more sophisticated arbitrage, while Manifold's play-money environment can produce systematically different crowd estimates on geopolitical questions with high uncertainty.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -2873,6 +2889,10 @@
         {
           "ts": "2026-08-08T07:00:18.417040+00:00",
           "p": 25.78
+        },
+        {
+          "ts": "2026-08-08T07:00:58.385461+00:00",
+          "p": 25.78
         }
       ],
       "expiry": "2026-12-31"
@@ -3283,6 +3303,10 @@
         },
         {
           "ts": "2026-08-08T07:00:24.936459+00:00",
+          "p": 91.85
+        },
+        {
+          "ts": "2026-08-08T07:01:02.580979+00:00",
           "p": 91.85
         }
       ],
@@ -3698,6 +3722,10 @@
         },
         {
           "ts": "2026-08-08T07:00:24.937763+00:00",
+          "p": 11.67
+        },
+        {
+          "ts": "2026-08-08T07:01:02.582907+00:00",
           "p": 11.67
         }
       ],
@@ -4198,6 +4226,10 @@
         {
           "ts": "2026-08-08T07:00:24.935105+00:00",
           "p": 8.5
+        },
+        {
+          "ts": "2026-08-08T07:01:02.579341+00:00",
+          "p": 8.5
         }
       ],
       "expiry": "2026-12-31"
@@ -4253,6 +4285,10 @@
         {
           "ts": "2026-08-08T07:00:24.939166+00:00",
           "p": 51.5
+        },
+        {
+          "ts": "2026-08-08T07:01:02.584665+00:00",
+          "p": 51.5
         }
       ],
       "expiry": "2026-12-31"
@@ -4304,6 +4340,10 @@
         {
           "ts": "2026-08-08T07:00:24.940227+00:00",
           "p": 31.05
+        },
+        {
+          "ts": "2026-08-08T07:01:02.586245+00:00",
+          "p": 31.05
         }
       ],
       "expiry": "2026-12-31"
@@ -4351,6 +4391,10 @@
         {
           "ts": "2026-08-08T07:00:24.941230+00:00",
           "p": 7.5
+        },
+        {
+          "ts": "2026-08-08T07:01:02.587825+00:00",
+          "p": 7.5
         }
       ],
       "expiry": "2027-12-31"
@@ -4393,6 +4437,10 @@
         },
         {
           "ts": "2026-08-08T07:00:24.942528+00:00",
+          "p": 21.5
+        },
+        {
+          "ts": "2026-08-08T07:01:02.589724+00:00",
           "p": 21.5
         }
       ],
