@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T07:06:06.970053+00:00",
+  "generated_at": "2026-08-08T07:19:04.463089+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -14,7 +14,7 @@
     "commentary": 0.11
   },
   "weight_strategy": "hybrid",
-  "n_resolved": 0,
+  "n_resolved": 1,
   "alerts": [],
   "topics": [
     {
@@ -32,7 +32,7 @@
           "adjusted": 0.0594,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 52.2,
+          "age_hours": 52.4,
           "stale": true,
           "volume_usd": 2956879.0484584467
         }
@@ -41,7 +41,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 88.7
+          "age_hours": 88.9
         }
       ],
       "explanation": null,
@@ -598,6 +598,10 @@
         {
           "ts": "2026-08-08T07:06:06.940964+00:00",
           "p": 5.94
+        },
+        {
+          "ts": "2026-08-08T07:19:04.432253+00:00",
+          "p": 5.94
         }
       ],
       "expiry": "2027-01-01"
@@ -617,7 +621,7 @@
           "adjusted": 0.545,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 59.4,
+          "age_hours": 59.6,
           "stale": true,
           "volume_usd": 1532412.249607
         },
@@ -627,7 +631,7 @@
           "adjusted": 0.55,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.2,
+          "age_hours": 5.4,
           "stale": false,
           "volume_usd": 126939.33824502236
         },
@@ -637,7 +641,7 @@
           "adjusted": 0.57,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 5.2,
+          "age_hours": 5.4,
           "stale": false,
           "volume_usd": null
         }
@@ -1171,6 +1175,10 @@
         {
           "ts": "2026-08-08T07:06:06.942595+00:00",
           "p": 56.38
+        },
+        {
+          "ts": "2026-08-08T07:19:04.434097+00:00",
+          "p": 56.38
         }
       ],
       "expiry": "2026-11-04"
@@ -1190,7 +1198,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 2642602.041022
         }
@@ -1199,7 +1207,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 147.7
+          "age_hours": 147.9
         }
       ],
       "explanation": null,
@@ -1755,6 +1763,10 @@
         {
           "ts": "2026-08-08T07:06:02.154307+00:00",
           "p": 11.5
+        },
+        {
+          "ts": "2026-08-08T07:18:58.689545+00:00",
+          "p": 11.5
         }
       ],
       "expiry": "2028-01-01"
@@ -1774,7 +1786,7 @@
           "adjusted": 0.165,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 5.2,
+          "age_hours": 5.4,
           "stale": false,
           "volume_usd": 57602411.50553503
         },
@@ -1784,7 +1796,7 @@
           "adjusted": 0.1643,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 12.0,
+          "age_hours": 12.3,
           "stale": true,
           "volume_usd": 95231.66375027857
         }
@@ -2346,6 +2358,10 @@
         {
           "ts": "2026-08-08T07:06:06.938853+00:00",
           "p": 12.48
+        },
+        {
+          "ts": "2026-08-08T07:19:04.430147+00:00",
+          "p": 12.48
         }
       ],
       "expiry": "2027-01-01"
@@ -2365,7 +2381,7 @@
           "adjusted": 0.355,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 40.7,
+          "age_hours": 40.9,
           "stale": true,
           "volume_usd": 2093169.5906039998
         },
@@ -2375,13 +2391,13 @@
           "adjusted": 0.195,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.2,
+          "age_hours": 5.4,
           "stale": false,
           "volume_usd": 13309.933978965888
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria difference actually runs against the observed direction here: Manifold's \"any point in 2026\" framing should yield *higher* probabilities than Polymarket's \"in force at year-end\" requirement, yet Manifold is 16pp lower. This suggests the gap is primarily a venue/crowd difference \u2014 Polymarket attracts more liquid, financially-incentivized traders who may be pricing in active negotiation signals more aggressively, while Manifold's play-money environment tends to produce more conservative or less-updated estimates. The criteria mismatch cannot explain the direction of the gap, so this represents genuine disagreement about the underlying likelihood of a ceasefire.",
+      "explanation": "The resolution criteria gap actually runs against Manifold being lower: \"ceasefire at any point in 2026\" should yield a higher probability than \"in force at year-end,\" since the latter requires the ceasefire to both occur and hold, yet Manifold (19.5%) is significantly below Polymarket (35.5%). This suggests the gap reflects genuine disagreement about underlying likelihood, likely driven by audience composition and information vintage \u2014 Polymarket attracts larger, more financially incentivized traders who may be pricing in recent diplomatic momentum (the question is 41 hours old versus Manifold's 5 hours), while Manifold's community may be updating more skeptically on current battlefield and negotiation signals. The criteria difference alone cannot explain the direction of the spread, pointing to real divergence in assessed probability rather than just definitional mismatch.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -2913,6 +2929,10 @@
         {
           "ts": "2026-08-08T07:06:02.156973+00:00",
           "p": 25.78
+        },
+        {
+          "ts": "2026-08-08T07:18:58.692261+00:00",
+          "p": 25.78
         }
       ],
       "expiry": "2026-12-31"
@@ -2932,7 +2952,7 @@
           "adjusted": 0.9185,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 10.8,
+          "age_hours": 11.0,
           "stale": false,
           "volume_usd": 317554.39694899996
         }
@@ -3332,6 +3352,10 @@
         {
           "ts": "2026-08-08T07:06:06.945514+00:00",
           "p": 91.85
+        },
+        {
+          "ts": "2026-08-08T07:19:04.437140+00:00",
+          "p": 91.85
         }
       ],
       "expiry": "2026-12-31"
@@ -3351,7 +3375,7 @@
           "adjusted": 0.155,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 5.2,
+          "age_hours": 5.4,
           "stale": false,
           "volume_usd": 5316704.821621999
         },
@@ -3361,7 +3385,7 @@
           "adjusted": 0.1585,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 12.0,
+          "age_hours": 12.3,
           "stale": true,
           "volume_usd": 97650.9015535651
         }
@@ -3370,7 +3394,7 @@
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 333.5
+          "age_hours": 333.7
         }
       ],
       "explanation": null,
@@ -3755,6 +3779,10 @@
         {
           "ts": "2026-08-08T07:06:06.946891+00:00",
           "p": 11.67
+        },
+        {
+          "ts": "2026-08-08T07:19:04.438939+00:00",
+          "p": 11.67
         }
       ],
       "expiry": "2026-12-31"
@@ -3774,7 +3802,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 5.2,
+          "age_hours": 5.4,
           "stale": false,
           "volume_usd": 2405422.3420590004
         }
@@ -3783,7 +3811,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 147.7
+          "age_hours": 147.9
         }
       ],
       "explanation": null,
@@ -4262,6 +4290,10 @@
         {
           "ts": "2026-08-08T07:06:06.944110+00:00",
           "p": 8.5
+        },
+        {
+          "ts": "2026-08-08T07:19:04.435823+00:00",
+          "p": 8.5
         }
       ],
       "expiry": "2026-12-31"
@@ -4270,18 +4302,18 @@
       "id": "next_mayor_of_johannesburg_helen_zille",
       "question": "Will Helen Zille be the next Mayor of Johannesburg?",
       "domain": "elections",
-      "probability": 51.5,
+      "probability": 51.0,
       "delta_24h_pp": null,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.515,
-          "adjusted": 0.515,
+          "probability": 0.51,
+          "adjusted": 0.51,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.0,
           "stale": false,
           "volume_usd": 27331.002342
         }
@@ -4325,6 +4357,10 @@
         {
           "ts": "2026-08-08T07:06:06.948390+00:00",
           "p": 51.5
+        },
+        {
+          "ts": "2026-08-08T07:19:04.440401+00:00",
+          "p": 51.0
         }
       ],
       "expiry": "2026-12-31"
@@ -4344,7 +4380,7 @@
           "adjusted": 0.3105,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 14303.900219000001
         }
@@ -4384,6 +4420,10 @@
         {
           "ts": "2026-08-08T07:06:06.949438+00:00",
           "p": 31.05
+        },
+        {
+          "ts": "2026-08-08T07:19:04.441418+00:00",
+          "p": 31.05
         }
       ],
       "expiry": "2026-12-31"
@@ -4403,7 +4443,7 @@
           "adjusted": 0.075,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.1,
+          "age_hours": 0.3,
           "stale": false,
           "volume_usd": 1698307.4778850002
         }
@@ -4439,6 +4479,10 @@
         {
           "ts": "2026-08-08T07:06:06.950579+00:00",
           "p": 7.5
+        },
+        {
+          "ts": "2026-08-08T07:19:04.443366+00:00",
+          "p": 7.5
         }
       ],
       "expiry": "2027-12-31"
@@ -4458,7 +4502,7 @@
           "adjusted": 0.215,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 5.2,
+          "age_hours": 5.4,
           "stale": false,
           "volume_usd": 5042824.562894002
         }
@@ -4490,10 +4534,22 @@
         {
           "ts": "2026-08-08T07:06:06.952023+00:00",
           "p": 21.5
+        },
+        {
+          "ts": "2026-08-08T07:19:04.445063+00:00",
+          "p": 21.5
         }
       ],
       "expiry": "2026-12-31"
     }
   ],
-  "resolved": []
+  "resolved": [
+    {
+      "id": "fed_rate_hike_by_july_2026",
+      "question": "Will the Federal Reserve increase interest rates by the end of July 2026?",
+      "outcome": 0,
+      "resolved_at": "2026-08-08T07:17:44.008804+00:00",
+      "last_probability": 4.7
+    }
+  ]
 }
