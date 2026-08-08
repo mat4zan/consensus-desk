@@ -217,6 +217,13 @@ topics:
       Resolves YES if the Federal Reserve raises its target federal funds rate on or before the specified deadline. Manifold market covers any Fed hike during all of 2026 (broader than just July). PredictIt market resolves based on a Fed vote to raise rates by Sept. 16, 2026 (slightly later than the requested end-of-July deadline).
     expiry: 2026-07-31
     review: 2026-07-31
+    oracle:
+      source: fred
+      series: DFEDTARU
+      rule: rose
+      amount: 0.25
+      window_start: 2026-01-01
+      by: 2026-07-31
     # Auto-added from a topic request on 2026-07-25.
     sources:
       polymarket:
