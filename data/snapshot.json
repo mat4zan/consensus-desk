@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T07:19:08.998274+00:00",
+  "generated_at": "2026-08-10T07:49:07.097936+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -21,19 +21,19 @@
       "id": "romania_new_pm_sep2026",
       "question": "Will there be a new Romanian Prime Minister by end of September 2026?",
       "domain": "elections",
-      "probability": 87.5,
-      "delta_24h_pp": -4.5,
+      "probability": 87.7,
+      "delta_24h_pp": -4.3,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
         {
           "source": "polymarket",
-          "probability": 0.875,
-          "adjusted": 0.875,
+          "probability": 0.877,
+          "adjusted": 0.877,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.5,
-          "stale": true,
+          "age_hours": 0.0,
+          "stale": false,
           "volume_usd": 318969.47084900003
         }
       ],
@@ -476,6 +476,228 @@
         {
           "ts": "2026-08-10T07:19:08.972729+00:00",
           "p": 87.5
+        },
+        {
+          "ts": "2026-08-10T07:49:07.072595+00:00",
+          "p": 87.7
+        }
+      ],
+      "expiry": "2026-12-31"
+    },
+    {
+      "id": "next_mayor_johannesburg_chikane",
+      "question": "Will Frank Chikane be the next Mayor of Johannesburg?",
+      "domain": "geopolitics",
+      "probability": 29.0,
+      "delta_24h_pp": -1.8,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.2905,
+          "adjusted": 0.2905,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 15072.359009000003
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-08-07T19:59:55.894453+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-07T20:16:45.888992+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-07T20:18:17.922768+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-08T01:55:17.046554+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-08T06:06:09.039015+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-08T07:00:24.940227+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-08T07:01:02.586245+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-08T07:06:06.949438+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-08T07:19:04.441418+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-08T12:56:44.308937+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-08T18:42:57.921410+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-09T02:02:54.016597+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-09T06:08:34.337490+00:00",
+          "p": 31.05
+        },
+        {
+          "ts": "2026-08-09T07:02:38.679463+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-09T12:59:12.678052+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-09T18:47:37.954193+00:00",
+          "p": 30.85
+        },
+        {
+          "ts": "2026-08-10T02:07:23.045568+00:00",
+          "p": 29.95
+        },
+        {
+          "ts": "2026-08-10T06:51:48.693141+00:00",
+          "p": 29.95
+        },
+        {
+          "ts": "2026-08-10T07:19:08.977421+00:00",
+          "p": 29.95
+        },
+        {
+          "ts": "2026-08-10T07:49:07.077175+00:00",
+          "p": 29.05
+        }
+      ],
+      "expiry": "2026-12-31"
+    },
+    {
+      "id": "next_mayor_of_johannesburg_helen_zille",
+      "question": "Will Helen Zille be the next Mayor of Johannesburg?",
+      "domain": "elections",
+      "probability": 50.0,
+      "delta_24h_pp": -1.5,
+      "spread_pp": 0.0,
+      "n_sources": 1,
+      "contributions": [
+        {
+          "source": "polymarket",
+          "probability": 0.5,
+          "adjusted": 0.5,
+          "weight": 0.34,
+          "raw_weight": 0.34,
+          "age_hours": 0.0,
+          "stale": false,
+          "volume_usd": 27348.542342000004
+        }
+      ],
+      "excluded": [],
+      "explanation": null,
+      "criteria_notes": {},
+      "history": [
+        {
+          "ts": "2026-08-07T19:58:13.194153+00:00",
+          "p": 48.0
+        },
+        {
+          "ts": "2026-08-07T19:59:55.893260+00:00",
+          "p": 48.0
+        },
+        {
+          "ts": "2026-08-07T20:16:45.887641+00:00",
+          "p": 48.0
+        },
+        {
+          "ts": "2026-08-07T20:18:17.921903+00:00",
+          "p": 48.0
+        },
+        {
+          "ts": "2026-08-08T01:55:17.045269+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-08T06:06:09.037880+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-08T07:00:24.939166+00:00",
+          "p": 51.5
+        },
+        {
+          "ts": "2026-08-08T07:01:02.584665+00:00",
+          "p": 51.5
+        },
+        {
+          "ts": "2026-08-08T07:06:06.948390+00:00",
+          "p": 51.5
+        },
+        {
+          "ts": "2026-08-08T07:19:04.440401+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-08T12:56:44.307931+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-08T18:42:57.919074+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-09T02:02:54.015410+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-09T06:08:34.336488+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-09T07:02:38.673856+00:00",
+          "p": 51.5
+        },
+        {
+          "ts": "2026-08-09T12:59:12.676490+00:00",
+          "p": 51.0
+        },
+        {
+          "ts": "2026-08-09T18:47:37.953050+00:00",
+          "p": 50.5
+        },
+        {
+          "ts": "2026-08-10T02:07:23.044155+00:00",
+          "p": 50.5
+        },
+        {
+          "ts": "2026-08-10T06:51:48.691919+00:00",
+          "p": 50.5
+        },
+        {
+          "ts": "2026-08-10T07:19:08.976202+00:00",
+          "p": 50.5
+        },
+        {
+          "ts": "2026-08-10T07:49:07.075914+00:00",
+          "p": 50.0
         }
       ],
       "expiry": "2026-12-31"
@@ -495,7 +717,7 @@
           "adjusted": 0.59,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 5.2,
+          "age_hours": 5.7,
           "stale": false,
           "volume_usd": null
         },
@@ -505,7 +727,7 @@
           "adjusted": 0.55,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.2,
+          "age_hours": 5.7,
           "stale": false,
           "volume_usd": 127264.53396930303
         }
@@ -514,7 +736,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 107.6
+          "age_hours": 108.1
         }
       ],
       "explanation": null,
@@ -1089,6 +1311,10 @@
         {
           "ts": "2026-08-10T07:19:08.968218+00:00",
           "p": 58.63
+        },
+        {
+          "ts": "2026-08-10T07:49:07.069444+00:00",
+          "p": 58.63
         }
       ],
       "expiry": "2026-11-04"
@@ -1108,7 +1334,7 @@
           "adjusted": 0.155,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 5.2,
+          "age_hours": 5.7,
           "stale": false,
           "volume_usd": 57884178.556431994
         },
@@ -1118,7 +1344,7 @@
           "adjusted": 0.1616,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.2,
+          "age_hours": 5.7,
           "stale": false,
           "volume_usd": 95945.60098824333
         }
@@ -1724,219 +1950,13 @@
         {
           "ts": "2026-08-10T07:19:08.964511+00:00",
           "p": 11.77
+        },
+        {
+          "ts": "2026-08-10T07:49:07.067253+00:00",
+          "p": 11.77
         }
       ],
       "expiry": "2027-01-01"
-    },
-    {
-      "id": "next_mayor_of_johannesburg_helen_zille",
-      "question": "Will Helen Zille be the next Mayor of Johannesburg?",
-      "domain": "elections",
-      "probability": 50.5,
-      "delta_24h_pp": -1.0,
-      "spread_pp": 0.0,
-      "n_sources": 1,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.505,
-          "adjusted": 0.505,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 12.5,
-          "stale": true,
-          "volume_usd": 27348.542342000004
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-08-07T19:58:13.194153+00:00",
-          "p": 48.0
-        },
-        {
-          "ts": "2026-08-07T19:59:55.893260+00:00",
-          "p": 48.0
-        },
-        {
-          "ts": "2026-08-07T20:16:45.887641+00:00",
-          "p": 48.0
-        },
-        {
-          "ts": "2026-08-07T20:18:17.921903+00:00",
-          "p": 48.0
-        },
-        {
-          "ts": "2026-08-08T01:55:17.045269+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-08T06:06:09.037880+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-08T07:00:24.939166+00:00",
-          "p": 51.5
-        },
-        {
-          "ts": "2026-08-08T07:01:02.584665+00:00",
-          "p": 51.5
-        },
-        {
-          "ts": "2026-08-08T07:06:06.948390+00:00",
-          "p": 51.5
-        },
-        {
-          "ts": "2026-08-08T07:19:04.440401+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-08T12:56:44.307931+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-08T18:42:57.919074+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-09T02:02:54.015410+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-09T06:08:34.336488+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-09T07:02:38.673856+00:00",
-          "p": 51.5
-        },
-        {
-          "ts": "2026-08-09T12:59:12.676490+00:00",
-          "p": 51.0
-        },
-        {
-          "ts": "2026-08-09T18:47:37.953050+00:00",
-          "p": 50.5
-        },
-        {
-          "ts": "2026-08-10T02:07:23.044155+00:00",
-          "p": 50.5
-        },
-        {
-          "ts": "2026-08-10T06:51:48.691919+00:00",
-          "p": 50.5
-        },
-        {
-          "ts": "2026-08-10T07:19:08.976202+00:00",
-          "p": 50.5
-        }
-      ],
-      "expiry": "2026-12-31"
-    },
-    {
-      "id": "next_mayor_johannesburg_chikane",
-      "question": "Will Frank Chikane be the next Mayor of Johannesburg?",
-      "domain": "geopolitics",
-      "probability": 29.9,
-      "delta_24h_pp": -0.9,
-      "spread_pp": 0.0,
-      "n_sources": 1,
-      "contributions": [
-        {
-          "source": "polymarket",
-          "probability": 0.2995,
-          "adjusted": 0.2995,
-          "weight": 0.34,
-          "raw_weight": 0.34,
-          "age_hours": 5.2,
-          "stale": false,
-          "volume_usd": 14401.210219000002
-        }
-      ],
-      "excluded": [],
-      "explanation": null,
-      "criteria_notes": {},
-      "history": [
-        {
-          "ts": "2026-08-07T19:59:55.894453+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-07T20:16:45.888992+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-07T20:18:17.922768+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-08T01:55:17.046554+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-08T06:06:09.039015+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-08T07:00:24.940227+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-08T07:01:02.586245+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-08T07:06:06.949438+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-08T07:19:04.441418+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-08T12:56:44.308937+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-08T18:42:57.921410+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-09T02:02:54.016597+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-09T06:08:34.337490+00:00",
-          "p": 31.05
-        },
-        {
-          "ts": "2026-08-09T07:02:38.679463+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-09T12:59:12.678052+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-09T18:47:37.954193+00:00",
-          "p": 30.85
-        },
-        {
-          "ts": "2026-08-10T02:07:23.045568+00:00",
-          "p": 29.95
-        },
-        {
-          "ts": "2026-08-10T06:51:48.693141+00:00",
-          "p": 29.95
-        },
-        {
-          "ts": "2026-08-10T07:19:08.977421+00:00",
-          "p": 29.95
-        }
-      ],
-      "expiry": "2026-12-31"
     },
     {
       "id": "ru_ua_ceasefire_2026",
@@ -1953,7 +1973,7 @@
           "adjusted": 0.345,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 12.5,
+          "age_hours": 13.0,
           "stale": true,
           "volume_usd": 2096891.1273490007
         },
@@ -1963,13 +1983,13 @@
           "adjusted": 0.1804,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 36.6,
+          "age_hours": 37.1,
           "stale": true,
           "volume_usd": 13409.933978965888
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria difference actually runs *against* the direction of the gap: Manifold's \"at any point in 2026\" should yield a higher probability than Polymarket's \"in force at year-end\" (since a ceasefire could be reached then collapse before December 31), yet Manifold is 16 points lower. This suggests the gap is primarily a venue/participant difference \u2014 Polymarket attracts higher-stakes, more liquid trading with sophisticated arbitrageurs who may be pricing in recent diplomatic momentum, while Manifold's play-money market draws a different forecaster pool that may be more skeptical of durable Russian-Ukrainian agreement. The residual is genuine disagreement about the likelihood of negotiations succeeding, not a criteria mismatch explaining the direction.",
+      "explanation": "The resolution criteria difference actually cuts against explaining the gap here: Manifold's \"any point in 2026\" framing should produce a *higher* probability than Polymarket's \"in force at year-end\" requirement, yet Manifold is 16 points lower. This suggests the difference is driven by market-structural factors \u2014 Polymarket attracts larger, more sophisticated traders with real financial stakes, while Manifold uses play-money which tends to produce less-calibrated prices and can reflect optimism bias or thin liquidity. The genuine disagreement component, if any, is masked by these venue differences rather than reflecting a substantive divergence in assessments of diplomatic likelihood.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -2545,6 +2565,10 @@
         {
           "ts": "2026-08-10T07:19:03.053990+00:00",
           "p": 24.38
+        },
+        {
+          "ts": "2026-08-10T07:49:01.950741+00:00",
+          "p": 24.38
         }
       ],
       "expiry": "2026-12-31"
@@ -2564,7 +2588,7 @@
           "adjusted": 0.205,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 29.3,
+          "age_hours": 29.8,
           "stale": true,
           "volume_usd": 5531754.970076003
         },
@@ -2574,7 +2598,7 @@
           "adjusted": 0.2443,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 5.2,
+          "age_hours": 5.7,
           "stale": false,
           "volume_usd": 98920.30164655812
         },
@@ -2584,7 +2608,7 @@
           "adjusted": 0.15,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 29.3,
+          "age_hours": 29.8,
           "stale": true,
           "volume_usd": null
         }
@@ -3016,6 +3040,10 @@
         {
           "ts": "2026-08-10T07:19:08.974294+00:00",
           "p": 16.01
+        },
+        {
+          "ts": "2026-08-10T07:49:07.074037+00:00",
+          "p": 16.01
         }
       ],
       "expiry": "2026-12-31"
@@ -3035,7 +3063,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 48.3,
+          "age_hours": 48.8,
           "stale": true,
           "volume_usd": 2642602.041022
         },
@@ -3045,7 +3073,7 @@
           "adjusted": 0.1353,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 42.4,
+          "age_hours": 42.9,
           "stale": true,
           "volume_usd": 179116.7176465844
         }
@@ -3648,6 +3676,10 @@
         {
           "ts": "2026-08-10T07:19:03.051359+00:00",
           "p": 8.54
+        },
+        {
+          "ts": "2026-08-10T07:49:01.947865+00:00",
+          "p": 8.54
         }
       ],
       "expiry": "2028-01-01"
@@ -3667,7 +3699,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 53.4,
+          "age_hours": 53.9,
           "stale": true,
           "volume_usd": 2405422.3420590004
         }
@@ -3676,7 +3708,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 195.9
+          "age_hours": 196.4
         }
       ],
       "explanation": null,
@@ -4199,6 +4231,10 @@
         {
           "ts": "2026-08-10T07:19:08.971274+00:00",
           "p": 8.5
+        },
+        {
+          "ts": "2026-08-10T07:49:07.071051+00:00",
+          "p": 8.5
         }
       ],
       "expiry": "2026-12-31"
@@ -4218,7 +4254,7 @@
           "adjusted": 0.075,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 29.3,
+          "age_hours": 29.8,
           "stale": true,
           "volume_usd": 1698726.0801060006
         }
@@ -4298,6 +4334,10 @@
         {
           "ts": "2026-08-10T07:19:08.978525+00:00",
           "p": 7.5
+        },
+        {
+          "ts": "2026-08-10T07:49:07.078413+00:00",
+          "p": 7.5
         }
       ],
       "expiry": "2027-12-31"
@@ -4317,7 +4357,7 @@
           "adjusted": 0.215,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 53.4,
+          "age_hours": 53.9,
           "stale": true,
           "volume_usd": 5042824.562894002
         }
@@ -4392,6 +4432,10 @@
         },
         {
           "ts": "2026-08-10T07:19:08.979696+00:00",
+          "p": 21.5
+        },
+        {
+          "ts": "2026-08-10T07:49:07.079563+00:00",
           "p": 21.5
         }
       ],
