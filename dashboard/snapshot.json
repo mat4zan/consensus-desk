@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T02:07:23.061383+00:00",
+  "generated_at": "2026-08-10T06:51:48.714642+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,7 +15,19 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 1,
-  "alerts": [],
+  "alerts": [
+    {
+      "topic_id": "ru_ua_ceasefire_2026",
+      "kind": "move_7d",
+      "headline": "Russia-Ukraine ceasefire agreement by year end 2026 moved down 10.1pp",
+      "detail": {
+        "from": 34.5,
+        "to": 24.4,
+        "delta_pp": -10.1,
+        "window_hours": 168
+      }
+    }
+  ],
   "topics": [
     {
       "id": "romania_new_pm_sep2026",
@@ -32,8 +44,8 @@
           "adjusted": 0.875,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.3,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 318969.47084900003
         }
       ],
@@ -468,6 +480,10 @@
         {
           "ts": "2026-08-10T02:07:23.040988+00:00",
           "p": 87.5
+        },
+        {
+          "ts": "2026-08-10T06:51:48.688408+00:00",
+          "p": 87.5
         }
       ],
       "expiry": "2026-12-31"
@@ -487,7 +503,7 @@
           "adjusted": 0.2995,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 14401.210219000002
         }
@@ -563,6 +579,10 @@
         {
           "ts": "2026-08-10T02:07:23.045568+00:00",
           "p": 29.95
+        },
+        {
+          "ts": "2026-08-10T06:51:48.693141+00:00",
+          "p": 29.95
         }
       ],
       "expiry": "2026-12-31"
@@ -582,7 +602,7 @@
           "adjusted": 0.59,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 0.0,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": null
         },
@@ -592,7 +612,7 @@
           "adjusted": 0.55,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 127264.53396930303
         }
@@ -601,7 +621,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 102.4
+          "age_hours": 107.2
         }
       ],
       "explanation": null,
@@ -1168,6 +1188,10 @@
         {
           "ts": "2026-08-10T02:07:23.038295+00:00",
           "p": 58.63
+        },
+        {
+          "ts": "2026-08-10T06:51:48.685325+00:00",
+          "p": 58.63
         }
       ],
       "expiry": "2026-11-04"
@@ -1187,7 +1211,7 @@
           "adjusted": 0.155,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 57884178.556431994
         },
@@ -1197,7 +1221,7 @@
           "adjusted": 0.1616,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 95945.60098824333
         }
@@ -1795,6 +1819,10 @@
         {
           "ts": "2026-08-10T02:07:23.036164+00:00",
           "p": 11.77
+        },
+        {
+          "ts": "2026-08-10T06:51:48.683165+00:00",
+          "p": 11.77
         }
       ],
       "expiry": "2027-01-01"
@@ -1814,8 +1842,8 @@
           "adjusted": 0.505,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.3,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 27348.542342000004
         }
       ],
@@ -1894,6 +1922,10 @@
         {
           "ts": "2026-08-10T02:07:23.044155+00:00",
           "p": 50.5
+        },
+        {
+          "ts": "2026-08-10T06:51:48.691919+00:00",
+          "p": 50.5
         }
       ],
       "expiry": "2026-12-31"
@@ -1913,8 +1945,8 @@
           "adjusted": 0.345,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.3,
-          "stale": false,
+          "age_hours": 12.1,
+          "stale": true,
           "volume_usd": 2096891.1273490007
         },
         {
@@ -1923,13 +1955,13 @@
           "adjusted": 0.1804,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 31.4,
+          "age_hours": 36.1,
           "stale": true,
           "volume_usd": 13409.933978965888
         }
       ],
       "excluded": [],
-      "explanation": "The resolution criteria mismatch cuts against the expected direction: Manifold's \"any point in 2026\" framing should yield a *higher* probability than Polymarket's \"in force at year-end\" requirement, yet Manifold is 16pp lower. This suggests the gap is driven primarily by venue/participant differences \u2014 Polymarket attracts higher-stakes, financially motivated traders who may be more responsive to recent diplomatic signals (e.g., Trump-era pressure), while Manifold's play-money environment draws a different forecaster pool that appears more skeptical of a ceasefire materializing at all. The criteria inversion is the key diagnostic: since the broader-window market is cheaper, genuine disagreement about base likelihood between the two communities explains more of the spread than criteria differences do.",
+      "explanation": "The resolution criteria difference actually runs *against* the observed spread: Manifold's \"any point in 2026\" framing should yield a higher probability than Polymarket's \"in force at year-end,\" yet Manifold is 16pp lower. This means the gap is driven by venue and crowd differences rather than criteria mismatch \u2014 Polymarket attracts higher-stakes, more sophisticated traders who may be pricing in active negotiation dynamics, while Manifold's play-money market tends to draw a different, often more skeptical participant base. The criteria inversion makes this a genuine disagreement about underlying likelihood, with Polymarket's crowd meaningfully more optimistic about a durable ceasefire materializing.",
       "criteria_notes": {
         "manifold": "Manifold asks \"a ceasefire at any point in 2026\", vs Polymarket's \"agreement in force at year-end\". Any-point-in-year is a broader window, yet Manifold sits lower \u2014 the gap is a criteria/venue difference to read, not a straight disagreement on likelihood."
       },
@@ -2497,6 +2529,10 @@
         {
           "ts": "2026-08-10T02:07:17.349624+00:00",
           "p": 24.38
+        },
+        {
+          "ts": "2026-08-10T06:51:43.399992+00:00",
+          "p": 24.38
         }
       ],
       "expiry": "2026-12-31"
@@ -2516,7 +2552,7 @@
           "adjusted": 0.205,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 24.1,
+          "age_hours": 28.8,
           "stale": true,
           "volume_usd": 5531754.970076003
         },
@@ -2526,7 +2562,7 @@
           "adjusted": 0.2443,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 4.7,
           "stale": false,
           "volume_usd": 98920.30164655812
         },
@@ -2536,7 +2572,7 @@
           "adjusted": 0.15,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 24.1,
+          "age_hours": 28.8,
           "stale": true,
           "volume_usd": null
         }
@@ -2960,6 +2996,10 @@
         {
           "ts": "2026-08-10T02:07:23.042204+00:00",
           "p": 16.01
+        },
+        {
+          "ts": "2026-08-10T06:51:48.690069+00:00",
+          "p": 16.01
         }
       ],
       "expiry": "2026-12-31"
@@ -2979,7 +3019,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 43.1,
+          "age_hours": 47.9,
           "stale": true,
           "volume_usd": 2642602.041022
         },
@@ -2989,7 +3029,7 @@
           "adjusted": 0.1353,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 37.2,
+          "age_hours": 41.9,
           "stale": true,
           "volume_usd": 179116.7176465844
         }
@@ -3584,6 +3624,10 @@
         {
           "ts": "2026-08-10T02:07:17.347207+00:00",
           "p": 8.54
+        },
+        {
+          "ts": "2026-08-10T06:51:43.395943+00:00",
+          "p": 8.54
         }
       ],
       "expiry": "2028-01-01"
@@ -3603,7 +3647,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 48.2,
+          "age_hours": 52.9,
           "stale": true,
           "volume_usd": 2405422.3420590004
         }
@@ -3612,7 +3656,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 190.7
+          "age_hours": 195.5
         }
       ],
       "explanation": null,
@@ -4127,6 +4171,10 @@
         {
           "ts": "2026-08-10T02:07:23.039633+00:00",
           "p": 8.5
+        },
+        {
+          "ts": "2026-08-10T06:51:48.686882+00:00",
+          "p": 8.5
         }
       ],
       "expiry": "2026-12-31"
@@ -4146,7 +4194,7 @@
           "adjusted": 0.075,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.1,
+          "age_hours": 28.8,
           "stale": true,
           "volume_usd": 1698726.0801060006
         }
@@ -4218,6 +4266,10 @@
         {
           "ts": "2026-08-10T02:07:23.046795+00:00",
           "p": 7.5
+        },
+        {
+          "ts": "2026-08-10T06:51:48.694462+00:00",
+          "p": 7.5
         }
       ],
       "expiry": "2027-12-31"
@@ -4237,7 +4289,7 @@
           "adjusted": 0.215,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 48.2,
+          "age_hours": 52.9,
           "stale": true,
           "volume_usd": 5042824.562894002
         }
@@ -4304,6 +4356,10 @@
         },
         {
           "ts": "2026-08-10T02:07:23.047908+00:00",
+          "p": 21.5
+        },
+        {
+          "ts": "2026-08-10T06:51:48.695644+00:00",
           "p": 21.5
         }
       ],
