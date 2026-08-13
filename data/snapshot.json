@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T02:21:04.184309+00:00",
+  "generated_at": "2026-08-13T06:56:45.319682+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,19 +15,7 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 1,
-  "alerts": [
-    {
-      "topic_id": "romania_new_pm_sep2026",
-      "kind": "move_7d",
-      "headline": "Will there be a new Romanian Prime Minister by end of September 2026? moved down 24.1pp",
-      "detail": {
-        "from": 95.4,
-        "to": 71.3,
-        "delta_pp": -24.1,
-        "window_hours": 168
-      }
-    }
-  ],
+  "alerts": [],
   "topics": [
     {
       "id": "ru_ua_ceasefire_2026",
@@ -44,7 +32,7 @@
           "adjusted": 0.255,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.6,
           "stale": false,
           "volume_usd": 2126786.261873001
         }
@@ -53,7 +41,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 103.6
+          "age_hours": 108.2
         }
       ],
       "explanation": null,
@@ -688,6 +676,10 @@
         {
           "ts": "2026-08-13T02:21:04.152142+00:00",
           "p": 25.5
+        },
+        {
+          "ts": "2026-08-13T06:56:45.278788+00:00",
+          "p": 25.5
         }
       ],
       "expiry": "2026-12-31"
@@ -707,7 +699,7 @@
           "adjusted": 0.0291,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 4.6,
           "stale": false,
           "volume_usd": 2995936.246393761
         }
@@ -716,7 +708,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 203.9
+          "age_hours": 208.5
         }
       ],
       "explanation": null,
@@ -1313,6 +1305,10 @@
         {
           "ts": "2026-08-13T02:21:04.155747+00:00",
           "p": 2.91
+        },
+        {
+          "ts": "2026-08-13T06:56:45.282329+00:00",
+          "p": 2.91
         }
       ],
       "expiry": "2027-01-01"
@@ -1332,7 +1328,7 @@
           "adjusted": 0.205,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.6,
           "stale": false,
           "volume_usd": 6948544.999867003
         },
@@ -1342,7 +1338,7 @@
           "adjusted": 0.2015,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.2,
+          "age_hours": 11.8,
           "stale": false,
           "volume_usd": 100972.21100172536
         }
@@ -1351,7 +1347,7 @@
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 96.3
+          "age_hours": 100.9
         }
       ],
       "explanation": null,
@@ -1836,6 +1832,10 @@
         {
           "ts": "2026-08-13T02:21:04.163557+00:00",
           "p": 16.31
+        },
+        {
+          "ts": "2026-08-13T06:56:45.289912+00:00",
+          "p": 16.31
         }
       ],
       "expiry": "2026-12-31"
@@ -1855,7 +1855,7 @@
           "adjusted": 0.51,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.6,
           "stale": false,
           "volume_usd": 27480.396956
         }
@@ -1999,6 +1999,10 @@
         {
           "ts": "2026-08-13T02:21:04.165552+00:00",
           "p": 51.0
+        },
+        {
+          "ts": "2026-08-13T06:56:45.292495+00:00",
+          "p": 51.0
         }
       ],
       "expiry": "2026-12-31"
@@ -2018,7 +2022,7 @@
           "adjusted": 0.713,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.6,
           "stale": false,
           "volume_usd": 320105.61209099996
         }
@@ -2518,6 +2522,10 @@
         {
           "ts": "2026-08-13T02:21:04.160824+00:00",
           "p": 71.3
+        },
+        {
+          "ts": "2026-08-13T06:56:45.287730+00:00",
+          "p": 71.3
         }
       ],
       "expiry": "2026-12-31"
@@ -2537,7 +2545,7 @@
           "adjusted": 0.475,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 7.2,
+          "age_hours": 11.8,
           "stale": false,
           "volume_usd": 1577899.132391
         },
@@ -2547,7 +2555,7 @@
           "adjusted": 0.5058,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.2,
+          "age_hours": 11.8,
           "stale": false,
           "volume_usd": 131789.5386337312
         },
@@ -2557,7 +2565,7 @@
           "adjusted": 0.56,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 13.0,
+          "age_hours": 17.6,
           "stale": true,
           "volume_usd": null
         }
@@ -3191,6 +3199,10 @@
         {
           "ts": "2026-08-13T02:21:04.157445+00:00",
           "p": 50.91
+        },
+        {
+          "ts": "2026-08-13T06:56:45.284065+00:00",
+          "p": 50.91
         }
       ],
       "expiry": "2026-11-04"
@@ -3210,7 +3222,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.0,
+          "age_hours": 28.6,
           "stale": true,
           "volume_usd": 2686491.616019001
         }
@@ -3219,7 +3231,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 109.4
+          "age_hours": 114.0
         }
       ],
       "explanation": null,
@@ -3875,6 +3887,10 @@
         {
           "ts": "2026-08-13T02:21:04.148855+00:00",
           "p": 11.5
+        },
+        {
+          "ts": "2026-08-13T06:56:45.257595+00:00",
+          "p": 11.5
         }
       ],
       "expiry": "2028-01-01"
@@ -3894,7 +3910,7 @@
           "adjusted": 0.175,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.2,
+          "age_hours": 11.8,
           "stale": false,
           "volume_usd": 58461819.03622799
         },
@@ -3904,7 +3920,7 @@
           "adjusted": 0.1542,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 24.0,
+          "age_hours": 28.6,
           "stale": true,
           "volume_usd": 97133.60098824333
         }
@@ -4566,6 +4582,10 @@
         {
           "ts": "2026-08-13T02:21:04.153990+00:00",
           "p": 12.74
+        },
+        {
+          "ts": "2026-08-13T06:56:45.280655+00:00",
+          "p": 12.74
         }
       ],
       "expiry": "2027-01-01"
@@ -4585,7 +4605,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 37.1,
+          "age_hours": 41.7,
           "stale": true,
           "volume_usd": 2423305.9009399996
         }
@@ -4594,7 +4614,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 263.0
+          "age_hours": 267.6
         }
       ],
       "explanation": null,
@@ -5173,6 +5193,10 @@
         {
           "ts": "2026-08-13T02:21:04.159155+00:00",
           "p": 8.5
+        },
+        {
+          "ts": "2026-08-13T06:56:45.285715+00:00",
+          "p": 8.5
         }
       ],
       "expiry": "2026-12-31"
@@ -5192,7 +5216,7 @@
           "adjusted": 0.2945,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 37.1,
+          "age_hours": 41.7,
           "stale": true,
           "volume_usd": 15084.299009000002
         }
@@ -5332,6 +5356,10 @@
         {
           "ts": "2026-08-13T02:21:04.166928+00:00",
           "p": 29.45
+        },
+        {
+          "ts": "2026-08-13T06:56:45.294139+00:00",
+          "p": 29.45
         }
       ],
       "expiry": "2026-12-31"
@@ -5351,7 +5379,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.0,
+          "age_hours": 28.6,
           "stale": true,
           "volume_usd": 1701999.1401059993
         }
@@ -5487,6 +5515,10 @@
         {
           "ts": "2026-08-13T02:21:04.168171+00:00",
           "p": 8.5
+        },
+        {
+          "ts": "2026-08-13T06:56:45.295777+00:00",
+          "p": 8.5
         }
       ],
       "expiry": "2027-12-31"
@@ -5506,7 +5538,7 @@
           "adjusted": 0.195,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.0,
+          "age_hours": 28.6,
           "stale": true,
           "volume_usd": 5076231.401695998
         }
@@ -5637,6 +5669,10 @@
         },
         {
           "ts": "2026-08-13T02:21:04.169432+00:00",
+          "p": 19.5
+        },
+        {
+          "ts": "2026-08-13T06:56:45.297437+00:00",
           "p": 19.5
         }
       ],
