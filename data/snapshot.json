@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T01:40:07.377600+00:00",
+  "generated_at": "2026-08-23T05:55:08.669405+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -18,40 +18,24 @@
   "alerts": [
     {
       "topic_id": "clarity_act_law_2026",
-      "kind": "spread",
-      "headline": "Will the CLARITY Act become law in 2026?: sources disagree by 26pp",
+      "kind": "move_7d",
+      "headline": "Will the CLARITY Act become law in 2026? moved up 12.6pp",
       "detail": {
-        "spread_pp": 25.5,
-        "highest": {
-          "source": "predictit",
-          "p": 50.0
-        },
-        "lowest": {
-          "source": "polymarket",
-          "p": 24.5
-        }
+        "from": 15.0,
+        "to": 27.5,
+        "delta_pp": 12.6,
+        "window_hours": 168
       }
     },
     {
       "topic_id": "next_mayor_of_johannesburg_helen_zille",
-      "kind": "move_24h",
-      "headline": "Will Helen Zille be the next Mayor of Johannesburg? moved up 7.0pp",
+      "kind": "move_7d",
+      "headline": "Will Helen Zille be the next Mayor of Johannesburg? moved up 12.0pp",
       "detail": {
-        "from": 57.5,
+        "from": 52.5,
         "to": 64.5,
-        "delta_pp": 7.0,
-        "window_hours": 24
-      }
-    },
-    {
-      "topic_id": "next_mayor_johannesburg_chikane",
-      "kind": "move_24h",
-      "headline": "Will Frank Chikane be the next Mayor of Johannesburg? moved down 14.9pp",
-      "detail": {
-        "from": 30.2,
-        "to": 15.3,
-        "delta_pp": -14.9,
-        "window_hours": 24
+        "delta_pp": 12.0,
+        "window_hours": 168
       }
     }
   ],
@@ -71,7 +55,7 @@
           "adjusted": 0.153,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 17381.242096
         }
@@ -415,6 +399,10 @@
         {
           "ts": "2026-08-23T01:40:07.355490+00:00",
           "p": 15.3
+        },
+        {
+          "ts": "2026-08-23T05:55:08.648598+00:00",
+          "p": 15.3
         }
       ],
       "expiry": "2026-12-31"
@@ -434,7 +422,7 @@
           "adjusted": 0.645,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 37596.935923
         }
@@ -782,6 +770,10 @@
         {
           "ts": "2026-08-23T01:40:07.351231+00:00",
           "p": 64.5
+        },
+        {
+          "ts": "2026-08-23T05:55:08.645710+00:00",
+          "p": 64.5
         }
       ],
       "expiry": "2026-12-31"
@@ -801,7 +793,7 @@
           "adjusted": 0.205,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.1,
+          "age_hours": 11.3,
           "stale": false,
           "volume_usd": 2154771.0233390005
         }
@@ -810,7 +802,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 102.9
+          "age_hours": 107.2
         }
       ],
       "explanation": null,
@@ -1649,6 +1641,10 @@
         {
           "ts": "2026-08-23T01:40:03.423689+00:00",
           "p": 20.5
+        },
+        {
+          "ts": "2026-08-23T05:55:04.539715+00:00",
+          "p": 20.5
         }
       ],
       "expiry": "2026-12-31"
@@ -1668,7 +1664,7 @@
           "adjusted": 0.225,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 2772497.759098
         },
@@ -1678,7 +1674,7 @@
           "adjusted": 0.19,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 18.9,
+          "age_hours": 23.1,
           "stale": true,
           "volume_usd": 1560.2489477948955
         }
@@ -2416,6 +2412,10 @@
         {
           "ts": "2026-08-23T01:40:03.430821+00:00",
           "p": 17.18
+        },
+        {
+          "ts": "2026-08-23T05:55:04.547389+00:00",
+          "p": 17.18
         }
       ],
       "expiry": "2026-12-31"
@@ -2435,7 +2435,7 @@
           "adjusted": 0.18,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 5141365.780788001
         }
@@ -2763,6 +2763,10 @@
         {
           "ts": "2026-08-23T01:40:07.359163+00:00",
           "p": 18.0
+        },
+        {
+          "ts": "2026-08-23T05:55:08.651312+00:00",
+          "p": 18.0
         }
       ],
       "expiry": "2026-12-31"
@@ -2782,7 +2786,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.1,
+          "age_hours": 11.3,
           "stale": false,
           "volume_usd": 2969455.0729640005
         },
@@ -2792,7 +2796,7 @@
           "adjusted": 0.1197,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 36.7,
+          "age_hours": 41.0,
           "stale": true,
           "volume_usd": 180182.7176465844
         }
@@ -3623,6 +3627,10 @@
         {
           "ts": "2026-08-23T01:40:03.420979+00:00",
           "p": 8.09
+        },
+        {
+          "ts": "2026-08-23T05:55:04.535523+00:00",
+          "p": 8.09
         }
       ],
       "expiry": "2028-01-01"
@@ -3642,7 +3650,7 @@
           "adjusted": 0.87,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 320455.2791469999
         }
@@ -4346,6 +4354,10 @@
         {
           "ts": "2026-08-23T01:40:03.432642+00:00",
           "p": 87.0
+        },
+        {
+          "ts": "2026-08-23T05:55:04.549125+00:00",
+          "p": 87.0
         }
       ],
       "expiry": "2026-12-31"
@@ -4365,7 +4377,7 @@
           "adjusted": 0.245,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 18.9,
+          "age_hours": 23.1,
           "stale": true,
           "volume_usd": 7751984.204382001
         },
@@ -4375,7 +4387,7 @@
           "adjusted": 0.2573,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 102019.19239693711
         },
@@ -4385,13 +4397,13 @@
           "adjusted": 0.5,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 54.9,
+          "age_hours": 59.2,
           "stale": true,
           "volume_usd": null
         }
       ],
       "excluded": [],
-      "explanation": "PredictIt's 50% likely reflects its binary market structure and the tendency for its prices to gravitate toward 50% when traders are uncertain, rather than a genuinely different assessment of probability. Polymarket and Manifold show close agreement around 25%, suggesting the core forecasting community sees roughly 1-in-4 odds, while PredictIt's higher price is better explained by market mechanics (thin liquidity, $0.10 fee structure encouraging mid-range pricing) than by traders actually believing enactment is more likely.",
+      "explanation": "The large gap is almost entirely explained by PredictIt's market structure: its binary contract trades at 50\u00a2 when there is low liquidity or thin order books, making it a poor signal of true crowd belief rather than reflecting genuine higher confidence. Polymarket and Manifold, which attract more active traders and deeper markets on this question, converge tightly around 24-26%, suggesting real disagreement is minimal. There is no meaningful resolution-criteria mismatch since all three sources are treated as equivalent on the same signing-into-law condition.",
       "criteria_notes": {},
       "history": [
         {
@@ -5077,6 +5089,10 @@
         {
           "ts": "2026-08-23T01:40:03.434301+00:00",
           "p": 27.53
+        },
+        {
+          "ts": "2026-08-23T05:55:04.551400+00:00",
+          "p": 27.53
         }
       ],
       "expiry": "2026-12-31"
@@ -5096,7 +5112,7 @@
           "adjusted": 0.54,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 24.2,
+          "age_hours": 28.5,
           "stale": true,
           "volume_usd": null
         },
@@ -5106,7 +5122,7 @@
           "adjusted": 0.4935,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 139761.02457133294
         }
@@ -5115,7 +5131,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 126.9
+          "age_hours": 131.2
         }
       ],
       "explanation": null,
@@ -5950,6 +5966,10 @@
         {
           "ts": "2026-08-23T01:40:03.429151+00:00",
           "p": 52.29
+        },
+        {
+          "ts": "2026-08-23T05:55:04.545717+00:00",
+          "p": 52.29
         }
       ],
       "expiry": "2026-11-04"
@@ -5969,7 +5989,7 @@
           "adjusted": 0.165,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 48.0,
+          "age_hours": 52.3,
           "stale": true,
           "volume_usd": 59186448.96961299
         },
@@ -5979,7 +5999,7 @@
           "adjusted": 0.1206,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 4.3,
           "stale": false,
           "volume_usd": 101288.30466284764
         }
@@ -6845,6 +6865,10 @@
         {
           "ts": "2026-08-23T01:40:03.425383+00:00",
           "p": 10.94
+        },
+        {
+          "ts": "2026-08-23T05:55:04.541568+00:00",
+          "p": 10.94
         }
       ],
       "expiry": "2027-01-01"
@@ -6864,7 +6888,7 @@
           "adjusted": 0.0341,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 54.9,
+          "age_hours": 59.2,
           "stale": true,
           "volume_usd": 3025171.4753611116
         }
@@ -6873,7 +6897,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 443.2
+          "age_hours": 447.5
         }
       ],
       "explanation": null,
@@ -7674,6 +7698,10 @@
         {
           "ts": "2026-08-23T01:40:03.427302+00:00",
           "p": 3.41
+        },
+        {
+          "ts": "2026-08-23T05:55:04.543781+00:00",
+          "p": 3.41
         }
       ],
       "expiry": "2027-01-01"
@@ -7693,7 +7721,7 @@
           "adjusted": 0.075,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.1,
+          "age_hours": 11.3,
           "stale": false,
           "volume_usd": 1711436.1078029997
         }
@@ -7976,6 +8004,10 @@
         },
         {
           "ts": "2026-08-23T01:40:07.357910+00:00",
+          "p": 7.5
+        },
+        {
+          "ts": "2026-08-23T05:55:08.649916+00:00",
           "p": 7.5
         }
       ],
