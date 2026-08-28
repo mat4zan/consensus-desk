@@ -298,3 +298,17 @@ topics:
         id: "us-strike-on-cuba-by-december-31"
       manifold:
         id: "will-trump-attack-cuba-by-the-end-o"
+
+  - id: iceland_eu_referendum_passes
+    question: "Will Iceland vote pro-Europe (pass the EU membership negotiations referendum)?"
+    domain: elections
+    resolution: >
+      Resolves YES if the Icelandic EU membership negotiations referendum passes (i.e., 'Yes'/pro-EU side wins), based on official referendum results.
+    expiry: 2026-12-31
+    review: 2026-12-31
+    # Auto-added from a topic request on 2026-08-28.
+    sources:
+      polymarket:
+        id: "icelandic-european-union-membership-negotiations-referendum-passes-20260609135241589"
+      manifold:
+        id: "will-iceland-vote-to-open-negotiati"
