@@ -300,3 +300,15 @@ topics:
         id: "icelandic-european-union-membership-negotiations-referendum-passes-20260609135241589"
       manifold:
         id: "will-iceland-vote-to-open-negotiati"
+
+  - id: russia_collapse_2026
+    question: "Will Russia collapse (state/regime collapse) in 2026?"
+    domain: geopolitics
+    resolution: >
+      Resolves YES if the Russian state or Putin regime undergoes a collapse (loss of central government control, regime overthrow, or dissolution of the federation) during 2026. Closest available market (Manifold) resolves on collapse before 2030, a broader timeframe than requested.
+    expiry: 2026-12-31
+    review: 2026-12-31
+    # Auto-added from a topic request on 2026-08-30.
+    sources:
+      manifold:
+        id: "russia-collapses-before-2030"
