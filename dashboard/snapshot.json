@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T11:45:11.525150+00:00",
+  "generated_at": "2026-08-31T12:24:34.595360+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -32,7 +32,7 @@
           "adjusted": 0.185,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 60.7,
+          "age_hours": 61.3,
           "stale": true,
           "volume_usd": 2207144.8534210003
         },
@@ -42,7 +42,7 @@
           "adjusted": 0.1399,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 21.1,
+          "age_hours": 21.8,
           "stale": true,
           "volume_usd": 13697.271773107681
         }
@@ -1044,6 +1044,10 @@
         {
           "ts": "2026-08-31T11:45:06.924470+00:00",
           "p": 12.81
+        },
+        {
+          "ts": "2026-08-31T12:24:29.854990+00:00",
+          "p": 12.81
         }
       ],
       "expiry": "2026-12-31"
@@ -1063,7 +1067,7 @@
           "adjusted": 0.9475,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.0,
+          "age_hours": 7.7,
           "stale": false,
           "volume_usd": 322605.40013599995
         }
@@ -1927,6 +1931,10 @@
         {
           "ts": "2026-08-31T11:45:06.933129+00:00",
           "p": 94.75
+        },
+        {
+          "ts": "2026-08-31T12:24:29.862599+00:00",
+          "p": 94.75
         }
       ],
       "expiry": "2026-12-31"
@@ -1946,7 +1954,7 @@
           "adjusted": 0.155,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.0,
+          "age_hours": 7.7,
           "stale": false,
           "volume_usd": 63283899.842655
         },
@@ -1956,7 +1964,7 @@
           "adjusted": 0.1035,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 53.3,
+          "age_hours": 53.9,
           "stale": true,
           "volume_usd": 102854.16944944048
         }
@@ -2982,6 +2990,10 @@
         {
           "ts": "2026-08-31T11:45:06.926600+00:00",
           "p": 9.73
+        },
+        {
+          "ts": "2026-08-31T12:24:29.856847+00:00",
+          "p": 9.73
         }
       ],
       "expiry": "2027-01-01"
@@ -3001,7 +3013,7 @@
           "adjusted": 0.075,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 14.9,
+          "age_hours": 15.6,
           "stale": true,
           "volume_usd": 1726515.57135
         }
@@ -3445,6 +3457,10 @@
         {
           "ts": "2026-08-31T11:45:06.938022+00:00",
           "p": 7.5
+        },
+        {
+          "ts": "2026-08-31T12:24:29.867167+00:00",
+          "p": 7.5
         }
       ],
       "expiry": "2027-12-31"
@@ -3464,7 +3480,7 @@
           "adjusted": 0.0049,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 19.4,
+          "age_hours": 20.0,
           "stale": true,
           "volume_usd": 213338.20664400005
         },
@@ -3474,13 +3490,13 @@
           "adjusted": 0.7018,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 39.0,
+          "age_hours": 39.7,
           "stale": true,
           "volume_usd": 542.2773880318446
         }
       ],
       "excluded": [],
-      "explanation": "The sources almost certainly differ due to a resolution-criteria mismatch rather than genuine disagreement about the underlying likelihood. Polymarket is likely asking whether Iceland will actually *hold* such a referendum and vote yes within a defined near-term timeframe \u2014 an event that has no scheduled date and would require Iceland to first formally apply for EU membership \u2014 making it extremely unlikely. Manifold's question is probably interpreted by its users as a conditional or hypothetical (\"*if* such a referendum were held, would it pass?\"), capturing public opinion data suggesting Icelanders lean moderately pro-EU, hence the ~70% figure.",
+      "explanation": "The sources almost certainly differ due to a resolution-criteria mismatch rather than genuine disagreement about the underlying likelihood. Polymarket is likely pricing the probability that such a referendum actually occurs *and* passes within a specific near-term timeframe, whereas Manifold appears to be pricing only the conditional question of whether the pro-EU side *would* win *if* a referendum were held. Iceland currently has no scheduled EU membership referendum, so the unconditional probability (Polymarket's interpretation) is near-zero, while the conditional \"if held, would it pass?\" probability (Manifold's interpretation) can reasonably be much higher given polling on Icelandic EU sentiment.",
       "criteria_notes": {},
       "history": [
         {
@@ -3538,6 +3554,10 @@
         {
           "ts": "2026-08-31T11:45:06.940781+00:00",
           "p": 2.15
+        },
+        {
+          "ts": "2026-08-31T12:24:29.938459+00:00",
+          "p": 2.15
         }
       ],
       "expiry": "2026-12-31"
@@ -3557,7 +3577,7 @@
           "adjusted": 0.235,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.0,
+          "age_hours": 7.7,
           "stale": false,
           "volume_usd": 3047334.6611530003
         },
@@ -3567,7 +3587,7 @@
           "adjusted": 0.26,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 31.1,
+          "age_hours": 31.7,
           "stale": true,
           "volume_usd": 1642.4191570237617
         }
@@ -4465,6 +4485,10 @@
         {
           "ts": "2026-08-31T11:45:06.930722+00:00",
           "p": 20.42
+        },
+        {
+          "ts": "2026-08-31T12:24:29.860650+00:00",
+          "p": 20.42
         }
       ],
       "expiry": "2026-12-31"
@@ -4484,7 +4508,7 @@
           "adjusted": 0.125,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.0,
+          "age_hours": 7.7,
           "stale": false,
           "volume_usd": 11487532.756712986
         },
@@ -4494,7 +4518,7 @@
           "adjusted": 0.1653,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.0,
+          "age_hours": 7.7,
           "stale": false,
           "volume_usd": 105952.21291341797
         }
@@ -4503,7 +4527,7 @@
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 257.0
+          "age_hours": 257.6
         }
       ],
       "explanation": null,
@@ -5352,6 +5376,10 @@
         {
           "ts": "2026-08-31T11:45:06.934870+00:00",
           "p": 9.98
+        },
+        {
+          "ts": "2026-08-31T12:24:29.864157+00:00",
+          "p": 9.98
         }
       ],
       "expiry": "2026-12-31"
@@ -5371,7 +5399,7 @@
           "adjusted": 0.495,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 14.9,
+          "age_hours": 15.6,
           "stale": true,
           "volume_usd": 1660893.3805380003
         },
@@ -5381,7 +5409,7 @@
           "adjusted": 0.5,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 14.9,
+          "age_hours": 15.6,
           "stale": true,
           "volume_usd": 143977.98960914268
         },
@@ -5391,7 +5419,7 @@
           "adjusted": 0.51,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 31.1,
+          "age_hours": 31.7,
           "stale": true,
           "volume_usd": null
         }
@@ -6389,6 +6417,10 @@
         {
           "ts": "2026-08-31T11:45:06.928604+00:00",
           "p": 50.07
+        },
+        {
+          "ts": "2026-08-31T12:24:29.859027+00:00",
+          "p": 50.07
         }
       ],
       "expiry": "2026-11-04"
@@ -6408,7 +6440,7 @@
           "adjusted": 0.1241,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 61.8,
+          "age_hours": 62.4,
           "stale": true,
           "volume_usd": 183192.7491934508
         }
@@ -6417,7 +6449,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 209.2
+          "age_hours": 209.8
         }
       ],
       "explanation": null,
@@ -7385,6 +7417,10 @@
         {
           "ts": "2026-08-31T11:45:06.912151+00:00",
           "p": 12.41
+        },
+        {
+          "ts": "2026-08-31T12:24:29.852294+00:00",
+          "p": 12.41
         }
       ],
       "expiry": "2028-01-01"
@@ -7404,7 +7440,7 @@
           "adjusted": 0.63,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.2,
+          "age_hours": 24.8,
           "stale": true,
           "volume_usd": 41048.458519
         }
@@ -7912,6 +7948,10 @@
         {
           "ts": "2026-08-31T11:45:06.936575+00:00",
           "p": 63.0
+        },
+        {
+          "ts": "2026-08-31T12:24:29.865623+00:00",
+          "p": 63.0
         }
       ],
       "expiry": "2026-12-31"
@@ -7931,7 +7971,7 @@
           "adjusted": 0.145,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 39.0,
+          "age_hours": 39.7,
           "stale": true,
           "volume_usd": 5174627.436325001
         }
@@ -8419,6 +8459,10 @@
         {
           "ts": "2026-08-31T11:45:06.939376+00:00",
           "p": 14.5
+        },
+        {
+          "ts": "2026-08-31T12:24:29.936701+00:00",
+          "p": 14.5
         }
       ],
       "expiry": "2026-12-31"
@@ -8438,7 +8482,7 @@
           "adjusted": 0.1343,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 21.1,
+          "age_hours": 21.8,
           "stale": true,
           "volume_usd": 26036.627529810783
         }
@@ -8465,6 +8509,10 @@
         },
         {
           "ts": "2026-08-31T11:45:11.509289+00:00",
+          "p": 13.43
+        },
+        {
+          "ts": "2026-08-31T12:24:34.581885+00:00",
           "p": 13.43
         }
       ],
