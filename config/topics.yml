@@ -313,3 +313,14 @@ topics:
       manifold:
         id: "russia-collapses-before-2030"
 
+  - id: afd_sachsen_anhalt_2026_vote_share_42pct
+    question: "Will AfD win more than 42% of the vote in the 2026 Sachsen-Anhalt parliamentary election?"
+    domain: elections
+    resolution: >
+      Resolves YES if AfD's official vote share in the 2026 Sachsen-Anhalt state parliamentary election exceeds 42%. Note: the matched Manifold market uses a 40% threshold rather than 42%, so it is an approximate proxy for this question.
+    expiry: 2026-09-30
+    review: 2026-09-30
+    # Auto-added from a topic request on 2026-09-06.
+    sources:
+      manifold:
+        id: "will-the-afd-win-more-than-40-of-th"
