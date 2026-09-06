@@ -312,3 +312,18 @@ topics:
     sources:
       manifold:
         id: "russia-collapses-before-2030"
+
+  - id: afd_win_german_state_election_sep2026
+    question: "Will AfD win the most seats in at least one German state election in September 2026?"
+    domain: elections
+    resolution: >
+      Resolves YES if AfD wins the most seats (plurality) in at least one of the German state parliamentary elections held in September 2026 (e.g., Sachsen-Anhalt, Mecklenburg-Vorpommern, Berlin). Polymarket splits this into mutually exclusive 'AfD wins most seats in N state elections' buckets (N=0,1,2,3); summing the N=1, N=2, and N=3 buckets gives the probability of at least one AfD plurality win, matching the user's request about AfD winning a German state/local election.
+    expiry: 2026-09-30
+    review: 2026-09-30
+    # Auto-added from a topic request on 2026-09-06.
+    sources:
+      polymarket:
+        ids:
+          - "will-afd-win-the-most-seats-in-1-german-state-election-in-september-2026-20260630185301106"
+          - "will-afd-win-the-most-seats-in-2-german-state-elections-in-september-2026-20260630185301107"
+          - "will-afd-win-the-most-seats-in-3-german-state-elections-in-september-2026-20260630185301108"
