@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T03:53:39.756158+00:00",
+  "generated_at": "2026-09-08T09:57:47.498017+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,19 +15,7 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 1,
-  "alerts": [
-    {
-      "topic_id": "us_invade_iran_2027",
-      "kind": "move_24h",
-      "headline": "US invades Iran before 2027 moved up 5.3pp",
-      "detail": {
-        "from": 9.2,
-        "to": 14.5,
-        "delta_pp": 5.3,
-        "window_hours": 24
-      }
-    }
-  ],
+  "alerts": [],
   "topics": [
     {
       "id": "us_invade_iran_2027",
@@ -44,7 +32,7 @@
           "adjusted": 0.145,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 61.0,
+          "age_hours": 67.1,
           "stale": true,
           "volume_usd": 64841559.527943015
         }
@@ -53,7 +41,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 72.1
+          "age_hours": 78.2
         }
       ],
       "explanation": null,
@@ -1244,6 +1232,10 @@
         {
           "ts": "2026-09-08T03:53:39.725486+00:00",
           "p": 14.5
+        },
+        {
+          "ts": "2026-09-08T09:57:47.456591+00:00",
+          "p": 14.5
         }
       ],
       "expiry": "2027-01-01"
@@ -1263,7 +1255,7 @@
           "adjusted": 0.245,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.1,
           "stale": false,
           "volume_usd": 3250844.3042600006
         }
@@ -1272,7 +1264,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 83.8
+          "age_hours": 89.9
         }
       ],
       "explanation": null,
@@ -2335,6 +2327,10 @@
         {
           "ts": "2026-09-08T03:53:39.731833+00:00",
           "p": 24.5
+        },
+        {
+          "ts": "2026-09-08T09:57:47.463127+00:00",
+          "p": 24.5
         }
       ],
       "expiry": "2026-12-31"
@@ -2354,7 +2350,7 @@
           "adjusted": 0.225,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.1,
           "stale": false,
           "volume_usd": 2582474.1096199984
         }
@@ -2363,7 +2359,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 144.1
+          "age_hours": 150.2
         }
       ],
       "explanation": null,
@@ -3530,6 +3526,10 @@
         {
           "ts": "2026-09-08T03:53:39.628090+00:00",
           "p": 22.5
+        },
+        {
+          "ts": "2026-09-08T09:57:47.451743+00:00",
+          "p": 22.5
         }
       ],
       "expiry": "2026-12-31"
@@ -3549,7 +3549,7 @@
           "adjusted": 0.07,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.1,
           "stale": false,
           "volume_usd": 1738363.0903440006
         }
@@ -4161,6 +4161,10 @@
         {
           "ts": "2026-09-08T03:53:39.739205+00:00",
           "p": 7.0
+        },
+        {
+          "ts": "2026-09-08T09:57:47.474498+00:00",
+          "p": 7.0
         }
       ],
       "expiry": "2027-12-31"
@@ -4180,7 +4184,7 @@
           "adjusted": 0.065,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 61.0,
+          "age_hours": 67.1,
           "stale": true,
           "volume_usd": 25623398.92737498
         },
@@ -4190,7 +4194,7 @@
           "adjusted": 0.0544,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 15.9,
+          "age_hours": 21.9,
           "stale": true,
           "volume_usd": 3050289.887364875
         }
@@ -5306,6 +5310,10 @@
         {
           "ts": "2026-09-08T03:53:39.728275+00:00",
           "p": 3.63
+        },
+        {
+          "ts": "2026-09-08T09:57:47.459131+00:00",
+          "p": 3.63
         }
       ],
       "expiry": "2027-01-01"
@@ -5325,7 +5333,7 @@
           "adjusted": 0.165,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.1,
+          "age_hours": 30.1,
           "stale": true,
           "volume_usd": 14133535.957044
         },
@@ -5335,7 +5343,7 @@
           "adjusted": 0.1665,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 6.1,
           "stale": false,
           "volume_usd": 112025.49730810238
         }
@@ -5344,7 +5352,7 @@
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 441.1
+          "age_hours": 447.2
         }
       ],
       "explanation": null,
@@ -6361,6 +6369,10 @@
         {
           "ts": "2026-09-08T03:53:39.735602+00:00",
           "p": 12.55
+        },
+        {
+          "ts": "2026-09-08T09:57:47.469585+00:00",
+          "p": 12.55
         }
       ],
       "expiry": "2026-12-31"
@@ -6380,7 +6392,7 @@
           "adjusted": 0.53,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 36.0,
+          "age_hours": 42.1,
           "stale": true,
           "volume_usd": null
         },
@@ -6390,7 +6402,7 @@
           "adjusted": 0.4965,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 31.7,
+          "age_hours": 37.7,
           "stale": true,
           "volume_usd": 146953.52568879686
         }
@@ -6399,7 +6411,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 199.1
+          "age_hours": 205.2
         }
       ],
       "explanation": null,
@@ -7562,6 +7574,10 @@
         {
           "ts": "2026-09-08T03:53:39.730068+00:00",
           "p": 51.79
+        },
+        {
+          "ts": "2026-09-08T09:57:47.461186+00:00",
+          "p": 51.79
         }
       ],
       "expiry": "2026-11-04"
@@ -7581,7 +7597,7 @@
           "adjusted": 0.9555,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.1,
+          "age_hours": 30.1,
           "stale": true,
           "volume_usd": 322647.38013599993
         }
@@ -8613,6 +8629,10 @@
         {
           "ts": "2026-09-08T03:53:39.734026+00:00",
           "p": 95.55
+        },
+        {
+          "ts": "2026-09-08T09:57:47.465616+00:00",
+          "p": 95.55
         }
       ],
       "expiry": "2026-12-31"
@@ -8632,8 +8652,8 @@
           "adjusted": 0.595,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 6.6,
-          "stale": false,
+          "age_hours": 12.6,
+          "stale": true,
           "volume_usd": 42290.563313
         }
       ],
@@ -9296,6 +9316,10 @@
         {
           "ts": "2026-09-08T03:53:39.737289+00:00",
           "p": 59.5
+        },
+        {
+          "ts": "2026-09-08T09:57:47.472240+00:00",
+          "p": 59.5
         }
       ],
       "expiry": "2026-12-31"
@@ -9315,8 +9339,8 @@
           "adjusted": 0.0019,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 6.6,
-          "stale": false,
+          "age_hours": 12.6,
+          "stale": true,
           "volume_usd": 250853.77981599997
         }
       ],
@@ -9324,7 +9348,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 223.2
+          "age_hours": 229.2
         }
       ],
       "explanation": null,
@@ -9549,6 +9573,10 @@
         {
           "ts": "2026-09-08T03:53:39.740619+00:00",
           "p": 0.5
+        },
+        {
+          "ts": "2026-09-08T09:57:47.476272+00:00",
+          "p": 0.5
         }
       ],
       "expiry": "2026-12-31"
@@ -9568,7 +9596,7 @@
           "adjusted": 0.9897,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 31.7,
+          "age_hours": 37.7,
           "stale": true,
           "volume_usd": 1715.77496876871
         }
@@ -9607,6 +9635,10 @@
         },
         {
           "ts": "2026-09-08T03:53:39.741905+00:00",
+          "p": 98.97
+        },
+        {
+          "ts": "2026-09-08T09:57:47.478113+00:00",
           "p": 98.97
         }
       ],
