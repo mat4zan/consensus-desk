@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T03:56:33.249568+00:00",
+  "generated_at": "2026-09-12T09:30:37.406283+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -17,14 +17,14 @@
   "n_resolved": 1,
   "alerts": [
     {
-      "topic_id": "us_invade_iran_2027",
-      "kind": "move_24h",
-      "headline": "US invades Iran before 2027 moved up 5.4pp",
+      "topic_id": "ru_ua_ceasefire_2026",
+      "kind": "move_7d",
+      "headline": "Russia-Ukraine ceasefire agreement by year end 2026 moved down 11.5pp",
       "detail": {
-        "from": 10.1,
-        "to": 15.5,
-        "delta_pp": 5.4,
-        "window_hours": 24
+        "from": 34.0,
+        "to": 22.5,
+        "delta_pp": -11.5,
+        "window_hours": 168
       }
     }
   ],
@@ -44,7 +44,7 @@
           "adjusted": 0.225,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 17.0,
+          "age_hours": 22.6,
           "stale": true,
           "volume_usd": 2596718.9883930013
         }
@@ -53,7 +53,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 83.6
+          "age_hours": 89.2
         }
       ],
       "explanation": null,
@@ -1300,6 +1300,10 @@
         {
           "ts": "2026-09-12T03:56:33.209808+00:00",
           "p": 22.5
+        },
+        {
+          "ts": "2026-09-12T09:30:37.375321+00:00",
+          "p": 22.5
         }
       ],
       "expiry": "2026-12-31"
@@ -1319,7 +1323,7 @@
           "adjusted": 0.155,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 17.0,
+          "age_hours": 22.6,
           "stale": true,
           "volume_usd": 65442255.42122802
         }
@@ -1328,7 +1332,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 79.0
+          "age_hours": 84.6
         }
       ],
       "explanation": null,
@@ -2595,6 +2599,10 @@
         {
           "ts": "2026-09-12T03:56:33.212078+00:00",
           "p": 15.5
+        },
+        {
+          "ts": "2026-09-12T09:30:37.378320+00:00",
+          "p": 15.5
         }
       ],
       "expiry": "2027-01-01"
@@ -2614,8 +2622,8 @@
           "adjusted": 0.9375,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.2,
-          "stale": false,
+          "age_hours": 12.8,
+          "stale": true,
           "volume_usd": 323870.81013600004
         }
       ],
@@ -3726,6 +3734,10 @@
         {
           "ts": "2026-09-12T03:56:33.221499+00:00",
           "p": 93.75
+        },
+        {
+          "ts": "2026-09-12T09:30:37.385654+00:00",
+          "p": 93.75
         }
       ],
       "expiry": "2026-12-31"
@@ -3745,7 +3757,7 @@
           "adjusted": 0.54,
           "weight": 0.22,
           "raw_weight": 0.22,
-          "age_hours": 0.0,
+          "age_hours": 5.6,
           "stale": false,
           "volume_usd": null
         },
@@ -3755,8 +3767,8 @@
           "adjusted": 0.4878,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 11.8,
-          "stale": false,
+          "age_hours": 17.3,
+          "stale": true,
           "volume_usd": 153014.2601643192
         }
       ],
@@ -3764,7 +3776,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 89.0
+          "age_hours": 94.6
         }
       ],
       "explanation": null,
@@ -5007,6 +5019,10 @@
         {
           "ts": "2026-09-12T03:56:33.217153+00:00",
           "p": 51.98
+        },
+        {
+          "ts": "2026-09-12T09:30:37.381850+00:00",
+          "p": 51.98
         }
       ],
       "expiry": "2026-11-04"
@@ -5026,8 +5042,8 @@
           "adjusted": 0.07,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 11.8,
-          "stale": false,
+          "age_hours": 17.3,
+          "stale": true,
           "volume_usd": 1743043.1103440006
         }
       ],
@@ -5718,6 +5734,10 @@
         {
           "ts": "2026-09-12T03:56:33.227602+00:00",
           "p": 7.0
+        },
+        {
+          "ts": "2026-09-12T09:30:37.390436+00:00",
+          "p": 7.0
         }
       ],
       "expiry": "2027-12-31"
@@ -5737,8 +5757,8 @@
           "adjusted": 0.075,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 11.8,
-          "stale": false,
+          "age_hours": 17.3,
+          "stale": true,
           "volume_usd": 25714194.040733974
         },
         {
@@ -5747,7 +5767,7 @@
           "adjusted": 0.0545,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 31.3,
+          "age_hours": 36.9,
           "stale": true,
           "volume_usd": 3057150.039815835
         }
@@ -6943,6 +6963,10 @@
         {
           "ts": "2026-09-12T03:56:33.215000+00:00",
           "p": 4.08
+        },
+        {
+          "ts": "2026-09-12T09:30:37.379998+00:00",
+          "p": 4.08
         }
       ],
       "expiry": "2027-01-01"
@@ -6962,8 +6986,8 @@
           "adjusted": 0.215,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.2,
-          "stale": false,
+          "age_hours": 12.8,
+          "stale": true,
           "volume_usd": 3301942.5744830007
         },
         {
@@ -6972,8 +6996,8 @@
           "adjusted": 0.25,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 11.8,
-          "stale": false,
+          "age_hours": 17.3,
+          "stale": true,
           "volume_usd": 1672.7740230300594
         }
       ],
@@ -8118,6 +8142,10 @@
         {
           "ts": "2026-09-12T03:56:33.219593+00:00",
           "p": 18.66
+        },
+        {
+          "ts": "2026-09-12T09:30:37.384042+00:00",
+          "p": 18.66
         }
       ],
       "expiry": "2026-12-31"
@@ -8137,7 +8165,7 @@
           "adjusted": 0.61,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.6,
           "stale": false,
           "volume_usd": 42927.226751999995
         }
@@ -8881,6 +8909,10 @@
         {
           "ts": "2026-09-12T03:56:33.225789+00:00",
           "p": 61.0
+        },
+        {
+          "ts": "2026-09-12T09:30:37.389047+00:00",
+          "p": 61.0
         }
       ],
       "expiry": "2026-12-31"
@@ -8900,7 +8932,7 @@
           "adjusted": 0.165,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 5.6,
           "stale": false,
           "volume_usd": 15111808.096192008
         },
@@ -8910,8 +8942,8 @@
           "adjusted": 0.2005,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.2,
-          "stale": false,
+          "age_hours": 12.8,
+          "stale": true,
           "volume_usd": 115034.13216874139
         },
         {
@@ -8920,7 +8952,7 @@
           "adjusted": 0.16,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 35.8,
+          "age_hours": 41.4,
           "stale": true,
           "volume_usd": null
         }
@@ -10020,6 +10052,10 @@
         {
           "ts": "2026-09-12T03:56:33.223720+00:00",
           "p": 13.43
+        },
+        {
+          "ts": "2026-09-12T09:30:37.387350+00:00",
+          "p": 13.43
         }
       ],
       "expiry": "2026-12-31"
@@ -10039,7 +10075,7 @@
           "adjusted": 0.115,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 24.0,
+          "age_hours": 29.6,
           "stale": true,
           "volume_usd": 3146943.4966599997
         }
@@ -10048,7 +10084,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 269.3
+          "age_hours": 274.8
         }
       ],
       "explanation": null,
@@ -11164,6 +11200,10 @@
         {
           "ts": "2026-09-12T03:56:33.206498+00:00",
           "p": 11.5
+        },
+        {
+          "ts": "2026-09-12T09:30:37.361193+00:00",
+          "p": 11.5
         }
       ],
       "expiry": "2028-01-01"
@@ -11183,7 +11223,7 @@
           "adjusted": 0.135,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 41.0,
+          "age_hours": 46.5,
           "stale": true,
           "volume_usd": 5212956.87312
         }
@@ -11814,6 +11854,10 @@
         },
         {
           "ts": "2026-09-12T03:56:33.229683+00:00",
+          "p": 13.5
+        },
+        {
+          "ts": "2026-09-12T09:30:37.391740+00:00",
           "p": 13.5
         }
       ],
