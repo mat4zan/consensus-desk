@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T04:13:48.326808+00:00",
+  "generated_at": "2026-09-14T10:53:09.016819+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -18,24 +18,13 @@
   "alerts": [
     {
       "topic_id": "clarity_act_law_2026",
-      "kind": "move_24h",
-      "headline": "Will the CLARITY Act become law in 2026? moved up 14.3pp",
+      "kind": "move_7d",
+      "headline": "Will the CLARITY Act become law in 2026? moved up 18.1pp",
       "detail": {
-        "from": 16.4,
+        "from": 12.7,
         "to": 30.7,
-        "delta_pp": 14.3,
-        "window_hours": 24
-      }
-    },
-    {
-      "topic_id": "next_mayor_of_johannesburg_helen_zille",
-      "kind": "move_24h",
-      "headline": "Will Helen Zille be the next Mayor of Johannesburg? moved up 6.5pp",
-      "detail": {
-        "from": 59.0,
-        "to": 65.5,
-        "delta_pp": 6.5,
-        "window_hours": 24
+        "delta_pp": 18.1,
+        "window_hours": 168
       }
     }
   ],
@@ -55,7 +44,7 @@
           "adjusted": 0.345,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.7,
           "stale": false,
           "volume_usd": 16130823.214666994
         },
@@ -65,7 +54,7 @@
           "adjusted": 0.322,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 6.7,
           "stale": false,
           "volume_usd": 119052.79080859105
         }
@@ -74,7 +63,7 @@
         {
           "source": "predictit",
           "reason": "stale",
-          "age_hours": 84.1
+          "age_hours": 90.8
         }
       ],
       "explanation": null,
@@ -1211,6 +1200,10 @@
         {
           "ts": "2026-09-14T04:13:48.304493+00:00",
           "p": 30.74
+        },
+        {
+          "ts": "2026-09-14T10:53:08.987909+00:00",
+          "p": 30.74
         }
       ],
       "expiry": "2026-12-31"
@@ -1230,7 +1223,7 @@
           "adjusted": 0.165,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 31.9,
+          "age_hours": 38.5,
           "stale": true,
           "volume_usd": 65829575.38099702
         },
@@ -1240,8 +1233,8 @@
           "adjusted": 0.0941,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.7,
-          "stale": false,
+          "age_hours": 14.3,
+          "stale": true,
           "volume_usd": 103901.80330165171
         }
       ],
@@ -2550,6 +2543,10 @@
         {
           "ts": "2026-09-14T04:13:48.295467+00:00",
           "p": 9.86
+        },
+        {
+          "ts": "2026-09-14T10:53:08.973751+00:00",
+          "p": 9.86
         }
       ],
       "expiry": "2027-01-01"
@@ -2569,7 +2566,7 @@
           "adjusted": 0.655,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.7,
           "stale": false,
           "volume_usd": 44617.09914099999
         }
@@ -3353,6 +3350,10 @@
         {
           "ts": "2026-09-14T04:13:48.307615+00:00",
           "p": 65.5
+        },
+        {
+          "ts": "2026-09-14T10:53:08.993014+00:00",
+          "p": 65.5
         }
       ],
       "expiry": "2026-12-31"
@@ -3372,7 +3373,7 @@
           "adjusted": 0.075,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 60.0,
+          "age_hours": 66.7,
           "stale": true,
           "volume_usd": 25714194.040733974
         }
@@ -3381,7 +3382,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 79.6
+          "age_hours": 86.2
         }
       ],
       "explanation": null,
@@ -4614,6 +4615,10 @@
         {
           "ts": "2026-09-14T04:13:48.297321+00:00",
           "p": 7.5
+        },
+        {
+          "ts": "2026-09-14T10:53:08.976542+00:00",
+          "p": 7.5
         }
       ],
       "expiry": "2027-01-01"
@@ -4633,7 +4638,7 @@
           "adjusted": 0.085,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.7,
           "stale": false,
           "volume_usd": 1750118.9831770004
         }
@@ -5365,6 +5370,10 @@
         {
           "ts": "2026-09-14T04:13:48.310081+00:00",
           "p": 8.5
+        },
+        {
+          "ts": "2026-09-14T10:53:08.995618+00:00",
+          "p": 8.5
         }
       ],
       "expiry": "2027-12-31"
@@ -5384,8 +5393,8 @@
           "adjusted": 0.205,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.7,
-          "stale": false,
+          "age_hours": 14.3,
+          "stale": true,
           "volume_usd": 3307042.6428410006
         },
         {
@@ -5394,7 +5403,7 @@
           "adjusted": 0.2338,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 24.1,
+          "age_hours": 30.8,
           "stale": true,
           "volume_usd": 1684.5061460363995
         }
@@ -6580,6 +6589,10 @@
         {
           "ts": "2026-09-14T04:13:48.300796+00:00",
           "p": 17.42
+        },
+        {
+          "ts": "2026-09-14T10:53:08.982453+00:00",
+          "p": 17.42
         }
       ],
       "expiry": "2026-12-31"
@@ -6599,8 +6612,8 @@
           "adjusted": 0.135,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.7,
-          "stale": false,
+          "age_hours": 14.3,
+          "stale": true,
           "volume_usd": 5217879.002426999
         }
       ],
@@ -7271,6 +7284,10 @@
         {
           "ts": "2026-09-14T04:13:48.311495+00:00",
           "p": 13.5
+        },
+        {
+          "ts": "2026-09-14T10:53:08.997820+00:00",
+          "p": 13.5
         }
       ],
       "expiry": "2026-12-31"
@@ -7290,7 +7307,7 @@
           "adjusted": 0.475,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.7,
           "stale": false,
           "volume_usd": 1780325.6755490005
         },
@@ -7300,7 +7317,7 @@
           "adjusted": 0.5037,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 6.7,
           "stale": false,
           "volume_usd": 159065.83487361646
         },
@@ -7310,7 +7327,7 @@
           "adjusted": 0.53,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 24.1,
+          "age_hours": 30.8,
           "stale": true,
           "volume_usd": null
         }
@@ -8596,6 +8613,10 @@
         {
           "ts": "2026-09-14T04:13:48.299081+00:00",
           "p": 49.87
+        },
+        {
+          "ts": "2026-09-14T10:53:08.979394+00:00",
+          "p": 49.87
         }
       ],
       "expiry": "2026-11-04"
@@ -8615,8 +8636,8 @@
           "adjusted": 0.933,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.7,
-          "stale": false,
+          "age_hours": 14.3,
+          "stale": true,
           "volume_usd": 323920.8101359999
         }
       ],
@@ -9767,6 +9788,10 @@
         {
           "ts": "2026-09-14T04:13:48.302829+00:00",
           "p": 93.3
+        },
+        {
+          "ts": "2026-09-14T10:53:08.985462+00:00",
+          "p": 93.3
         }
       ],
       "expiry": "2026-12-31"
@@ -9786,8 +9811,8 @@
           "adjusted": 0.225,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.7,
-          "stale": false,
+          "age_hours": 14.3,
+          "stale": true,
           "volume_usd": 2616652.809341001
         }
       ],
@@ -9795,7 +9820,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 131.9
+          "age_hours": 138.5
         }
       ],
       "explanation": null,
@@ -11082,6 +11107,10 @@
         {
           "ts": "2026-09-14T04:13:48.292210+00:00",
           "p": 22.5
+        },
+        {
+          "ts": "2026-09-14T10:53:08.963750+00:00",
+          "p": 22.5
         }
       ],
       "expiry": "2026-12-31"
@@ -11101,7 +11130,7 @@
           "adjusted": 0.0026,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 41.8,
+          "age_hours": 48.5,
           "stale": true,
           "volume_usd": 257596.079816
         }
@@ -11110,7 +11139,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 367.5
+          "age_hours": 374.2
         }
       ],
       "explanation": null,
@@ -11442,6 +11471,10 @@
         },
         {
           "ts": "2026-09-14T04:13:48.312878+00:00",
+          "p": 0.5
+        },
+        {
+          "ts": "2026-09-14T10:53:08.999550+00:00",
           "p": 0.5
         }
       ],
