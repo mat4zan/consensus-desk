@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T04:09:27.682348+00:00",
+  "generated_at": "2026-09-16T10:11:39.746190+00:00",
   "method": "logodds",
   "extremize": 1.2,
   "weights": {
@@ -15,26 +15,14 @@
   },
   "weight_strategy": "hybrid",
   "n_resolved": 1,
-  "alerts": [
-    {
-      "topic_id": "romania_new_pm_sep2026",
-      "kind": "move_7d",
-      "headline": "Will there be a new Romanian Prime Minister by end of September 2026? moved down 15.0pp",
-      "detail": {
-        "from": 95.8,
-        "to": 80.7,
-        "delta_pp": -15.0,
-        "window_hours": 168
-      }
-    }
-  ],
+  "alerts": [],
   "topics": [
     {
       "id": "clarity_act_law_2026",
       "question": "Will the CLARITY Act become law in 2026?",
       "domain": "geopolitics",
       "probability": 4.2,
-      "delta_24h_pp": -12.7,
+      "delta_24h_pp": -11.8,
       "spread_pp": 9.3,
       "n_sources": 3,
       "contributions": [
@@ -44,8 +32,8 @@
           "adjusted": 0.0353,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 7.1,
-          "stale": false,
+          "age_hours": 13.1,
+          "stale": true,
           "volume_usd": 19885022.261011004
         },
         {
@@ -54,8 +42,8 @@
           "adjusted": 0.085,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 7.1,
-          "stale": false,
+          "age_hours": 13.1,
+          "stale": true,
           "volume_usd": 131648.86684875345
         },
         {
@@ -64,7 +52,7 @@
           "adjusted": 0.14,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": null
         }
@@ -1244,6 +1232,10 @@
         {
           "ts": "2026-09-16T04:09:27.481717+00:00",
           "p": 4.18
+        },
+        {
+          "ts": "2026-09-16T10:11:39.721959+00:00",
+          "p": 4.18
         }
       ],
       "expiry": "2026-12-31"
@@ -1253,7 +1245,7 @@
       "question": "Will there be a new Romanian Prime Minister by end of September 2026?",
       "domain": "elections",
       "probability": 80.7,
-      "delta_24h_pp": -12.3,
+      "delta_24h_pp": -10.6,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
@@ -1263,7 +1255,7 @@
           "adjusted": 0.807,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 324563.89013599994
         }
@@ -2455,6 +2447,10 @@
         {
           "ts": "2026-09-16T04:09:27.307347+00:00",
           "p": 80.7
+        },
+        {
+          "ts": "2026-09-16T10:11:39.719018+00:00",
+          "p": 80.7
         }
       ],
       "expiry": "2026-12-31"
@@ -2464,7 +2460,7 @@
       "question": "Will the US enter a recession by the end of 2027?",
       "domain": "macro",
       "probability": 16.5,
-      "delta_24h_pp": 7.0,
+      "delta_24h_pp": 8.0,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
@@ -2474,7 +2470,7 @@
           "adjusted": 0.165,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 1896719.1134109998
         }
@@ -3246,6 +3242,10 @@
         {
           "ts": "2026-09-16T04:09:27.653640+00:00",
           "p": 16.5
+        },
+        {
+          "ts": "2026-09-16T10:11:39.728117+00:00",
+          "p": 16.5
         }
       ],
       "expiry": "2027-12-31"
@@ -3265,7 +3265,7 @@
           "adjusted": 0.425,
           "weight": 0.2243,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 1816878.3060499993
         },
@@ -3275,7 +3275,7 @@
           "adjusted": 0.4779,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 162037.4712101864
         },
@@ -3285,7 +3285,7 @@
           "adjusted": 0.48,
           "weight": 0.1451,
           "raw_weight": 0.22,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": null
         }
@@ -4611,6 +4611,10 @@
         {
           "ts": "2026-09-16T04:09:27.149160+00:00",
           "p": 44.81
+        },
+        {
+          "ts": "2026-09-16T10:11:39.698785+00:00",
+          "p": 44.81
         }
       ],
       "expiry": "2026-11-04"
@@ -4620,7 +4624,7 @@
       "question": "Bitcoin reaches $100,000 in 2026",
       "domain": "crypto",
       "probability": 17.0,
-      "delta_24h_pp": -3.2,
+      "delta_24h_pp": -2.5,
       "spread_pp": 0.0,
       "n_sources": 1,
       "contributions": [
@@ -4630,8 +4634,8 @@
           "adjusted": 0.17,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 7.1,
-          "stale": false,
+          "age_hours": 13.1,
+          "stale": true,
           "volume_usd": 3335043.6675210004
         }
       ],
@@ -4639,7 +4643,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 72.1
+          "age_hours": 78.1
         }
       ],
       "explanation": null,
@@ -5862,6 +5866,10 @@
         {
           "ts": "2026-09-16T04:09:27.209135+00:00",
           "p": 17.0
+        },
+        {
+          "ts": "2026-09-16T10:11:39.716838+00:00",
+          "p": 17.0
         }
       ],
       "expiry": "2026-12-31"
@@ -5881,7 +5889,7 @@
           "adjusted": 0.14,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 5220180.435646
         }
@@ -6593,6 +6601,10 @@
         {
           "ts": "2026-09-16T04:09:27.669102+00:00",
           "p": 14.0
+        },
+        {
+          "ts": "2026-09-16T10:11:39.729884+00:00",
+          "p": 14.0
         }
       ],
       "expiry": "2026-12-31"
@@ -6612,7 +6624,7 @@
           "adjusted": 0.235,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 2629451.4210650004
         }
@@ -6621,7 +6633,7 @@
         {
           "source": "manifold",
           "reason": "stale",
-          "age_hours": 179.8
+          "age_hours": 185.8
         }
       ],
       "explanation": null,
@@ -7948,6 +7960,10 @@
         {
           "ts": "2026-09-16T04:09:26.998505+00:00",
           "p": 23.5
+        },
+        {
+          "ts": "2026-09-16T10:11:39.672429+00:00",
+          "p": 23.5
         }
       ],
       "expiry": "2026-12-31"
@@ -7967,7 +7983,7 @@
           "adjusted": 0.0989,
           "weight": 0.18,
           "raw_weight": 0.18,
-          "age_hours": 0.0,
+          "age_hours": 6.0,
           "stale": false,
           "volume_usd": 104151.80330165171
         }
@@ -7976,7 +7992,7 @@
         {
           "source": "polymarket",
           "reason": "stale",
-          "age_hours": 79.8
+          "age_hours": 85.8
         }
       ],
       "explanation": null,
@@ -9323,6 +9339,10 @@
         {
           "ts": "2026-09-16T04:09:27.079080+00:00",
           "p": 9.89
+        },
+        {
+          "ts": "2026-09-16T10:11:39.686201+00:00",
+          "p": 9.89
         }
       ],
       "expiry": "2027-01-01"
@@ -9342,7 +9362,7 @@
           "adjusted": 0.675,
           "weight": 0.34,
           "raw_weight": 0.34,
-          "age_hours": 30.5,
+          "age_hours": 36.5,
           "stale": true,
           "volume_usd": 44672.09914099999
         }
@@ -10165,6 +10185,10 @@
         },
         {
           "ts": "2026-09-16T04:09:27.488784+00:00",
+          "p": 67.5
+        },
+        {
+          "ts": "2026-09-16T10:11:39.726164+00:00",
           "p": 67.5
         }
       ],
